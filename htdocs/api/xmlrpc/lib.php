@@ -573,7 +573,7 @@ function get_views_for_user($username, $query=null) {
     $data = View::view_search($query, null, (object) array('owner' => $USER->get('id')), null, null, 0, true, null, null, true);
     require_once('collection.php');
     $data->collections = Collection::get_mycollections_data(0, 0, $USER->get('id'));
-    foreach ($data->collections as $c) {
+    foreach ($data->collections->data as $c) {
         $cobj = new Collection($c->id);
         $c->url = $cobj->get_url();
     }

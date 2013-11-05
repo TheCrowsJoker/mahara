@@ -873,7 +873,7 @@ class Collection {
         // Check that none of the views is submitted to some other group.  This is bound to happen to someone,
         // because collection submission is being introduced at a time when it is still possible to submit
         // individual views in a collection.
-        $sql = "SELECT title FROM {view} WHERE id IN ({$idstr}) AND (submittedhost IS NOT NULL OR (submitted group IS NOT NULL";
+        $sql = "SELECT title FROM {view} WHERE id IN ({$idstr}) AND (submittedhost IS NOT NULL OR (submittedgroup IS NOT NULL";
         $params = array();
         // To ease the transition, if you've submitted one page of the collection to this group already, you
         // can submit the rest as well
@@ -881,7 +881,7 @@ class Collection {
             $sql .= ' AND submittedgroup != ?';
             $params[] = $group->id;
         }
-        $sql .= ')';
+        $sql .= '))';
         $submittedtitles = get_column_sql($sql, $params );
 
         if (!empty($submittedtitles)) {
@@ -970,7 +970,7 @@ class Collection {
             $todb->view = current($viewids);
             $todb->visible = $access->visible;
             $todb->token = $access->token;
-            $todb->ctime = $access-$ctime;
+            $todb->ctime = $access->ctime;
             insert_record('view_access', $todb);
         }
 
