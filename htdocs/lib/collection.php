@@ -485,7 +485,7 @@ class Collection {
     /**
      * Returns array of views in the current collection
      *
-     * @return array views 
+     * @return array views
      */
     public function views() {
 
@@ -784,31 +784,35 @@ class Collection {
         View::_db_release($viewids, $this->owner, $this->submittedgroup);
         db_commit();
 
-        $releaseuser = optional_userobj($releaseuser);
-        $releaseuserdisplay = display_name($releaseuser, $this->owner);
-        $submitinfo = $this->submitted_to();
+        // We don't send out notifications about the release of remote-submitted Views & Collections
+        // (though I'm not sure why)
+        if ($this->submittedgroup) {
+            $releaseuser = optional_userobj($releaseuser);
+            $releaseuserdisplay = display_name($releaseuser, $this->owner);
+            $submitinfo = $this->submitted_to();
 
-        require_once('activity.php');
-        activity_occurred(
-            'maharamessage',
-            array(
-                'users' => array($this->get('owner')),
-                'strings' => (object) array(
-                    'subject' => (object) array(
-                        'key'     => 'collectionreleasedsubject',
-                        'section' => 'group',
-                        'args'    => array($this->name, $submitinfo->name, $releaseuserdisplay),
+            require_once('activity.php');
+            activity_occurred(
+                'maharamessage',
+                array(
+                    'users' => array($this->get('owner')),
+                    'strings' => (object) array(
+                        'subject' => (object) array(
+                            'key'     => 'collectionreleasedsubject',
+                            'section' => 'group',
+                            'args'    => array($this->name, $submitinfo->name, $releaseuserdisplay),
+                        ),
+                        'message' => (object) array(
+                            'key'     => 'collectionreleasedmessage',
+                            'section' => 'group',
+                            'args'    => array($this->name, $submitinfo->name, $releaseuserdisplay),
+                        ),
                     ),
-                    'message' => (object) array(
-                        'key'     => 'collectionreleasedmessage',
-                        'section' => 'group',
-                        'args'    => array($this->name, $submitinfo->name, $releaseuserdisplay),
-                    ),
-                ),
-                'url' => $this->get_url(false),
-                'urltext' => $this->name,
-            )
-        );
+                    'url' => $this->get_url(false),
+                    'urltext' => $this->name,
+                )
+            );
+        }
     }
 
     public function get_viewids() {
