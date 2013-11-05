@@ -65,7 +65,7 @@ function start_jump_session($peer, $instanceid, $wantsurl="") {
     }
 
     if (false == $approved) {
-        // This shouldn't happen: the user shouldn't have been presented with 
+        // This shouldn't happen: the user shouldn't have been presented with
         // the link
         throw new AccessTotallyDeniedException('Host not approved for sso');
     }
@@ -486,10 +486,10 @@ function send_content_ready($token, $username, $format, $importdata, $fetchnow=f
 }
 
 /**
- * If we're an IDP, kill_children will kill the session of the given user here, 
+ * If we're an IDP, kill_children will kill the session of the given user here,
  * as well as at any other children
  *
- * NOTE: well, currently it doesn't call kill_child on any other children, but 
+ * NOTE: well, currently it doesn't call kill_child on any other children, but
  * it will kill the local sessions for the user
  *
  * @param   string  $username       Username for session to kill
@@ -500,7 +500,7 @@ function kill_children($username, $useragent) {
     global $REMOTEWWWROOT; // comes from server.php
     //require_once(get_config('docroot') .'api/xmlrpc/client.php');
 
-    // We've received a logout request for user X. In Mahara, usernames are unique. So we check that user X 
+    // We've received a logout request for user X. In Mahara, usernames are unique. So we check that user X
     // has an authinstance that would have been able to SSO to the remote site.
     $userid = get_field('usr', 'id', 'username', $username);
     $providers = get_service_providers(get_field('usr', 'authinstance', 'username', $username));
@@ -708,9 +708,10 @@ function submit_view_for_assessment($username, $viewid, $iscollection = false) {
     $remotehost = $authinstance->config['wwwroot'];
     $userid = $user->get('id');
 
+    db_begin();
     if ($iscollection) {
         require_once('collection.php');
-        $collection = new Collection($collectionid);
+        $collection = new Collection($viewid);
 
         // submit the collection
         $collection->submit(null, $remotehost, $userid);
@@ -724,7 +725,7 @@ function submit_view_for_assessment($username, $viewid, $iscollection = false) {
     }
     else {
         // Submit the view
-        View::_db_submit($viewids, null, $remotehost, $userid);
+        View::_db_submit($viewid, null, $remotehost, $userid);
 
         // Create secret key
         $access = View::new_token($viewid, false);
@@ -749,34 +750,47 @@ function submit_view_for_assessment($username, $viewid, $iscollection = false) {
         safe_require('artefact', $plugin->name);
         $classname = generate_class_name('artefact', $plugin->name);
         if (is_callable($classname . '::view_submit_external_data')) {
-            $data[$plugin->name] = call_static_method($classname, 'view_submit_external_data', $view->get('id'));
+            $data[$plugin->name] = call_static_method($classname, 'view_submit_external_data', $viewid, $iscollection);
         }
     }
+    db_commit();
 
     return $data;
 }
 
-function release_submitted_view($viewid, $assessmentdata, $teacherusername) {
+/**
+ * Releases a submission to a remote host.
+ * @param int $viewid A view or collection id
+ * @param mixed $assessmentdata Assessment data from the remote host, for this assignment
+ * @param string $teacherusername The username of the teacher who is releasing the assignment
+ * @param boolean $iscollection Whether the $viewid is a view or a collection
+ */
+function release_submitted_view($viewid, $assessmentdata, $teacherusername, $iscollection = false) {
     global $REMOTEWWWROOT, $USER;
-
-    require_once('view.php');
-    $view = new View($viewid);
     list ($teacher, $authinstance) = find_remote_user($teacherusername, $REMOTEWWWROOT);
 
+    require_once('view.php');
+
     db_begin();
+    if ($iscollection) {
+        require_once('collection.php');
+        $collection = new Collection($viewid);
+        $collection->release($teacher);
+    } else {
+        $view = new View($viewid);
+        View::_db_release(array($viewid), $view->get('owner'));
+    }
+
+    // Provide each artefact plugin the opportunity to handle the remote submission release
     foreach (plugins_installed('artefact') as $plugin) {
         safe_require('artefact', $plugin->name);
         $classname = generate_class_name('artefact', $plugin->name);
         if (is_callable($classname . '::view_release_external_data')) {
-            call_static_method($classname, 'view_release_external_data', $view, $assessmentdata, $teacher ? $teacher->id : 0);
+            call_static_method($classname, 'view_release_external_data', $viewid, $iscollection, $assessmentdata, $teacher ? $teacher->id : 0);
         }
     }
 
     // Release the view for editing
-    $view->set('submittedhost', null);
-    $view->set('submittedtime', null);
-    $view->commit();
-    ArtefactType::update_locked($view->get('owner'));
     db_commit();
 }
 
@@ -857,7 +871,7 @@ function get_public_key($uri, $application=null) {
     $xmlrpcserverurl = get_field('application', 'xmlrpcserverurl', 'name', $application);
     if (empty($xmlrpcserverurl)) {
         throw new XmlrpcClientException('Unknown application');
-    } 
+    }
     $wwwroot = dropslash(get_config('wwwroot'));
 
     $rq = xmlrpc_encode_request('system/keyswap', array($wwwroot, $openssl->certificate), array("encoding" => "utf-8"));
@@ -1039,11 +1053,11 @@ function xmldsig_envelope_strip(&$xml) {
  * Encrypt a message and return it in an XML-Encrypted document
  *
  * This function can encrypt any content, but it was written to provide a system
- * of encrypting XML-RPC request and response messages. The message does not 
+ * of encrypting XML-RPC request and response messages. The message does not
  * need to be text - binary data should work.
- * 
- * Asymmetric keys can encrypt only small chunks of data. Usually 1023 or 2047 
- * characters, depending on the key size. So - we generate a symmetric key and 
+ *
+ * Asymmetric keys can encrypt only small chunks of data. Usually 1023 or 2047
+ * characters, depending on the key size. So - we generate a symmetric key and
  * use the asymmetric key to secure it for transport with the data.
  *
  * We generate a symmetric key
@@ -1197,16 +1211,16 @@ class OpenSslRepo {
     }
 
     /**
-     * Decrypt some data using our private key and an auxiliary symmetric key. 
+     * Decrypt some data using our private key and an auxiliary symmetric key.
      * The symmetric key encrypted the data, and then was itself encrypted with
      * our public key.
-     * This is because asymmetric keys can only safely be used to encrypt 
+     * This is because asymmetric keys can only safely be used to encrypt
      * relatively short messages.
      *
      * @param string   $data
      * @param string   $key
-     * @param bool     $oldkeyok If true, we will simply return the data rather 
-     *                           than complaining about the key being old (if 
+     * @param bool     $oldkeyok If true, we will simply return the data rather
+     *                           than complaining about the key being old (if
      *                           we could decrypt it with an older key)
      * @return string
      * @access public
@@ -1261,7 +1275,7 @@ class OpenSslRepo {
      * $openssl = new OpenSslRepo();
      * Instead, use:
      * $openssl = OpenSslRepo::singleton();
-     * 
+     *
      */
     private function __construct() {
         if (empty($this->keypair)) {
@@ -1274,7 +1288,7 @@ class OpenSslRepo {
     }
 
     /**
-     * Utility function to get old SSL keys from the config table, or create a 
+     * Utility function to get old SSL keys from the config table, or create a
      * blank record if none exists.
      *
      * @return array    Array of keypair hashes
@@ -1319,7 +1333,7 @@ class OpenSslRepo {
      * values
      *
      * @param  string    Name of the value you want
-     * @return mixed     The value of the thing you asked for or null (if it 
+     * @return mixed     The value of the thing you asked for or null (if it
      *                   doesn't exist or is private)
      * @access public
      */
@@ -1332,17 +1346,17 @@ class OpenSslRepo {
     }
 
     /**
-     * Get the keypair. If it doesn't exist, create it. If it's out of date, 
+     * Get the keypair. If it doesn't exist, create it. If it's out of date,
      * archive it and create a fresh pair.
      *
      * @param  bool      True if you want to force fresh keys to be generated
-     * @return bool     
+     * @return bool
      * @access private
      */
     public function get_keypair($regenerate = null) {
         $this->keypair = array();
         $records       = null;
-        
+
         if ($records = get_records_select_menu('config', "field IN ('openssl_keypair', 'openssl_keypair_expires')", 'field', 'field, value')) {
             list($this->keypair['certificate'], $this->keypair['keypair_PEM']) = explode('@@@@@@@@', $records['openssl_keypair']);
             $this->keypair['expires'] = $records['openssl_keypair_expires'];
@@ -1413,7 +1427,7 @@ class OpenSslRepo {
         $province     = get_config('province');
         $locality     = get_config('locality');
 
-        //TODO: Create additional fields on site setup and read those from 
+        //TODO: Create additional fields on site setup and read those from
         //      config. Then remove the next 3 linez
         if (empty($country))  $country  = 'NZ';
         if (empty($province)) $province = 'Wellington';
@@ -1445,8 +1459,8 @@ class OpenSslRepo {
         }
 
         if (!$csr_rsc = openssl_csr_new($dn, $new_key, $config)) {
-            // This behaviour has been observed once before, on an ubuntu hardy box. 
-            // The php5-openssl package was installed but somehow openssl 
+            // This behaviour has been observed once before, on an ubuntu hardy box.
+            // The php5-openssl package was installed but somehow openssl
             // wasn't.
             throw new ConfigException(get_string('errorcouldnotgeneratenewsslkey', 'auth'));
         }

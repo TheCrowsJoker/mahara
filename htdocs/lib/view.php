@@ -5014,6 +5014,7 @@ class View {
 
     /**
      * Lower-level function to handle all the DB changes that should occur when you submit a view or views
+     *
      * @param array $viewids The views to submit. (Normally one view by itself, or all the views in a Collection)
      * @param object $submittedgroupobj An object holding information about the group submitting to. Should contain id and roles array
      * @param string $submittedhost Alternately, the name of the remote host the group is being submitted to (for MNet submission)
