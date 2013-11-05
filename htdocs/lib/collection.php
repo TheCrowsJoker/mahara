@@ -844,67 +844,94 @@ class Collection {
         return $record;
     }
 
-    public function submit($group) {
+    /**
+     * Submit this collection to a group or a remote host (but only one or the other!)
+     * @param object $group
+     * @param string $submittedhost
+     * @param int $owner The owner of the collection (if not just $USER)
+     * @throws SystemException
+     */
+    public function submit($group = null, $submittedhost = null, $owner = null) {
         global $USER;
 
         if ($this->is_submitted()) {
             throw new SystemException('Attempting to submit a submitted collection');
         }
+        // Gotta provide one or the other
+        if (!$group && !$submittedhost) {
+            return false;
+        }
 
         $viewids = $this->get_viewids();
         $idstr = join(',', array_map('intval', $viewids));
+        $owner = ($owner == null) ? $USER->get('id') : $owner;
 
         // Check that none of the views is submitted to some other group.  This is bound to happen to someone,
         // because collection submission is being introduced at a time when it is still possible to submit
         // individual views in a collection.
-        $submittedtitles = get_column_sql("
-            SELECT title FROM {view}
-            WHERE id IN ($idstr) AND (submittedhost IS NOT NULL OR (submittedgroup IS NOT NULL AND submittedgroup != ?))",
-            array($group->id)
-        );
+        $sql = "SELECT title FROM {view} WHERE id IN ({$idstr}) AND (submittedhost IS NOT NULL OR (submitted group IS NOT NULL";
+        $params = array();
+        // To ease the transition, if you've submitted one page of the collection to this group already, you
+        // can submit the rest as well
+        if ($group) {
+            $sql .= ' AND submittedgroup != ?';
+            $params[] = $group->id;
+        }
+        $sql .= ')';
+        $submittedtitles = get_column_sql($sql, $params );
 
         if (!empty($submittedtitles)) {
             die_info(get_string('viewsalreadysubmitted', 'view', implode('<br>', $submittedtitles)));
         }
 
-        $group->roles = get_column('grouptype_roles', 'role', 'grouptype', $group->grouptype, 'see_submitted_views', 1);
+        if ($group) {
+            $group->roles = get_column('grouptype_roles', 'role', 'grouptype', $group->grouptype, 'see_submitted_views', 1);
+        }
 
         db_begin();
-        View::_db_submit($viewids, $group);
-        $this->set('submittedgroup', $group->id);
-        $this->set('submittedhost', null);
+        View::_db_submit($viewids, $group, $submittedhost, $owner);
+        if ($group) {
+            $this->set('submittedgroup', $group->id);
+            $this->set('submittedhost', null);
+        }
+        else {
+            $this->set('submittedgroup', null);
+            $this->set('submittedhost', $submittedhost);
+        }
         $this->set('submittedtime', time());
         $this->commit();
         db_commit();
 
-        activity_occurred(
-            'groupmessage',
-            array(
-                'group'         => $group->id,
-                'roles'         => $group->roles,
-                'url'           => $this->get_url(false),
-                'strings'       => (object) array(
-                    'urltext' => (object) array(
-                        'key'     => 'Collection',
-                        'section' => 'collection',
-                    ),
-                    'subject' => (object) array(
-                        'key'     => 'viewsubmittedsubject1',
-                        'section' => 'activity',
-                        'args'    => array($group->name),
-                    ),
-                    'message' => (object) array(
-                        'key'     => 'viewsubmittedmessage1',
-                        'section' => 'activity',
-                        'args'    => array(
-                            display_name($USER, null, false, true),
-                            $this->name,
-                            $group->name,
+        if ($group) {
+            activity_occurred(
+                'groupmessage',
+                array(
+                    'group'         => $group->id,
+                    'roles'         => $group->roles,
+                    'url'           => $this->get_url(false),
+                    'strings'       => (object) array(
+                        'urltext' => (object) array(
+                            'key'     => 'Collection',
+                            'section' => 'collection',
+                        ),
+                        'subject' => (object) array(
+                            'key'     => 'viewsubmittedsubject1',
+                            'section' => 'activity',
+                            'args'    => array($group->name),
+                        ),
+                        'message' => (object) array(
+                            'key'     => 'viewsubmittedmessage1',
+                            'section' => 'activity',
+                            'args'    => array(
+                                display_name($USER, null, false, true),
+                                $this->name,
+                                $group->name,
+                            ),
                         ),
                     ),
-                ),
-            )
-        );
+                )
+            );
+        }
     }
 
     /**
@@ -919,4 +946,30 @@ class Collection {
         return $this->tags;
     }
 
+    /**
+     * Creates a new secret url for this collection
+     * @param int $collectionid
+     * @param false $visible
+     * @return object The view_access record for the first view's secret URL
+     */
+    public function new_token($visible=1) {
+        $viewids = $this->get_viewids();
+        // It's not possible to add a secret key to a collection with no pages
+        if (!$viewids) {
+            return false;
+        }
+
+        reset($viewids);
+        $access = View::new_token(current($viewids), $visible);
+        while (next($viewids)) {
+            $todb = new stdClass();
+            $todb->view = current($viewids);
+            $todb->visible = $access->visible;
+            $todb->token = $access->token;
+            $todb->ctime = $access-$ctime;
+            insert_record('view_access', $todb);
+        }
+
+        return $access;
+    }
 }

@@ -683,7 +683,15 @@ function get_watchlist_for_user($username, $maxitems) {
     return $data;
 }
 
-function submit_view_for_assessment($username, $viewid) {
+/**
+ * Submits a view or collection for assessment by a remote service
+ *
+ * @param string $username
+ * @param int $viewid The ID of the view or collection to be submitted
+ * @param boolean $iscollection Indicates whether it's a view or a collection
+ * @return array An array of data for the web service to consume
+ */
+function submit_view_for_assessment($username, $viewid, $iscollection = false) {
     global $REMOTEWWWROOT;
 
     list ($user, $authinstance) = find_remote_user($username, $REMOTEWWWROOT);
@@ -697,18 +705,41 @@ function submit_view_for_assessment($username, $viewid) {
     }
 
     require_once('view.php');
-    View::_db_submit(array($viewid), null, $authinstance->config['wwwroot'], $user->get('id'));
+    $remotehost = $authinstance->config['wwwroot'];
+    $userid = $user->get('id');
 
-    // Create secret key
-    $access = View::new_token($view->get('id'), false);
+    if ($iscollection) {
+        require_once('collection.php');
+        $collection = new Collection($collectionid);
 
-    $view = new View($viewid);
+        // submit the collection
+        $collection->submit(null, $remotehost, $userid);
+
+        // Create secret key
+        $access = $collection->new_token(false);
+
+        $id = $viewid;
+        $title = $collection->get('name');
+        $description = $collection->get('description');
+    }
+    else {
+        // Submit the view
+        View::_db_submit($viewids, null, $remotehost, $userid);
+
+        // Create secret key
+        $access = View::new_token($viewid, false);
+
+        $view = new View($viewid);
+        $title = $view->get('title');
+        $description = $view->get('description');
+    }
+
     $data = array(
-        'id'          => $view->get('id'),
-        'title'       => $view->get('title'),
-        'description' => $view->get('description'),
-        'fullurl'     => get_config('wwwroot') . 'view/view.php?id=' . $view->get('id') . '&mt=' . $access->token,
-        'url'         => '/view/view.php?id=' . $view->get('id') . '&mt=' . $access->token,
+        'id'          => $viewid,
+        'title'       => $title,
+        'description' => $description,
+        'fullurl'     => get_config('wwwroot') . 'view/view.php?id=' . $viewid . '&mt=' . $access->token,
+        'url'         => '/view/view.php?id=' . $viewid . '&mt=' . $access->token,
         'accesskey'   => $access->token,
     );
 
