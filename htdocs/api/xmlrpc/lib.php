@@ -697,14 +697,12 @@ function submit_view_for_assessment($username, $viewid) {
     }
 
     require_once('view.php');
-    $view = new View($viewid);
-
-    $view->set('submittedhost', $authinstance->config['wwwroot']);
-    $view->set('submittedtime', db_format_timestamp(time()));
+    View::_db_submit(array($viewid), null, $authinstance->config['wwwroot'], $user->get('id'));
 
     // Create secret key
     $access = View::new_token($view->get('id'), false);
 
+    $view = new View($viewid);
     $data = array(
         'id'          => $view->get('id'),
         'title'       => $view->get('title'),
@@ -714,6 +712,8 @@ function submit_view_for_assessment($username, $viewid) {
         'accesskey'   => $access->token,
     );
 
+    // Provide each artefact plugin the opportunity to handle the remote submission and
+    // provide return data for the webservice caller
     foreach (plugins_installed('artefact') as $plugin) {
         safe_require('artefact', $plugin->name);
         $classname = generate_class_name('artefact', $plugin->name);
@@ -721,12 +721,6 @@ function submit_view_for_assessment($username, $viewid) {
             $data[$plugin->name] = call_static_method($classname, 'view_submit_external_data', $view->get('id'));
         }
     }
-
-    $view->commit();
-
-    // Lock view contents
-    require_once(get_config('docroot') . 'artefact/lib.php');
-    ArtefactType::update_locked($user->get('id'));
 
     return $data;
 }

@@ -5012,43 +5012,119 @@ class View {
         );
     }
 
-    public function _db_submit($viewids, $group) {
+    /**
+     * Lower-level function to handle all the DB changes that should occur when you submit a view or views
+     * @param array $viewids The views to submit. (Normally one view by itself, or all the views in a Collection)
+     * @param object $submittedgroupobj An object holding information about the group submitting to. Should contain id and roles array
+     * @param string $submittedhost Alternately, the name of the remote host the group is being submitted to (for MNet submission)
+     * @param int $owner The ID of the owner of the view. Used mostly for verification purposes.
+     */
+    public static function _db_submit($viewids, $submittedgroupobj = null, $submittedhost = null, $owner = null) {
         global $USER;
         require_once(get_config('docroot') . 'artefact/lib.php');
 
-        if (empty($viewids) || empty($group->id)) {
+        $group = $submittedgroupobj;
+
+        // Gotta provide some viewids and/or a remote username
+        if (empty($viewids) || (empty($group->id) && empty($submittedhost))) {
             return;
         }
 
         $idstr = join(',', array_map('intval', $viewids));
-        $groupid = (int) $group->id;
-        $userid = $USER->get('id');
+        $userid = ($owner == null) ? $USER->get('id') : $owner;
+        $sql = 'UPDATE {view} SET submittedtime = current_timestamp ';
+        $params = array();
+
+        if ($group) {
+            $groupid = (int) $group->id;
+            $sql .= ', submittedgroup = ? ';
+            $params[] = $groupid;
+        }
+        else {
+            $sql .= ', submittedhost = ? ';
+            $params[] = $submittedhost;
+        }
+
+        $sql .= " WHERE id IN ({$idstr}) AND owner = ?";
+        $params[] = $userid;
 
         db_begin();
-        execute_sql("
-            UPDATE {view}
-            SET submittedgroup = ?, submittedtime = current_timestamp, submittedhost = NULL
-            WHERE id IN ($idstr) AND owner = ?",
-            array($groupid, $userid)
-        );
+        execute_sql($sql, $params);
 
-        foreach ($group->roles as $role) {
-            foreach ($viewids as $viewid) {
-                $accessrecord = (object) array(
-                    'view'            => $viewid,
-                    'group'           => $groupid,
-                    'role'            => $role,
-                    'visible'         => 0,
-                    'allowcomments'   => 1,
-                    'approvecomments' => 0,
-                    'ctime'           => db_format_timestamp(time()),
-                );
-                ensure_record_exists('view_access', $accessrecord, $accessrecord);
+        if ($group) {
+            foreach ($group->roles as $role) {
+                foreach ($viewids as $viewid) {
+                    $accessrecord = (object) array(
+                        'view'            => $viewid,
+                        'group'           => $groupid,
+                        'role'            => $role,
+                        'visible'         => 0,
+                        'allowcomments'   => 1,
+                        'approvecomments' => 0,
+                        'ctime'           => db_format_timestamp(time()),
+                    );
+                    ensure_record_exists('view_access', $accessrecord, $accessrecord);
+                }
             }
         }
 
         ArtefactType::update_locked($userid);
         db_commit();
+    }
+
+    public static function _db_submit_remote($viewids, $username) {
+        global $REMOTEWWWROOT;
+
+        list ($user, $authinstance) = find_remote_user($username, $REMOTEWWWROOT);
+        if (!$user) {
+            return false;
+        }
+
+//         $viewid = (int) $viewid;
+//         if (!$viewid) {
+//             return false;
+//         }
+
+//         $view = new View($viewid);
+
+//         $view->set('submittedhost', $authinstance->config['wwwroot']);
+//         $view->set('submittedtime', db_format_timestamp(time()));
+
+        $idstr = join(',', array_map('intval', $viewids));
+        $userid = $user->get('id');
+
+        db_begin();
+        execute_sql("
+            UPDATE {view}
+            SET submittedhost = ?, submittedtime = current_timestamp, submittedgroup = NULL
+            WHERE id IN ($idstr) AND owner = ?",
+            array($groupid, $userid)
+        );
+        // Create secret key
+        $access = View::new_token($view->get('id'), false);
+
+        $data = array(
+            'id'          => $view->get('id'),
+            'title'       => $view->get('title'),
+            'description' => $view->get('description'),
+            'fullurl'     => get_config('wwwroot') . 'view/view.php?id=' . $view->get('id') . '&mt=' . $access->token,
+            'url'         => '/view/view.php?id=' . $view->get('id') . '&mt=' . $access->token,
+            'accesskey'   => $access->token,
+        );
+
+        foreach (plugins_installed('artefact') as $plugin) {
+            safe_require('artefact', $plugin->name);
+            $classname = generate_class_name('artefact', $plugin->name);
+            if (is_callable($classname . '::view_submit_external_data')) {
+                $data[$plugin->name] = call_static_method($classname, 'view_submit_external_data', $view->get('id'));
+            }
+        }
+
+        $view->commit();
+
+        // Lock view contents
+        require_once(get_config('docroot') . 'artefact/lib.php');
+        ArtefactType::update_locked($user->get('id'));
     }
 }
 
