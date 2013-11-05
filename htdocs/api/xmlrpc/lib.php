@@ -570,7 +570,13 @@ function get_views_for_user($username, $query=null) {
 
     $USER->reanimate($user->id, $authinstance->instanceid);
     require_once('view.php');
-    $data = View::view_search($query, null, (object) array('owner' => $USER->get('id')));
+    $data = View::view_search($query, null, (object) array('owner' => $USER->get('id')), null, null, 0, true, null, null, true);
+    require_once('collection.php');
+    $data->collections = Collection::get_mycollections_data(0, 0, $USER->get('id'));
+    foreach ($data->collections as $c) {
+        $cobj = new Collection($c->id);
+        $c->url = $cobj->get_url();
+    }
     $data->displayname = display_name($user);
     return $data;
 }

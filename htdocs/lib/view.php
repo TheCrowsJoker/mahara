@@ -3886,7 +3886,7 @@ class View {
             SELECT
                 v.id, v.title, v.description, v.owner, v.ownerformat, v.group, v.institution,
                 v.template, v.mtime, v.ctime,
-                c.id AS collid, c.name, v.type, v.urlid
+                c.id AS collid, c.name, v.type, v.urlid, v.submittedtime, v.submittedgroup, v.submittedhost
             ' . $from . $where . '
             ORDER BY ' . $orderby . ', v.id ASC',
             $ph, $offset, $limit

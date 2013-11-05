@@ -345,7 +345,7 @@ class Collection {
         $data = array();
         if ($count > 0) {
             $data = get_records_sql_assoc("
-                SELECT c.id, c.description, c.name
+                SELECT c.id, c.description, c.name, c.submittedgroup, c.submittedhost, c.submittedtime
                 FROM {collection} c
                 WHERE " . $wherestm .
                 " ORDER BY c.name, c.ctime, c.id ASC
