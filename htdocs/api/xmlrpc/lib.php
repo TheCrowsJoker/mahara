@@ -712,27 +712,34 @@ function submit_view_for_assessment($username, $viewid, $iscollection = false) {
     if ($iscollection) {
         require_once('collection.php');
         $collection = new Collection($viewid);
-
-        // submit the collection
-        $collection->submit(null, $remotehost, $userid);
-
-        // Create secret key
-        $access = $collection->new_token(false);
-
-        $id = $viewid;
         $title = $collection->get('name');
         $description = $collection->get('description');
+
+        // Check whether the collection is already submitted
+        if (!$collection->is_submitted()) {
+            // Retrieve the existing access token?
+            $collection->submit(null, $remotehost, $userid);
+        }
+
+        // TODO: Reuse the existing key
+        $access = $collection->new_token(false);
     }
     else {
-        // Submit the view
-        View::_db_submit($viewid, null, $remotehost, $userid);
-
-        // Create secret key
-        $access = View::new_token($viewid, false);
-
         $view = new View($viewid);
         $title = $view->get('title');
         $description = $view->get('description');
+
+        log_info("It's a view");
+        if (!$view->is_submitted()) {
+            log_info("Submitting the view... for username $username = userid $userid");
+            View::_db_submit(array($viewid), null, $remotehost, $userid);
+        }
+        else {
+            log_info("We decided the view had already been submitted.");
+        }
+
+        // TODO: Reuse the existing key
+        $access = View::new_token($viewid, false);
     }
 
     $data = array(
