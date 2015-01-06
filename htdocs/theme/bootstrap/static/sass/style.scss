@@ -19,7 +19,7 @@
 @import 'utilities/var/brand'; // Import our brand variables
 @import "utilities/var/bootstrap-variables";  // ...and our custom bootstrap variables file
 
-@import "../bootstrap/assets/stylesheets/bootstrap/mixins"; 
+@import "../bootstrap/assets/stylesheets/bootstrap/mixins";
 @import "utilities/mixins";  // include after bootstrap mixins in case we want to override
 
 
