@@ -1,0 +1,90 @@
+form {
+	@extend .form-horizontal;
+	div.text,
+	// div.html,
+	div.wysiwyg,
+	div.file,
+	div.files,
+	div.uploadform,
+	div.calendar,
+	.radio,
+	div.textarea {
+
+		@extend .form-group;
+
+		label,
+		span.pseudolabel {
+
+			@extend .control-label;
+			@extend .col-sm-2;
+		}
+
+		span.pseudolabel {
+
+			font-weight:bold;
+		}
+
+		div.radio {
+
+			@extend .col-sm-3;
+			@extend .radio-inline;
+			margin-left:0;
+			padding: 0 15px 20px 20px;
+			label {
+				width:auto;
+				line-height:1;
+			}
+		}
+
+		input[type="text"],
+		input[type="file"],
+		textarea,
+		select,
+		a.addfile,
+		.radio-inline,
+		div.mce-tinymce {
+
+			@extend .col-sm-10;
+			width:auto;
+		}
+
+		input[type="text"],
+		textarea {
+
+			@extend .form-control;
+		}
+
+		input[type="file"],
+		a.addfile {
+
+			padding-left:0;
+		}
+
+		input[type="submit"] {
+
+			@extend .col-sm-offset-2;
+		}
+	}
+}
+
+form#usf,
+form#search,
+form#filter {
+
+	@extend .form-inline;
+
+	.select,
+	.text {
+
+		@extend .form-group;
+
+		input[type="text"],
+		input[type="submit"],
+		select.select,
+		#search_query {
+
+			@extend .form-control;
+			margin: 0 25px 0 15px;
+		}
+	}
+}
