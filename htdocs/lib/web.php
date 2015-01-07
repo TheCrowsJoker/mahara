@@ -2740,6 +2740,7 @@ function right_nav() {
             'icon' => $THEME->get_url('images/settings.png'),
             'alt' => '',
             'weight' => 10,
+            'iconclass' => 'cog'
         ),
         'inbox' => array(
             'path' => 'inbox',
@@ -2749,18 +2750,21 @@ function right_nav() {
             'count' => $unread,
             'countclass' => 'unreadmessagecount',
             'weight' => 20,
+            'iconclass' => 'envelope'
         ),
         'settings/account' => array(
             'path' => 'settings/account',
             'url' => 'account/index.php',
             'title' => get_config('dropdownmenu') ? get_string('general') : get_string('account'),
             'weight' => 10,
+            'iconclass' => 'user'
         ),
         'settings/notifications' => array(
             'path' => 'settings/notifications',
             'url' => 'account/activity/preferences/index.php',
             'title' => get_string('notifications'),
             'weight' => 30,
+            'iconclass' => 'flag'
         ),
     );
 

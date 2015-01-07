@@ -5,7 +5,6 @@
 //  * @copyright  For copyright information on Mahara, please see the README file distributed with this software.
 //  *
 //  */
-//
 // // This will automatically turn the fieldsets of a form with class 'jstabs' into responsive tabs
 // (function() {
 //     function addStyles(formid) {
@@ -22,7 +21,6 @@
 //         }
 //         appendChildNodes(getFirstElementByTagAndClassName('head'), styleNode);
 //     }
-//
 //     addLoadEvent(function() {
 //         var formelement = getFirstElementByTagAndClassName('form', 'jstabs');
 //         if (!formelement) {
@@ -36,6 +34,11 @@
 //
 //         var fieldsets = getElementsByTagAndClassName('fieldset', null, formid);
 //
+//         addStyles(formid);
+
+//         insertSiblingNodesAfter(formid, DIV({'id': formid + '-loading'}, IMG({'src': config.theme['images/loading.gif'], 'alt': ''}), ' ', get_string('loading')));
+
+//         var fieldsets = getElementsByTagAndClassName('fieldset', null, formid);
 //         // Grab the legends
 //         var legends = getElementsByTagAndClassName('legend', null, formid);
 //         var isOpen = 0;
@@ -54,7 +57,6 @@
 //             if (row) {
 //                 fsid = getNodeAttribute(row, 'id').replace(new RegExp('^' + formid + '_(.*)description_container'), '$1');
 //             }
-//
 //             a.id = fsid + '_a';
 //             connect(a, 'onclick', function(e) {
 //                 forEach(fieldsets, function(fieldset) {
@@ -98,7 +100,6 @@
 //             }
 //             isOpen = 1 - isOpen;
 //         });
-//
 //         forEach(fieldsets, function(fieldset) {
 //             if (hasElementClass(fieldset, 'collapsed')) {
 //                 addElementClass(fieldset, 'safe-hidden');
@@ -119,7 +120,6 @@
 //         if ($(formid + '_topsubmit_container')) {
 //             removeElement(formid + '_topsubmit_container');
 //         }
-//
 //         // last part is the submit buttons
 //         appendChildNodes(formid,
 //             tabDIV, DIV({'class': 'tabbed-fieldsets subpage'}, fieldsets), getFirstElementByTagAndClassName('td', null, formid + '_submit_container').childNodes
@@ -127,12 +127,10 @@
 //         removeElement(
 //             getFirstElementByTagAndClassName('table', null, formid)
 //         );
-//
 //         // Make the tabs responsive
 //         if (typeof responsiveNav === 'function') {
 //             responsiveNav($j('.tabswrap ul li'), $j('.tabswrap'));
 //         }
-//
 //         // Now unhide the form
 //         hideElement(formid + '-loading');
 //         $(formid).style.position = 'static';
