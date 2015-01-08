@@ -264,7 +264,7 @@ function sendjsonrequest(script, data, rtype, successcallback, errorcallback, qu
         }
 
         var errtype = false;
-        if (!data.error) { 
+        if (!data.error) {
             errtype = 'ok';
         }
         else if (data.error == 'local') {
@@ -335,7 +335,7 @@ function newfilename(oldname, fileexistsfunc) {
 
 // Return the filename part of a full path
 function basename(path) {
-    if (path.indexOf('/') > -1) { 
+    if (path.indexOf('/') > -1) {
         var separator = '/';
     }
     else {
@@ -403,7 +403,7 @@ function contextualHelp(formName, helpName, pluginType, pluginName, page, sectio
     else if (section) {
         key = pluginType + '/' + pluginName + '/' + section;
         url_params.section = section;
-    } 
+    }
     else {
         key = pluginType + '/' + pluginName + '/' + formName + '/' + helpName;
         url_params.form = formName;
@@ -613,16 +613,16 @@ function clearCookie( name ) {
 }
 
 // expires is in seconds
-function setCookie( name, value, expires, path, domain, secure ) 
+function setCookie( name, value, expires, path, domain, secure )
 {
     // set time, it's in milliseconds
     var today = new Date();
     today.setTime( today.getTime() );
 
     /*
-    if the expires variable is set, make the correct 
-    expires time, the current script below will set 
-    it for x number of days, to make it for hours, 
+    if the expires variable is set, make the correct
+    expires time, the current script below will set
+    it for x number of days, to make it for hours,
     delete * 24, for minutes, delete * 60 * 24
     */
     if (expires) {
@@ -632,8 +632,8 @@ function setCookie( name, value, expires, path, domain, secure )
     var expires_date = new Date( today.getTime() + (expires) );
 
     document.cookie = name + "=" + escape( value ) +
-    ( ( expires ) ? ";expires=" + expires_date.toGMTString() : "" ) + 
-    ( ( path ) ? ";path=" + path : "" ) + 
+    ( ( expires ) ? ";expires=" + expires_date.toGMTString() : "" ) +
+    ( ( path ) ? ";path=" + path : "" ) +
     ( ( domain ) ? ";domain=" + domain : "" ) +
     ( ( secure ) ? ";secure" : "" );
 }
@@ -645,7 +645,7 @@ function toggleChecked(c) {
         for (cb in e) {
         if (e[cb].checked == true) {
                 e[cb].checked = '';
-            } 
+            }
             else {
                 e[cb].checked = 'checked';
             }
@@ -674,7 +674,7 @@ function countKeys(x) {
 }
 
 function keepElementInViewport(element) {
-    var pixels = getViewportPosition().y + getViewportDimensions().h 
+    var pixels = getViewportPosition().y + getViewportDimensions().h
         - getElementPosition(element).y - getElementDimensions(element).h;
     if (pixels < 0) {
         window.scrollBy(0,-pixels);
@@ -744,7 +744,7 @@ function augment_tags_control(elem, returnContainer) {
     }
 
     var help = getFirstElementByTagAndClassName('span', 'help', elem.parentNode);
-    
+
     var newNode = DIV();
     swapDOM(elem, newNode);
     appendChildNodes(newNode, tagContainer, elem, ' ', help);
