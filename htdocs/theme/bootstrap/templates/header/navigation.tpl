@@ -4,7 +4,12 @@
        <div class="container">
            {if $ADMIN || $INSTITUTIONALADMIN || $STAFF || $INSTITUTIONALSTAFF}
                 <div class="navbar-header">
-                    <span class="navbar-brand" href="">Administration <span class="glyphicon glyphicon-chevron-right"></span></span>
+                    
+                    <a class="navbar-brand" href="{$WWWROOT}" accesskey="h" class="return-site">
+
+                        <span class="glyphicon glyphicon-chevron-left"></span>  
+                        {str tag="returntosite"}
+                    </a>
                 </div>
             {/if}
             <ul id="{if $DROPDOWNMENU}dropdown-nav{else}nav{/if}" class="nav navbar-nav">
@@ -61,9 +66,6 @@
                 {/foreach}
 
                 {if $ADMIN || $INSTITUTIONALADMIN || $STAFF || $INSTITUTIONALSTAFF}
-                    <li class="returntosite">
-                        <a href="{$WWWROOT}" accesskey="h" class="return-site">{str tag="returntosite"}</a>
-                    </li>
                 {elseif $USER->get('admin')}
                     <li class="siteadmin">
                         <a href="{$WWWROOT}admin/" accesskey="a" class="admin-site">{str tag="administration"}</a>
@@ -91,7 +93,7 @@
 
         {if $SELECTEDSUBNAV}
 
-        <div class="navbar navbar-default navbar-secondary">
+        <div class="navbar navbar-default secondary-nav">
             <div class="container">
                 <ul class="nav navbar-nav">
                 {strip}
@@ -109,7 +111,7 @@
         </div>
         {/if}
         {if $tertiarymenu}
-        <div class="navbar navbar-secondary">
+        <div class="navbar secondary-nav">
                 <div class="container">
                     <ul class="nav navbar-nav">
                         {strip}
