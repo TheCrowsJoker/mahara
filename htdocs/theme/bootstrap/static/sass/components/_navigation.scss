@@ -52,6 +52,7 @@
     }
 }
 
+
 .header.navbar {
     margin-bottom:0;
     padding: 7px 0;
@@ -153,64 +154,56 @@
  */
 
 /* Hide for mobile, show later */
-.main-nav.navbar-inverse  {
-
-    @media (min-width: 768px) {
-        ul {
-            min-width: 0;
-            margin-left:-15px;
+.main-nav {
+    ul {
+        min-width: 0;
+        margin-left:-15px;
+    }
+    .navbar-header{
+        margin-left:-15px;
+        + ul {
+            margin-left:0;
         }
-        .navbar-header{
-            margin-left:-15px;
-            + ul {
-                margin-left:0;
-            }
+    }
+    li {
+      
+        margin: 0;
+        a {
+            color: rgba(#fff, 0.8);
         }
-        li {
-          
-            margin: 0;
-            a {
-                color: rgba(#fff, 0.8);
-            }
-
-        }
-
-        .navbar-brand{
-            color:#fff;
-            padding: 13px 15px;
-           .glyphicon {
-                top:3px;
-           }
-        }
-
 
     }
 
-}
-
-
-.main-nav .nav > li > a {
-    padding: 15px 10px;
-    line-height: 20px;
-    font-weight:normal;
-    @media (min-width: 992px) {
-        padding: 15px 20px;
+    .navbar-brand{
+        color:#fff;
+        padding: 13px 15px;
+       .glyphicon {
+            top:3px;
+       }
     }
-}
 
+    .nav > li > a {
+        padding: 15px 10px;
+        line-height: 20px;
+        font-weight:normal;
+        @media (min-width: 992px) {
+            padding: 15px 20px;
+        }
+    }
 
-.navbar-inverse.navbar-nav .active>a, 
-.navbar-inverse.navbar-nav li > a:hover, 
-.navbar-inverse.navbar-nav li >a:focus {
-    color: #fff;
-    background-color: #080808;
-}
+    // on hover, if dropdown. show
+    ul.nav > li:hover > ul.dropdown-menu {
+        display: block;
+    }
 
-.navbar-inverse .navbar-nav>.active>a, 
-.navbar-inverse .navbar-nav>.active>a:hover, 
-.navbar-inverse .navbar-nav>.active>a:focus {
-    color: $navbar-inverse-bg;
-    background-color: #fefefe;
+    .dropdown-menu {
+        width:200px;
+        list-style: inline-block;
+        a  {
+            color:$link-color;
+        }
+    }
+
 }
 
 

@@ -32,7 +32,7 @@
     </script>
 {/if}
 
-<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,700' rel='stylesheet' type='text/css'>
 {foreach from=$STYLESHEETLIST item=cssurl}
     <link rel="stylesheet" type="text/css" href="{$cssurl}">
 {/foreach}

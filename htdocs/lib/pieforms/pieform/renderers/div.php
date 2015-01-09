@@ -47,6 +47,7 @@ function pieform_renderer_div(Pieform $form, $element) {/*{{{*/
         }
 
         $result .= ' class="' . Pieform::hsc($element['class']) . '"';
+
     }
     $result .= '>';
 

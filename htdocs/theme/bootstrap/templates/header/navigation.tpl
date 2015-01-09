@@ -35,9 +35,9 @@
                                     </span>
                                 {/if}
                             </a>
-                        {if $DROPDOWNMENU}
+                        
                             {if $item.submenu}
-                                <ul class="dropdown-menu" role="menu">
+                                <ul class="{if $DROPDOWNMENU}dropdown-menu{else}hidden-md hidden-lg{/if}" role="menu">
                                     {strip}
                                         {foreach from=$item.submenu item=subitem}
                                             <li class="{if $subitem.selected}active {/if}{if $subitem.submenu}has-sub {/if}">
@@ -61,7 +61,6 @@
                                     <div class="cl"></div>
                                 </ul>
                             {/if}
-                        {/if}
                     </li>
                 {/foreach}
 
@@ -93,7 +92,7 @@
 
         {if $SELECTEDSUBNAV}
 
-        <div class="navbar navbar-default secondary-nav">
+        <div class="navbar navbar-default secondary-nav hidden-sm hidden-xs">
             <div class="container">
                 <ul class="nav navbar-nav">
                 {strip}
