@@ -126,6 +126,21 @@ select {
 	@media (min-width: $screen-sm-min) {
 		margin-left: 200px;
 	}
+	label {
+		padding-top: 0;
+	}
+}
+
+.requiredmarker {
+	position:absolute;
+	right: 7px;
+    top: 2px;
+	color:red;
+}
+
+
+.accessible-hidden {
+	display:none;
 }
 
 .requiredmarker {

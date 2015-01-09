@@ -4,8 +4,8 @@
 
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
-    max-width:100%;
-    overflow-x:hidden;
+//    max-width:100%;
+//    overflow-x:hidden;
     @media (min-width: 768px) {
         padding-top: 65px;
     }
@@ -93,8 +93,8 @@ body {
 }
 
 .main {
-    max-width: 100%;
-    overflow-x: hidden;
+//    max-width: 100%;
+//    overflow-x: hidden;
 }
 
 .content-main {

@@ -586,11 +586,13 @@ form {
 label {
     font-weight: bold;
 }
-.radio td label {
+.radio td label,
+.radio div label {
     font-weight: normal;
     line-height: 1.667em;
 }
-.checkboxes td label {
+.checkboxes td label,
+.checkbox div label {
     font-weight: normal;
 }
 /* fieldset */
@@ -650,9 +652,22 @@ fieldset.collapsed table,
     display: inherit;
     position: inherit;
 }
+/*Styling form after converting table to div*/
 .tabbed-fieldsets fieldset {
     border: none;
     padding: 0;
+}
+.tabbed-fieldsets fieldset > div {
+    margin: 10px 0;
+}
+.tabbed-fieldsets fieldset div label {
+    display: inline-block;
+    width: 150px;
+}
+.tabbed-fieldsets fieldset div input[type=text],
+.tabbed-fieldsets fieldset div div.resizable-textarea {
+    display: inline-block;
+    width: 30%;
 }
 /* legend */
 legend,
@@ -992,11 +1007,11 @@ input#account_delete_submit:active {
     background: url(../images/btn_bkgd_red_focus.png) repeat-x 0 50%;
     color: #FFFFFF;
 }
-table#socialprofilelist {
+div#socialprofilelist {
     width:100%;
     table-layout:fixed;
 }
-table#socialprofilelist th.icons {
+div#socialprofilelist div.icons {
     width: 32px;
 }
 /* Other button customisation */
@@ -2451,8 +2466,8 @@ a:active .home-info-box p {
     z-index: 1;
 }
 /* Content > Profile */
-#profileform_topsubmit_container th,
-#profileform_submit_container th {
+#profileform_topsubmit_container div,
+#profileform_submit_container div {
     display: none;
 }
 /* Content > Profile pictures */
