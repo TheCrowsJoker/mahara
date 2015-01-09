@@ -72,6 +72,10 @@
 
 }
 
+.navbar-collapse {
+    padding:0;
+}
+
 
 .navbar-form {
     padding-right: 0;
@@ -166,12 +170,14 @@
         }
     }
     li {
-      
         margin: 0;
+        margin-right: -29px;
+         @media (min-width: 992px) {
+            margin-right:0;
+         }
         a {
             color: rgba(#fff, 0.8);
         }
-
     }
 
     .navbar-brand{
@@ -196,11 +202,48 @@
         display: block;
     }
 
-    .dropdown-menu {
-        width:200px;
-        list-style: inline-block;
+    .child-nav {
+        background-color: darken($brand-primary, 2%);
+        border-top:0;
+        min-width: 200px;
+        max-width: 100%;
+        overflow: hidden;
+        padding-top: 10px;
+        padding-bottom:10px;
+        @media (min-width: 992px) {
+            background-color: #fff;
+            margin-left: -1px;
+        }
+        li {
+            display: block;
+            a {
+                padding: 3px 10px; //needs to override bootstrap
+                font-weight: normal; //needs to override bootstrap
+            }
+        }
+       
+        .active > a {
+            background-color: darken($brand-primary, 5%);
+            @media (min-width: 992px) {
+                background-color: $brand-default;
+                &:hover {
+                    color: $text-color;
+                }
+            }
+        }
+   
         a  {
-            color:$link-color;
+            display:block;
+            width:100%;
+            max-width: 300px;
+            @include text-overflow;
+            @media (min-width: 992px) {
+                color:$link-color;
+            }
+            &:hover,
+            &:focus {
+
+            }
         }
     }
 
@@ -221,3 +264,11 @@
         }
     }
 }
+
+
+fieldset.safe-hidden .mceEditor {
+    display: none;
+}
+
+
+#profileform_profile_container {display:block !important;  visibility: visible !important;}

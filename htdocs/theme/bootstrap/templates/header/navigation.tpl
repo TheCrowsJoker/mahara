@@ -37,7 +37,7 @@
                             </a>
                         
                             {if $item.submenu}
-                                <ul class="{if $DROPDOWNMENU}dropdown-menu{else}hidden-md hidden-lg{/if}" role="menu">
+                                <ul class="{if $DROPDOWNMENU}dropdown-menu{else}hidden-md hidden-lg{/if} child-nav" role="menu">
                                     {strip}
                                         {foreach from=$item.submenu item=subitem}
                                             <li class="{if $subitem.selected}active {/if}{if $subitem.submenu}has-sub {/if}">
