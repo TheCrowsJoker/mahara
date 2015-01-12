@@ -12,11 +12,17 @@ body {
     &.admin {
         background-color: $brand-default;
 
-        .main-column {
+        .main {
+            margin: 10px 5px;
             background-color: #fff;
+            @media (min-width: 768px) {
+                margin:0;
+                margin-bottom: 20px;
+            }
         }
+         
     }
-    .main-column {
+    .main {
         margin:20px 0;
     }
 }

@@ -1,5 +1,4 @@
 .header {
-
     .site-logo{
         padding-top: 3px;
         float: left;
@@ -52,30 +51,5 @@
             border-width: 32.5px 0 32.5px 20px;
             border-color: transparent transparent transparent lighten($brand-default, 2%);
         }
-    }
-
-
-}
-
-
-
-// override some stuff from RAW @todo deleteonce we don't need this anymore
-.header {
-     
-    ul li {
-        margin: 0;
-    }
-
-    #site-logo {
-        margin: 0;
-        margin-top: 21px;
-        @media (min-width: 768px) {
-            margin-top: 0;
-        }
-    }
-
-    #usf {
-        float: none;
-        clear: none;
     }
 }

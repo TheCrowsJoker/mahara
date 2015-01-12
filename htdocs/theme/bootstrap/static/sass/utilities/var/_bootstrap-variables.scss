@@ -399,7 +399,7 @@ $navbar-inverse-border:                     darken($navbar-inverse-bg, 5%) !defa
 // Inverted navbar links
 $navbar-inverse-link-color:                 rgba(255,255,255,0.8) !default;
 $navbar-inverse-link-hover-color:           #fff !default;
-$navbar-inverse-link-hover-bg:              transparent !default;
+$navbar-inverse-link-hover-bg:              rgba(darken($navbar-inverse-bg, 7%), 0.5) !default;
 $navbar-inverse-link-active-color:          $navbar-inverse-bg !default;
 $navbar-inverse-link-active-bg:             #fff !default;
 $navbar-inverse-link-disabled-color:        #444 !default;
