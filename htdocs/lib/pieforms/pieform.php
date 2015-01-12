@@ -1446,7 +1446,7 @@ EOF;
             }
 
             if (!empty($element['hiddenlabel'])) {
-                $labelclass = ' class="accessible-hidden"';
+                $labelclass = ' class="accessible-hidden sr-only"';
             }
             else {
                 $labelclass = '';

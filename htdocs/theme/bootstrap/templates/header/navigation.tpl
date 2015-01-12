@@ -1,11 +1,11 @@
 {if $MAINNAV}
- 
+
     <nav id="main-nav" class="{if $ADMIN || $INSTITUTIONALADMIN || $STAFF || $INSTITUTIONALSTAFF}{if $DROPDOWNMENU}dropdown-adminnav {else}adminnav {/if}{/if} nav collapse navbar-collapse nav-main main-nav navbar-inverse">
        <div class="container">
            {if $ADMIN || $INSTITUTIONALADMIN || $STAFF || $INSTITUTIONALSTAFF}
                 <div class="navbar-header">
                     <a class="navbar-brand" href="{$WWWROOT}" accesskey="h" class="return-site">
-                        <span class="glyphicon glyphicon-chevron-left"></span>  
+                        <span class="glyphicon glyphicon-chevron-left"></span>
                         {str tag="returntosite"}
                     </a>
                 </div>
@@ -23,25 +23,23 @@
                                 {$item.title}
                                 {if $item.accessibletitle && !$DROPDOWNMENU}
                                     </span>
-                                    <span class="accessible-hidden">
+                                    <span class="accessible-hidden sr-only">
                                         ({$item.accessibletitle})
                                     </span>
                                 {/if}
                                 {if $DROPDOWNMENU && $item.submenu}
-                                    <span class="accessible-hidden">
+                                    <span class="accessible-hidden sr-only">
                                         ({str tag=dropdownmenu})
                                     </span>
                                 {/if}
 
                             </a>
-
                             {if $item.submenu}
                                 <button type="button" class="navbar-showchildren navbar-toggle dropdown-toggle {if !$item.selected}collapsed{/if}" data-toggle="collapse" data-target="#childmenu-{$dwoo.foreach.menu.index}">
                                     <span class="glyphicon glyphicon-chevron-down"></span>
                                     <span class="nav-title sr-only">{str tag="show"} {str tag="menu"}</span>
                                 </button>
                             {/if}
-                        
                             {if $item.submenu}
                                 <ul id="childmenu-{$dwoo.foreach.menu.index}" class="{if $DROPDOWNMENU}dropdown-menu{else}hidden-md hidden-lg hidden-sm collapse {if $item.selected}in{/if}{/if} child-nav" role="menu">
                                     {strip}

@@ -86,7 +86,6 @@ select {
 		}
 	}
 }
-
 // remove styles on outer element as class is duplicated to form element
 .form-group.btn {
 	background: none;
@@ -97,7 +96,6 @@ select {
 		border: none;
 	}
 }
-
 .wysiwyg label,
 .textarea label {
 	vertical-align: top;
@@ -108,8 +106,6 @@ select {
 .pieform-fieldset legend {
 	display: none;
 }
-
-
 .radio-aligned {
 	display: inline-block;
 }
@@ -131,21 +127,22 @@ select {
 	@media (min-width: $screen-sm-min) {
 		margin-left: 200px;
 	}
-	label {
-		padding-top: 0;
+
+	> a {
+		display: inline-block;
+		margin-left: 0;
+		@media (min-width: 768px) {
+			margin-left: 200px;
+		}
 	}
 }
 
 .requiredmarker {
-	position:absolute;
-	right: 7px;
-	top: 2px;
 	color:red;
 }
 
-
-.accessible-hidden {
-	display:none;
+.help {
+	vertical-align: top;
 }
 
 .requiredmarker {
