@@ -2028,7 +2028,7 @@ function get_help_icon($plugintype, $pluginname, $form, $element, $page='', $sec
             json_encode($pluginname) . ',' . json_encode($page) . ',' .
             json_encode($section)
             . ',this); return false;'
-        ) . '"><img src="' . $THEME->get_url('images/help.png') . '" alt="' . get_string('Help') . '" title="' . get_string('Help') . '"></a></span>';
+        ) . '"><span class="glyphicon glyphicon-info-sign"></span><span class="sr-only">Help</span></a></span>';
 }
 
 function pieform_get_help(Pieform $form, $element) {
