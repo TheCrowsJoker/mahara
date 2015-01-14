@@ -16,14 +16,15 @@ body {
             margin: 10px 5px;
             background-color: #fff;
             @media (min-width: 768px) {
-                margin:0;
-                margin-bottom: 20px;
+                margin:20px 0;
             }
         }
 
     }
     .main {
-        margin:20px 0;
+        margin: 20px 0;
+        padding-top: 20px;
+        padding-bottom:50px;
     }
 }
 
