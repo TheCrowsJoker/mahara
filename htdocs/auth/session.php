@@ -204,8 +204,15 @@ class Session {
         $result = '<div id="' . $placement . '" role="alert" aria-live="assertive">';
         if (isset($_SESSION['messages'])) {
             foreach ($_SESSION['messages'] as $key => $data) {
+
+                $typeClass = $data['type'] === 'ok' ? 'success' : $data['type'];
+
+                if($typeClass === 'error'){
+                    $typeClass = 'danger';
+                }
+
                 if ($data['placement'] == $placement) {
-                    $result .= '<div class="' . $data['type'] . '"><div>';
+                    $result .= '<div class="alert alert-' . $typeClass . '"><div>';
                     $result .= $data['msg'] . '</div></div>';
                     unset($_SESSION['messages'][$key]);
                 }
