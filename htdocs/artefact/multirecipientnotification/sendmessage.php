@@ -181,14 +181,14 @@ $form = pieform(array(
             'initfunction' => 'translate_ids_to_names',
             'multiple' => true,
             'ajaxextraparams' => array(),
-            'width' => '400px',
+            // 'width' => '400px',
             'rules' => array('required' => true),
         ),
         'subject' => array(
             'title' => get_string('titlesubject', 'artefact.multirecipientnotification'),
             'type' => 'text',
             'name' => 'subject',
-            'size' => '80',
+            // 'size' => '80',
             'defaultvalue' => $subject,
             'rules' => array('required' => true),
         ),
@@ -205,6 +205,7 @@ $form = pieform(array(
         ),
         'submit' => array(
             'type' => 'submitcancel',
+            'class' => 'btn btn-success',
             'value' => array($messages ? get_string('Reply', 'group') : get_string('sendmessage', 'group'), get_string('cancel')),
             'goto' => get_config('wwwroot') . $goto,
         )

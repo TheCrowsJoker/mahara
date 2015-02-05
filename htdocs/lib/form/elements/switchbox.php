@@ -36,7 +36,7 @@ require_once(get_config('docroot') . 'lib/pieforms/pieform/elements/checkbox.php
  */
 function pieform_element_switchbox(Pieform $form, $element) {
     $wrapper = !empty($element['wrapperclass']) ? $element['wrapperclass'] : '';
-    $html = '<div class="' . $wrapper . '">' . pieform_element_checkbox($form, $element) . '</div>';
+    $html  = '<div class="' . $wrapper . '">' . pieform_element_checkbox($form, $element) . '</div>';
 
     $elementid = $form->make_id($element, $form->get_name());
     $settings = '';
@@ -55,14 +55,15 @@ function pieform_element_switchbox(Pieform $form, $element) {
     $settings .= (isset($element['on_callback'])) ? 'on_callback: ' . (preg_match('/^function/', $element['on_callback']) ? $element['on_callback'] : '"' . $element['on_callback'] . '"') . ', ' : '';
     $settings .= (isset($element['off_callback'])) ? 'off_callback: ' . $element['off_callback'] . ', ' : '';
 
-    $js = <<<JS
-<script type="text/javascript">
-    jQuery('#{$elementid}').switchButton({
-        {$settings}
-    });
-</script>
-JS;
-    return $html . $js;
+    return $html;
+//     $js = <<<JS
+// <script type="text/javascript">
+//     jQuery('#{$elementid}').switchButton({
+//         {$settings}
+//     });
+// </script>
+// JS;
+//     return $html . $js;
 }
 
 /**
