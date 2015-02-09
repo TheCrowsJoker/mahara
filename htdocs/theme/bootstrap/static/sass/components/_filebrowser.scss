@@ -22,7 +22,7 @@
     float: right;
     padding: 30px;
     background-color: $gray-lighter;
-    border: 2px dashed $gray-light;
+    border: 2px dashed lighten($gray-light, 30%);
     .dz-message {
         text-align: center;
         font-size: $font-size-large;
@@ -38,9 +38,50 @@
     padding-top: 20px;
 }
 
+.filelist {
+    .file-move-list {
+        list-style-type: none;
+        margin-top: 10px;
+        padding-left: 15px;
+
+        li .glyphicon {
+            color: $mahara-green;
+        }
+    }
+}
+
 .fileedittable {
     margin: 30px 0;
     .edit-heading {
         font-size: $font-size-large;
+    }
+    
+    .tags {
+        .description {
+            margin-left: 0;
+            @media (min-width: $screen-md-min) {
+                margin-left: 200px;
+            }
+
+            @media (min-width: $screen-md-min) and (max-width: $screen-lg-min){
+                margin-left: 0;
+            }
+        }
+    }
+    
+    .tag-wrapper {
+        display: block;
+        input {
+            max-width: 100%;
+        }
+        
+        @media (min-width: $screen-md-min) {
+            display: inline-block;
+        }
+
+        @media (min-width: $screen-md-min) and (max-width: $screen-lg-min){
+            display: inline-block;
+            margin-left: 0;
+        }
     }
 }

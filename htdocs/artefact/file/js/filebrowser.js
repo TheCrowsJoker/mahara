@@ -248,7 +248,7 @@ function FileBrowser(idprefix, folderid, config, globalconfig) {
             addElementClass(editrow, 'hidden');
             // Reconnect the old edit button to open the form
             if (editrow.previousSibling) {
-                forEach(getElementsByTagAndClassName('input', null, editrow.previousSibling), function (elem) {
+                forEach(getElementsByTagAndClassName('button', null, editrow.previousSibling), function (elem) {
                     var name = getNodeAttribute(elem, 'name').match(new RegExp('^' + self.id + "_([a-z]+)\\[(\\d+)\\]$"));
                     if (name && name[1] && name[1] == 'edit') {
                         disconnectAll(elem);
@@ -265,6 +265,7 @@ function FileBrowser(idprefix, folderid, config, globalconfig) {
 
         // In IE, this.value is set to the button text
         var id = getNodeAttribute(this, 'name').replace(/.*_edit\[(\d+)\]$/, '$1');
+
         if (!self.hide_edit_form()) {
             return;
         }
@@ -344,7 +345,7 @@ function FileBrowser(idprefix, folderid, config, globalconfig) {
 
     this.browse_init = function () {
         if (self.config.edit || self.config.editmeta) {
-            forEach(getElementsByTagAndClassName('input', null, self.id + '_filelist'), function (elem) {
+            forEach(getElementsByTagAndClassName('button', null, self.id + '_filelist'), function (elem) {
                 var name = getNodeAttribute(elem, 'name').match(new RegExp('^' + self.id + "_([a-z]+)\\[(\\d+)\\]$"));
                 if (name && name[1]) {
                     if (name[1] == 'edit') {
@@ -497,7 +498,7 @@ function FileBrowser(idprefix, folderid, config, globalconfig) {
                         return false;
                     }
                 });
-                ul.append($j('<li>').append(link));
+                ul.append($j('<li><span class="glyphicon glyphicon-share-alt prm"></span>').append(link));
             }
         });
 
@@ -512,7 +513,7 @@ function FileBrowser(idprefix, folderid, config, globalconfig) {
                 self.move_list = null;
             }
         });
-        ul.append($j('<li>').append(cancellink));
+        ul.append($j('<li><span class="glyphicon glyphicon-remove-circle prm"></span>').append(cancellink));
 
         self.move_list = ul;
         return ul;
