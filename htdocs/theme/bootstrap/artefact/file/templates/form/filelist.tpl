@@ -2,7 +2,7 @@
 <p>{str tag=nofilesfound section=artefact.file}</p>
 {else}
 <div class="table-responsive">
-<table id="{$prefix}_filelist" class="tablerenderer filelist fullwidth table table-striped">
+<table id="{$prefix}_filelist" class="tablerenderer filelist fullwidth table">
  <thead>
   <tr>
    <th></th>
@@ -86,8 +86,14 @@
             {assign var=edittext value=str(tag=editspecific arg1=$displaytitle)}
             {assign var=deletetext value=str(tag=deletespecific arg1=$displaytitle)}
         {/if}
-        <input type="image" src="{theme_url filename="images/btn_edit.png"}" name="{$prefix}_edit[{$file->id}]" value="" title="{str tag=edit}" alt="{$edittext|escape:html|safe}" />
-        <input type="image" src="{theme_url filename="images/btn_deleteremove.png"}" name="{$prefix}_delete[{$file->id}]" value="" title="{str tag=delete}" alt="{$deletetext|escape:html|safe}" />
+        <button name="{$prefix}_edit[{$file->id}]" class="btn btn-default btn-xs">
+          <span class="glyphicon glyphicon-pencil"></span>
+          <span class="sr-only">{$edittext|escape:html|safe}</span>
+        </button>
+        <button name="{$prefix}_delete[{$file->id}]" class="btn btn-danger btn-xs">
+          <span class="glyphicon glyphicon-trash"></span>
+          <span class="sr-only">{$deletetext|escape:html|safe}</span>
+        </button>
       {/if}
     {/if}
     {if $selectable && ($file->artefacttype != 'folder' || $selectfolders) && $publishable && !$file->isparent}
@@ -102,7 +108,7 @@
  </tbody>
 </table>
 </div>
-<div id="downloadfolder">
+<div id="downloadfolder" class="btn btn-default">
   <a href="{$WWWROOT}artefact/file/downloadfolder.php?{$folderparams|safe}">{str tag=downloadfolderziplink section=artefact.file}</a>
 </div>
 {/if}
