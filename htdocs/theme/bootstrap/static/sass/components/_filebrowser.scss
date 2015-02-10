@@ -1,6 +1,7 @@
 .fileupload {
     padding: 20px;
     border: 1px solid $gray-lighter;
+    background-color: #ffffff;
     @include clearfix;
     .intro {
         font-weight: bold;
@@ -14,20 +15,25 @@
 .uploadform.userfile {
     width: 50%;
     float: left;
+    margin-bottom: 20px;
 }
 
-.files_filebrowser {
+.dropzone-previews {
     @include border-radius(4px);
-    width: 50%;
-    float: right;
-    padding: 30px;
+    clear: both;
+    padding: 40px;
     background-color: $gray-lighter;
     border: 2px dashed lighten($gray-light, 30%);
     .dz-message {
         text-align: center;
         font-size: $font-size-large;
         color: $gray-light;
-        padding-top: 10px;
+    }
+    
+    @media (min-width: $screen-sm-min) {
+        clear: none;
+        float: right;
+        width: 50%;
     }
 }
 
@@ -54,34 +60,5 @@
     margin: 30px 0;
     .edit-heading {
         font-size: $font-size-large;
-    }
-    
-    .tags {
-        .description {
-            margin-left: 0;
-            @media (min-width: $screen-md-min) {
-                margin-left: 200px;
-            }
-
-            @media (min-width: $screen-md-min) and (max-width: $screen-lg-min){
-                margin-left: 0;
-            }
-        }
-    }
-    
-    .tag-wrapper {
-        display: block;
-        input {
-            max-width: 100%;
-        }
-        
-        @media (min-width: $screen-md-min) {
-            display: inline-block;
-        }
-
-        @media (min-width: $screen-md-min) and (max-width: $screen-lg-min){
-            display: inline-block;
-            margin-left: 0;
-        }
     }
 }

@@ -69,7 +69,7 @@
     </td>
     {/if}
     <!-- Ensure space for 3 buttons (in the case of a really long single line string in a user input field -->
-    <td class="right s nowrap">
+    <td class="text-right">
     {if $editable && !$file->isparent}
       {if $file->locked}
         <span class="dull">{str tag=Submitted section=view}</span>
@@ -97,7 +97,7 @@
       {/if}
     {/if}
     {if $selectable && ($file->artefacttype != 'folder' || $selectfolders) && $publishable && !$file->isparent}
-      <input type="submit" class="select small" name="{$prefix}_select[{$file->id}]" id="{$prefix}_select_{$file->id}" value="{str tag=select}" title="{str tag=select}" />
+      <input type="submit" class="btn btn-success btn-xs button select small" name="{$prefix}_select[{$file->id}]" id="{$prefix}_select_{$file->id}" value="{str tag=select}" title="{str tag=select}" />
     {/if}
     </td>
   </tr>
@@ -108,7 +108,7 @@
  </tbody>
 </table>
 </div>
-<div id="downloadfolder" class="btn btn-default">
-  <a href="{$WWWROOT}artefact/file/downloadfolder.php?{$folderparams|safe}">{str tag=downloadfolderziplink section=artefact.file}</a>
+<div id="downloadfolder">
+  <a class="btn btn-default" href="{$WWWROOT}artefact/file/downloadfolder.php?{$folderparams|safe}">{str tag=downloadfolderziplink section=artefact.file}</a>
 </div>
 {/if}

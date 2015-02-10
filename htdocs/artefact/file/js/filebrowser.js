@@ -746,7 +746,7 @@ function FileBrowser(idprefix, folderid, config, globalconfig) {
             }
         };
         if (!existed) {
-            var remove = INPUT({'type': 'submit', 'class':'button submit unselect', 'name':self.id+'_unselect[' + id + ']', 'value':get_string('remove')});
+            var remove = INPUT({'type': 'submit', 'class':'button submit unselect btn btn-danger btn-xs', 'name':self.id+'_unselect[' + id + ']', 'value':get_string('remove')});
             connect(remove, 'onclick', self.unselect);
             filelink = ''
             if (self.filedata[id].artefacttype == 'folder') {
@@ -759,7 +759,7 @@ function FileBrowser(idprefix, folderid, config, globalconfig) {
                    TD(null, IMG({'src':self.filedata[id].icon})),
                    TD(null, filelink),
                    TD({'class':'filedescription'}, self.filedata[id].description),
-                   TD({'class':'right s'}, remove, INPUT({'type':'hidden', 'class':'hidden', 'id':self.id+'_selected[' + id + ']', 'name':self.id+'_selected[' + id + ']', 'value':id}))
+                   TD({'class':'text-center s'}, remove, INPUT({'type':'hidden', 'class':'hidden', 'id':self.id+'_selected[' + id + ']', 'name':self.id+'_selected[' + id + ']', 'value':id}))
                   ));
         }
         // Display the list

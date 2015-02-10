@@ -34,9 +34,6 @@
             width:200px;
         }
     }
-    div.html {
-        padding-bottom: 15px;
-    }
 }
 
 input + label {
@@ -51,6 +48,7 @@ select {
 }
 
 .form-group {
+    .about-text,
     input[type=text],
     input[type=password],
     input[type=file],
@@ -159,11 +157,11 @@ select {
 }
 
 .form-group .errmsg {
+    @extend .align-with-input;
     color: $brand-danger;
     font-size: $font-size-base - 1;
     display: block;
     padding-top: 10px;
-    @extend .align-with-input;
     
     @media (min-width: $screen-md-min) {
         margin-left: 200px;
@@ -181,12 +179,12 @@ select {
 }
 
 .form-group .description {
+    @extend .align-with-input;
     color: $gray-light;
     font-size: $font-size-base - 1;
     max-width: 500px;
     display: block;
     padding-top: 10px;
-    @extend .align-with-input;
 
     @media (min-width: $screen-md-min) {
         margin-left: 200px;
@@ -247,4 +245,61 @@ select {
     }
     margin-top: 30px;
 }
+
+// Style for input field after select box 
+.select-socialprofile {
+    select {
+        display: block;
+        margin-right: 15px;
+        @media (min-width: $screen-sm-min) {
+            display: inline-block;
+        }
+        @media (min-width: $screen-md-min) and (max-width: $screen-lg-min) {
+            display: block;
+        }
+    }
+    
+    input[type=text] {
+        margin-top: 15px;
+        width: 85%;
+        @media (min-width: $screen-sm-min) {
+            display: inline-block;
+            width: 314px;
+        }
+        @media (min-width: $screen-md-min) and (max-width: $screen-lg-min) {
+            display: inline-block;
+            width: 500px;
+        }
+    }
+}
+
+.tags {
+    .description {
+        margin-left: 0;
+        @media (min-width: $screen-md-min) {
+            margin-left: 200px;
+        }
+
+        @media (min-width: $screen-md-min) and (max-width: $screen-lg-min){
+            margin-left: 0;
+        }
+    }
+
+    .tag-wrapper {
+        display: block;
+        input {
+            max-width: 100%;
+        }
+        
+        @media (min-width: $screen-md-min) {
+            display: inline-block;
+        }
+
+        @media (min-width: $screen-md-min) and (max-width: $screen-lg-min){
+            display: inline-block;
+            margin-left: 0;
+        }
+    }
+}
+
 
