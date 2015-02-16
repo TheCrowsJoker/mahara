@@ -37,3 +37,22 @@
         }
     }
 }
+
+
+.list-group-item-link{
+    margin-top:5px;
+    li a {
+        font-size:0.9em;
+        display: block;
+        padding: 5px 15px;
+        color: #666;
+        &:hover {
+            background: darken(#f0f0f0, 1%);
+            text-decoration: none;
+            color: darken($link-color, 5%);
+        }
+        small {
+            color: $link-color;
+        }
+    }
+}
