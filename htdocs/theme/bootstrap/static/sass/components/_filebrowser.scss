@@ -62,3 +62,16 @@
         font-size: $font-size-large;
     }
 }
+
+// file browser inside modal screen
+.modal-filebrowser {
+    margin-top: 50px;
+    padding: 10px 20px 20px;
+
+    .close {
+        width: 100%;
+        text-align: right;
+        float: none;
+        margin-bottom: 10px;
+    }
+}
