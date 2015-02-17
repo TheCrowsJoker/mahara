@@ -1,13 +1,7 @@
-// .sidebar {
-//     border-left: 1px solid #ddd;
-// }
-
 .sideblock {
     // reset bootstrap panel and list-group styles
     &.panel {
-       
-        //border-radius: 0;
-        // box-shadow: none;
+        @include box-shadow(none);
         &.progressbar{
             border: 0;
         }
@@ -45,9 +39,9 @@
     .list-group-item {
         background-color: transparent;
         border: none;
-        padding: 0px;
+        padding: 0 15px;
         .list-group-heading{
-            padding: 0 15px;
+            padding: 0;
         }
     }
 

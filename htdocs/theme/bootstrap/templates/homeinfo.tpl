@@ -1,12 +1,4 @@
 <div id="home-info-container" class="dashboard-widget-container">
-    {if $USER->is_logged_in()}
-        <div id="hideinfo" class="nojs-hidden-block text-right">
-            <a href="#" title="{str tag=Hide2}" class="remove-widgets">
-                <span class="glyphicon glyphicon-remove-circle"></span>
-                <span class="sr-only">{str tag=Close}</span>
-            </a>
-        </div>
-    {/if}
 
     <div class="home-info-boxes{if $USER->is_logged_in()} loggedin{/if} fullwidth">
 
@@ -86,7 +78,7 @@
         {/if}
         
         {if $USER->is_logged_in()}
-        <div id="hideinfo" class="nojs-hidden-block align-right hide-info">
+        <div id="hideinfo" class="nojs-hidden-block text-right hide-info">
             <a href="#" title="{str tag=Hide2}" class="remove-widgets">
                 <span class="glyphicon glyphicon-remove"></span>
                 <span class="">{str tag=Hide2}</span>
