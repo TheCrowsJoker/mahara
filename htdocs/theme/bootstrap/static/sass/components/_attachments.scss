@@ -26,9 +26,8 @@
 
     &:hover {
         .file-description {
-            @include transition(all 0.2s ease-in);
+            // @include transition(all 0.2s ease-in);
             @include opaque;
-            // opacity: 1;
             height: auto;
             margin-top: 0;
         }
@@ -69,6 +68,8 @@
     margin-top: -50px;
     background-color: #f9f9f9;
     width: 100%;
+    height: 1px;
+    overflow: hidden;
     position: absolute;
     left: 0;
     z-index: 90;

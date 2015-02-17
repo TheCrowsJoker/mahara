@@ -48,6 +48,13 @@ select {
 }
 
 .form-group {
+    h3 {
+        font-size: $font-size-large;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid $gray-lighter;
+    }
+
     .about-text,
     input[type=text],
     input[type=password],
@@ -104,6 +111,19 @@ select {
         }
         .help {
             padding-left: 20px;
+        }
+    }
+
+    // reset bootstrap button style for cancel button
+    &.submitcancel {
+        .cancel {
+            background-color: transparent;
+            border: none;
+            text-decoration: underline;
+            color: $link-color;
+            &:hover {
+                color: $link-hover-color;
+            }
         }
     }
 }
@@ -192,15 +212,6 @@ select {
 
     @media (min-width: $screen-md-min) and (max-width: $screen-lg-min){
         margin-left: 0;
-    }
-}
-
-.form-group {
-    h3 {
-        font-size: $font-size-large;
-        padding-bottom: 10px;
-        margin-bottom: 20px;
-        border-bottom: 1px solid $gray-lighter;
     }
 }
 
@@ -298,6 +309,22 @@ select {
         @media (min-width: $screen-md-min) and (max-width: $screen-lg-min){
             display: inline-block;
             margin-left: 0;
+        }
+    }
+}
+
+// form with tinyMCE and table 
+.form-group {
+    .mce-tinymce,
+    .table-selectedlist {
+        display: inline-block;
+    }
+    &.filebrowser {
+        label {
+            vertical-align: top;
+        }
+        .table-selectedlist {
+            width: auto;
         }
     }
 }

@@ -33,10 +33,8 @@
 <div id="{$prefix}_upload_browse" class="upload_browse select">
 {/if}
 
-
 {if $config.select && !$config.alwaysopen}
-<!-- <input type="submit" class="buttondk btn btn-danger" name="{$prefix}_cancelbrowse" id="{$prefix}_close_upload_browse" value="{str tag=Close}" /> -->
-<button id="{$prefix}_close_upload_browse" type="button" class="close" data-dismiss="modal" aria-label="{str tag=Close}"><span aria-hidden="true">&times;</span></button>
+<button type="button" class="close" data-dismiss="modal" aria-label="{str tag=Close}"><span aria-hidden="true">&times;</span></button>
 {/if}
 
 {if $tabs}

@@ -47,6 +47,6 @@ jQuery(function($) {
         );
     });
     // Add bootstrap class to the add file content 
-    $('#editpost_filebrowser_upload_browse').wrapInner('<div class="modal-dialog modal-lg"><div class="modal-content"></div></div>');
+    $('#editpost_filebrowser_upload_browse').wrapInner('<div class="modal-dialog modal-lg"><div class="modal-content modal-filebrowser"></div></div>');
     $('#editpost_filebrowser_upload_browse').modal('hide');
 });
