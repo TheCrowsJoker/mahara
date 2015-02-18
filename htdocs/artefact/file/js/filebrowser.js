@@ -492,7 +492,7 @@ function FileBrowser(idprefix, folderid, config, globalconfig) {
                         return false;
                     }
                 });
-                ul.append($j('<li><span class="glyphicon glyphicon-share-alt prm"></span>').append(link));
+                ul.append($j('<li><span class="fa fa-share-alt prm"></span>').append(link));
             }
             else {
                 movefoldercount --;
@@ -514,7 +514,7 @@ function FileBrowser(idprefix, folderid, config, globalconfig) {
                 self.move_list = null;
             }
         });
-        ul.append($j('<li><span class="glyphicon glyphicon-remove-circle prm"></span>').append(cancellink));
+        ul.append($j('<li><span class="fa fa-remove-circle prm"></span>').append(cancellink));
 
         self.move_list = ul;
         return ul;

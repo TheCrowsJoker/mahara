@@ -48,10 +48,11 @@
                         </span>
                         <a class="attach-files" data-toggle="collapse" href="#attach_{$post->id}" aria-expanded="false">
                             {str tag=attachedfiles section=artefact.blog}
-                            <span class="glyphicon glyphicon-chevron-down"></span>
+                            <span class="fa fa-chevron-down"></span>
                         </a>
                     </div>
                     <div class="collapse files" id="attach_{$post->id}">
+
                         {foreach from=$post->files item=file}
                             <div class="attached-file {cycle values='r1,r0'}">
                                 <h3 class="title">

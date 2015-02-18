@@ -17,3 +17,46 @@ strong i {
 h1 {
     margin-top:0;
 }
+
+
+h2, h3, h4, h5 {
+	&.panel-heading {
+		margin: 0;
+		font-size: 1.2em;
+	}
+}
+
+
+.alert{
+	h1, h2, h3, h4, h5, h6 {
+		margin-top: 0;
+		margin-bottom: 14px;
+		color: inherit;
+	}
+	ul {
+		padding-left: 20px;
+	}
+	.table {
+		margin-top:10px;
+		color: inherit;
+		>thead{
+			color: inherit;
+		}
+		>thead>tr>th {
+			color: inherit;
+			vertical-align: bottom;
+			border-bottom: 1px solid $alert-info-border;
+		}
+		>thead>tr>th,
+		>thead>tr>td,
+		>tbody>tr>th,
+		>tbody>tr>td,
+		>tfoot>tr>th,
+		>tfoot>tr>td {
+			border-top: 1px solid $alert-info-border;
+			&:first-child {
+				padding-left:0;
+			}
+		}
+	}
+}
