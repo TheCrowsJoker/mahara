@@ -22,7 +22,7 @@
                         <form name="edit_{$post->id}" action="{$WWWROOT}artefact/blog/post.php">
                             <input type="hidden" name="id" value="{$post->id}">
                             <button type="submit" class="btn btn-default btn-xs">
-                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="fa fa-pencil"></span>
                                 <span class="sr-only">{str(tag=editspecific arg1=$post->title)|escape:html|safe}</span>
                             </button>
                         </form>
