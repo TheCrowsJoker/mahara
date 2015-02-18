@@ -70,10 +70,11 @@
 	{if $register}
 
 		<div class="panel panel-success register-site">
-			<h3 class="panel-heading">{str tag=registeryourmaharasite section=admin} <span class="fa fa-check-square-o pls pull-right"></span></h3>
+			<h3 class="panel-heading">{str tag=registeryourmaharasite section=admin} <span class="fa fa-star pull-right"></span></h3>
 			<div class="panel-body">
 				{str tag=registeryourmaharasitesummary section=admin args=$WWWROOT}
 			</div>
+			<a class="panel-footer" href="{$WWWROOT}admin/registersite.php">{str tag=Register section=admin} <span class="fa fa-arrow-circle-right mls  pull-right"></span></a>
 		</div>
 
 	{/if}
@@ -81,12 +82,9 @@
 	{if $sitedata}
 
 		<div class="panel panel-info site-stats">
-			<h3 class="panel-heading">{$sitedata.name}: {str tag=siteinformation section=admin} <span class="fa fa-info pls pull-right"></span></h3>
-			<div class="panel-body">
-				{include file='admin/stats.tpl' full=0}
-				
-			</div>
-			<a class="panel-footer" href="{$WWWROOT}admin/statistics.php"><span class="fa fa-area-chart mrs"></span>{str tag=viewfullsitestatistics section=admin}</a>
+			<h3 class="panel-heading">{$sitedata.name}: {str tag=siteinformation section=admin} <span class="fa fa-area-chart pls pull-right"></span></h3>
+			{include file='admin/stats.tpl' full=0}
+			<a class="panel-footer" href="{$WWWROOT}admin/statistics.php">{str tag=viewfullsitestatistics section=admin} <span class="fa fa-arrow-circle-right mls  pull-right"></span></a>
 		</div>
 
 	{/if}
