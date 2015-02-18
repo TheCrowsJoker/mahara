@@ -19,6 +19,9 @@ body {
                 margin:20px 0;
             }
         }
+        .main-column {
+            padding: 0 $grid-gutter-width / 2;
+        }
     }
     .main {
         // margin: 20px 0;
@@ -32,7 +35,6 @@ body {
 
 .main {
     max-width: 100%;
-
 }
 
 .content-main {
