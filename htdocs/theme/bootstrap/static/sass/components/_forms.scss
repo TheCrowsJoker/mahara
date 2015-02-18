@@ -81,6 +81,15 @@ select {
     &.radio,
     &.checkbox {
         margin-left:0;
+        .pseudolabel {
+            display: block;
+            @media (min-width: $screen-sm-min) {
+                display: inline-block;
+            }
+            @media (min-width: $screen-md-min) and (max-width: $screen-lg-min) {
+                display: block;
+            }
+        }
         > label {
             padding-left: 0;
             font-weight: bold;
@@ -90,9 +99,15 @@ select {
             margin-left: 0;
         }
         .radio {
-            
-            &:nth-child(n+3) {
-                @extend .align-with-input;
+            display: block;
+            &:first-child {
+                display: block;
+                @media (min-width: $screen-sm-min) {
+                    display: inline-block;
+                }
+                @media (min-width: $screen-md-min) and (max-width: $screen-lg-min) {
+                    display: block;
+                }
             }
             .radio {
                 margin-left: 0;
@@ -100,7 +115,7 @@ select {
             label {
                 width: auto;
             }
-            @media (min-width: $screen-sm-min) {
+            @media (min-width: $screen-xs-min) {
                 display: inline-block;
             } 
         }
