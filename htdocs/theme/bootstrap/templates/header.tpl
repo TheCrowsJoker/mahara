@@ -71,7 +71,13 @@
 
                         {dynamic}{insert_messages}{/dynamic}
                         {if isset($PAGEHEADING)}
-                            <h1>{$PAGEHEADING}{if $PAGEHELPNAME}<span class="page-help-icon">{$PAGEHELPICON|safe}</span>{/if}</h1>
+                            <h1>
+                                {if isset($PAGEICON)}
+                                <span class="{$PAGEICON}"></span>
+                                {/if}
+                                {$PAGEHEADING}
+                                {if $PAGEHELPNAME}<span class="page-help-icon">{$PAGEHELPICON|safe}</span>{/if}
+                            </h1>
                         {/if}
 
                         {if $SUBPAGENAV}

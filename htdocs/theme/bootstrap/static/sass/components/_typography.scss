@@ -3,6 +3,12 @@
 h1 {
     @extend .page-header;
     font-size: $font-size-h1 * 0.88;
+
+    .admin & {
+    	@include text-shadow(1px 1px 0 rgba(#fff, 0.5));
+    	color: #555;
+
+    }
 }
 
 h2 {
