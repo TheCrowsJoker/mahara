@@ -18,6 +18,11 @@
     }
 }
 
+label.sr-only + div.mce-tinymce {
+    max-width: 100%;
+    width: 100%;
+}
+
 .main form {
     margin: 20px 0;
 
@@ -88,9 +93,10 @@ select {
     textarea,
     select {
         max-width: 85%;
-        display: inline-block;
+        display: block;
         @media (min-width: $screen-sm-min) {
-            width: 420px;
+            display: inline-block;
+            width: 450px;
         }
         @media (min-width: $screen-lg-min) {
             width: 500px;
@@ -177,12 +183,6 @@ select {
             vertical-align: top;
         }
     }
-
-    .message {
-        font-size: 0.9em;
-        color: $gray;
-        margin-left: 20px;
-    }
 }
 
 // remove styles on outer element as class is duplicated to form element
@@ -236,47 +236,9 @@ select {
     color: $brand-danger;
 }
 
-.form-group .errmsg {
-    @extend .align-with-input;
-    color: $brand-danger;
-    font-size: $font-size-base - 1;
-    display: block;
-    padding-top: 10px;
-    
-    @media (min-width: $screen-md-min) {
-        margin-left: 200px;
-    }
-}
-
 .sidebar-content {
     .errmsg {
         margin-left: 0;
-    }
-}
-
-.form-group {
-    &.checkbox {
-         .description {
-            margin-left:0;
-            max-width: 700px;
-         }
-    }
-    .description {
-        @extend .align-with-input;
-        color: $gray-light;
-        font-style: italic;
-        font-size: $font-size-base - 1;
-        max-width: 500px;
-        display: block;
-        padding-top: 10px;
-
-        @media (min-width: $screen-md-min) {
-            margin-left: 200px;
-        }
-
-        @media (min-width: $screen-md-min) and (max-width: $screen-lg-min){
-            margin-left: 0;
-        }
     }
 }
 
@@ -309,6 +271,61 @@ select {
         }
     }
 }
+
+.form-group .errmsg {
+    @extend .align-with-input;
+    color: $brand-danger;
+    font-size: $font-size-base - 1;
+    display: block;
+    padding-top: 10px;
+    
+    @media (min-width: $screen-md-min) {
+        margin-left: 200px;
+    }
+}
+.form-group {
+    &.checkbox {
+         .description {
+            margin-left:0;
+            max-width: 700px;
+         }
+    }
+    .description {
+        @extend .align-with-input;
+        color: $gray-light;
+        font-style: italic;
+        font-size: $font-size-base - 1;
+        max-width: 500px;
+        display: block;
+        padding-top: 10px;
+
+        @media (min-width: $screen-md-min) {
+            margin-left: 200px;
+        }
+
+        @media (min-width: $screen-md-min) and (max-width: $screen-lg-min){
+            margin-left: 0;
+        }
+    }
+}
+
+.form-group.tags {
+    .tag-wrapper {
+        display: block;
+        @media (min-width: $screen-sm-min) {
+            display: inline-block;
+        }
+        input {
+            max-width: 85%;
+            display: inline-block;
+            @media (min-width: $screen-sm-min) {
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+
 
 .form-notifications {
     .form-group .select {
@@ -364,20 +381,5 @@ select {
     }
 }
 
-.form-group.tags {
-    .tag-wrapper {
-        display: block;
-        @media (min-width: $screen-sm-min) {
-            display: inline-block;
-        }
-        input {
-            max-width: 85%;
-            display: inline-block;
-            @media (min-width: $screen-sm-min) {
-                max-width: 100%;
-            }
-        }
-    }
-}
 
 
