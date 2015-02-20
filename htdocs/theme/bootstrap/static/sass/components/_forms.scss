@@ -13,6 +13,13 @@
     margin-left: 20px;
 }
 
+
+.pieform-fieldset {
+    .html {
+        @include clearfix;
+    }
+}
+
 .main form {
     margin: 20px 0;
 
@@ -52,6 +59,19 @@ select {
    
 }
 
+
+.fileedittable .form-group {
+    input {
+        @media (min-width: $screen-sm-min) {
+            display: inline-block;
+            width: 370px;
+        }
+        @media (min-width: $screen-lg-min) {
+            width: 450px;
+        }
+    }
+} 
+
 .form-group {
     h3 {
         font-size: $font-size-large;
@@ -59,7 +79,10 @@ select {
         margin-bottom: 20px;
         border-bottom: 1px solid $gray-lighter;
     }
-
+    .file-wrapper,
+    .tag-wrapper input,
+    .mce-tinymce,
+    .table-selectedlist,
     .about-text,
     input[type=text],
     input[type=password],
@@ -67,9 +90,12 @@ select {
     textarea,
     select {
         max-width: 85%;
-        display: inline-block;
-
+        display: block;
         @media (min-width: $screen-sm-min) {
+            display: inline-block;
+            width: 450px;
+        }
+        @media (min-width: $screen-lg-min) {
             width: 500px;
         }
     }
@@ -91,15 +117,13 @@ select {
             @media (min-width: $screen-sm-min) {
                 display: inline-block;
             }
-            @media (min-width: $screen-md-min) and (max-width: $screen-lg-min) {
-                display: block;
-            }
         }
         > label {
             padding-left: 0;
             width: auto;
         }
-        > input {
+        > input,
+        > input[type=checkbox] {
             display: inline-block;
             margin-left: 0;
         }
@@ -109,9 +133,6 @@ select {
                 display: block;
                 @media (min-width: $screen-sm-min) {
                     display: inline-block;
-                }
-                @media (min-width: $screen-md-min) and (max-width: $screen-lg-min) {
-                    display: block;
                 }
             }
             .radio {
@@ -134,6 +155,13 @@ select {
         }
     }
 
+    &.calendar {
+        .calendar {
+            margin-left: 0;
+            width: 165px;
+        }
+    }
+
     // reset bootstrap button style for cancel button
     &.submitcancel {
         .cancel {
@@ -144,6 +172,12 @@ select {
             &:hover {
                 color: $link-hover-color;
             }
+        }
+    }
+
+    &.filebrowser {
+        label {
+            vertical-align: top;
         }
     }
 }
@@ -180,6 +214,9 @@ select {
     display: block;
     @media (min-width: $screen-sm-min) {
         display: inline-block;
+        width: 450px;
+    }
+    @media (min-width: $screen-lg-min) {
         width: 500px;
     }
 }
@@ -205,10 +242,6 @@ select {
     
     @media (min-width: $screen-md-min) {
         margin-left: 200px;
-    }
-
-    @media (min-width: $screen-md-min) and (max-width: $screen-lg-min){
-        margin-left: 0;
     }
 }
 
@@ -244,10 +277,27 @@ select {
     }
 }
 
+.calendar .calendar,
+.tag .description,
+.form-group .description {
+    @extend .align-with-input;
+    color: $gray-light;
+    font-size: $font-size-base - 1;
+    display: block;
+    padding-top: 10px;
+
+    @media (min-width: $screen-md-min) {
+        margin-left: 200px;
+    }
+}
+
 .resizable-textarea {
     display: inline-block;
     width: 85%;
     @media (min-width: $screen-sm-min) {
+        width: 450px;
+    }
+    @media (min-width: $screen-lg-min) {
         width: 500px;
     }
     .textarea {
@@ -294,66 +344,35 @@ select {
         @media (min-width: $screen-sm-min) {
             display: inline-block;
         }
-        @media (min-width: $screen-md-min) and (max-width: $screen-lg-min) {
-            display: block;
-        }
     }
-    
     input[type=text] {
         margin-top: 15px;
         width: 85%;
         @media (min-width: $screen-sm-min) {
+            display: block;
+            width: 450px;
+            margin-left: 200px;
+        }
+        @media (min-width: $screen-lg-min) {
             display: inline-block;
             width: 314px;
-        }
-        @media (min-width: $screen-md-min) and (max-width: $screen-lg-min) {
-            display: inline-block;
-            width: 500px;
+            margin-left: 0;
         }
     }
 }
 
 .tags {
-    .description {
-        margin-left: 0;
-        @media (min-width: $screen-md-min) {
-            margin-left: 200px;
-        }
-
-        @media (min-width: $screen-md-min) and (max-width: $screen-lg-min){
-            margin-left: 0;
-        }
-    }
-
     .tag-wrapper {
         display: block;
+        @media (min-width: $screen-sm-min) {
+            display: inline-block;
+        }
         input {
-            max-width: 100%;
-        }
-        
-        @media (min-width: $screen-md-min) {
+            max-width: 85%;
             display: inline-block;
-        }
-
-        @media (min-width: $screen-md-min) and (max-width: $screen-lg-min){
-            display: inline-block;
-            margin-left: 0;
-        }
-    }
-}
-
-// form with tinyMCE and table 
-.form-group {
-    .mce-tinymce,
-    .table-selectedlist {
-        display: inline-block;
-    }
-    &.filebrowser {
-        label {
-            vertical-align: top;
-        }
-        .table-selectedlist {
-            width: auto;
+            @media (min-width: $screen-sm-min) {
+                max-width: 100%;
+            }
         }
     }
 }
