@@ -17,7 +17,7 @@
 {if $config.selectone}
 <input type="submit" class="buttondk btn btn-success" id="{$prefix}_open_upload_browse" name="browse" value="{str tag=selectafile section=artefact.file}" />
 {else}
-<button type="button" class="btn btn-success" data-toggle="modal" data-target="#{$prefix}_upload_browse">{str tag=addafile section=artefact.file}
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#js-filebrowser">{str tag=addafile section=artefact.file}
 </button>
 {/if}
 
@@ -28,7 +28,7 @@
 {/if}
 
 {if $config.select} 
-<div id="{$prefix}_upload_browse" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+<div id="js-filebrowser" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
 {else} 
 <div id="{$prefix}_upload_browse" class="upload_browse select">
 {/if}
