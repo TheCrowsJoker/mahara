@@ -11,12 +11,20 @@
         margin: 0 auto;
         display: block;
     }
+
     td {
-        &:first-child {
-            min-width: 60px;
+        &.movebuttons {
+            width: 50px;
+            .movedown,
+            .moveup {
+                color: #000000;
+                font-size: 20px;
+            }
+        }
+        &:last-child {
+            width: 90px;
         }
         white-space: normal;
-        min-width: 90px;
         h3 {
             font-size: $font-size-base;
             margin: 0;
