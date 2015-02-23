@@ -6,6 +6,7 @@
     padding-right: 10px;
     display: inline-block;
 }
+
 .message {
     font-size: 0.9em;
     color: $gray;
@@ -93,10 +94,9 @@ select {
     textarea,
     select {
         max-width: 85%;
-        display: block;
+        display: inline-block;
         @media (min-width: $screen-sm-min) {
-            display: inline-block;
-            width: 450px;
+            width: 420px;
         }
         @media (min-width: $screen-lg-min) {
             width: 500px;
@@ -182,6 +182,12 @@ select {
         label {
             vertical-align: top;
         }
+    }
+
+    .message {
+        font-size: 0.9em;
+        color: $gray;
+        margin-left: 20px;
     }
 }
 
@@ -380,6 +386,4 @@ select {
         }
     }
 }
-
-
 
