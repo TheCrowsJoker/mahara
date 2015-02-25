@@ -18,9 +18,8 @@
           <span class="accessible-hidden sr-only">{str tag='clickformore' section='artefact.multirecipientnotification'}</span>
         </a>
         <div id="message-{$item->table}-{$item->id}" class="hidden">
-          {$item->message|safe}
+          <p class="activity-msg">{$item->message|safe}</p>
           {if $item->url}
-            <br />
             <a href="{$WWWROOT}{$item->url}">
               {if $item->urltext}
                 {$item->urltext} {str tag='linkindicator' section="artefact.multirecipientnotification"}
@@ -40,7 +39,7 @@
       {if count($item->tousr) > 1}
         <span id="short{$item->id}">
           <a onclick="return toggleMe('long{$item->id}', 'short{$item->id}');" href="javascript:void(0)">
-            <img class="togglebtn" src="{theme_url filename='images/expand.png'}" />
+            <span class="fa fa-chevron-right"></span>
             {*<span class="accessible-hidden sr-only">{str tag='clickformore' section='artefact.multirecipientnotification'}</span>*}
           </a>
           {assign var="tousr" value=$item->tousr[0]}
@@ -50,7 +49,7 @@
         </span>
         <span style="display:none;" id="long{$item->id}">
           <a onclick="return toggleMe('short{$item->id}', 'long{$item->id}');" href="javascript:void(0)">
-            <img class="togglebtn" src="{theme_url filename='images/expanded.png'}" />
+            <span class="fa fa-chevron-down"></span>
           </a>
           <span class="recipientlist">
             {foreach from=$item->tousr item=tousr key=break}

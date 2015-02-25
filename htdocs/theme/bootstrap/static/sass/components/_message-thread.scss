@@ -1,16 +1,22 @@
+.message-item:last-child {
+    .message-preview {
+        border-bottom: none;
+        &[aria-expanded="true"] {
+            background-color: lighten($gray-light, 40%);
+        }
+    }
+}   
+
 .message-preview {
     padding: 0 15px;
     cursor: pointer;
     background-color: #f9f9f9;
-    border-bottom: 1px solid $gray-lighter;
+    border-bottom: 1px solid lighten($gray-light, 40%);
     &[aria-expanded="true"] {
         border-bottom: none;
         .content-preview {
             display: none;
         }
-    }
-    &:last-child {
-        border-bottom: none;
     }
     .user-icon-image {
         display: inline-block;
@@ -33,9 +39,9 @@
         color: $gray-light;
         font-size: $font-size-small;
         .content {
-            text-overflow: ellipsis; /* will make [...] at the end */
-            width: auto; /* change to your preferences */
-            white-space: nowrap; /* paragraph to one line */
+            text-overflow: ellipsis;
+            width: auto;
+            white-space: nowrap;
             overflow:hidden;
             @media (min-width: $screen-xs-min) {
                 width: 70%;

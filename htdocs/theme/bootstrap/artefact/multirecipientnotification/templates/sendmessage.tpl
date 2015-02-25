@@ -27,7 +27,7 @@
             </div>
         </div>
 
-        <div id="message-{$message->id}" class="message-content">
+        <div id="message-{$message->id}" class="js-message-content message-content">
             <div class="message-recipients">
                 <label>
                     {str tag='labelrecipients' section='artefact.multirecipientnotification'}

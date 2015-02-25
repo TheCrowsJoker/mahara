@@ -13,6 +13,8 @@
     }
 
     td {
+        white-space: normal;
+        &.inboxicon,
         &.movebuttons {
             width: 50px;
             .movedown,
@@ -21,13 +23,23 @@
                 font-size: 20px;
             }
         }
+        
         &:last-child {
             width: 90px;
         }
-        white-space: normal;
         h3 {
             font-size: $font-size-base;
             margin: 0;
         }
+        .activity-msg {
+            color: $gray-light;
+            font-size: $font-size-small;
+        }
     }
 }
+
+.unread {
+    background-color: $state-warning-bg;
+}
+
+
