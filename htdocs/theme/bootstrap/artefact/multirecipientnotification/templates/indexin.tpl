@@ -14,7 +14,7 @@
     {$deleteall|safe}
     <form class="form-notificationlist" name="notificationlist" method="post" onSubmit="markread(this, 'read'); return false;">
         <div class="table-responsive">
-            <table id="activitylist" class="fullwidth table table-striped">
+            <table id="activitylist" class="fullwidth table">
                 <thead>
                     <tr>
                         <th><span class="accessible-hidden sr-only">{str section='activity' tag='messagetype'}</span></th>

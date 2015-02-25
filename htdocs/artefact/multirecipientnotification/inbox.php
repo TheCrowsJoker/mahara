@@ -69,6 +69,7 @@ require_once(get_config('docroot') . 'lib/activity.php');
 // use the new function to show from - and to user
 $activitylist = activitylistin_html($type);
 
+
 $star = json_encode($THEME->get_url('images/star.png'));
 $readicon = json_encode($THEME->get_url('images/readusermessage.png'));
 $strread = json_encode(get_string('read', 'activity'));

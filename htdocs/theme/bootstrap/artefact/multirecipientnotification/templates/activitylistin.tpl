@@ -21,16 +21,21 @@
     </td>
     <td>
     {if $item->message}
-      <a href="" onclick="showHideMessage({$item->id}, '{$item->table}'); return false;">
-        {if !$item->read} <span class="accessible-hidden sr-only">{str tag='unread' section='activity'}: </span> {/if}
-        {$item->subject|truncate:60}
+<!--       <a href="" onclick="showHideMessage({$item->id}, '{$item->table}'); return false;"> -->
+        {if !$item->read} 
+          <span class="accessible-hidden sr-only">
+            {str tag='unread' section='activity'}: 
+          </span> 
+          <strong>{$item->subject|truncate:60}</strong>
+        {/if}
+        <span>{$item->subject|truncate:60}</span>
         <span class="accessible-hidden sr-only">{str tag='clickformore' section='artefact.multirecipientnotification'}</span>
-      </a>
+<!--       </a> -->
 
-      <div id="message-{$item->table}-{$item->id}" class="hidden">{$item->message|safe}
+<!--       <div id="message-{$item->table}-{$item->id}" class="hidden"> -->
+        <p class="activity-msg">{$item->message|safe|str_shorten_html:120:true}</p>
         {if $item->url}
-        <br />
-        <a href="{$WWWROOT}{$item->url}">
+        <a class="btn btn-default btn-xs" href="{$WWWROOT}{$item->url}">
             {if $item->urltext}
                 {$item->urltext}
             {else}
@@ -40,9 +45,9 @@
             </a>
         {/if}
         {if $item->return}
-          <br /><a href="{$WWWROOT}{$item->return}">{$item->returnoutput}</a>
+          <a class="btn btn-default btn-xs" href="{$WWWROOT}{$item->return}">{$item->returnoutput}</a>
         {/if}
-      </div>
+<!--       </div> -->
 
     {elseif $item->url}
       <a href="{$WWWROOT}{$item->url}">{$item->subject|truncate:60}</a>
@@ -54,7 +59,7 @@
       {if $item->return}
         <span id="short{$item->id}">
             <a onclick="return toggleMe('long{$item->id}', 'short{$item->id}')" href="javascript:void(0)">
-                <img class="togglebtn" src="{theme_url filename='images/expand.png'}" />
+                <span class="fa fa-chevron-right"></span>
             </a>
             {assign var="tousr" value=$item->tousr[0]}
             {if $tousr['link']}<a href="{$tousr['link']}">{/if}
@@ -63,7 +68,7 @@
         </span>
         <span style="display:none;" id="long{$item->id}">
           <a onclick="return toggleMe('short{$item->id}', 'long{$item->id}')" href="javascript:void(0)">
-            <img class="togglebtn" src="{theme_url filename='images/expanded.png'}" />
+            <span class="fa fa-chevron-down"></span>
           </a>
             <span class="recipientlist">
               {foreach from=$item->tousr item=tousr key=break}
@@ -84,7 +89,7 @@
     <td>{$item->date}</td>
     <td class="text-center">
       {if $item->read}
-        <span class="fa fa-ok"></span>
+        <span class="fa fa-check"></span>
         <span class="sr-only">{str tag=read section=activity}</span>
       {else}
         <label class="accessible-hidden sr-only" for="unread-{$item->table}-{$item->id}">{str tag='markasread' section='activity'}</label>

@@ -88,13 +88,13 @@ function PieformTextarea(element, fullwidth) {//{{{
     this.grippie.dimensions = this.actual(this.grippie);
 
     // Set wrapper and textarea dimensions
-    setElementDimensions(this.wrapper, {'h': this.dimensions.h + this.grippie.dimensions.h + 1});
-    if (!fullwidth) {
-        setElementDimensions(this.wrapper, {'w': this.dimensions.w});
-    }
+    // setElementDimensions(this.wrapper, {'h': this.dimensions.h + this.grippie.dimensions.h + 1});
+    // if (!fullwidth) {
+    //     setElementDimensions(this.wrapper, {'w': this.dimensions.w});
+    // }
     setStyle(this.element, {
-        'margin-bottom': '0',
-        'width': '100%'
+        'margin-bottom': '0'
+        // 'width': '100%'
     });
 
     // Wrap textarea

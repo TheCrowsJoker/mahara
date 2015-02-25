@@ -53,7 +53,7 @@ jQuery(function($) {
 
     // Expand the last item of message thread 
     var lastMsgItemIndex = $('.message-item').length - 1;
-    $('.message-content').each(function(index) {
+    $('.js-message-content').each(function(index) {
         if (index === lastMsgItemIndex) {
             $(this).collapse();
         } else {
