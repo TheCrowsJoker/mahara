@@ -1128,7 +1128,7 @@ EOF;
                 e.stop();
                 return deleteComposite(d.type, r.id, r.artefact);
             });
-            return TD({'class':'btns2'}, null, editlink, ' ', dellink);
+            return TD({'class':'control-buttons'}, null, editlink, ' ', dellink);
         }
     ]
 );
