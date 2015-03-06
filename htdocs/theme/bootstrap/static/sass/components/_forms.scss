@@ -336,22 +336,22 @@ select {
 }
 
 .form-inline.form-select-filter {
-    float: left;
+    // float: left;
     label {
-        width: auto;
+        width: auto !important;
     }
     select {
         width: 250px;
     }
 }
 
-.form-deleteall {
-    @include clearfix;
-    .btn-deleteall {
-        margin-top: -3px;
-        float: right;
-    }
-}
+// .form-deleteall {
+//     @include clearfix;
+//     .btn-deleteall {
+//         margin-top: -3px;
+//         float: left;
+//     }
+// }
 
 .form-createfolder {
     input.text {

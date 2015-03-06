@@ -52,4 +52,7 @@
 
 .message-content {
     padding: 10px 15px;
+    .message-recipients {
+        margin-bottom: 0;
+    }
 }
