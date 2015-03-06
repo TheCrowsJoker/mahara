@@ -28,10 +28,10 @@
         </div>
 
         <div id="message-{$message->id}" class="js-message-content message-content">
-            <div class="message-recipients">
-                <label>
+            <p class="message-recipients">
+                <strong>
                     {str tag='labelrecipients' section='artefact.multirecipientnotification'}
-                </label>
+                </strong>
                 {foreach from=$message->tousrs item=recipient key="index"}
                 {if $recipient['link']}
                 <a href="{$recipient['link']}">
@@ -40,26 +40,26 @@
                         {str tag='labelrecipients' section='artefact.multirecipientnotification'}
                     </span>
                     {$recipient['display']}
-                        {if ($index + 1) < count($message->tousrs)}; {/if}
+                        {if ($index + 1) < count($message->tousrs)} {/if}
                     {if $recipient['link']}
                 </a>
                     {/if}
                 {/foreach}
-            </div>
-            <div class="subjectdiv">
-                <label>
+            </p>
+            <p class="message-subject">
+                <strong>
                     {str tag='labelsubject' section='artefact.multirecipientnotification'}
-                </label>
+                </strong>
                 <a href="{$link}?replyto={$message->id}&returnto={$returnto}">
                     <span class="accessible-hidden sr-only">
                         {str tag='labelsubject' section='artefact.multirecipientnotification'}
                     </span>
                     {$message->subject}
                 </a>
-            </div>
-            <div class="messagebody">
+            </p>
+            <p class="messagebody">
                 {$message->message}
-            </div>
+            </p>
         </div>
     </div>
 {/foreach}
