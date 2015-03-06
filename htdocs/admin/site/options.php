@@ -46,6 +46,7 @@ $siteoptionform = array(
     'jssuccesscallback' => 'checkReload',
     'elements'   => array(
         'sitesettings' => array(
+            'iconclass' => 'globe',
             'type'         => 'fieldset',
             'collapsible'  => true,
             'collapsed'    => true,
@@ -113,6 +114,7 @@ $siteoptionform = array(
             ),
         ),
         'usersettings' => array(
+            'iconclass' => 'user',
             'type'         => 'fieldset',
             'collapsible'  => true,
             'collapsed'    => true,
@@ -221,6 +223,7 @@ $siteoptionform = array(
             ),
         ),
         'searchsettings' => array(
+            'iconclass' => 'search',
             'type'         => 'fieldset',
             'collapsible'  => true,
             'collapsed'    => true,
@@ -239,6 +242,7 @@ $siteoptionform = array(
             ),
         ),
         'groupsettings' => array(
+            'iconclass' => 'users',
             'type'         => 'fieldset',
             'collapsible'  => true,
             'collapsed'    => true,
@@ -278,6 +282,7 @@ $siteoptionform = array(
             ),
         ),
         'institutionsettings' => array(
+            'iconclass' => 'university',
             'type'         => 'fieldset',
             'collapsible'  => true,
             'collapsed'    => true,
@@ -316,6 +321,7 @@ $siteoptionform = array(
             ),
         ),
         'accountsettings' => array(
+            'iconclass'=>'clock-o',
             'type'         => 'fieldset',
             'collapsible'  => true,
             'collapsed'    => true,
@@ -379,6 +385,7 @@ $siteoptionform = array(
             ),
         ),
         'securitysettings' => array(
+            'iconclass'=>'lock',
             'type'         => 'fieldset',
             'collapsible'  => true,
             'collapsed'    => true,
@@ -458,6 +465,7 @@ $siteoptionform = array(
         ),
         # TODO: this should become "Network Settings" at some point
         'proxysettings' => array(
+            'iconclass'=>'exchange',
             'type'         => 'fieldset',
             'collapsible'  => true,
             'collapsed'    => true,
@@ -491,6 +499,7 @@ $siteoptionform = array(
             ),
         ),
         'emailsettings' => array(
+            'iconclass'=>'envelope',
             'type'         => 'fieldset',
             'collapsible'  => true,
             'collapsed'    => true,
@@ -549,6 +558,7 @@ $siteoptionform = array(
             ),
         ),
         'notificationsettings' => array(
+            'iconclass'=>'bell',
             'type'         => 'fieldset',
             'collapsible'  => true,
             'collapsed'    => true,
@@ -564,6 +574,7 @@ $siteoptionform = array(
                 $notificationelements),
         ),
         'generalsettings' => array(
+            'iconclass'=>'cog',
             'type'         => 'fieldset',
             'collapsible'  => true,
             'collapsed'    => true,
@@ -706,6 +717,8 @@ $siteoptionform = array(
             ),
         ),
         'loggingsettings' => array(
+            'iconclass'=>'exclamation-triangle',
+            'class' => 'last',
             'type'         => 'fieldset',
             'collapsible'  => true,
             'collapsed'    => true,
@@ -739,6 +752,7 @@ $siteoptionform = array(
 
 $siteoptionform['elements']['submit'] = array(
     'type'  => 'submit',
+    'class' => 'btn btn-success mtm',
     'value' => get_string('updatesiteoptions', 'admin')
 );
 
@@ -949,5 +963,6 @@ $thispage = json_encode(get_config('wwwroot') . 'admin/site/options.php');
 $smarty = smarty(array('adminsiteoptions'));
 $smarty->assign('siteoptionform', $siteoptionform);
 $smarty->assign('PAGEHEADING', TITLE);
+$smarty->assign('PAGEICON', 'fa fa-cogs');
 $smarty->assign('INLINEJAVASCRIPT', $js);
 $smarty->display('admin/site/options.tpl');

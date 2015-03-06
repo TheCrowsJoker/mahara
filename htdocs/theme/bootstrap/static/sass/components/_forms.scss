@@ -13,19 +13,16 @@
     margin-left: 20px;
 }
 
-.pieform-fieldset {
-    .html {
-        @include clearfix;
-    }
-}
-
 .main form {
     margin: 20px 0;
+
     label,
     .pseudolabel {
         @extend .control-label;
-        width: 200px;
+        min-width: 200px;
         padding-right: 10px;
+        font-weight:normal;
+        font-size: 1.1em;
     }
 
     .stacked-label {
@@ -34,6 +31,13 @@
             width:200px;
         }
     }
+}
+
+.as-panel form {
+    margin-top:0;
+}
+.main table form {
+    margin:0;
 }
 
 input + label {
@@ -45,6 +49,7 @@ input[type=password],
 textarea,
 select {
     @extend .form-control;
+   
 }
 
 .form-group {
@@ -92,7 +97,7 @@ select {
         }
         > label {
             padding-left: 0;
-            font-weight: bold;
+            width: auto;
         }
         > input {
             display: inline-block;
@@ -213,20 +218,29 @@ select {
     }
 }
 
-.form-group .description {
-    @extend .align-with-input;
-    color: $gray-light;
-    font-size: $font-size-base - 1;
-    max-width: 500px;
-    display: block;
-    padding-top: 10px;
-
-    @media (min-width: $screen-md-min) {
-        margin-left: 200px;
+.form-group {
+    &.checkbox {
+         .description {
+            margin-left:0;
+            max-width: 700px;
+         }
     }
+    .description {
+        @extend .align-with-input;
+        color: $gray-light;
+        font-style: italic;
+        font-size: $font-size-base - 1;
+        max-width: 500px;
+        display: block;
+        padding-top: 10px;
 
-    @media (min-width: $screen-md-min) and (max-width: $screen-lg-min){
-        margin-left: 0;
+        @media (min-width: $screen-md-min) {
+            margin-left: 200px;
+        }
+
+        @media (min-width: $screen-md-min) and (max-width: $screen-lg-min){
+            margin-left: 0;
+        }
     }
 }
 
