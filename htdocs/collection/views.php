@@ -125,6 +125,7 @@ if ($available = Collection::available_views($owner, $groupid, $institutionname)
         );
     }
     $elements['submit'] = array(
+        'class' => 'btn btn-primary pull-right input-with-icon icon-arrow-right',
         'type' => 'submit',
         'value' => get_string('addviews','collection'),
         'goto' => get_config('wwwroot') . 'collection/views.php?id='.$id,

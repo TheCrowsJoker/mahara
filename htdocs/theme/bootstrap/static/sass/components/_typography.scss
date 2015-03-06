@@ -19,13 +19,27 @@ strong i {
     font-style: normal; //No italics on bold fonts thanks
 }
 
+a:focus {
+	outline-color:$input-border-focus;
+}
+
+.lead {
+  font-size: floor(($font-size-base * 1.15));
+  font-weight: 300;
+  line-height: 1.4;
+
+  @media (min-width: $screen-sm-min) {
+    font-size: ($font-size-base * 1.4);
+  }
+}
+
 .page-header,
 h1 {
     margin-top:0;
 }
 
 
-h2, h3, h4, h5 {
+h2, h3, h4, h5, legend {
 	&.panel-heading {
 		margin: 0;
 		font-size: 1.2em;

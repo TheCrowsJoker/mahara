@@ -1,0 +1,31 @@
+.ui-draggable:not(.submit) {
+	@extend .fa;
+	background-color: $brand-default;
+	min-height: 30px;
+	float:none;
+	clear:both;
+	padding-left: 50px;
+	line-height: 30px;
+	display: block;
+
+	&:before {
+		background: #333;
+		box-sizing: border-box;
+		color: rgba(#fff, 0.7);
+		content: "\f047";
+		display: block;
+		height: 100%;
+		left: 0px;
+		line-height: 1.3em;
+		padding: 5px;
+		position: absolute;
+		top: 0px;
+		width: 22px;
+
+	}
+
+	.checkbox {
+		right: 10px;
+		top: 5px;
+	}
+}
