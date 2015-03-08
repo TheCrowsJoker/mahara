@@ -113,16 +113,20 @@
                 {/if}
             </p>
             <p>{$item->message|safe}</p>
+            {if $item->url && $item->urltext === 'Collection'}
+            <a class="notification-action" href="{$WWWROOT}{$item->url}">
+                <span class="fa fa-arrow-right"></span>
+                {$item->urltext}
+            </a>
+            {/if}
         </div>
         {/if}
-        {if $item->url}
-        <div class="notification-cta panel-footer clearfix">
+        {if $item->url && $item->urltext === 'Reply'}
+        <div class="notification-actions panel-footer mbl">
             <div class="notification-url">
                 <a class="notification-action" href="{$WWWROOT}{$item->url}">
                     <span class="fa fa-reply"></span> 
-                    {if $item->urltext}
                     {$item->urltext}
-                    {/if}
                 </a>
                 {if $item->return}
                 <a class="notification-action" href="{$WWWROOT}{$item->return}">
