@@ -53,7 +53,22 @@
     .nav-pills {
         margin: 0;
     }
-    a.panel-footer {
+}
+
+.panel-half {
+    width: 48%;
+    float: left;
+    margin-left: 4%;
+    &.first {
+        margin-left:0;
+    }
+    @media (max-width: $screen-sm-min) {
+        width: 100%;
+        margin-left:0;
+    }
+}
+
+a.panel-footer {
         text-align:center;
         color: #555;
         display: block;
@@ -68,13 +83,3 @@
             margin-top: 3px;
         }
     }
-}
-
-.panel-half {
-    width: 48%;
-    float: left;
-    margin-left: 4%;
-    &.first {
-        margin-left:0;
-    }
-}
