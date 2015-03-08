@@ -23,8 +23,8 @@
     margin-bottom: 0;
     &.panel {
         @include border-radius(0);
-        border-bottom: none;
         box-shadow: none;
+        border: 0;
         &:first-child {
             @include border-radius(3px 3px 0 0);
         }
@@ -32,7 +32,6 @@
             @include border-radius(0 0 3px 3px);
             border-bottom: 1px solid $panel-default-border;
             .panel-footer {
-                border-bottom: none;
                 margin-bottom: 0;
             }
         }
@@ -52,21 +51,21 @@
     .notification-header {
         cursor: pointer;
         color: inherit;
-    }
-    .notification-header[aria-expanded=false] {
-        &.panel-heading {
-            border: none;
-        }
-        .control {
-            &:after {
-                @extend .fa;
-                font-size: $font-size-small;
-                content: "\f078";
-                color: $link-color;
+        &[aria-expanded=false] {
+            &.panel-heading {
+                border: none;
             }
-        }
-        .content-expanded {
-            display: none;
+            .control {
+                &:after {
+                    @extend .fa;
+                    font-size: $font-size-small;
+                    content: "\f078";
+                    color: $link-color;
+                }
+            }
+            .content-expanded {
+                display: none;
+            }
         }
     }
     .notification-icon {
@@ -113,16 +112,13 @@
     .notification-action {
         padding-right: 10px;
     }
-    .notification-cta {
+    .notification-actions {
         &.panel-footer {
-            @include border-radius(0);
-            margin-bottom: 15px;
-            border-bottom: 1px solid $panel-default-border;
-            background-color: transparent;
+            @include border-radius(0 0 3px 3px);
+
         }
         .notification-url {
             margin-top: 3px;
-            float: left;
         }
     }
 }
