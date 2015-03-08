@@ -40,9 +40,9 @@
         </div>
         <div class="notification-control">
             <div class="control">
-                <div class="marked-delete prl">
+                <div class="control-wrapper prl">
                     <input type="checkbox" class="tocheckdel" name="delete-{$item->table}-{$item->id}" id="delete-{$item->table}-{$item->id}">
-                    <label class="" for="delete-{$item->table}-{$item->id}">{str tag='delete' section='mahara'}</label>
+                    <label class="marked delete" for="delete-{$item->table}-{$item->id}">{str tag='delete' section='mahara'}</label>
                 </div>
             </div>
             <span class="content-expanded fa fa-chevron-up"></span>

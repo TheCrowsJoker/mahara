@@ -19,7 +19,7 @@
             <input class="submit btn btn-danger" type="button" value="{str tag='delete'}" onClick="markread(document.notificationlist, 'del'); return false;" />
         </div>
         <div class="selectall pull-right">
-            <strong>{str section='activity' tag='selectall'}: </strong>
+            <strong class="prm">{str section='activity' tag='selectall'}: </strong>
             <div class="markasread">
                 <label class="selected" for="markallasread" onclick="toggleChecked('tocheckread'); return false;">
                      <input type="checkbox" data-tocheckread="true" name="markallasread" id="markallasread">
@@ -27,7 +27,6 @@
                     <span class="accessible-hidden sr-only"> {str tag='selectallread' section='artefact.multirecipientnotification'}</span>
                 </label>
             </div>
-            <span>|</span>
             <div class="delete">
                 <label class="selected" for="deleteall" onclick="toggleChecked('tocheckdel'); return false;">
                     <input type="checkbox" name="deleteall" id="deleteall">

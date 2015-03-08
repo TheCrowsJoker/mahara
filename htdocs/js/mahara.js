@@ -650,13 +650,11 @@ function setCookie( name, value, expires, path, domain, secure )
 // End cookie related functions
 
 function toggleChecked(c) {
-    console.log(c);
     var elements = getElementsByTagAndClassName(null, c),
         trigger = document.querySelectorAll('data-'+c),
         i;
 
     if(trigger) {
-        console.log(trigger);
         trigger.checked = true;
     }
     if (elements) {
