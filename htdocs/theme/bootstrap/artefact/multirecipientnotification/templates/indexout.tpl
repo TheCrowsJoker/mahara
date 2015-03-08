@@ -18,7 +18,7 @@
             <input class="submit btn btn-danger" type="button" value="{str tag='delete'}" onClick="markread(document.notificationlist, 'del'); return false;" />
         </div>
         <div class="selectall pull-right">
-            <strong>{str section='activity' tag='selectall'}: </strong>
+            <strong class="prm">{str section='activity' tag='selectall'}: </strong>
             <div class="delete">
                 <label class="selected" for="deleteall" onclick="toggleChecked('tocheckdel'); return false;">
                     <input type="checkbox" name="deleteall" id="deleteall">

@@ -43,15 +43,15 @@
         </div>
         <div class="notification-control">
             <div class="control">
-                <div class="marked-read prm">
-                    {if !$item->read}
+                {if !$item->read}
+                <div class="control-wrapper prm">
                     <input type="checkbox" class="tocheckread" name="unread-{$item->table}-{$item->id}" id="unread-{$item->table}-{$item->id}">
-                    <label class="" for="unread-{$item->table}-{$item->id}">{str tag='markasread' section='activity'}</label>
-                    {/if}
+                    <label class="marked read" for="unread-{$item->table}-{$item->id}">{str tag='markasread' section='activity'}</label>
                 </div>
-                <div class="marked-delete prl">
+                {/if}
+                <div class="control-wrapper prl">
                     <input type="checkbox" class="tocheckdel" name="delete-{$item->table}-{$item->id}" id="delete-{$item->table}-{$item->id}">
-                    <label class="" for="delete-{$item->table}-{$item->id}">{str tag='delete' section='mahara'}</label>
+                    <label class="marked delete" for="delete-{$item->table}-{$item->id}">{str tag='delete' section='mahara'}</label>
                 </div>
             </div>
             <span class="content-expanded fa fa-chevron-up"></span>
@@ -74,7 +74,12 @@
                     </a>
                 </span>
                 {/if}
+            </p>
                 {else}
+            <p class="notification-fromusers">
+                <strong>
+                    {str section='artefact.multirecipientnotification' tag='fromuser'}:
+                </strong>
                 <span>{str tag="system"}</span>
             </p>
             {/if}
@@ -110,16 +115,15 @@
             <p>{$item->message|safe}</p>
         </div>
         {/if}
+        {if $item->url}
         <div class="notification-cta panel-footer clearfix">
             <div class="notification-url">
-                {if $item->url}
                 <a class="notification-action" href="{$WWWROOT}{$item->url}">
                     <span class="fa fa-reply"></span> 
                     {if $item->urltext}
                     {$item->urltext}
                     {/if}
                 </a>
-                {/if}
                 {if $item->return}
                 <a class="notification-action" href="{$WWWROOT}{$item->return}">
                     <span class="fa fa-reply-all"></span> {$item->returnoutput}
@@ -127,6 +131,7 @@
                 {/if}
             </div>
         </div>
+        {/if}
     </div>
 </div>
 {/foreach}

@@ -1,10 +1,11 @@
 .form-notificationlist {
     .selectall {
         margin-top: 15px;
+        margin-right: 40px;
         .markasread,
         .delete {
             display: inline-block;
-            margin: 0 10px;
+            margin-right: 10px;
             label {
                 font-weight: normal;
             }
@@ -85,15 +86,14 @@
     .notification-control {
         float: right;
         .control {
-            font-size: $font-size-small;
             display: inline-block;
-            input {
+            .control-wrapper {
+                display: inline-block;
+            }
+            .tocheckread,
+            .tocheckdel {
                 margin-top: 2px;
                 vertical-align: top;
-            }
-            .marked-read,
-            .marked-delete {
-                display: inline-block;
             }
         }
         .content-expanded {
