@@ -41,7 +41,7 @@
 }
 
 .input-with-icon {
-
+    @extend .btn;
     @extend .fa;
     position: relative;
     padding-left: 25px;
@@ -60,9 +60,15 @@
             content: "\f061";
         }
     }
+     &.icon-folder {
+        @extend .btn-danger;
+        &:before {
+            content: "\f114";
+        }
 
+    }
 
-    .input-as-icon {
+    .input-with-icon {
         color: transparent;
         padding: 0;
         &:hover,
