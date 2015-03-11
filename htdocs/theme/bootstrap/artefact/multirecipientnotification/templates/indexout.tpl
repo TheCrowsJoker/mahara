@@ -20,8 +20,8 @@
         <div class="selectall pull-right">
             <strong class="prm">{str section='activity' tag='selectall'}: </strong>
             <div class="delete">
-                <label class="selected" for="deleteall" onclick="toggleChecked('tocheckdel'); return false;">
-                    <input type="checkbox" name="deleteall" id="deleteall">
+                <label class="selected" for="deleteall">
+                    <input type="checkbox" name="deleteall" id="deleteall" data-togglecheckbox="tocheckdel">
                     {str tag='delete'}
                     <span class="accessible-hidden sr-only">{str tag='selectalldelete' section='artefact.multirecipientnotification'}</span>
                 </label>
