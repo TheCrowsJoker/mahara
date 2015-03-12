@@ -1,6 +1,6 @@
 <div class="collapsible-group">
 {foreach from=$data item=item name='notification'}
-    <div class="panel panel-collapse collapsible notification collapsible-group  {if !$item->read}panel-primary{else}panel-default{/if} {if $dwoo.foreach.notification.first}first{/if} {if $dwoo.foreach.notification.last}last{/if} ">
+    <div class="panel panel-collapse collapsible notification collapsible-group {if !$item->read}panel-primary{else}panel-default{/if} {if $dwoo.foreach.notification.first}first{/if} {if $dwoo.foreach.notification.last}last{/if} ">
         <h4 class="panel-heading">
             <a class="collapsed" href="#notification-{$item->id}" data-toggle="collapse" aria-expanded="1" aria-controls="notification-{$item->id}">
                 {if $item->read && $item->type == 'usermessage'}
@@ -60,7 +60,7 @@
         </h4>
         <div id="notification-{$item->id}" class="collapse">
             {if $item->message}
-            <div class="content panel-body {if $item->url && $item->urltext !== 'Reply'}mbl{/if}">
+            <div class="content panel-body {if $item->urltext !== 'Reply'} mbl no-footer{/if}">
                 {if ($item->fromusr != 0)}
                 <p class="fromusers">
                     <strong>
@@ -89,32 +89,28 @@
                         {str section='artefact.multirecipientnotification' tag='touser'}: 
                     </strong>
                     {if $item->return}
-                    <span class="tousers">
+                    <span>
                         {foreach from=$item->tousr item=tousr key=break}
-                        {if ($tousr['link'])}
-                        <a class="prm" href="{$tousr['link']}">
-                            {/if}
+                        {if ($tousr['link'])}<a href="{$tousr['link']}">{/if}
+                            <span class="prm">
                             {$tousr['display']|truncate:$maxnamestrlength}
-                            {if ($tousr['link'])}
-                        </a>{/if}
-                    {/foreach}
+                            </span>
+                        {if ($tousr['link'])}</a>{/if}
+                        {/foreach}
                     </span>
                     {else}
                     <span>
                         {assign var="tousr" value=$item->tousr[0]}
-                    </span>
-                    {if ($tousr['link'])}
-                    <a href="{$tousr['link']}">
-                        {/if}
-                        <span>
+                        {if ($tousr['link'])}<a href="{$tousr['link']}">{/if}
+                            <span class="prm">
                             {$tousr['display']|truncate:$maxnamestrlength}
-                        </span>
-                        {if ($tousr['link'])}
-                    </a>{/if}
+                            </span>
+                        {if ($tousr['link'])}</a>{/if}
+                    </span>
                     {/if}
                 </p>
                 <p>{$item->message|safe}</p>
-                {if $item->url && $item->urltext === 'Collection'}
+                {if $item->url && $item->urltext != 'Reply'}
                 <a class="action" href="{$WWWROOT}{$item->url}">
                     <span class="fa fa-arrow-right"></span>
                     {$item->urltext}
@@ -123,7 +119,7 @@
             </div>
             {/if}
         
-            {if $item->url && $item->urltext === 'Reply'}
+            {if $item->url && $item->urltext == 'Reply'}
             <div class="actions panel-footer mbl">
                 <div class="url">
                     <a class="action" href="{$WWWROOT}{$item->url}">
