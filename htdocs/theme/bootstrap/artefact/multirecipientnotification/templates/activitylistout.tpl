@@ -60,25 +60,23 @@
                         {str section='artefact.multirecipientnotification' tag='touser'}: 
                     </strong>
                     {if count($item->tousr) > 1}
-                    <span class="tousers">
+                    <span>
                         {foreach from=$item->tousr item=tousr key=break}
-                        {if ($tousr['link'])}
-                        <a class="prm" href="{$tousr['link']}">
-                                {/if}
-                                {$tousr['display']|truncate:$maxnamestrlength}
-                                {if ($tousr['link'])}
-                        </a>{/if}
+                        {if ($tousr['link'])}<a href="{$tousr['link']}">{/if}
+                            <span class="prm">
+                            {$tousr['display']|truncate:$maxnamestrlength}
+                            </span>
+                        {if ($tousr['link'])}</a>{/if}
                         {/foreach}
                     </span>
                     {else}
-                    <span class="tousers">
-                    {assign var="tousr" value=$item->tousr[0]}
-                    {if $tousr['link']}
-                        <a href="{$tousr['link']}">
-                        {/if}
-                        {$tousr['display']|truncate:$maxnamestrlength}
-                        {if $tousr['link']}
-                        </a>{/if}
+                    <span>
+                        {assign var="tousr" value=$item->tousr[0]}
+                        {if $tousr['link']}<a href="{$tousr['link']}">{/if}
+                            <span class="prm">
+                            {$tousr['display']|truncate:$maxnamestrlength}
+                            </span>
+                        {if $tousr['link']}</a>{/if}
                     </span>
                     {/if}
                 </p>

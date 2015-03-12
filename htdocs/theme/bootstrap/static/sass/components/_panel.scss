@@ -93,11 +93,9 @@ a.panel-footer {
     }
 }
 
-
 .panel-heading {
     position: relative;
 }
-
 
 /*
  * Input boxes positioned on the right over the panel header
@@ -153,7 +151,7 @@ a.panel-footer {
         border: 1px solid $panel-default-border;
     }
     .panel-heading a,
-    .panel-body {
+    .panel-body:not(.no-footer) {
         border-bottom-width:0;
     }
 
@@ -179,7 +177,7 @@ a.panel-footer {
                 border: 1px solid darken($bgcolor, 15%);
             }
             .panel-heading a,
-            .panel-body {
+            .panel-body:not(.no-footer) {
                 border-bottom-width:0;
             }
         }

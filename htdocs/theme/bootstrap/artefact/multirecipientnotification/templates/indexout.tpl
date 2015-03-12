@@ -1,7 +1,7 @@
 {include file="header.tpl"}
 
 <div id="notifications">
-    <form method="post" class="form-inline form-select-filter pbl">
+    <form method="post" class="form-inline form-select-filter ptl pbl">
         <div class="form-group">
             <label for="notifications_type">{str section='activity' tag='type'}:</label>
             <select id="notifications_type" name="type">
@@ -27,7 +27,7 @@
                 </label>
             </div>
         </div>
-        <div id="activitylist" class="notification-list">
+        <div id="activitylist" class="notification-list ptl">
             {$activitylist['tablerows']|safe}
         </div>
     </form>
