@@ -13,7 +13,13 @@
             width: 97%;
         }
         &.double {
-            width: 30.3% * 2 + 3%;
+            width: 30.3% * 2 + 3%; //double width panel
+        }
+        &.panel-half {
+            width: 50 - 3%;
+            @media (max-width: $screen-sm-min) {
+            width: 97%;
+            }
         }
     }
 }
@@ -91,10 +97,40 @@ a.panel-footer {
         margin: 0 0 20px;
         font-size: 0.9em;
     }
+    .unstyled {
+        text-decoration: none;
+        color: inherit;
+    }
 }
 
+.collapsible legend h4,
 .panel-heading {
     position: relative;
+    display: block;
+    &.has-link {
+        padding: 0;
+    }
+    a {
+        display: block;
+        color: #333;
+        
+        &.collapsed, &.title-link {
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 10px 15px;
+        }
+        &:hover, &:focus {
+            background-color: darken(#f5f5f5, 1%);
+            text-decoration: none;
+            .link-indicator {
+                color: $link-hover-color;
+            }
+        }
+        .pieform > .collapsible-group:first-child &,
+        .first & {
+            @include border-top-radius(3px);
+        }
+    }
 }
 
 /*
@@ -184,5 +220,23 @@ a.panel-footer {
     }
     .panel-footer a {
         color: #333;
+    }
+}
+
+.panel-footer {
+    &.has-form {
+        @include clearfix;
+        .control {
+            display: inline-block;
+        }
+    }
+    .cancel-link {
+        margin: -40px 0 0 75px;
+        text-decoration: underline;
+        color: $link-color;
+        background-color: transparent;
+        &:hover {
+            color: $link-hover-color;
+        }
     }
 }
