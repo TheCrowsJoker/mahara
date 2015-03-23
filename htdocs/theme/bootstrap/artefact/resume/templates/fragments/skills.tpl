@@ -34,7 +34,7 @@
                 {/if}
             </div>
             {if $n->files}
-            <div id="resume_{$n->id}" class="panel-footer">
+            <div id="resume_{$n->id}" class="panel-footer has-attachment">
                 <div class="attachment-heading in-panel">
                      <a class="attach-files collapsed" aria-expanded="false" href="#attach_skill_{$n->id}" data-toggle="collapse">
                         <span class="badge">{$n->count}</span>
@@ -50,7 +50,7 @@
                                 <div class="file-icon mrs">
                                     <img src="{$file->icon}" alt="" class="mrs">
                                 </div>
-                                {$file->title}
+                                {$file->title|truncate:40}
                             </a>
                         </li>
                         {/foreach}

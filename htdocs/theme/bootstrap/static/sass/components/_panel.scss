@@ -237,7 +237,7 @@ a.panel-footer {
     }
     &.has-attachment {
         position: relative;
-        z-index: 100;
+        z-index: 999;
     }
     .expand-add-button {
         .show-form {
