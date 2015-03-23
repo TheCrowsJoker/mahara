@@ -10,7 +10,7 @@
 
     <div id="notifications" class="ptl notification-parent">
 
-        <div class="btn-group pull-left" role="group">
+        <div class="btn-group pull-left mbl" role="group">
             <label class="btn btn-default" for="selectall">
                 <input type="checkbox" name="selectall" id="selectall" data-togglecheckbox="tocheck">
                 <span class="sr-only">{str section='activity' tag='selectall'}</span>
