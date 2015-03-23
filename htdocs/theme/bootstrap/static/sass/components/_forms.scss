@@ -117,15 +117,18 @@ select {
             }
         }
     }
+
+    .radio:not(.form-group){
+        &:nth-child(n+3) {
+            @extend .align-with-input;
+        }
+    }
     
-    .form-group .radio,
+    .form-group.radio,
     .radio {
         @media (min-width: $screen-sm-min) {
             margin-top: 0;
             display: inline-block;
-        }
-        &:nth-child(n+3) {
-            @extend .align-with-input;
         }
         input[type=radio] {
             margin-top: 5px;
