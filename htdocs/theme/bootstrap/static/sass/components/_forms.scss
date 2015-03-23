@@ -31,7 +31,9 @@ label,
     padding-right: 10px;
     font-weight:normal;
     font-size: 1.1em;
-
+    &.btn {
+        min-width: 0;
+    }
     .col-md-2 & {
         min-width:0;
     }
@@ -345,10 +347,12 @@ select {
     }
 }
 
+
 .form-inline {
     &.form-select-filter {
         label {
             min-width: auto !important;
+             width: auto !important;
         }
         select {
             width: 250px;
@@ -375,3 +379,14 @@ select {
     }
 }
 
+
+.input-group.with-help {
+    select:not(:first-child),
+    input:not(:first-child) {
+        @include border-right-radius(3px);
+    }
+}
+
+.btn input {
+    margin-top: 0;
+}

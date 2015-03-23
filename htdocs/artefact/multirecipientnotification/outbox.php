@@ -72,116 +72,11 @@ $star = json_encode($THEME->get_url('images/star.png'));
 $readicon = json_encode($THEME->get_url('images/readusermessage.png'));
 $strread = json_encode(get_string('read', 'activity'));
 $strnodelete = json_encode(get_string('nodelete', 'activity'));
-$javascript = <<<JAVASCRIPT
 
-function markread(form, action) {
-
-    var e = getElementsByTagAndClassName(null,'tocheck'+action,form);
-    if (e.length === 0 && action == 'del') {
-        alert($strnodelete);
-        return;
-    }
-    var pd = {};
-
-    for (cb in e) {
-        if (e[cb].checked == true) {
-            pd[e[cb].name] = 1;
-        }
-    }
-
-    if (action == 'read') {
-        pd['markasread'] = 1;
-    }
-    else if (action == 'del') {
-        // If deleting, also pass the ids of unread messages, so we can update
-        // the unread message count as accurately as possible.
-        forEach(getElementsByTagAndClassName('input', 'tocheckread', form), function(cb) {
-            pd[cb.name] = 0;
-        });
-        pd['delete'] = 1;
-    }
-
-    if (paginatorData) {
-        for (p in paginatorData.params) {
-            pd[p] = paginatorData.params[p];
-        }
-    }
-
-    sendjsonrequest('indexout.json.php', pd, 'GET', function (data) {
-        paginator.updateResults(data);
-        updateUnreadCount(data);
-    });
-}
-
-function showHideMessage(id, table) {
-    var message = $('message-' + table + '-' + id);
-    if (!message) {
-        return;
-    }
-    if (hasElementClass(message, 'hidden')) {
-        var unread = getFirstElementByTagAndClassName(
-            'input', 'tocheckread', message.parentNode.parentNode
-        );
-        var unreadicon = getFirstElementByTagAndClassName(
-            'img', 'unreadmessage', message.parentNode.parentNode
-        );
-        if (unread) {
-            var pd = {'readone':id, 'table':table};
-            sendjsonrequest('indexout.json.php', pd, 'GET', function(data) {
-                swapDOM(unread, IMG({'src' : {$star}, 'alt' : {$strread}}));
-                if (unreadicon) {
-                    swapDOM(unreadicon, IMG({'src' : {$readicon}, 'alt' : getNodeAttribute(unreadicon, 'alt') + ' - ' + {$strread}}));
-                };
-                updateUnreadCount(data);
-            });
-        }
-        removeElementClass(message, 'hidden');
-    }
-    else {
-        addElementClass(message, 'hidden');
-    }
-}
-
-function changeactivitytype() {
-    var delallform = document.forms['delete_all_notifications'];
-    delallform.elements['type'].value = this.options[this.selectedIndex].value;
-    var params = {'type': this.options[this.selectedIndex].value};
-    sendjsonrequest('indexout.json.php', params, 'GET', function(data) {
-        paginator.updateResults(data);
-    });
-}
-
-// We want the paginator to tell us when a page gets changed.
-// @todo: remember checked/unchecked state when changing pages
-function PaginatorData() {
-    var self = this;
-    var params = {};
-
-    this.pageChanged = function(data) {
-        self.params = {
-            'offset': data.offset,
-            'limit': data.limit,
-            'type': data.type
-        }
-    }
-
-    paginatorProxy.addObserver(self);
-    connect(self, 'pagechanged', self.pageChanged);
-}
-
-var paginator;
-var paginatorData = new PaginatorData();
-
-addLoadEvent(function () {
-    paginator = {$activitylist['pagination_js']}
-    connect('notifications_type', 'onchange', changeactivitytype);
-});
-
-JAVASCRIPT;
 
 $deleteall = pieform(array(
     'name'        => 'delete_all_notifications',
-    'class'       => 'form-deleteall',
+    'class'       => 'form-deleteall sr-only',
     'method'      => 'post',
     'plugintype'  => 'core',
     'pluginname'  => 'account',
@@ -192,7 +87,7 @@ $deleteall = pieform(array(
         ),
         'submit' => array(
             'type' => 'submit',
-            'class' => 'btn btn-danger btn-deleteall',
+            'class' => 'deleteallnotifications',
             'value' => get_string('deleteallnotifications', 'activity'),
             'confirm' => get_string('reallydeleteallnotifications', 'activity'),
         ),
@@ -244,7 +139,7 @@ $smarty = smarty(array('paginator'),
 );
 $smarty->assign('options', $options);
 $smarty->assign('type', $type);
-$smarty->assign('INLINEJAVASCRIPT', $javascript);
+$smarty->assign('INLINEJAVASCRIPT', null);
 
 // Adding the links to out- and inbox
 $smarty->assign('PAGEHEADING', TITLE);
