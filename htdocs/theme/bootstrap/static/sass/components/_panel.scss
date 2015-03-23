@@ -137,17 +137,16 @@ a.panel-footer {
  * Input boxes positioned on the right over the panel header
  */
 .panel-control {
-    font-size: $font-size-base - 2;
     display: block;
+    font-size: $font-size-base - 2;
+    margin: 0;
+    min-width: 0;
+    padding: 12px 0 12px 15px;
     position: absolute;
-    right: 20px;
-    top: 12px;
+    width: auto;
+    z-index: 5;
     input {
         margin-top:0;
-    }
-    label {
-        min-width: 0;
-        vertical-align: text-bottom;
     }
     .control {
         display: inline-block;
