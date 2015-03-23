@@ -49,7 +49,7 @@
                                 <div class="file-icon mrs">
                                     <img src="{$file->icon}" alt="">
                                 </div>
-                                {$file->title}
+                                {$file->title|truncate:40}
                             </a>
                         </li>
                     {/foreach}
