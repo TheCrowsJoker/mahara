@@ -101,6 +101,14 @@ a.panel-footer {
         text-decoration: none;
         color: inherit;
     }
+    .form-group {
+        padding: 0;
+    }
+    .panel-footer {
+        clear:both;
+        margin: 15px -15px -16px; //alter padding for panel footers inside panel-body (needed for some forms)
+    }
+
 }
 
 .collapsible legend h4,
@@ -130,6 +138,12 @@ a.panel-footer {
         .pieform > .collapsible-group:first-child &,
         .first & {
             @include border-top-radius(3px);
+        }
+    }
+    .help a { //fix css on contextual help icons
+        padding: 0;
+        &:hover {
+            background:none;
         }
     }
 }
