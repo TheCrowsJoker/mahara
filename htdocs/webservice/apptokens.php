@@ -426,4 +426,5 @@ safe_require('auth', 'webservice');
 
 $smarty->assign('form', $form);
 $smarty->assign('PAGEHEADING', TITLE);
+$smarty->assign('PAGEICON', 'fa fa-puzzle-piece');
 $smarty->display('form.tpl');

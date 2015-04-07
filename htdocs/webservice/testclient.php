@@ -174,6 +174,7 @@ safe_require('auth', 'webservice');
 $smarty->assign('form', $form);
 $heading = get_string('testclient', 'auth.webservice');
 $smarty->assign('PAGEHEADING', $heading);
+$smarty->assign('PAGEICON', 'fa fa-puzzle-piece');
 // Check that webservices is enabled
 $smarty->assign('disabled', (get_config('webservice_enabled') ? false : true));
 $smarty->display('auth:webservice:testclient.tpl');

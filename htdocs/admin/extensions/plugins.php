@@ -194,4 +194,5 @@ $smarty->assign('INLINEJAVASCRIPT', $javascript);
 $smarty->assign('plugins', $plugins);
 $smarty->assign('installlink', 'installplugin');
 $smarty->assign('PAGEHEADING', TITLE);
+$smarty->assign('PAGEICON', 'fa fa-puzzle-piece');
 $smarty->display('admin/extensions/plugins.tpl');
