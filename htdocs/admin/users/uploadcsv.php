@@ -634,4 +634,5 @@ $smarty = smarty(array('adminuploadcsv'));
 $smarty->assign('uploadcsvpagedescription', $uploadcsvpagedescription);
 $smarty->assign('uploadcsvform', $form);
 $smarty->assign('PAGEHEADING', TITLE);
+$smarty->assign('PAGEICON', 'fa fa-user');
 $smarty->display('admin/users/uploadcsv.tpl');
