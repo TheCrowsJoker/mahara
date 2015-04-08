@@ -1,11 +1,17 @@
 // global styles for list elements such a list of pages, collections 
 
 .listing {
+    &.blocktype {
+        .listrow {
+            border-top: 0;
+            padding: 10px 0;
+        }
+    }
     .listrow {
         @include clearfix;
         padding: 15px;
         border-top: 1px solid #ddd;
-        
+
         &:first-child {
             border-top: none;
         }
@@ -33,13 +39,21 @@
                 padding-left: 40px;
             }
         }
+        .has-actionlist {
+            max-width: auto;
+            @media (min-width: $screen-sm-min) {
+                max-width: 450px;
+            }
+            @media (min-width: $screen-lg-min) {
+                max-width: 600px;
+            }
+        }
         .actionlist {
             &.groupuserstatus {
                 max-width: 200px;
             }
             clear: both;
             float: none;
-            font-size: $font-size-small;
             padding: 15px 0 0 0;
             margin-bottom: 0;
             @media (min-width: $screen-sm-min) {
@@ -49,6 +63,19 @@
             }
             .memberof {
                 font-weight: bold;
+            }
+        }
+        small {
+            display: block;
+        }
+        
+        &.morelink {
+            a {
+                display: block;
+                color: $mahara-dark-grey;
+            }
+            &:hover {
+                background-color: $brand-default;
             }
         }
     }

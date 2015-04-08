@@ -6,10 +6,8 @@
 <div class="no-result">{$message|safe}</div>
 {/if}
 {if $results}
-<div class="">
-    <div id="friendslist" class="panel-items js-masonry" data-masonry-options='{ "itemSelector": ".panel" }'>
-        {$results.tablerows|safe}
-    </div>
+<div id="friendslist" class="panel-items js-masonry" data-masonry-options='{ "itemSelector": ".panel" }'>
+    {$results.tablerows|safe}
 </div>
 {$results.pagination|safe}
 {/if}

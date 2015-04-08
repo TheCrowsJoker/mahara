@@ -64,13 +64,14 @@ if ($forums) {
                 'validatecallback' => 'subscribe_forum_validate',
                 'successcallback' => 'subscribe_forum_submit',
                 'autofocus' => false,
-                'renderer' => 'div',
+                'renderer' => 'oneline',
                 'elements' => array(
                     'submit' => array(
                     'type'  => 'submit',
-                        'class' => 'btn-subscribe',
+                        'class' => $forum->subscribed ? 'btn btn-danger btn-xs' : 'btn btn-primary btn-xs',
                         'value' => $forum->subscribed ? get_string('Unsubscribe', 'interaction.forum') : get_string('Subscribe', 'interaction.forum'),
-                        'help' => $i == 0 ? true : false
+                        // 'help' => $i == 0 ? true : false
+                        'help' => false
                     ),
                     'forum' => array(
                         'type' => 'hidden',

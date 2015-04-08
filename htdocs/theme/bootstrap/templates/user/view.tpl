@@ -28,46 +28,72 @@
 <div id="userview">
     <div class="user-icon">
         {$institutions|safe}
+        
         {if $loginas}
-        <a href="{$WWWROOT}admin/users/changeuser.php?id={$USERID}" class="btn-login">{$loginas}</a>
-        {if $USER->get('admin')}<a href="{$WWWROOT}admin/users/edit.php?id={$USERID}" class="btn-edit">{str tag=accountsettings section=admin}</a>{/if}
+            <a href="{$WWWROOT}admin/users/changeuser.php?id={$USERID}" class="btn-login">
+            {$loginas}
+            </a>
+            
+            {if $USER->get('admin')}
+            <a href="{$WWWROOT}admin/users/edit.php?id={$USERID}" class="btn-edit">{str tag=accountsettings section=admin}
+            </a>
+            {/if}
         {/if}
+        
         {if $canmessage}
-        <a href="{$WWWROOT}user/sendmessage.php?id={$USERID}&amp;returnto=view" class="btn-message">{str tag='sendmessage' section='group'}</a>
+        <a href="{$WWWROOT}user/sendmessage.php?id={$USERID}&amp;returnto=view" class="btn-message">
+            {str tag='sendmessage' section='group'}
+        </a>
         {/if}
+        
         {if $relationship == 'existingfriend'}
-        <a href="{$WWWROOT}user/removefriend.php?id={$USERID}&amp;returnto=view" class="btn-del">{str tag='removefromfriendslist' section='group'}</a>
+        <a href="{$WWWROOT}user/removefriend.php?id={$USERID}&amp;returnto=view" class="btn-del">
+            {str tag='removefromfriendslist' section='group'}
+        </a>
+        
         {elseif $relationship == 'none' && $friendscontrol == 'auto'}
+        
         {$newfriendform|safe}
+        
         {elseif $relationship == 'none' && $friendscontrol == 'auth'}
-        <a href="{$WWWROOT}user/requestfriendship.php?id={$USERID}&amp;returnto=view" class="btn-friend">{str tag='requestfriendship' section='group'}</a>
+        <a href="{$WWWROOT}user/requestfriendship.php?id={$USERID}&amp;returnto=view" class="btn-friend">
+            {str tag='requestfriendship' section='group'}
+        </a>
         {/if}
     </div>
+    
     {if $invitedlist}
-    <span class="invitedtojoin"><strong>{str tag=groupinvitesfrom section=group}</strong> {$invitedlist}</span>
+    <span class="invitedtojoin">
+        <strong>{str tag=groupinvitesfrom section=group}</strong> 
+        {$invitedlist}
+    </span>
     {/if}
+    
     {if $inviteform}
     <span class="addform">{$inviteform|safe}</span>
     {/if}
 
     {if $requestedlist}
-    <span class="requestedmembership"><strong>{str tag=requestedmembershipin section=group}</strong> {$requestedlist}
-        {/if}
-        {if $addform}
+    <span class="requestedmembership">
+        <strong>{str tag=requestedmembershipin section=group}</strong> {$requestedlist}
+    {/if}
+    
+    {if $addform}
         <span class="addform">{$addform|safe}</span>
-        {/if}
+    {/if}
 
-        <div class="cb"></div>
     </div>
+    
     <div id="view" class="cl">
         <div id="bottom-pane">
             <div id="column-container">
                 {if $restrictedview}
                 <strong>{str tag=profilenotshared section=view}</strong>
                 {else}
+                
                 {$viewcontent|safe}
+                
                 {/if}
-                <div class="cb"></div>
             </div>
         </div>
     </div>

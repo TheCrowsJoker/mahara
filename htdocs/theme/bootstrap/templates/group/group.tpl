@@ -1,10 +1,10 @@
-<div class="pull-left">
+<div class="pull-left has-actionlist">
     <h3 class="title">
         <a href="{group_homepage_url($group)}">
             {$group->name}
         </a>
         {if $group->settingsdescription}
-        <span class="groupliststatus metadata">
+        <span class="groupliststatus">
             - {$group->settingsdescription}
         </span>
         {/if}
