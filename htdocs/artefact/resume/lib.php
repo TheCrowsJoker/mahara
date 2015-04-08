@@ -1153,7 +1153,7 @@ function listAttachments(attachments) {
             var link = A({'href': href}, {$downloadstr});
             appendChildNodes(tbody, TR(null, TD(null, item.title + ' (' + formatSize(item.size) + ') - ', STRONG(null, link))));
         }
-        return TABLE({'class': 'attachments table'}, thead, tbody);
+        return TABLE({'class': 'table'}, thead, tbody);
     }
     else {
         // No attachments

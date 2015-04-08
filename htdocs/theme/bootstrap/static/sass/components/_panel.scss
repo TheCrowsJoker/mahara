@@ -22,8 +22,11 @@
             }
         }
         &.pending {
-            .panel-footer {
-                background-color: #ffffff;
+            .panel-heading a {
+                &:hover, &:focus {
+                    background-color: darken($panel-success-heading-bg, 3%);
+                    text-decoration: none;
+                }
             }
         }
     }

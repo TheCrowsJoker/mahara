@@ -18,10 +18,8 @@
         {$institutionselector|safe}
     {/if}
     <div class="grouppageswrap">
-        <div class="panel panel-default">
-            <div class="pll ptl pbl">
-                {$searchform|safe}
-            </div>
+        <div class="panel panel-default pll pbm">
+            {$searchform|safe}
         </div>
         <div class="panel panel-default">
             <h2 id="searchresultsheading" class="panel-heading">{str tag=Results}</h2>
@@ -74,7 +72,7 @@
             {/if}
         </div>
     </div>
-    <div class="">
+    <div>
         {$pagination|safe}
     </div>
 {include file="footer.tpl"}

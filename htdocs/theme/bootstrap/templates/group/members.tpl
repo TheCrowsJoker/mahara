@@ -1,35 +1,50 @@
 {include file="header.tpl"}
 
-    <p>{$instructions|clean_html|safe}</p>
-    <div class="memberswrap"><div class="memberssearch">
-    {if $membershiptypes}
-    	<div class="membershiptypes">
-        {foreach from=$membershiptypes item=item implode="&nbsp;|&nbsp;"}
+<p class="lead">
+    {$instructions|clean_html|safe}
+</p>
+
+<div class="memberswrap">
+    <div class="memberssearch">
+        
+        {if $membershiptypes}
+        <div class="membershiptypes pbl">
+            {foreach from=$membershiptypes item=item implode="&nbsp;|&nbsp;"}
             {if $item.link}
-               <a href="{$item.link}">{$item.name}</a>
+            <a href="{$item.link}">{$item.name}</a>
             {else}
-               <strong>{$item.name}</strong>
+            <strong>{$item.name}</strong>
             {/if}
-        {/foreach}
+            {/foreach}
         </div>
-    {/if}
-        {$form|safe}
+        {/if}
+        
+        <div class="panel panel-default pll pbm">
+            {$form|safe}
+        </div>
     </div>
-    <div class="cb"></div>
-    {if $membershiptype}
-        <h2 id="searchresultsheading">
-            <span class="accessible-hidden sr-only">{str tag=Results}: </span>
+
+    <div class="panel panel-default">
+        {if $membershiptype}
+        <h2 id="searchresultsheading" class="panel-heading">
+            <span class="sr-only">{str tag=Results}: </span>
             {str tag=pendingmembers section=group}
         </h2>
-    {else}
-        <h2 id="searchresultsheading" class="accessible-hidden hidden sr-only">{str tag=Results}</h2>
-    {/if}
-    <div id="results">
-        <div id="membersearchresults" class="tablerenderer fullwidth listing twocolumn">
-            {$results|safe}
+        {else}
+        <h2 id="searchresultsheading" class="panel-heading">
+            {str tag=Results}
+        </h2>
+        {/if}
+        
+        <div id="results">
+            <div id="membersearchresults" class="tablerenderer fullwidth listing twocolumn">
+                {$results|safe}
+            </div>
         </div>
     </div>
+
     {$pagination|safe}
-    </div>
+
+</div>
 
 {include file="footer.tpl"}

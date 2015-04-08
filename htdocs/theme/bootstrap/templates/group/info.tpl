@@ -1,14 +1,13 @@
-<h3 class="panel-heading">
-    {str tag=Group section=group}
-</h3>
-<div class="panel-body">
-    <div>
+<div class="groupinfo">
+    <p>
         {$group->settingsdescription}
-    </div>
-    <div>
+    </p>
+    
+    <p>
         <strong class="groupinfolabel">{str tag=Created section=group}:</strong>{$group->ctime}
-    </div>
-    <div>
+    </p>
+    
+    <p>
         <strong class="groupinfolabel">
             {str tag=groupadmins section=group}:
         </strong> 
@@ -20,21 +19,24 @@
             {if !$.foreach.admins.last}, 
             {/if}
         {/foreach}
-    </div>
+    </p>
+    
     {if $group->categorytitle}
-    <div>
+    <p>
         <strong>{str tag=groupcategory section=group}:</strong> 
         {$group->categorytitle}
-    </div>
+    </p>
     {/if}
+    
     {if $editwindow}
-    <div>
+    <p>
         <strong class="groupinfolabel">{str tag=editable section=group}:</strong>
         {$editwindow}
-    </div>
+    </p>
     {/if}
 </div>
-<div class="last panel-footer">
+
+<div class="last ptm groupstat">
     {if $group->membercount}
     <span class="mrm">
         <strong>{str tag=Members section=group}:</strong>

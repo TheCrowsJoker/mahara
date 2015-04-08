@@ -1,6 +1,6 @@
-<div class="{if $user->pending} pending panel-primary{else}panel-default {/if} panel panel-half">
-    <h3 class="panel-heading has-link">
-        <a href="{profile_url($user)}" class="pull-left">
+<div class="{if $user->pending} pending panel-success{else}panel-default {/if} panel panel-half">
+    <h3 class="panel-heading profile-block">
+        <a href="{profile_url($user)}">
             {$user->display_name}
             {if $user->pending}
             <span class="pendingfriend"> 
@@ -12,17 +12,17 @@
             </span>
             {/if}
         </a>
-        {if $user->messages}
-        <a href="{$WWWROOT}user/sendmessage.php?id={$user->id}&amp;returnto={$page}&amp;offset={$offset}" class="text-right" title="{str tag='sendmessage' section='group'}">
-            <span class="fa fa-envelope"></span>
-            <span class="sr-only">{str tag='sendmessage' section='group'}</span>
-        </a>
-        {/if}
+        <span class="user-icon" id="friendinfo_{$user->id}">
+            <img src="{profile_icon_url user=$user maxwidth=40 maxheight=40}" alt="{str tag=profileimagetext arg1=$user|display_default_name}">
+        </span>
     </h3>
     <div class="panel-body">
-        <div class="user-icon" id="friendinfo_{$user->id}">
-            <img src="{profile_icon_url user=$user maxwidth=40 maxheight=40}" alt="{str tag=profileimagetext arg1=$user|display_default_name}" class="prm">
+        {if $user->institutions}
+        <div class="memberof detail pbm">
+            <span class="fa fa-university prs"></span>
+            {$user->institutions|safe}
         </div>
+        {/if}
         <div class="content ptm pbm">
             {if $user->introduction}
             <p class="intro">
@@ -52,38 +52,45 @@
             </div>
             {/if}
         </div>
-        {if $user->institutions}
-        <span class="memberof ptm">
-            <span class="fa fa-university"></span>
-            {$user->institutions|safe}
-        </span>
+        {if $user->messages}
+        <div class="sendmessage small-text">
+            <span class="fa fa-envelope prs"></span>
+            <a href="{$WWWROOT}user/sendmessage.php?id={$user->id}&amp;returnto={$page}&amp;offset={$offset}" class="text-right" title="{str tag='sendmessage' section='group'}">
+            {str tag='sendmessage' section='group'}
+            </a>
+        </div>
+        {/if}
+        {if $admingroups}
+        <div class="editgroup small-text">
+            <span class="fa fa-pencil prs"></span>
+            <a href="" onclick="showGroupBox(event, {$user->id})" class="btn-edit">{str tag='editgroupmembership' section='group'}</a>
+        </div>
         {/if}
     </div>
 
     <div class="panel-footer has-form small-text">
-        <div class="pull-left">
+        <div class="">
         {if $user->pending}
-            <span class="approvefriend">
+            <span class="approvefriend pull-left">
                 {$user->accept|safe}
             </span>
-            <span class="denyrequest">
-                <span class="fa fa-ban"></span>
-                <a href="{$WWWROOT}user/denyrequest.php?id={$user->id}&amp;returnto={$page}&amp;offset={$offset}" class="btn-deny">
+            <span class="denyrequest mtl">
+                <a href="{$WWWROOT}user/denyrequest.php?id={$user->id}&amp;returnto={$page}&amp;offset={$offset}" class="btn btn-danger btn-xs">
                     {str tag='denyrequest' section='group'}
                 </a>
             </span>
         {/if}
         {if $user->friend}
             <span class="removefriend">
-                <span class="fa fa-remove"></span>
-                <a href="{$WWWROOT}user/removefriend.php?id={$user->id}&amp;returnto={$page}&amp;offset={$offset}" class="btn-del">
+                <a href="{$WWWROOT}user/removefriend.php?id={$user->id}&amp;returnto={$page}&amp;offset={$offset}" class="btn btn-danger btn-xs">
+                    <!-- <span class="fa fa-remove prs"></span> -->
                     {str tag='removefromfriendslist' section='group'}
                 </a>
             </span>
         {/if}
         </div>
         
-        <div class="pull-left">
+<!--         <div>
         {if $user->requestedfriendship}
             <span class="notbtn">
                 {str tag='friendshiprequested' section='group'}
@@ -91,7 +98,7 @@
         {elseif !$user->pending && !$user->friend} {* Not an existing, pending, or requested friend *}
             {if $user->friendscontrol == 'auth'}
             <span class="friend">
-                <span class="fa fa-user-plus"></span>
+                <span class="fa fa-user-plus prs"></span>
                 <a href="{$WWWROOT}user/requestfriendship.php?id={$user->id}&amp;returnto={$page}&amp;offset={$offset}" class="btn-request">
                     {str tag='sendfriendrequest' section='group'}
                 </a>
@@ -106,15 +113,6 @@
             </span>
             {/if}
         {/if}
-        </div>
-
-        <div class="pull-right">
-        {if $admingroups}
-            <span class="editgroup">
-                <span class="fa fa-pencil"></span>
-                <a href="" onclick="showGroupBox(event, {$user->id})" class="btn-edit">{str tag='editgroupmembership' section='group'}</a>
-            </span>
-        {/if}
-        </div>
+        </div> -->
     </div>
 </div>
