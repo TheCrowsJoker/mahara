@@ -309,6 +309,7 @@ $siteoptionform = array(
                     'defaultvalue' => get_config('institutionexpirynotification'),
                     'help'         => true,
                     'disabled'     => in_array('institutionexpirynotification', $OVERRIDDEN),
+                    'class'        => 'double'
                 ),
                 'institutionautosuspend' => array(
                     'type'         => 'checkbox',
@@ -344,6 +345,7 @@ $siteoptionform = array(
                     'defaultvalue' => get_config('defaultregistrationexpirylifetime'),
                     'help'         => false,
                     'disabled'     => in_array('defaultregistrationexpirylifetime', $OVERRIDDEN),
+                    'class'        => 'double'
                 ),
                 'defaultaccountlifetime' => array(
                     'type'         => 'expiry',
@@ -352,6 +354,7 @@ $siteoptionform = array(
                     'defaultvalue' => get_config('defaultaccountlifetime'),
                     'help'         => true,
                     'disabled'     => in_array('defaultaccountlifetime', $OVERRIDDEN),
+                    'class'        => 'double'
                 ),
                 'defaultaccountlifetimeupdate' => array(
                     'type'         => 'radio',
@@ -373,6 +376,7 @@ $siteoptionform = array(
                     'defaultvalue' => get_config('defaultaccountinactiveexpire'),
                     'help'         => true,
                     'disabled'     => in_array('defaultaccountinactiveexpire', $OVERRIDDEN),
+                    'class'        => 'double'
                 ),
                 'defaultaccountinactivewarn' => array(
                     'type'         => 'expiry',
@@ -381,6 +385,7 @@ $siteoptionform = array(
                     'defaultvalue' => get_config('defaultaccountinactivewarn'),
                     'help'         => true,
                     'disabled'     => in_array('defaultaccountinactivewarn', $OVERRIDDEN),
+                    'class'        => 'double'
                 ),
             ),
         ),
@@ -744,6 +749,7 @@ $siteoptionform = array(
                     'defaultvalue' => get_config('eventlogexpiry'),
                     'help'         => false,
                     'disabled'     => in_array('eventlogexpiry', $OVERRIDDEN),
+                    'class'        => 'double'
                 ),
             ),
         ),
