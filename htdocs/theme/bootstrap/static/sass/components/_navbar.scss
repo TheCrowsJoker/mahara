@@ -2,6 +2,11 @@
  * Modificatiosn to bootstraps default navbar components
  */
 
+ .nav-pills {
+    margin-bottom: 30px;
+}
+
+
 .navbar-secondary {
     background-color: darken($brand-default, 5%);
 

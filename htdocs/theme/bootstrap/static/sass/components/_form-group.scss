@@ -122,6 +122,30 @@
         }
     }
 
+    // c.f edit group
+   &.five-across {
+        label {
+            clear:both;
+            width:100%;
+        }
+        input[type=text],
+        input[type=password],
+        select {
+            @media (min-width: $screen-sm-min) {
+                width: 150px;
+            }
+            @media (min-width: $screen-lg-min) {
+                width: 150px;
+            }
+        }
+        select {
+            margin-left: 5px;
+        }
+        label + select {
+            margin-left: 0px; // padding provided by label instead
+        }
+    }
+
     h3 {
         font-size: $font-size-large;
         padding-bottom: 10px;
