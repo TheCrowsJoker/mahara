@@ -5,8 +5,6 @@ body, p {
 h1 {
     @extend .page-header;
     border-bottom: none;
-    font-size: $font-size-h1 * 0.88;
-
     .admin & {
         @include text-shadow(1px 1px 0 rgba(#fff, 0.5));
         color: #555;
@@ -18,9 +16,6 @@ h1 {
     padding-top: 20px; 
 }
 
-h2 {
-    font-size: $font-size-h2 * 0.88;
-}
 
 strong i {
     font-style: normal; //No italics on bold fonts thanks
@@ -30,7 +25,7 @@ a:focus {
     outline-color:$input-border-focus;
 }
 
-.lead {
+.lead, .lead p {
   font-size: floor(($font-size-base * 1.15));
   font-weight: 300;
   line-height: 1.4;
@@ -48,6 +43,10 @@ a:focus {
 .page-header,
 h1 {
     margin-top:0;
+}
+
+.page-header{
+    margin-bottom:20px;
 }
 
 h2, h3, h4, h5, legend {

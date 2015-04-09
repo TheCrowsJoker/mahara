@@ -1,3 +1,20 @@
 .btn {
-	vertical-align: baseline;
+    vertical-align: baseline;
+}
+
+
+.btn-top-right {
+    float: none;
+    margin-bottom: 20px;
+    @media (min-width: $screen-xs-min) {
+        margin-top: -60px;
+        margin-bottom: 50px;
+    }
+    form {
+        margin: 0 !important;
+        display: inline-block;
+        .form-group-inline {
+            padding: 0;
+        }
+    }
 }

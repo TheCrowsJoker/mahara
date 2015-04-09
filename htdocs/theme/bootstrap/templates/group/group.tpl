@@ -35,4 +35,5 @@
         </div>
     </div>
 </div>
+<div>
 {include file="group/groupuserstatus.tpl" group=$group returnto='find'}

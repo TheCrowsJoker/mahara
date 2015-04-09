@@ -19,7 +19,7 @@ $logged-in-height-mobile: 100px;
         @include clearfix;
         padding: 13px 15px;
         height: $logged-in-height;
-        border-top: 3px solid $mahara-green-light;
+        border-top: 3px solid $mahara-green-bright;
         background-color: $gray-lighter;
 
         @media (min-width: $screen-sm-min ) and (max-width: $screen-lg-min ) {
@@ -46,7 +46,7 @@ $logged-in-height-mobile: 100px;
         @include border-radius(50%);
         position: relative;
         float: left;
-        background-color: $mahara-green-light;
+        background-color: $mahara-green-bright;
         width: 60px;
         height: 60px;
         text-align:center;
@@ -125,7 +125,7 @@ $logged-in-height-mobile: 100px;
             position: relative;
             display: inline-block;
             z-index: 2;
-            background-color: darken($mahara-green-light, 8%);
+            background-color: darken($mahara-green-bright, 8%);
             height: $logged-in-height;
             margin-right: 15px;
             vertical-align: top;

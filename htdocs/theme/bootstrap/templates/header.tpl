@@ -71,7 +71,7 @@
 
                         {dynamic}{insert_messages}{/dynamic}
                         {if isset($PAGEHEADING)}
-                            <h1>
+                            <h1 class="{$headingclass}">
                                 {if isset($PAGEICON)}
                                 <span class="{$PAGEICON}"></span>
                                 {/if}
