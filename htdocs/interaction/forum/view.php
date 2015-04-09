@@ -179,9 +179,9 @@ if ($membership) {
         'elements' => array(
             'submit' => array(
                 'type' => 'submit',
-                'class' => 'btn-subscribe',
+                'class' => $forum->subscribed ? 'btn btn-danger' : 'btn btn-success',
                 'value' => $forum->subscribed ? get_string('unsubscribefromforum', 'interaction.forum') : get_string('subscribetoforum', 'interaction.forum'),
-                'help' => true
+                'help' => false
             ),
             'forum' => array(
                 'type' => 'hidden',

@@ -24,6 +24,10 @@
         }
         &.control-buttons {
             width: 90px;
+            a,
+            .pieform {
+                display: inline-block;
+            }
         }
         h3 {
             font-size: $font-size-base;

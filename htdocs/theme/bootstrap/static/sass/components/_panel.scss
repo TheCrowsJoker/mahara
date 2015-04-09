@@ -21,6 +21,14 @@
             width: 97%;
             }
         }
+        &.pending {
+            .panel-heading a {
+                &:hover, &:focus {
+                    background-color: darken($panel-success-heading-bg, 3%);
+                    text-decoration: none;
+                }
+            }
+        }
     }
 }
 
@@ -92,6 +100,9 @@ a.panel-footer {
 
 //Display objects in panels differently
 .panel-body {
+    &.listing {
+        padding: 0;
+    }
     ul {
         padding-left: 20px;
         margin: 0 0 20px;
@@ -114,7 +125,9 @@ a.panel-footer {
         clear:both;
         margin: 15px -15px -16px; //alter padding for panel footers inside panel-body (needed for some forms) c.f. login form
     }
-
+    .userthumb {
+        height: 133px;
+    }
 }
 
 .collapsible legend h4,
@@ -275,4 +288,8 @@ a.panel-footer {
             }
         }
     }
+}
+
+.small-text {
+    font-size: $font-size-small;
 }

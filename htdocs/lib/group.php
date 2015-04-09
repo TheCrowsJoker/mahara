@@ -1069,6 +1069,7 @@ function group_get_join_form($name, $groupid, $returnto='view') {
         'elements' => array(
             'join' => array(
                 'type' => 'submit',
+                'class' => 'btn btn-primary btn-xs',
                 'value' => get_string('joingroup', 'group')
             ),
             'group' => array(
@@ -1089,15 +1090,18 @@ function group_get_join_form($name, $groupid, $returnto='view') {
 function group_get_accept_form($name, $groupid, $returnto) {
     return pieform(array(
        'name'     => $name,
+       'class' => 'group-request',
        'renderer' => 'oneline',
        'successcallback' => 'group_invite_submit',
        'elements' => array(
             'accept' => array(
                 'type'  => 'submit',
+                'class' => 'btn btn-primary btn-xs',
                 'value' => get_string('acceptinvitegroup', 'group')
             ),
             'decline' => array(
                 'type'  => 'submit',
+                'class' => 'btn btn-default btn-xs',
                 'value' => get_string('declineinvitegroup', 'group')
             ),
             'group' => array(
@@ -1119,7 +1123,7 @@ function group_get_adduser_form($userid, $groupid) {
     return pieform(array(
         'name'                => 'adduser' . $userid,
         'successcallback'     => 'group_adduser_submit',
-        'renderer'            => 'div',
+        'renderer'            => 'oneline',
         'elements'            => array(
             'group' => array(
                 'type'    => 'hidden',
@@ -1131,6 +1135,7 @@ function group_get_adduser_form($userid, $groupid) {
             ),
             'submit' => array(
                 'type'  => 'submit',
+                'class' => 'btn btn-primary btn-xs',
                 'value' => get_string('add') . ' ' . display_name($userid),
             ),
         ),
@@ -1158,6 +1163,7 @@ function group_get_removeuser_form($userid, $groupid) {
             ),
             'removeuser' => array(
                 'type'  => 'submit',
+                'class' => 'btn btn-default btn-xs',
                 'value' => get_string('removefromgroup', 'group'),
             ),
         ),
@@ -1184,6 +1190,7 @@ function group_get_denyuser_form($userid, $groupid) {
             ),
             'denyuser' => array(
                 'type'  => 'submit',
+                'class' => 'btn btn-default btn-xs',
                 'value' => get_string('declinerequest', 'group'),
             ),
         ),
@@ -1330,10 +1337,12 @@ function group_view_submission_form($groupid) {
         'name' => 'group_view_submission_form_' . $groupid,
         'method' => 'post',
         'renderer' => 'oneline',
+        'class' => 'form-inline',
         'autofocus' => false,
         'successcallback' => 'group_view_submission_form_submit',
         'elements' => array(
             'text1' => array(
+                'class' => 'mrm',
                 'type' => 'html', 'value' => get_string('submit', 'group') . ' ',
             ),
             'options' => array(
@@ -1344,10 +1353,12 @@ function group_view_submission_form($groupid) {
             ),
             'text2' => array(
                 'type' => 'html',
+                'class' => 'forassessment mrm',
                 'value' => get_string('forassessment', 'view'),
             ),
             'submit' => array(
                 'type' => 'submit',
+                'class' => 'btn btn-primary btn-sm',
                 'value' => get_string('submit')
             ),
             'group' => array(
