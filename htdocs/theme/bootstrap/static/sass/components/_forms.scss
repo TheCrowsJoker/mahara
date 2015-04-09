@@ -23,6 +23,7 @@ input[type=password],
 textarea,
 select {
     @extend .form-control;
+    max-width: 500px;
 }
 
 label.sr-only + div.mce-tinymce {

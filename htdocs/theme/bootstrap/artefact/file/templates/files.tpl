@@ -19,8 +19,8 @@
 
 
     
-    
+    {if $institution}<div class="row"><div class='col-md-10'>{/if}
       {$form|safe}
-
+    {if $institution}</div></div>{/if}
 {include file="footer.tpl"}
 

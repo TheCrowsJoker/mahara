@@ -40,7 +40,7 @@ jQuery(function($) {
             paginator = {}; 
 
         if(checked.length < 1){
-            //@todo maybe tell the user they need soemthign valid cvhecked
+            //@todo maybe tell the user they need something valid checked 
            
             return; //no valid items selected
         }
@@ -60,7 +60,7 @@ jQuery(function($) {
         }
 
         sendjsonrequest('indexin.json.php', paginator, 'GET', function (data) {
-          //  paginator.updateResults(data);
+           // paginator.updateResults(data);
             updateUnread(data, false);
         });
     }
@@ -80,7 +80,9 @@ jQuery(function($) {
             paginator[checked[i].name] = 1;
         }
 
-        paginator['readone'] = 1;
+        paginator['table'] = $(self).find('a[data-table]').attr('data-table');
+
+        paginator['readone'] = $(self).find('a[data-id]').attr('data-id');
 
         if (paginatorData) { 
             for (page in paginatorData.params) {

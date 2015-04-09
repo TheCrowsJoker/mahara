@@ -10,7 +10,7 @@
                 </span>
             </label>
 
-            <a class="collapsed" href="#notification-{$item->id}" data-toggle="collapse" aria-expanded="1" aria-controls="notification-{$item->id}">
+            <a class="collapsed" href="#notification-{$item->table}-{$item->id}" data-id="{$item->id}" data-table="{$item->table}" data-toggle="collapse" aria-expanded="1" aria-controls="notification-{$item->table}-{$item->id}">
                 {if $item->read && $item->type == 'usermessage'}
                 <span class="fa fa-envelope type-icon prl plxl"></span><span class="sr-only">{$item->strtype} - {str tag='read' section='activity'}</span>
                 {elseif $item->strtype == 'usermessage'}
@@ -52,9 +52,9 @@
                 </span>
             </a>
         </h4>
-        <div id="notification-{$item->id}" class="collapse">
+        <div id="notification-{$item->table}-{$item->id}" class="collapse">
             {if $item->message}
-            <div class="content panel-body {if $item->url && $item->urltext !== 'Reply'}mbl{/if}">
+            <div class="content panel-body {if $item->url && $item->urltext !== 'Reply'}mbl no-footer{/if}">
                 {if ($item->fromusr != 0)}
                 <p class="fromusers">
                     <strong>
