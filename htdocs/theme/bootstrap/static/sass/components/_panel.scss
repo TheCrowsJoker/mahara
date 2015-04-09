@@ -90,7 +90,7 @@ a.panel-footer {
     }
 }
 
-//Display ul's in panels differentyly
+//Display objects in panels differently
 .panel-body {
     ul {
         padding-left: 20px;
@@ -101,12 +101,18 @@ a.panel-footer {
         text-decoration: none;
         color: inherit;
     }
-    .form-group {
+    .sidebar & .form-group {
         padding: 0;
+    }
+    .form-group.login{
+        padding: 0;
+        .form-group {
+            padding: 0;
+        }
     }
     .panel-footer {
         clear:both;
-        margin: 15px -15px -16px; //alter padding for panel footers inside panel-body (needed for some forms)
+        margin: 15px -15px -16px; //alter padding for panel footers inside panel-body (needed for some forms) c.f. login form
     }
 
 }

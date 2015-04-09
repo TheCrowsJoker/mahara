@@ -19,7 +19,7 @@
     {/if}
     <div class="grouppageswrap">
         <div class="panel panel-default">
-            <div class="pll ptl pbl">
+            <div class="pll">
                 {$searchform|safe}
             </div>
         </div>
