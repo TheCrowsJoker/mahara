@@ -1,5 +1,7 @@
 // Basic type related customisation
-
+body, p {
+    font-weight: 400;
+}
 h1 {
     @extend .page-header;
     border-bottom: none;
@@ -9,6 +11,11 @@ h1 {
         @include text-shadow(1px 1px 0 rgba(#fff, 0.5));
         color: #555;
     }
+}
+
+// Add padding if there is no navigation
+.header + .container h1 {
+    padding-top: 20px; 
 }
 
 h2 {
