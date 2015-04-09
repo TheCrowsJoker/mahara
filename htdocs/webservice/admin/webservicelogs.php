@@ -62,4 +62,5 @@ $smarty->assign('searchurl', $searchurl['url']);
 $smarty->assign('sortby', $searchurl['sortby']);
 $smarty->assign('sortdir', $searchurl['sortdir']);
 $smarty->assign('PAGEHEADING', TITLE);
+$smarty->assign('PAGEICON', 'fa fa-puzzle-piece');
 $smarty->display('auth:webservice:webservicelogs.tpl');
