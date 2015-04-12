@@ -27,20 +27,23 @@
     
     {if $membership && ($moderator || ($forum->newtopicusers != 'moderators') && $ineditwindow) }
     <div class="text-right btn-top-right">
-        <a href="{$WWWROOT}interaction/forum/edittopic.php?forum={$forum->id}" class="btn btn-success newforumtopic">
-            {str tag="newtopic" section="interaction.forum"}
-        </a>
-        {if $admin}
-            <a href="{$WWWROOT}interaction/edit.php?id={$forum->id}" class="btn btn-default editforumtitle">
-                <span class="fa fa-pencil"></span>
-                {str tag="edittitle" section="interaction.forum"}
+        <div class="btn-group">
+            <a href="{$WWWROOT}interaction/forum/edittopic.php?forum={$forum->id}" class="btn btn-default newforumtopic">
+                <span class="fa fa-plus fa-lg prs text-primary"></span>
+                {str tag="newtopic" section="interaction.forum"}
             </a>
-            
-            <a href="{$WWWROOT}interaction/delete.php?id={$forum->id}" class="btn btn-danger deleteforum">
-                <span class="fa fa-trash"></span>
-                {str tag="deleteforum" section="interaction.forum"}
-            </a> 
-        {/if}
+            {if $admin}
+                <a href="{$WWWROOT}interaction/edit.php?id={$forum->id}" class="btn btn-default editforumtitle">
+                    <span class="fa fa-cog"></span>
+                    {str tag="edittitle" section="interaction.forum"}
+                </a>
+                
+                <a href="{$WWWROOT}interaction/delete.php?id={$forum->id}" class="btn btn-default deleteforum">
+                    <span class="fa fa-trash text-danger"></span>
+                    {str tag="deleteforum" section="interaction.forum"}
+                </a> 
+            {/if}
+        </div>
     </div>
     {/if}
 

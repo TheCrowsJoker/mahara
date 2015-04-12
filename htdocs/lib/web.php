@@ -2833,7 +2833,7 @@ function right_nav() {
             'icon' => $THEME->get_url('images/settings.png'),
             'alt' => '',
             'weight' => 10,
-            'iconclass' => 'cog'
+            'iconclass' => 'cogs'
         ),
         'inbox' => array(
             'path' => 'inbox',

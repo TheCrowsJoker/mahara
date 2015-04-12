@@ -6012,7 +6012,7 @@ function create_view_form($group=null, $institution=null, $template=null, $colle
             ),
             'submit' => array(
                 'type'  => 'submit',
-                'class' => 'btn btn-success',
+                'class' => 'btn btn-default',
                 'value' => get_string('createview', 'view'),
             ),
         )

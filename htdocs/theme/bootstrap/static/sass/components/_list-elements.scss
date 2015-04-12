@@ -15,10 +15,6 @@
         &:first-child {
             border-top: none;
         }
-        .user-icon {
-            display: inline-block;
-            width: 30px;
-        }
         .title {
             display: inline-block;
             font-size: $font-size-large;
@@ -81,12 +77,19 @@
     }
 }
 
-.list-group-item-link {
+.list-group-item .list-group-item-link {
     margin: 5px -15px 0;
-    li a {
+    a {
+        padding: 5px 15px;
+    }
+}
+
+.list-group-item-link {
+    padding: 0;
+    a {
         font-size: 0.9em;
         display: block;
-        padding: 5px 15px;
+        padding: 10px 15px;
         color: #666;
         &:hover {
             background: darken(#f0f0f0, 1%);

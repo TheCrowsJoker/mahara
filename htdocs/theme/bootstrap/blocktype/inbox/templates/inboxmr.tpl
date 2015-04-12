@@ -30,38 +30,39 @@
         </div>
     </div>
     {/foreach}
+    <script>
+        {literal}
+        addLoadEvent(function() {
+            forEach(
+                {/literal}
+                getElementsByTagAndClassName('a', 'inbox-showmessage', '{$blockid}'),
+                {literal}
+                function(element) {
+                    connect(element, 'onclick', function(e) {
+                        e.stop();
+                        var message = getFirstElementByTagAndClassName('div', 'inbox-message', element.parentNode);
+                        var unreadText = getFirstElementByTagAndClassName(null, 'accessible-hidden', element);
+                        toggleElementClass('hidden', message);
+                        if (hasElementClass(element, 'unread')) {
+                            var tableid = getNodeAttribute(message, 'id').replace(/inbox-message-(.+)$/, '$1');
+                            var delimiterposition = tableid.indexOf("-");
+                            var table = tableid.substr(0, delimiterposition);
+                            var id = tableid.substr(delimiterposition + 1);
+                            var pd = {'readone':id, 'table':table};
+                            sendjsonrequest(config.wwwroot + 'artefact/multirecipientnotification/indexin.json.php', pd, 'GET', function(data) {
+                                removeElementClass(element, 'unread');
+                                removeElement(unreadText);
+                                updateUnreadCount(data);
+                            });
+                        }
+                    });
+                });
+        });
+        {/literal}
+    </script>
 </div>
 {if $desiredtypes}
     <a class="panel-footer" href="{$WWWROOT}account/activity/index.php?type={$desiredtypes}">{str tag=More section=blocktype.inbox} <span class="fa fa-arrow-circle-right mls  pull-right"></span></a>
 {/if}
-<script>
-{literal}
-addLoadEvent(function() {
-    forEach(
-        {/literal}
-        getElementsByTagAndClassName('a', 'inbox-showmessage', '{$blockid}'),
-        {literal}
-        function(element) {
-            connect(element, 'onclick', function(e) {
-                e.stop();
-                var message = getFirstElementByTagAndClassName('div', 'inbox-message', element.parentNode);
-                var unreadText = getFirstElementByTagAndClassName(null, 'accessible-hidden', element);
-                toggleElementClass('hidden', message);
-                if (hasElementClass(element, 'unread')) {
-                    var tableid = getNodeAttribute(message, 'id').replace(/inbox-message-(.+)$/, '$1');
-                    var delimiterposition = tableid.indexOf("-");
-                    var table = tableid.substr(0, delimiterposition);
-                    var id = tableid.substr(delimiterposition + 1);
-                    var pd = {'readone':id, 'table':table};
-                    sendjsonrequest(config.wwwroot + 'artefact/multirecipientnotification/indexin.json.php', pd, 'GET', function(data) {
-                        removeElementClass(element, 'unread');
-                        removeElement(unreadText);
-                        updateUnreadCount(data);
-                    });
-                }
-            });
-        });
-});
-{/literal}
-</script>
+
 {/if}

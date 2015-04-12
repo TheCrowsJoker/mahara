@@ -32,6 +32,10 @@
     }
 }
 
+.panel > .block > .list-group {
+    margin-bottom: 0;
+}
+
 .panel > .block .list-group .list-group-item {
     border-width: 1px 0;
     border-radius: 0;
@@ -39,6 +43,12 @@
 
 .panel-heading + .block > .list-group .list-group-item:first-child {
     border-top-width: 0;
+}
+
+.panel > .block .list-group:last-child .list-group-item:last-child{
+    border-bottom: 0;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
 }
 
 .panel-items {
@@ -98,7 +108,11 @@ a.panel-footer {
     &:hover {
         color: #222;
         background: $gray-lighter;
+        text-decoration: none;
         .fa {
+            color: #777;
+        }
+        .fa.pull-right { //only apply link colorto right aligned icons
             color: $link-color;
         }
     }
@@ -148,7 +162,7 @@ a.panel-footer {
     }
     a {
         display: block;
-        color: #333;
+        color: inherit;
         padding: 10px 15px;
         
         &.collapsed, &.title-link {
@@ -301,4 +315,12 @@ a.panel-footer {
 
 .small-text {
     font-size: $font-size-small;
+}
+
+.panel-secondary {
+    > .panel-heading {
+        border-top: 3px solid $mahara-green-bright;
+        background-color: $gray-lighter;
+        border-bottom: 1px solid $panel-default-border;
+    }
 }
