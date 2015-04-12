@@ -3,22 +3,28 @@
         <div class="message">{$wallmessage}</div>
     {/if}
     {if $wallposts}
-        <ul>
+
         {foreach from=$wallposts item=wallpost}
-            <li class="wallpost{if $wallpost->private} private{/if} {cycle name=rows values='r0,r1'}">
-                <div class="userinfo"><img src="{profile_icon_url user=$wallpost maxheight=25 maxwidth=25}" alt="{str tag=profileimagetext arg1=$wallpost|display_default_name}"><a href="{$wallpost->profileurl}">{$wallpost->displayname}</a> - <span class="postedon">{$wallpost->postdate|format_date}</span></div>
-                <div class="detail">{$wallpost->text|parse_bbcode|safe}</div>
-                <div class="controls">
+            <div class="panel panel-default wallpost{if $wallpost->private} private{/if} {cycle name=rows values='r0,r1'}">
+                <a href="{$wallpost->profileurl}" class="userinfo panel-heading">
+                         <img class="user-icon small-icon" src="{profile_icon_url user=$wallpost maxheight=25 maxwidth=25}" alt="{str tag=profileimagetext arg1=$wallpost|display_default_name}">
+                        {$wallpost->displayname} - <span class="postedon metadata">{$wallpost->postdate|format_date}</span>
+                </a> 
+                <div class="detail panel-body">{$wallpost->text|parse_bbcode|safe}</div>
+                <div class="controls panel-footer">
        {* {if $ownwall}
-                    <a href="{$WWWROOT}blocktype/wall/wall.php?instance={$instanceid}&amp;replyto={$wallpost->id}" class="btn-reply">{str tag='reply' section='blocktype.wall'}</a>
+                    <a href="{$WWWROOT}blocktype/wall/wall.php?instance={$instanceid}&amp;replyto={$wallpost->id}" class="btn btn-default">{str tag='reply' section='blocktype.wall'}</a>
         {/if}*}
                 {if $wallpost->deletable}
-                    <div class="wallpostdeletebutton"><a href="{$WWWROOT}blocktype/wall/deletepost.php?postid={$wallpost->postid}&return={if $wholewall}wall{else}profile{/if}" class="btn-big-del">{str tag='delete' section='blocktype.wall'}</a></div>
+                    <a href="{$WWWROOT}blocktype/wall/deletepost.php?postid={$wallpost->postid}&return={if $wholewall}wall{else}profile{/if}" class="">
+                        <span class="fa fa-trash prs"></span>
+                       {str tag='delete' section='blocktype.wall'}
+                    </a>
                 {/if}
                 </div>
-            </li>
+            </div>
         {/foreach}
-        </ul>
+
     {/if}
 </div>
 {if !$wholewall}

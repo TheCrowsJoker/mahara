@@ -10,8 +10,9 @@
 </h2>
 
 {if $admin}
-<div id="forumbtns" class="text-right btn-top-right">
-    <a href="{$WWWROOT}interaction/edit.php?group={$groupid}&amp;plugin=forum" class="btn btn-success newforum">
+<div id="forumbtn" class="text-right btn-top-right">
+    <a href="{$WWWROOT}interaction/edit.php?group={$groupid}&amp;plugin=forum" class="btn btn-default newforum">
+        <span class="fa fa-plus fa-lg prs text-primary"></span>
         {str tag="newforum" section=interaction.forum}
     </a>
 </div>

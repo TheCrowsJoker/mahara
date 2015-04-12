@@ -415,7 +415,7 @@ $navbar-default-toggle-border-color:       #ddd !default;
 // Inverted navbar
 // Reset inverted navbar basics
 $navbar-inverse-color:                      #fff !default;
-$navbar-inverse-bg:                         #4F751F !default;
+$navbar-inverse-bg:                         $mahara-green-light !default;
 $navbar-inverse-border:                     darken($navbar-inverse-bg, 5%) !default;
 
 // Inverted navbar links

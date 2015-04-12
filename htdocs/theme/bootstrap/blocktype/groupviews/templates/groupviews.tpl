@@ -1,9 +1,6 @@
-<div class="">
+<div class="panel-body">
 {if $groupviews}
     <div  class="groupviewsection">
-        <h4 class="title">
-            {str tag="groupviews" section="view"}
-        </h4>
         <div id="groupviewlist" class="listing blocktype">
             {$groupviews.tablerows|safe}
         </div>

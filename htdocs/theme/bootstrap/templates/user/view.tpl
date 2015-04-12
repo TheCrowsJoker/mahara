@@ -2,12 +2,14 @@
 {include file="viewmicroheader.tpl"}
 {else}
 {include file="header.tpl"}
-<h1 class="user-icon-name">
-    <span class="usericon"><img src="{profile_icon_url user=$user maxwidth=60 maxheight=60}" alt="{str tag=profileimagetext arg1=$user|display_default_name}" /></span>
-    {if $pageheadinghtml}
-    {$pageheadinghtml|safe}
-    {/if}
-</h1>
+    <h1 class="user-icon-name page-header">
+        <span class="user-icon mrl mlm">
+            <img src="{profile_icon_url user=$user maxwidth=50 maxheight=50}" alt="{str tag=profileimagetext arg1=$user|display_default_name}" />
+        </span>
+        {if $pageheadinghtml}
+        <span class="ptm">{$pageheadinghtml|safe}</span>
+        {/if}
+    </h1>
 {if $ownprofile}
 <div class="text-right btn-top-right">
     <a title="{str tag=editthisview section=view}" href="{$WWWROOT}view/blocks.php?profile=1" class="btn btn-success">{str tag=editthisview section=view}</a>
@@ -26,7 +28,7 @@
 </div>
 {/if}
 <div id="userview">
-    <div class="user-icon">
+    <div class="">
         {$institutions|safe}
         
         {if $loginas}

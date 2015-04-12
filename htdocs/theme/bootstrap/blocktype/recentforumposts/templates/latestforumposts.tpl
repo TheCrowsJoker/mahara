@@ -21,7 +21,7 @@
         </p>
     </div>
 {else}
-    <div class="no-resutl">
+    <div class="no-resutl panel-body">
         {str tag=noforumpostsyet section=interaction.forum}
     </div>
 {/if}

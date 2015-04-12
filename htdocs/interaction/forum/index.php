@@ -68,7 +68,7 @@ if ($forums) {
                 'elements' => array(
                     'submit' => array(
                     'type'  => 'submit',
-                        'class' => $forum->subscribed ? 'btn btn-danger btn-xs' : 'btn btn-primary btn-xs',
+                        'class' => $forum->subscribed ? 'btn btn-default btn-xs' : 'btn btn-primary btn-xs',
                         'value' => $forum->subscribed ? get_string('Unsubscribe', 'interaction.forum') : get_string('Subscribe', 'interaction.forum'),
                         // 'help' => $i == 0 ? true : false
                         'help' => false

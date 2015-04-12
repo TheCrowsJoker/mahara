@@ -4,7 +4,7 @@
 </div>
 <div id="planswrap" class="posts-wrapper">
 {if !$plans.data}
-    <div class="message">{$strnoplansaddone|safe}</div>
+    <div class="lead">{$strnoplansaddone|safe}</div>
 {else}
     <div id="planslist">
         {$plans.tablerows|safe}

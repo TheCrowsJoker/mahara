@@ -2095,7 +2095,7 @@ function acceptfriend_form($friendid) {
         'elements' => array(
             'acceptfriend_submit' => array(
                 'type' => 'submit',
-                'class' => 'btn btn-primary btn-xs',
+                'class' => 'btn btn-link',
                 'value' => get_string('approverequest', 'group'),
             ),
             'id' => array(

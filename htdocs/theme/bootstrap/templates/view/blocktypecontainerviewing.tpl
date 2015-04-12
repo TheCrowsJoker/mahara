@@ -1,4 +1,4 @@
-<div class="bt-{$blocktype} panel panel-default" id="blockinstance_{$id}">
+<div class="bt-{$blocktype} panel panel-secondary" id="blockinstance_{$id}">
 	{if $title}
 		<h3 class="title panel-heading">
 			{if $retractable}
