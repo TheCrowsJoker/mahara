@@ -1,15 +1,5 @@
 {include file="header.tpl"}
 
-{if $addonelink}
-    <div class="btn-group btn-group-top">
-        <a href={$addonelink} class="btn btn-default">
-            <span class="fa fa-plus fa-lg text-success"></span>
-            {str tag=addone}
-        </a>
-    </div>
-{/if}
-
-
 {if $GROUP}
     <h2>{$PAGESUBHEADING}</h2>
 {/if}
