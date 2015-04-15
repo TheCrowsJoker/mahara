@@ -1,7 +1,5 @@
+{if $filelist}
 <div class="panel-body">
-	{if !$filelist}
-	<p>{str tag=nofilesfound section=artefact.file}</p>
-	{else}
 	<div class="table-responsive">
 		<table id="{$prefix}_filelist" class="tablerenderer filelist fullwidth table">
 			<thead>
@@ -120,4 +118,12 @@
 	<span class="fa fa-file-archive-o"></span>
 	{str tag=downloadfolderziplink section=artefact.file}
 </a>
+{else}
+<div class="panel-body">
+	<p class="lead ptm pbm text-center">{str tag=nofilesfound section=artefact.file}</p>
+</div>
+
 {/if}
+
+
+

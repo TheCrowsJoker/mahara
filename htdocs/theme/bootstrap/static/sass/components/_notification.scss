@@ -9,6 +9,14 @@
     }
 }
 .notification {
+    .details-group span {
+        display: inline-block;
+        margin:0;
+        padding:0;
+        line-height: 14px;
+        height: 17px;
+        vertical-align: middle;
+    }
     .fromusers {
         margin-bottom: 0;
     }
@@ -17,6 +25,12 @@
     }
     .action {
         padding-right: 10px;
+    }
+    .subject {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 60%;
     }
 }
 

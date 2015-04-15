@@ -14,9 +14,10 @@
         {/if}
         {if $sbdata.invitedgroups}
                     <div id="invitedgroups" class="list-group-item list-group-item-warning pts">
-                        <a href="{$WWWROOT}group/mygroups.php?filter=invite" class="btn-group">
-                            <span id="invitedgroupsmessage" class="label label-warning mrs">{$sbdata.invitedgroupsmessage}</span>
-                            <span id="invitedgroupscount">{$sbdata.invitedgroups}</span>
+                        <a href="{$WWWROOT}group/mygroups.php?filter=invite">
+                            <span id="invitedgroupscount" class="label label-warning mrs">{$sbdata.invitedgroups}</span>
+                            <span id="invitedgroupsmessage">{$sbdata.invitedgroupsmessage}</span>
+                            
                         </a>
                     </div>
         {/if}

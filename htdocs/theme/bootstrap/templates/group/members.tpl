@@ -1,8 +1,10 @@
 {include file="header.tpl"}
 
-<p class="lead">
+{if $instructions}
+<p class="ptl pbl">
     {$instructions|clean_html|safe}
 </p>
+{/if}
 
 <div class="memberswrap">
     <div class="memberssearch">
@@ -24,7 +26,7 @@
         </div>
     </div>
 
-    <div class="panel panel-default">
+    <div class="panel panel-default mtl">
         {if $membershiptype}
         <h2 id="searchresultsheading" class="panel-heading">
             <span class="sr-only">{str tag=Results}: </span>
@@ -36,10 +38,8 @@
         </h2>
         {/if}
         
-        <div id="results">
-            <div id="membersearchresults" class="tablerenderer fullwidth listing twocolumn">
-                {$results|safe}
-            </div>
+        <div id="results" class="list-group">
+            {$results|safe}
         </div>
     </div>
 

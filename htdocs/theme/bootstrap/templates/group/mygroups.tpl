@@ -10,11 +10,9 @@
 {if $groups}
 <div class="panel panel-default mtl">
     <h2 class="panel-heading">{str tag=Results}</h2>
-    <div id="mygroups" class="listing panel-body">
+    <div id="mygroups" class="list-group">
         {foreach from=$groups item=group}
-        <div class="listrow">
             {include file="group/group.tpl" group=$group returnto='mygroups'}
-        </div>
         {/foreach}
     </div>
 </div>

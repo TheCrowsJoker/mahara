@@ -1,12 +1,12 @@
 {include file="header.tpl"}
-
-<h2 class="pbm">
+<hr />
+<h2 class="ptl">
     {str tag=nameplural section=interaction.forum} &gt; 
     {$subheading}
 
     {if $publicgroup}
     <a href="{$feedlink}">
-        <img class="feedicon" src="{theme_url filename='images/feed.png'}">
+        <span class="fa-rss fa"></span>
     </a>
     {/if}
 </h2>
@@ -16,7 +16,7 @@
     {/if}
 </div>
 
-<div id="forumdescription" class="lead pbl">
+<div id="forum-description" class="lead pbl">
     {$forum->description|clean_html|safe}
 </div>
 
@@ -146,38 +146,28 @@
 </div>
 
 <div class="forumfooter ptl pbl">
-    <strong>
+    <p class="lead small-text">
         {str tag="groupadminlist" section="interaction.forum"}
-    </strong>
+    </p>
     
     {foreach from=$groupadmins item=groupadmin}
-    <span class="s inlinelist">
-        <a href="{profile_url($groupadmin)}">
-            <img src="{profile_icon_url user=$groupadmin maxwidth=20 maxheight=20}" alt="{str tag=profileimagetext arg1=$groupadmin|display_default_name}">
+        <a href="{profile_url($groupadmin)}" class="label label-default">
+            <img src="{profile_icon_url user=$groupadmin maxwidth=20 maxheight=20}" alt="{str tag=profileimagetext arg1=$groupadmin|display_default_name}" class="user-icon-alt">
+            {$groupadmin|display_name}
         </a>
-        
-        <a href="{profile_url($groupadmin)}" class="groupadmin">{$groupadmin|display_name}
-        </a>
-    </span>
     {/foreach}
-    
+
     {if $moderators}
-    <div>
-        <strong>
+        <p class="lead small-text">
             {str tag="moderatorslist" section="interaction.forum"}
-        </strong>
+        </p>
         
         {foreach from=$moderators item=mod}
-        <span class="s inlinelist">
-            <a href="{profile_url($mod)}">
-                <img src="{profile_icon_url user=$mod maxwidth=20 maxheight=20}" alt="{str tag=profileimagetext arg1=$mod|display_default_name}">
-            </a>
-            <a href="{profile_url($mod)}" class="moderator">
+            <a href="{profile_url($mod)}" class="label label-default">
+                <img src="{profile_icon_url user=$mod maxwidth=20 maxheight=20}" alt="{str tag=profileimagetext arg1=$mod|display_default_name}" class="user-icon-alt">
                 {$mod|display_name}
             </a>
-        </span>
         {/foreach}
-    </div>
     {/if}
 </div>
 

@@ -37,6 +37,9 @@ jQuery(function($) {
     if ($('.site-messages').length === 0) {
         $('.header').addClass('no-site-messages');
         $('.main-nav').addClass('no-site-messages');
+    } else if ($('.site-messages') !== undefined) {
+        var message = $('.site-messages').find('.site-message');
+        $('.header').addClass('message-count-'+ message.length);
     }
 
 

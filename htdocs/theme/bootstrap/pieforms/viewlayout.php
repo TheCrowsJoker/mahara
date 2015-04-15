@@ -55,7 +55,7 @@ $output .= '</div></fieldset></div>';
 
 // advanced layout options
 $output .= '<div id="viewlayout_adv_container" class="advancedlayoutfieldset">';
-$output .= '<fieldset class="pieform-fieldset advancedlayoutfieldset collapsible collapsed">'
+$output .= '<fieldset class="pieform-fieldset advancedlayoutfieldset collapsible collapsed last">'
         . '<legend><a href="javascript:void(0);">' . get_string('advancedoptions', 'view') . '</a></legend>';
 $output .= '<div id="viewlayout_advancedlayoutselect_container" class="advancedlayoutselect">';
 for ($row = 0; $row < $templatedata['maxrows']; $row++) {

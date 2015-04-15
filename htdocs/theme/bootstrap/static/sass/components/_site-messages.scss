@@ -12,7 +12,19 @@
         display: none;
     }
 }
-
+//adjust header for sitemessages
+.header.message-count-2 {
+    top: 2 * 30px;
+}
+.header.message-count-3 {
+    top: 3 * 30px;
+}
+.header.message-count-4 {
+    top: 4 * 30px;
+}
+.header.message-count-5 {
+    top: 5 * 30px;
+}
 .no-site-messages {
     top: 0;
     padding-top: 0;

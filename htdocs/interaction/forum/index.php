@@ -107,6 +107,7 @@ $smarty->assign('groupid', $groupid);
 $smarty->assign('publicgroup', $group->public);
 $smarty->assign('feedlink', $feedlink);
 $smarty->assign('heading', $group->name);
+$smarty->assign('headingclass', 'page-header');
 $smarty->assign('admin', $membership == 'admin');
 $smarty->assign('groupadmins', group_get_admins(array($groupid)));
 $smarty->assign('forums', $forums);

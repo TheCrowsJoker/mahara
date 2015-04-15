@@ -102,7 +102,9 @@ function pieform_element_fieldset(Pieform $form, $element) {
     // Render the body of the fieldset
     $stateClass = $iscollapsed ? '':'in';
 
-    $fieldset.='<div class="fieldset-body collapse '.$stateClass.'" id="'.$openparam.'">';
+    $fieldset.= $iscollapsible ? '<div class="fieldset-body collapse '.$stateClass.'" id="'.$openparam.'">' : '';
+
+    foreach ($element['elements'] as $subname => $subelement) {
 
 
     if (!empty($element['renderer']) && $element['renderer'] == 'multicolumnfieldsettable') {
@@ -119,7 +121,7 @@ function pieform_element_fieldset(Pieform $form, $element) {
         }
     }
 
-    $fieldset .= '</div>';
+    $fieldset .= $iscollapsible ? '</div>' : '';
 
     $fieldset .= "</fieldset>\n";
 

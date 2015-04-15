@@ -16,7 +16,6 @@
                     </th>{/if}
                     <th>{str tag='qualification' section='artefact.resume'}</th>
                     <th class="resumeattachments text-center">
-                        <!-- <span class="fa fa-paperclip"></span> -->
                         <span class="">{str tag=Attachments section=artefact.resume}</span>
                     </th>
                     {if $controls}<th class="resumecontrols">

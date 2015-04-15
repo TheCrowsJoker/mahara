@@ -49,36 +49,35 @@
             {$post->description|clean_html|safe}
         </div>
         {if $post->files}
-            <div id="postfiles_{$post->id}">
-                <div class="attachments">
-                    <div class="attachment-heading">
-                        <a class="attach-files collapsible collapsed" data-toggle="collapse" href="#attach_{$post->id}" aria-expanded="false">
-                            <span class="badge">
-                                {$post->files|count}
-                            </span>
-                            {str tag=attachedfiles section=artefact.blog}
-                            <span class="fa fa-chevron-down link-indicator pull-right"></span>
-                        </a>
-                    </div>
-                    <div class="attached-files collapse" id="attach_{$post->id}">
-                        <ul class="list-group-item-text list-unstyled list-group-item-link has-icon row pbm">
-                        {foreach from=$post->files item=file}
-                            <li class="col-sm-6">
-                                <a href="{$WWWROOT}artefact/file/download.php?file={$file->attachment}" {if $file->description} title="{$file->description}" data-toggle="tooltip"{/if}>
-                                    <div class="file-icon mrs">
-                                        <img src="{$file->icon}" alt="">
-                                    </div>
-                                    <span class="file-title">{$file->title|truncate:40}</span>
-                                    <span class="file-size pls">
-                                    ({$file->size|display_size})
-                                    </span>
-                                </a>
-                            </li>
-                        {/foreach}
-                        </ul>
-                    </div>
+
+            <div class="panel panel-default" id="postfiles_{$post->id}">
+                <a class="panel-heading collapsible collapsed" data-toggle="collapse" href="#attach_{$post->id}" aria-expanded="false">
+                    <span class="fa fa-lg prm fa-paperclip"></span>
+                    <span class="label label-info mrs">
+                        {$post->files|count}
+                    </span>
+                    <span class="small-text"> {str tag=attachedfiles section=artefact.blog}</span>
+                    <span class="fa fa-chevron-down collapse-indicator pull-right"></span>
+                </a>
+                <div class="collapse" id="attach_{$post->id}">
+                    <ul class="list-group list-unstyled mbs">
+                    {foreach from=$post->files item=file}
+                        <li class="list-group-item-text list-group-item-link">
+                            <a href="{$WWWROOT}artefact/file/download.php?file={$file->attachment}" {if $file->description} title="{$file->description}" data-toggle="tooltip"{/if}>
+                                <div class="file-icon mrs">
+                                    <img src="{$file->icon}" alt="">
+                                </div>
+                                <span class="file-title">{$file->title|truncate:40}</span>
+                                <span class="file-size pls">
+                                ({$file->size|display_size})
+                                </span>
+                            </a>
+                        </li>
+                    {/foreach}
+                    </ul>
                 </div>
             </div>
+
         {/if}
     </div>
 {/foreach}

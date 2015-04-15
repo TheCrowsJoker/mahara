@@ -175,6 +175,7 @@ if ($role == 'admin') {
     }
 }
 
+$smarty->assign('headingclass', 'page-header');
 $smarty->assign('INLINEJAVASCRIPT', $js);
 $smarty->assign('heading', $group->name);
 $smarty->assign('form', $searchform);

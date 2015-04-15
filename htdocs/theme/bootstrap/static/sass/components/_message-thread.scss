@@ -1,17 +1,4 @@
 .message-preview {
-    position:relative;
-    .user-icon {
-        position:absolute;
-        left:0;
-        top:0;
-        display: block;
-        z-index: 5;
-        width: 54px;
-        height: 54px;
-    }
-    a, a.collapsed {
-        padding-left:65px; //make room for user image
-    }
     .metadata {
         display: none;
         @media (min-width: $screen-xs-min) {
