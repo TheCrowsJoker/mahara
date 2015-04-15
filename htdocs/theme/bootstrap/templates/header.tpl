@@ -88,10 +88,11 @@
                             </h1>
                         {/if}
 
+                        {if $SUBPAGETOP}
+                            {include file=$SUBPAGETOP}
+                        {/if}
+
                         {if $SUBPAGENAV}
-                            {if $SUBPAGETOP}
-                                {include file=$SUBPAGETOP}
-                            {/if}
                             {if !$SIDEBARS}
                                 <div class="pull-left fullwidth at-top">
                                     {include file="inpagenav.tpl"}
