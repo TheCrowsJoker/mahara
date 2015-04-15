@@ -5541,8 +5541,9 @@ function create_view_form($group=null, $institution=null, $template=null, $colle
         'method'          => 'post',
         'plugintype'      => 'core',
         'pluginname'      => 'view',
-        'renderer'        => 'oneline',
+        'renderer'        => 'div',
         'successcallback' => 'createview_submit',
+        'class'           => 'form-as-button pull-left',
         'elements'   => array(
             'new' => array(
                 'type' => 'hidden',
@@ -5553,9 +5554,10 @@ function create_view_form($group=null, $institution=null, $template=null, $colle
                 'value' => false,
             ),
             'submit' => array(
-                'type'  => 'submit',
+                'type'  => 'button',
+                'usebuttontag' => true,
                 'class' => 'btn btn-default',
-                'value' => get_string('createview', 'view'),
+                'value' => '<span class="fa fa-plus fa-lg text-success prs"></span>' . get_string('createview', 'view'),
             ),
         )
     );

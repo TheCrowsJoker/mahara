@@ -11,42 +11,48 @@
             </label>
 
             <a class="collapsed" href="#notification-{$item->table}-{$item->id}" data-id="{$item->id}" data-table="{$item->table}" data-toggle="collapse" aria-expanded="1" aria-controls="notification-{$item->table}-{$item->id}">
-                {if $item->read && $item->type == 'usermessage'}
-                <span class="fa fa-envelope type-icon prl plxl"></span><span class="sr-only">{$item->strtype} - {str tag='read' section='activity'}</span>
-                {elseif $item->strtype == 'usermessage'}
-                <span class="fa fa-envelope type-icon prl plxl"></span><span class="sr-only">{$item->strtype}</span>
-                {else}
-                <span class="fa fa-wrench type-icon prl plxl"></span>
-                <span class="sr-only">{$item->strtype}</span>
-                {/if}
-                <span class="sr-only">{str section='activity' tag='subject'}</span>
-                {if !$item->read} 
-                    <span class="accessible-hidden sr-only">
-                        {str tag='unread' section='activity'}: 
-                    </span>
-                {/if}
-
-                {$item->subject|truncate:40}
-
-                <span class="metadata">
-                    <span class="sr-only">
-                        {str section='artefact.multirecipientnotification 'tag='fromuser'}:
-                    </span>
-                    {if ($item->fromusr != 0)}
-                        {if ($item->fromusrlink)}
-                            <span class="username">
-                                {/if}
-                                - {$item->fromusr|display_name|truncate:$maxnamestrlength}
-                                {if ($item->fromusrlink)}
-                            </span>
-                        {/if}
+                <span class="details-group">
+                    {if $item->read && $item->type == 'usermessage'}
+                    <span class="fa fa-envelope type-icon prxl plxl"></span><span class="sr-only">{$item->strtype} - {str tag='read' section='activity'}</span>
+                    {elseif $item->strtype == 'usermessage'}
+                    <span class="fa fa-envelope type-icon prxl plxl"></span><span class="sr-only">{$item->strtype}</span>
+                    {elseif $item->strtype == 'Institution message'}
+                     <span class="fa fa-university type-icon prxl plxl"></span>
+                     <span class="sr-only">{$item->strtype}</span>
                     {else}
-                        <span class="username">
-                            - {str tag="system"}
+                    <span class="fa fa-wrench type-icon prxl plxl"></span>
+                    <span class="sr-only">{$item->strtype}</span>
+                    {/if}
+                    <span class="sr-only">{str section='activity' tag='subject'}</span>
+                    {if !$item->read} 
+                        <span class="accessible-hidden sr-only">
+                            {str tag='unread' section='activity'}:
                         </span>
                     {/if}
-                    <span class="sentdate">
-                        , {$item->date}
+                    <span class="subject">
+                        {$item->subject|truncate:80}
+                    </span>
+
+                    <span class="metadata">
+                        <span class="sr-only">
+                            {str section='artefact.multirecipientnotification 'tag='fromuser'}:
+                        </span>
+                        {if ($item->fromusr != 0)}
+                            {if ($item->fromusrlink)}
+                                <span class="username">
+                                    {/if}
+                                    - {$item->fromusr|display_name|truncate:$maxnamestrlength}
+                                    {if ($item->fromusrlink)}
+                                </span>
+                            {/if}
+                        {else}
+                            <span class="username">
+                                - {str tag="system"}
+                            </span>
+                        {/if}
+                        <span class="sentdate ">
+                            , {$item->date}
+                        </span>
                     </span>
                     <span class="fa fa-chevron-down pls collapse-indicator pull-right"></span>
                 </span>

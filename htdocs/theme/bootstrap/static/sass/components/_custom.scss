@@ -1,17 +1,7 @@
 // Generic custom css (anything longer than a screen view should have its own component file)
 
-.btn-sm,
-.btn-xs {
-    .fa {
-        font-size: $fa-font-size-base;
-    }
-}
-
 .dropdown-menu .btn-link:not(.btn-link-danger) {
 	color: $text-color;
-}
-.btn-link-danger {
-	color: $brand-danger;
 }
 
 .collapse > .collapse {
@@ -39,4 +29,15 @@
     @media (max-width: $screen-sm-min) {
         width: 100% !important; // override inline style
     }
+}
+
+.expose {
+    background-color: $brand-default;
+    margin-bottom: 40px;
+    margin-top: -109px;
+    padding: 40px 0px 20px;
+}
+
+.subpage {
+    clear:both;
 }

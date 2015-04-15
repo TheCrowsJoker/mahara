@@ -4,7 +4,7 @@
     {str tag="nameplural" section=interaction.forum}
     {if $publicgroup}
     <a href="{$feedlink}">
-        <img class="feedicon" src="{theme_url filename='images/feed.png'}">
+        <span class="fa-rss fa"></span>
     </a>
     {/if}
 </h2>
@@ -19,8 +19,8 @@
 {/if}
 
 {if $forums}
-<div id="viewforum" class="table-responsive">
-    <table id="forumslist" class="table fullwidth nohead">
+<div id="view-forum" class="table-responsive">
+    <table id="forums-list" class="table fullwidth nohead">
         <tr>
             <th>
                 {str tag="name" section="interaction.forum"}
@@ -49,7 +49,7 @@
                 
                 {if $publicgroup}
                 <a href="{$forum->feedlink}">
-                    <img class="feedicon" src="{theme_url filename='images/feed.png'}">
+                   <span class="fa-rss fa"></span>
                 </a>
                 {/if}
             </h3>
@@ -107,16 +107,14 @@
 </div>
 {/if}
 <div class="forummods">
-    <strong>
+    <p class="lead small-text">
         {str tag="groupadminlist" section="interaction.forum"}
-    </strong>
+    </p>
     
     {foreach from=$groupadmins item=groupadmin}
-    <span class="inlinelist">
-        <a href="{profile_url($groupadmin)}" class="groupadmin">
-            <img src="{profile_icon_url user=$groupadmin maxheight=20 maxwidth=20}" alt="{str tag=profileimagetext arg1=$groupadmin|display_default_name}"> {$groupadmin|display_name}
+        <a href="{profile_url($groupadmin)}" class="label label-default">
+            <img src="{profile_icon_url user=$groupadmin maxheight=20 maxwidth=20}" alt="{str tag=profileimagetext arg1=$groupadmin|display_default_name}" class="user-icon-alt"> {$groupadmin|display_name}
         </a>
-    </span>
     {/foreach}
 </div>
 {include file="footer.tpl"}

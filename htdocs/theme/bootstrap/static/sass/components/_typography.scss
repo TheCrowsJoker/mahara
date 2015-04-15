@@ -33,6 +33,10 @@ a:focus {
   @media (min-width: $screen-sm-min) {
     font-size: ($font-size-base * 1.4);
   }
+
+  &.small-text {
+    font-size: $font-size-base;
+  }
 }
 
 .metadata{
@@ -45,8 +49,13 @@ h1 {
     margin-top:0;
 }
 
-.page-header{
+.page-header {
     margin-bottom:20px;
+}
+
+.page-header ~ .with-heading {
+
+    margin-top: -16px;
 }
 
 h2, h3, h4, h5, legend {

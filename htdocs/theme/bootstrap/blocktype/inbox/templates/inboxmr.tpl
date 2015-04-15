@@ -1,5 +1,7 @@
 {if !$items}
-<p class="panel-body">{str tag=nomessages section=blocktype.inbox}</p>
+<div class="panel-body">
+<p class="lead small-text">{str tag=nomessages section=blocktype.inbox}</p>
+</div>
 {else}
 <div id="inboxblock" class="list-group">
     {foreach from=$items item=i}

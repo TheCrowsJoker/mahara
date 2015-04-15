@@ -1,70 +1,63 @@
-<div class="groupinfo">
-    <p>
+<div class="groupinfo panel-heading panel-heading-nested">
+    <p class="metadata text-right">
+       {str tag=Created section=group}: {$group->ctime}
+    </p>
+</div>
+
+<div class="panel-body">
+    <p class="lead small-text">
         {$group->settingsdescription}
     </p>
-    
-    <p>
-        <strong class="groupinfolabel">{str tag=Created section=group}:</strong>{$group->ctime}
-    </p>
-    
-    <p>
-        <strong class="groupinfolabel">
-            {str tag=groupadmins section=group}:
-        </strong> 
-        {foreach name=admins from=$group->admins item=user}
-            <img src="{profile_icon_url user=$user maxwidth=20 maxheight=20}" alt="{str tag=profileimagetext arg1=$user|display_default_name}">
-            <a href="{profile_url($user)}">
-                {$user|display_name}
-            </a>
-            {if !$.foreach.admins.last}, 
-            {/if}
-        {/foreach}
-    </p>
-    
     {if $group->categorytitle}
     <p>
-        <strong>{str tag=groupcategory section=group}:</strong> 
+         <span class="lead small-text">{str tag=groupcategory section=group}:</span>
         {$group->categorytitle}
     </p>
     {/if}
     
     {if $editwindow}
     <p>
-        <strong class="groupinfolabel">{str tag=editable section=group}:</strong>
+        <span class="lead small-text">{str tag=editable section=group}:</span>
         {$editwindow}
     </p>
     {/if}
+    <p class="lead small-text">{str tag=groupadmins section=group}:</p>
+    {foreach name=admins from=$group->admins item=user}
+        <a href="{profile_url($user)}" class="label label-default">
+            <img src="{profile_icon_url user=$user maxwidth=20 maxheight=20}" alt="{str tag=profileimagetext arg1=$user|display_default_name}" class="user-icon-alt">
+            {$user|display_name}
+        </a>
+    {/foreach}
 </div>
 
-<div class="last ptm groupstat">
+<div class="last ptm groupstat panel-footer">
     {if $group->membercount}
-    <span class="mrm">
-        <strong>{str tag=Members section=group}:</strong>
-        {$group->membercount}
+    <span class="mrm label label-default">
+        {$group->membercount} {str tag=Members section=group}
+        
     </span>
     {/if}
-    <span class="mrm">
-        <strong>{str tag=Views section=view}:</strong>
-        {$group->viewcount}
+    <span class="mrm label label-default">
+        {$group->viewcount} {str tag=Views section=view}
     </span>
-    <span class="mrm">
-        <strong>{str tag=Files section=artefact.file}:</strong>
-        {$group->filecounts->files}
+    <span class="mrm label label-default">
+        {$group->filecounts->files} {str tag=Files section=artefact.file}
+        
     </span>
-    <span class="mrm">
-        <strong>{str tag=Folders section=artefact.file}:</strong>
-        {$group->filecounts->folders}
+    <span class="mrm label label-default">
+        {$group->filecounts->folders} {str tag=Folders section=artefact.file}
+        
     </span>
-    <span class="mrm">
-        <strong>{str tag=nameplural section=interaction.forum}:</strong>
-        {$group->forumcounts}
+    <span class="mrm label label-default">
+        {$group->forumcounts} {str tag=nameplural section=interaction.forum}
+        
     </span>
-    <span class="mrm">
-        <strong>{str tag=Topics section=interaction.forum}:</strong>
-        {$group->topiccounts}
+    <span class="mrm label label-default">
+        {$group->topiccounts} {str tag=Topics section=interaction.forum}
+        
     </span>
-    <span class="mrm">
-        <strong>{str tag=Posts section=interaction.forum}:</strong>
-        {$group->postcounts}
+    <span class="mrm label label-default">
+        {$group->postcounts} {str tag=Posts section=interaction.forum}
+        
     </span>
 </div>

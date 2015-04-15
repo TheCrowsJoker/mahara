@@ -752,7 +752,7 @@ abstract class ArtefactTypeFileBase extends ArtefactType {
             'newiframeonsubmit'  => true,
             'jssuccesscallback'  => 'files_callback',
             'jserrorcallback'    => 'files_callback',
-            'renderer'           => 'oneline',
+            'renderer'           => 'div',
             'plugintype'         => 'artefact',
             'pluginname'         => 'file',
             'configdirs'         => array(get_config('libroot') . 'form/', get_config('docroot') . 'artefact/file/form/'),

@@ -3,7 +3,9 @@
     {$form|safe}
 </div>
 {if $message}
-<div class="no-result">{$message|safe}</div>
+<div class="no-result mtxl ptxl text-center">
+	<p class="ptxl lead">{$message|safe}</p>
+</div>
 {/if}
 {if $results}
 <div id="friendslist" class="panel-items js-masonry" data-masonry-options='{ "itemSelector": ".panel" }'>

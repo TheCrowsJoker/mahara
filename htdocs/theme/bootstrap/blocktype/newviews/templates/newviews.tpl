@@ -39,5 +39,7 @@
     {/foreach}
 </div>
 {else}
-    {str tag=noviews section=view}
+<div class="panel-body">
+    <p class="lead small-text">{str tag=noviews section=view}</p>
+</div>
 {/if}

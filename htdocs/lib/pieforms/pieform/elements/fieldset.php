@@ -102,7 +102,8 @@ function pieform_element_fieldset(Pieform $form, $element) {
     // Render the body of the fieldset
     $stateClass = $iscollapsed ? '':'in';
 
-    $fieldset.='<div class="fieldset-body collapse '.$stateClass.'" id="'.$openparam.'">';
+    $fieldset.= $iscollapsible ? '<div class="fieldset-body collapse '.$stateClass.'" id="'.$openparam.'">' : '';
+
     foreach ($element['elements'] as $subname => $subelement) {
 
         if ($subelement['type'] == 'hidden') {
@@ -112,7 +113,7 @@ function pieform_element_fieldset(Pieform $form, $element) {
         $fieldset .= "\t" . pieform_render_element($form, $subelement);
     }
 
-    $fieldset .= '</div>';
+    $fieldset .= $iscollapsible ? '</div>' : '';
 
     $fieldset .= "</fieldset>\n";
 

@@ -194,6 +194,7 @@ if ($publicgroup) {
     $headers[] = '<link rel="alternate" type="application/atom+xml" href="' . $feedlink . '">';
 }
 
+
 $smarty = smarty(array(), $headers, array(), array());
 $smarty->assign('topic', $topic);
 $smarty->assign('membership', $membership);

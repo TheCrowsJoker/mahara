@@ -32,7 +32,7 @@
             </a>
             {if $publicgroup}
             <a href="{$topic->feedlink}">
-                <img class="feedicon" src="{theme_url filename='images/feed.png'}">
+                <span class="fa-rss fa"></span>
             </a>
             {/if}
         </h3>

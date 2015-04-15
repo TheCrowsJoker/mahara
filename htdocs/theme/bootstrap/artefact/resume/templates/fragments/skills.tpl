@@ -34,18 +34,20 @@
                 </div>
                 {/if}
                 {if $n->files}
-                <div id="resume_{$n->id}" class="panel-footer has-attachment">
-                    <div class="attachment-heading in-panel">
-                         <a class="attach-files collapsed" aria-expanded="false" href="#attach_skill_{$n->id}" data-toggle="collapse">
-                            <span class="badge">{$n->count}</span>
-                            {str tag=attachedfiles section=artefact.blog}
-                            <span class="fa fa-chevron-down pull-right"></span>
-                        </a>
-                    </div>
+                <div id="resume_{$n->id}" class="has-attachment">
+                    <a class="panel-footer in-panel collapsed" aria-expanded="false" href="#attach_skill_{$n->id}" data-toggle="collapse">
+                        <p class="text-left mbs">
+                            <span class="fa fa-lg prm fa-paperclip"></span>
+                            <span class="label label-info mrs">{$n->count}</span>
+                            <span class="small-text">{str tag=attachedfiles section=artefact.blog}</span>
+                            <span class="fa fa-chevron-down collapse-indicator pull-right"></span>
+                        </p>
+                        
+                    </a>
                     <div id="attach_skill_{$n->id}" class="collapse">
-                        <ul class="list-group-item-text list-unstyled list-group-item-link has-icon">
+                        <ul class="list-unstyled list-group mbs">
                             {foreach from=$n->files item=file}
-                            <li>
+                            <li class="list-group-item-text list-group-item-link">
                                 <a href="{$WWWROOT}artefact/file/download.php?file={$file->attachment}" '{if $file->description}' title="{$file->description}" data-toggle="tooltip" '{/if}'>
                                     <div class="file-icon mrs">
                                         <img src="{$file->icon}" alt="" class="mrs">

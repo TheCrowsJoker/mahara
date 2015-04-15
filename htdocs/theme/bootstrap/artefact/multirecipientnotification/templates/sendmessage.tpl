@@ -6,10 +6,10 @@
 {foreach from=$messages item=message name='message'}
     <div class="message-item panel panel-default panel-collapse collapsible collapsible-group {if $dwoo.foreach.message.first}first{/if}">
         <h2 class="message-preview panel-heading">
-            <span class="user-icon">
+            <span class="user-icon left">
                 <img src="{profile_icon_url user=$message->fromid maxwidth=60 maxheight=60}" alt="{$message->fromusrname}">
             </span>
-            <a class="{if $dwoo.foreach.message.last}{else}collapsed{/if}" href="#message-{$message->id}" data-toggle="collapse" aria-expanded="1" aria-controls="#message-{$message->id}">
+            <a class="has-user-icon {if $dwoo.foreach.message.last}{else}collapsed{/if}" href="#message-{$message->id}" data-toggle="collapse" aria-expanded="1" aria-controls="#message-{$message->id}">
                 
                 {if ($message->fromusrlink != 0)}
                 <a href="{$message->fromusrlink}">

@@ -3,7 +3,11 @@
 {if $institution}                {$institutionselector|safe}{/if}
 
 {if !$accesslists.views && !$accesslists.collections}
-<p>{str tag=youhaventcreatedanyviewsyet section=view}</p>
+<div class="mtxl ptxl">
+    <p class="lead mtxl ptxl text-center ">
+       {str tag=youhaventcreatedanyviewsyet section=view}
+    </p>
+</div>
 {else}
 
 {if $accesslists.collections}

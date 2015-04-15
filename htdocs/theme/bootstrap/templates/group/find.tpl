@@ -5,18 +5,16 @@
 {if $groups}
 <div class="panel panel-default mtl">
     <h2 class="panel-heading">{str tag=Results}</h2>
-    <div id="findgroups" class="panel-body listing">
+    <div id="findgroups" class="list-group">
         {foreach from=$groups item=group}
-        <div class="listrow">
             {include file="group/group.tpl" group=$group returnto='mygroups'}
-        </div>
         {/foreach}
     </div>
 </div>
 {$pagination|safe}
 {else}
-<div class="no-result">
-    {str tag="nogroupsfound" section="group"}
+<div class="no-result ptxl mtxl">
+    <p class="lead text-center">{str tag="nogroupsfound" section="group"}</p>
 </div>
 {/if}
 {include file="footer.tpl"}

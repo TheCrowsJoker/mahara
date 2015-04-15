@@ -85,39 +85,37 @@ $searchform = pieform(array(
     'elements' => array(
         'query' => array(
             'type' => 'text',
-            'class'        => 'input-small',
+            'class'    => 'input-small',
             'title' => get_string('Query') . ': ',
             'defaultvalue' => $searchdefault,
         ),
         'search' => array(
             'type'         => 'submit',
-            'class'        => 'btn btn-success', 
+            'class'        => 'btn btn-success mtm', 
             'value'        => get_string('go')
         ),
         'advanced' => array(
             'type'        => 'fieldset',
             'legend'      => get_string('moreoptions', 'view'),
-            'class'       => 'advanced form-inline',
+            'class'       => 'advanced form-inline last',
             'collapsible' => true,
             'collapsed'   => true,
             'elements'    => array(
                 'type' => array(
                     'type'         => 'select',
-                    'class'        => 'input-small',
                     'title'        => get_string('searchwithin') . ': ',
                     'options'      => $searchoptions,
                     'defaultvalue' => $searchtype,
                 ),
                 'sort' => array(
                     'type'         => 'select',
-                    'class'        => 'input-small',
                     'title'        => get_string('sortresultsby') . ' ',
                     'options'      => $sortoptions,
                     'defaultvalue' => $sort,
                 ),
                 'share' => array(
                     'type'         => 'checkboxes',
-                    'class'        => 'input-small',
+                    'class'        => '',
                     'title'        => get_string('sharedwith', 'view') . ': ',
                     'elements'     => $shareoptions,
                     'labelwidth'   => 0,

@@ -144,7 +144,8 @@ a.panel-footer {
             padding: 0;
         }
     }
-    .panel-footer {
+    > .panel-footer, 
+    form .panel-footer {
         clear:both;
         margin: 15px -15px -16px; //alter padding for panel footers inside panel-body (needed for some forms) c.f. login form
     }
@@ -157,10 +158,13 @@ a.panel-footer {
 .panel-heading {
     position: relative;
     display: block;
+    p {
+        margin:0;
+    }
     &.has-link {
         padding: 0;
     }
-    a {
+    a:not(.secondary-link) {
         display: block;
         color: inherit;
         padding: 10px 15px;
@@ -192,6 +196,7 @@ a.panel-footer {
 
 /*
  * Input boxes positioned on the right over the panel header
+ * or icon link positioned on the left over the panel header
  */
 .panel-control {
     display: block;
@@ -202,6 +207,11 @@ a.panel-footer {
     position: absolute;
     width: auto;
     z-index: 5;
+    &.panel-header-action {
+        right:0;
+        top:0;
+    }
+   
     input {
         margin-top:0;
     }
@@ -213,6 +223,11 @@ a.panel-footer {
     }
     .content-expanded {
         font-size: $font-size-small;
+        color: $link-color;
+    }
+}
+a.panel-control {
+    &:hover, &:hover span {
         color: $link-color;
     }
 }
@@ -274,9 +289,6 @@ a.panel-footer {
             }
         }
     }
-    .panel-footer a {
-        color: #333;
-    }
 }
 
 .panel-footer {
@@ -311,6 +323,9 @@ a.panel-footer {
             }
         }
     }
+    a {
+        color: #333;
+    }
 }
 
 .small-text {
@@ -318,9 +333,24 @@ a.panel-footer {
 }
 
 .panel-secondary {
-    > .panel-heading {
+    @include box-shadow(none);
+    > .panel-heading, .panel-heading-nested {
         border-top: 3px solid $mahara-green-bright;
         background-color: $gray-lighter;
         border-bottom: 1px solid $panel-default-border;
     }
+    .list-group .list-group-item { 
+        border-left: 0;
+        border-right: 0;
+        &:first-child {
+            border-top:0;
+        }
+    }
+}
+
+.panel-form {
+    background-color: $panel-default-heading-bg;
+    border-bottom: 1px solid $panel-default-border;
+    padding: 15px;
+    margin-bottom:20px;
 }
