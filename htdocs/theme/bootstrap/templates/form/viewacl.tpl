@@ -68,7 +68,7 @@ function renderPotentialPresetItem(item) {
     else {
         accessString = get_string('addaccess', item.name);
     }
-    var addButton = BUTTON({'type': 'button'}, accessString);
+    var addButton = BUTTON({'type': 'button', 'class': 'btn btn-default mtl'}, accessString);
     var attribs = {};
     if (item.preset) {
         attribs = {'class': 'preset'};
@@ -77,7 +77,7 @@ function renderPotentialPresetItem(item) {
         attribs = {'class': item['class']};
     }
 
-    var row = DIV(attribs, addButton, ' ', item.shortname ? SPAN({'title':item.name}, item.shortname) : item.name);
+    var row = DIV(attribs, addButton);
     item.preset = true;
 
     if (item.type == 'allgroups') {
