@@ -5,12 +5,16 @@
 {if $maintitle}<h1 id="viewh1">{$maintitle|safe}</h1>{/if}
 
 {if !$microheaders && ($mnethost || $editurl)}
-<div class="text-right btn-top-right">
+<div class="btn-group btn-group-top">
   {if $editurl}{strip}
     {if $new}
-      <a class="btn btn-success" href="{$editurl}">{str tag=back}</a>
+      <a class="btn btn-default" href="{$editurl}">
+        {str tag=back}
+      </a>
     {else}
-      <a title="{str tag=editthisview section=view}" href="{$editurl}" class="btn btn-success">{str tag=editthisview section=view}</a>
+      <a title="{str tag=editthisview section=view}" href="{$editurl}" class="btn btn-default">
+        {str tag=editthisview section=view}
+      </a>
     {/if}
   {/strip}{/if}
   {if $mnethost}<a href="{$mnethost.url}" class="btn">{str tag=backto arg1=$mnethost.name}</a>{/if}

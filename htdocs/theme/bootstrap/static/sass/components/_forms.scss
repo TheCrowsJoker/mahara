@@ -199,3 +199,11 @@ label.sr-only + div.mce-tinymce {
 }
 
 
+.form-inline.form-short {
+    select, input:not(.submit) {
+        max-width:100%;
+    }
+    .form-group:not(.submit) {
+        width: 60%;
+    }
+}

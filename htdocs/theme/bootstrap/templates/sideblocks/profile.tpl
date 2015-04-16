@@ -74,7 +74,7 @@
         <div id="sbdatapeer"><a href="{$sbdata.peer.wwwroot}" class="panel-body">{$sbdata.peer.name}</a></div>
     {/if}
     {if $USERMASQUERADING}
-        <div id="changeuser" class="panel-footer">{$becomeyouagain|safe}</div>
+        <div id="changeuser" class="panel-footer"><span class="fa fa-lg prs fa-user-secret"></span> {$becomeyouagain|safe}</div>
     {/if}
 </div>
            
