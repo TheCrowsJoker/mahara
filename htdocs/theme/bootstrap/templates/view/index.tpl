@@ -1,8 +1,4 @@
 {include file="header.tpl"}
-
-    {if $GROUP}
-        <h2>{str tag=groupviews section=view}</h2>
-    {/if}
     <div class="text-right btn-top-right btn-group btn-group-top {if $GROUP} pagetabs{/if}">
         {$createviewform|safe}
         <form method="post" class="form-as-button pull-left" action="{$WWWROOT}view/choosetemplate.php">
@@ -17,6 +13,9 @@
             {/if}
         </form>
     </div>
+    {if $GROUP}
+        <h2>{str tag=groupviews section=view}</h2>
+    {/if}
     <div class="mtxl ptxl">
     {if $institution}
         {$institutionselector|safe}

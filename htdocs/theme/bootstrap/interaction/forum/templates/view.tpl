@@ -1,5 +1,10 @@
 {include file="header.tpl"}
-<hr />
+
+<div class="btn-top-right btn-group btn-group-top">
+    {if $membership}
+    {$forum->subscribe|safe}
+    {/if}
+</div>
 <h2 class="ptl">
     {str tag=nameplural section=interaction.forum} &gt; 
     {$subheading}
@@ -10,11 +15,7 @@
     </a>
     {/if}
 </h2>
-<div class="text-right btn-top-right">
-    {if $membership}
-    {$forum->subscribe|safe}
-    {/if}
-</div>
+
 
 <div id="forum-description" class="lead pbl">
     {$forum->description|clean_html|safe}
