@@ -24,7 +24,6 @@
 {elseif $group->membershiptype == 'admin'}
     <div class="btn-action-list">
         <div class="groupuserstatus text-right btn-top-right btn-group btn-group-top">
-
             <a href="{$WWWROOT}group/edit.php?id={$group->id}" title="{str(tag=editspecific arg1=$group->name)|escape:html|safe}" class="btn btn-default">
                 <span class="fa fa-cog fa-lg text-default"></span>
                  <span class="btn-title pls hide-small">{str tag=edit}</span>

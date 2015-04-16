@@ -15,7 +15,7 @@
 
 	{if !$issitetemplate && can_use_skins(null, false, $issiteview)}
 		<a class="btn btn-default" class="btn btn-default" href="{$WWWROOT}view/skin.php?id={$viewid}{if $new}&new=1{/if}">
-			<span class="fa fa-lg fa-pencil prs"></span>
+			<span class="fa fa-lg fa-paint-brush prs"></span>
 			{str tag=chooseskin section=skin}
 		</a>
 	{/if}

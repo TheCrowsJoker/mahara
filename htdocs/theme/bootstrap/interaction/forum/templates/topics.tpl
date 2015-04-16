@@ -7,7 +7,7 @@
 {if $sticky}
 <tr class="stickytopic {$objectionableclass}">
 {else}
-<tr class="{cycle values='r0,r1'} {$objectionableclass}">
+<tr class="{$objectionableclass}">
     {/if}
     <td class="narrow center">
         {if $topic->closed}
@@ -44,7 +44,7 @@
         <a href="{profile_url($topic->poster)}" class="forumuser{if in_array($topic->poster, $groupadmins)} groupadmin{elseif $topic->moderator} moderator{/if}">{$topic->poster|display_name:null:true}
         </a>
     </td>
-    <td class="postscount center">
+    <td class="postscount text-center">
         {$topic->postcount}
     </td>
     <td class="lastposttd">

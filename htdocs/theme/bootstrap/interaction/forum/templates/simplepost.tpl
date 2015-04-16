@@ -3,41 +3,39 @@
 </a>
 {/if}
 
-<!-- <table class="forumpost fullwidth {if $highlightreported}reported{/if}"> -->
-    <div class="media">
-        <div class="forumpostleft media-left">
-            <div class="author media-object">
-                <img src="{profile_icon_url user=$post->poster maxwidth=40 maxheight=40}" alt="{str tag=profileimagetext arg1=$post->poster|display_default_name}" class="">
-                <div class="poster">
-                    <a href="{profile_url($post->poster)}"{if in_array($post->poster, $groupadmins)} class="groupadmin"{elseif $post->moderator} class="moderator"{/if}>{$post->poster|display_name}
-                    </a>
-                </div>
-                
-                {if $post->postcount}
-                <div class="postcount">
-                    {$post->postcount}
-                </div>
-                {/if}
+    <div class="media forum-post">
+        <div class="forumpostleft media-left metadata">
+            <img src="{profile_icon_url user=$post->poster maxwidth=40 maxheight=40}" alt="{str tag=profileimagetext arg1=$post->poster|display_default_name}" class="media-object">
+            
+            <div class="poster mtm">
+                <a href="{profile_url($post->poster)}"{if in_array($post->poster, $groupadmins)} class="groupadmin"{elseif $post->moderator} class="moderator"{/if}>{$post->poster|display_name}
+                </a>
             </div>
+            
+            {if $post->postcount}
+            <div class="postcount mtm">
+                {$post->postcount}
+            </div>
+            {/if}
         </div>
         <div class="postedits media-body">
             {if $post->subject && !$nosubject}
             <div class="forumsubject media-heading">
-                <h3 class="title">
+                <h4 class="title">
                     {if $post->id}
                     <a href="#post{$post->id}">
                         {$post->subject}
                     </a>
                     {else}
-                    {$post->subject}
+                        {$post->subject}
                     {/if}
-                </h3>
+                </h4>
             </div>
             {/if}
             
-            <div class="posttime">
+            <p class="posttime detail">
                 {$post->ctime}
-            </div>
+            </p>
             
             {$post->body|clean_html|safe}
             
@@ -67,4 +65,3 @@
         {/if}
     </div>
 </div>
-<!-- </table> -->

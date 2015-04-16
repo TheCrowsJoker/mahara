@@ -59,8 +59,8 @@ jQuery(function($) {
 
     // Add bootstrap class to the add file content for filebrowser
     // modal screen
-    $('#js-filebrowser').wrapInner('<div class="modal-dialog modal-lg"><div class="modal-content modal-filebrowser"></div></div>');
-    $('#js-filebrowser').modal('hide');
+    $('.js-filebrowser').wrapInner('<div class="modal-dialog modal-lg"><div class="modal-content modal-filebrowser"></div></div>');
+    $('.js-filebrowser').modal('hide');
 
 
     // Clear the form if when the form is collapsed

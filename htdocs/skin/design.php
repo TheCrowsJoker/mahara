@@ -555,6 +555,7 @@ $elements['fs'] = array(
 );
 $elements['submit'] = array(
         'type' => 'submitcancel',
+        'class' => 'btn btn-success',
         'value' => array(get_string('save', 'mahara'), get_string('cancel', 'mahara')),
         'goto' => get_config('wwwroot') . $goto,
 );
@@ -566,7 +567,7 @@ $designskinform = pieform(array(
         //'jsform'     => true,
         'plugintype' => 'core',
         'pluginname' => 'skin',
-        'renderer'   => 'table',  // don't change unless you also modify design.js to not require tables.
+        'renderer'   => 'div',  // don't change unless you also modify design.js to not require tables.
         'autofocus'  => false,
         'configdirs' => array(get_config('libroot') . 'form/', get_config('docroot') . 'artefact/file/form/'),
         'elements' => $elements
