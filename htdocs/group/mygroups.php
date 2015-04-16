@@ -93,6 +93,7 @@ $smarty->assign('form', $form);
 $smarty->assign('filter', $filter);
 $smarty->assign('pagination', $pagination['html']);
 $smarty->assign('searchingforgroups', array('<a href="' . get_config('wwwroot') . 'group/find.php">', '</a>'));
+$smarty->assign('headingclass', 'page-header');
 $smarty->assign('PAGEHEADING', TITLE);
 $smarty->display('group/mygroups.tpl');
 
