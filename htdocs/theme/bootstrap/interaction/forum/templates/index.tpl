@@ -1,5 +1,14 @@
 {include file="header.tpl"}
 
+{if $admin}
+    <div id="forumbtn" class="text-right btn-top-right btn-group btn-group-top">
+        <a href="{$WWWROOT}interaction/edit.php?group={$groupid}&amp;plugin=forum" class="btn btn-default newforum">
+            <span class="fa fa-plus fa-lg prs text-primary"></span>
+            {str tag="newforum" section=interaction.forum}
+        </a>
+    </div>
+{/if}
+
 <h2 class="pbl mbl">
     {str tag="nameplural" section=interaction.forum}
     {if $publicgroup}
@@ -9,14 +18,6 @@
     {/if}
 </h2>
 
-{if $admin}
-<div id="forumbtn" class="text-right btn-top-right">
-    <a href="{$WWWROOT}interaction/edit.php?group={$groupid}&amp;plugin=forum" class="btn btn-default newforum">
-        <span class="fa fa-plus fa-lg prs text-primary"></span>
-        {str tag="newforum" section=interaction.forum}
-    </a>
-</div>
-{/if}
 
 {if $forums}
 <div id="view-forum" class="table-responsive">
