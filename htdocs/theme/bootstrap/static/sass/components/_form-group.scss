@@ -156,14 +156,22 @@
         label + select {
             margin-left: 0px; // padding provided by label instead
         }
+        &.multi-label > .field {
+            width: 200px;
+        }
     }
 
+    h4,
     h3 {
-        font-size: $font-size-large;
-        padding-bottom: 10px;
+        padding-bottom: 5px;
         margin-bottom: 20px;
         border-bottom: 1px solid $gray-lighter;
     } 
+      h3 {
+        font-size: $font-size-large;
+        padding-bottom: 10px;
+    }
+
 
     .file-wrapper,
     .tag-wrapper input,

@@ -21,7 +21,7 @@
       {/if}
 
       {if $SIDEBARS && $SIDEBLOCKS.left}
-          <div class="col-md-3 col-md-pull-6 sidebar">
+          <div class="col-md-3 col-md-pull-9 sidebar">
               {if !$SIDEBLOCKS.right && $SUBPAGENAV }
                 <div class="panel panel-secondary">
                     <div class="panel-heading">
