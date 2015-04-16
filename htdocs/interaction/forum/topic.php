@@ -273,12 +273,12 @@ function renderpost($post, $indent, $mode) {
                 ),
                 'text' => array(
                     'type' => 'html',
-                    'class' => 'postnotobjectionable',
+                    'class' => 'postnotobjectionable text-danger',
                     'value' => get_string('postnotobjectionable', 'interaction.forum'),
                 ),
                 'submit' => array(
                    'type'  => 'submit',
-                   'class' => 'btn-notobjectionable',
+                   'class' => 'btn btn-success',
                    'value' => get_string('postnotobjectionablesubmit', 'interaction.forum'),
                 ),
                 'postid' => array(
