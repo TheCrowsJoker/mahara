@@ -79,4 +79,7 @@ jQuery(function($) {
         placement: 'right',
         viewport: 'body'
     });
+
+
 });
+

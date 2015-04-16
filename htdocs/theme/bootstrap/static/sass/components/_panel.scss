@@ -339,6 +339,13 @@ a.panel-control {
         background-color: $gray-lighter;
         border-bottom: 1px solid $panel-default-border;
     }
+    &.panel-warning {
+         > .panel-heading, .panel-heading-nested {
+            border-top: 3px solid $mahara-green-bright;
+            background-color: $panel-warning-heading-bg;
+            border-bottom: 1px solid $panel-warning-border;
+        }
+    }
     .list-group .list-group-item { 
         border-left: 0;
         border-right: 0;

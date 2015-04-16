@@ -46,14 +46,14 @@
     {/if}
 
 </h1>
-{if $ownprofile}
-    <div class="text-right btn-top-right">
-        <a title="{str tag=editthisview section=view}" href="{$WWWROOT}view/blocks.php?profile=1" class="btn btn-success">{str tag=editthisview section=view}</a>
-    </div>
-{/if}
-
 <div id="userview">
     <div class="btn-group btn-group-top">
+        {if $ownprofile}
+            <a title="{str tag=editthisview section=view}" href="{$WWWROOT}view/blocks.php?profile=1" class="btn btn-default">
+                <span class="fa-pencil fa fa-lg prs"></span>
+                {str tag=editthisview section=view}
+            </a>
+        {/if}
         {if $loginas}
             <a href="{$WWWROOT}admin/users/changeuser.php?id={$USERID}" class="btn-login btn btn-default">
                 <span class="fa-user-secret fa fa-lg prs"></span>
@@ -77,7 +77,7 @@
         
         {if $relationship == 'existingfriend'}
             <a href="{$WWWROOT}user/removefriend.php?id={$USERID}&amp;returnto=view" class="btn-del btn btn-default">
-                 <span class="fa-user-times fa fa-lg prs"></span>
+                 <span class="fa-user-times fa fa-lg prs text-danger"></span>
                 {str tag='removefromfriendslist' section='group'}
             </a>
         
@@ -93,10 +93,8 @@
         {/if}
     </div>
 
-
-    
     <div class="row">
-        <div class="col-md-8 mbxl">
+        <div class="col-md-8 ptxl">
             {if $institutions}
             <p class="pll lead small-text">
                 <span class="fa fa-lg fa-university  prs"></span>
@@ -118,17 +116,25 @@
                 {$requestedlist}
             </p>
             {/if}
-            
-            {if $inviteform}
-            <span class="addform">{$inviteform|safe}</span>
-            {/if}
-
-           
-            
-            {if $addform}
-                <span class="addform">{$addform|safe}</span>
-            {/if}
         </div>
+        {if $inviteform || $addform}
+            <div class="col-md-4 ptxl">
+                <div class="inviteform panel panel-warning">
+                    <div class="panel-heading">
+                    {if $inviteform}
+                        <div class="inviteform pbs">
+                        {$inviteform|safe}
+                        </div>
+                    {/if}
+                    {if $addform}
+                         <div class="addform">
+                        {$addform|safe}
+                        </div>
+                    {/if}
+                    </div>
+                </div>
+            </div>
+        {/if}
     </div>
 
 <div id="view" class="cl">

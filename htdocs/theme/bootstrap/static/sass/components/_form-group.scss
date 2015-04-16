@@ -16,7 +16,19 @@
     padding: 20px 0;
     position: relative;
 
+    &.hide-label {
+        label {
+            @extend .sr-only;
+        }
+    }
 
+    .single & {
+        padding:0;
+    }
+
+    &.last {
+        border:0;
+    }
     .form-notifications & {
         .select {
             width: 250px;
