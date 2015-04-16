@@ -155,6 +155,7 @@ a.panel-footer {
 }
 
 .collapsible legend h4,
+.collapsible legend h3,
 .panel-heading {
     position: relative;
     display: block;
@@ -360,4 +361,8 @@ a.panel-control {
     border-bottom: 1px solid $panel-default-border;
     padding: 15px;
     margin-bottom:20px;
+}
+
+.fieldset-body .panel-footer {
+    margin: 20px -15px -10px;
 }
