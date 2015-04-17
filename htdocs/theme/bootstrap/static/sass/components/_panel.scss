@@ -21,14 +21,6 @@
             width: 97%;
             }
         }
-        &.pending {
-            .panel-heading a {
-                &:hover, &:focus {
-                    background-color: darken($panel-success-heading-bg, 3%);
-                    text-decoration: none;
-                }
-            }
-        }
     }
 }
 
@@ -123,17 +115,10 @@ a.panel-footer {
 
 //Display objects in panels differently
 .panel-body {
-    &.listing {
-        padding: 0;
-    }
     ul {
         padding-left: 20px;
         margin: 0 0 20px;
         font-size: 0.9em;
-    }
-    .unstyled {
-        text-decoration: none;
-        color: inherit;
     }
     .sidebar & .form-group {
         padding: 0;
@@ -149,9 +134,6 @@ a.panel-footer {
         clear:both;
         margin: 15px -15px -16px; //alter padding for panel footers inside panel-body (needed for some forms) c.f. login form
     }
-    .userthumb {
-        height: 133px;
-    }
 }
 
 .collapsible legend h4,
@@ -159,6 +141,7 @@ a.panel-footer {
 .panel-heading {
     position: relative;
     display: block;
+
     p {
         margin:0;
     }
@@ -170,7 +153,7 @@ a.panel-footer {
         color: inherit;
         padding: 10px 15px;
         
-        &.collapsed, &.title-link {
+        &.collapsed {
             background-color: #f9f9f9;
             color: #333;
             padding: 10px 15px;
@@ -178,9 +161,6 @@ a.panel-footer {
         &:hover, &:focus {
             background-color: darken(#f5f5f5, 1%);
             text-decoration: none;
-            .link-indicator {
-                color: $link-hover-color;
-            }
         }
         .pieform > .collapsible-group:first-child &,
         .first & {
@@ -327,10 +307,6 @@ a.panel-control {
     a {
         color: #333;
     }
-}
-
-.small-text {
-    font-size: $font-size-small;
 }
 
 .panel-secondary {

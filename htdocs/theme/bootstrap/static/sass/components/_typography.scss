@@ -65,7 +65,9 @@ h2, h3, h4, h5, legend {
     }
 }
 
-
+.small-text {
+    font-size: $font-size-small;
+}
 
 img {
     max-width: 100%;
