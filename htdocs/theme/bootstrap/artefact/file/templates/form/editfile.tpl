@@ -61,8 +61,15 @@
 {/if}
           {license_form_files($prefix, 'edit')}
           <div class="checkbox form-group">
-              <label for="{$prefix}_edit_allowcomments">{str tag=allowcomments section=artefact.comment}</label>
-              <input type="checkbox" class="checkbox" name="{$prefix}_edit_allowcomments" id="{$prefix}_edit_allowcomments" {if $fileinfo->allowcomments}checked {/if}/>
+             <label for="{$prefix}_edit_allowcomments">{str tag=Comments section=artefact.comment}</label>
+             <div class="form-switch ">
+                    <div class="switch onoff"><input class="switchbox" type="checkbox" name="{$prefix}_edit_allowcomments" id="{$prefix}_edit_allowcomments" {if $fileinfo->allowcomments}checked {/if}/>
+                    <label class="switch-label">
+                       <span class="switch-inner"></span>
+                       <span class="switch-switch"></span>
+                    </label>
+                    </div>
+                </div>
           </div>
           <div>
             <div>

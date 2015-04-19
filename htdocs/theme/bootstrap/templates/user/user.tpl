@@ -4,7 +4,7 @@
             {$user->display_name}
             {if $user->pending}
             <span class="pendingfriend"> 
-            <i>- {str tag='pending' section='group'}</i>
+            <i>- {str tag='pendingsince' section='group' arg1=$user->pending_time}</i>
             </span>
             {elseif $user->friend && $page == 'find'}
             <span class="existingfriend"> 

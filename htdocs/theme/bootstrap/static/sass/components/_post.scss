@@ -8,8 +8,12 @@
     
     &.draft {
         @include border-radius(3px);
-        background-color: $state-warning-bg;
+        background-color: $panel-warning-heading-bg;
         border-bottom: 0;
+        border: 1px solid $panel-warning-border;
+        h2 {
+            color: $panel-warning-text;
+        }
     }
 
     .post-heading {

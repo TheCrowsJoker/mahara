@@ -39,6 +39,11 @@
             {else}
                 {$view.sharedby}
             {/if}
+
+            <span class="postedon">
+            - {if $view.mtime == $view.ctime}{str tag=Created}{else}{str tag=Updated}{/if}
+            {$view.mtime|strtotime|format_date: 'strftimedate'}
+            </span>
         </span>
         {/if}
         

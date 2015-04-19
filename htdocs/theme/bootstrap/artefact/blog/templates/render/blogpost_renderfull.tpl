@@ -8,7 +8,7 @@
     {if isset($attachments)}
         {if $artefact->get('tags')}<div class="tags">{str tag=tags}: {list_tags owner=$artefact->get('owner') tags=$artefact->get('tags')}</div>{/if}
     <div class="table-responsive">
-        <table class="attachments fullwidth">
+        <table class="attachments fullwidth" id="blockinstance-attachments-{$postid}{if $blockid}-{$blockid}{/if}">
             <thead class="expandable-head">
                 <tr>
                     <td colspan="2">

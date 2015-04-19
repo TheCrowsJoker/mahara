@@ -56,6 +56,10 @@
     }
 
     &.checkboxes {
+        .btn-group {
+            margin: 10px 0;
+            display: block;
+        }
          input[type=checkbox] {
             margin-left: 0;
         }
