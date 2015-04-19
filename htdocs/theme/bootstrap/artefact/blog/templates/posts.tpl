@@ -15,15 +15,15 @@
                         {$post->changepoststatus|safe}
                     {/if}
                 </span>
-                <span class="controls">
+                <span class="controls btn-group btn-toolbar">
                     {if $post->locked}
                         {str tag=submittedforassessment section=view}
                     {else}
                         <form name="edit_{$post->id}" action="{$WWWROOT}artefact/blog/post.php">
                             <input type="hidden" name="id" value="{$post->id}">
-                            <button type="submit" class="btn btn-default btn-xs">
+                            <button type="submit" class="btn btn-default btn-sm">
                                 <span class="fa fa-pencil"></span>
-                                <span class="sr-only">{str(tag=editspecific arg1=$post->title)|escape:html|safe}</span>
+                                {str(tag=edit)|escape:html|safe}
                             </button>
                         </form>
                         {$post->delete|safe}

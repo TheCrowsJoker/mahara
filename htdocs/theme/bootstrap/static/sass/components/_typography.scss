@@ -4,11 +4,15 @@ body, p {
 }
 h1 {
     @extend .page-header;
-    border-bottom: none;
     .admin & {
         @include text-shadow(1px 1px 0 rgba(#fff, 0.5));
         color: #555;
+        border-bottom:0;
     }
+}
+
+.page-header h1{
+     border-bottom:0;
 }
 
 // Add padding if there is no navigation

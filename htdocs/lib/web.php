@@ -171,6 +171,7 @@ function smarty($javascript = array(), $headers = array(), $pagestrings = array(
                     if ($check[$key] == 'tinymce') {
                         $tinymceconfig = <<<EOF
     theme: "modern",
+    skin: 'light',
     plugins: "tooltoggle,textcolor,link,imagebrowser,table,emoticons{$spellchecker},paste,code,fullscreen,directionality,searchreplace,nonbreaking,charmap",
     toolbar1: {$toolbar[1]},
     toolbar2: {$toolbar[2]},
@@ -185,6 +186,7 @@ EOF;
                         $tinymceconfig = <<<EOF
     selector: "textarea.tinywysiwyg",
     theme: "modern",
+    skin: 'light',
     plugins: "fullscreen,autoresize",
     toolbar: {$toolbar[0]},
 EOF;
@@ -1190,8 +1192,7 @@ function themepaths() {
                 'images/loading.gif',
                 'images/success.png',
                 'images/warning.png',
-                'images/help.png',
-                'style/js.css',
+                'images/help.png'
             ),
         );
     }

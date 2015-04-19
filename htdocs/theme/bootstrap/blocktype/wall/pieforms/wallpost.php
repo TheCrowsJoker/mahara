@@ -7,7 +7,7 @@ $html = $form_tag;
 
 $html .= $form_tag;
 $html .= '<div id="wall-wrap" class="panel-form">';
-$html .= '<div class="description metadata mbl">' . $elements['postsizelimit']['html'] . ' ' . $elements['text']['description'] . '</div>';
+$html .= '<div class="description metadata mbl">' . $elements['postsizelimit']['html'] . '</div>';
 $html .= '<div>' . $elements['text']['labelhtml'] . $elements['text']['html'] .'</div>';
 if (isset($elements['text']['error'])) {
     $html .= '<div class="errmsg">' . $elements['text']['error'] . '</div>';

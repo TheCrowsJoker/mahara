@@ -1,6 +1,9 @@
 <br />
 <div class="text-right">
-    <a class="btn btn-success" href="{$WWWROOT}artefact/internal/socialprofile.php">{str tag=newsocialprofile section=artefact.internal}</a>
+    <a class="btn btn-default" href="{$WWWROOT}artefact/internal/socialprofile.php">
+        <span class="fa fa-lg fa-plus text-primary prs"></span>
+        {str tag=newsocialprofile section=artefact.internal}
+    </a>
 </div>
 <div class="table-responsive">
 <table id="socialprofilelist" class="tablerenderer fullwidth table table-striped">

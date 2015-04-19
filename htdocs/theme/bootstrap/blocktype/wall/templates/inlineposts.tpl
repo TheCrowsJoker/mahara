@@ -19,7 +19,7 @@
                     </a>
                 {/if}
                 </h4>
-                <div class="detail panel-body">{$wallpost->text|parse_bbcode|safe}</div>
+                <div class="detail panel-body">{$wallpost->text|safe}</div>
                 {* {if $ownwall}
                 <div class="panel-footer">
                     <a href="{$WWWROOT}blocktype/wall/wall.php?instance={$instanceid}&amp;replyto={$wallpost->id}">

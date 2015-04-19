@@ -304,7 +304,7 @@ a.panel-control {
             }
         }
     }
-    a {
+    a:not(.btn) {
         color: #333;
     }
 }

@@ -36,7 +36,6 @@
 {foreach from=$STYLESHEETLIST item=cssurl}
     <link rel="stylesheet" type="text/css" href="{$cssurl}">
 {/foreach}
-    <link rel="stylesheet" type="text/css" href="{theme_url filename='style/print.css'}?v={$CACHEVERSION}" media="print">
     <script type="text/javascript" src="{theme_url filename='bootstrap/assets/javascripts/bootstrap.js'}?v={$CACHEVERSION}"></script>
     <script type="text/javascript" src="{theme_url filename='js/bootstrap-accessibility.min.js'}?v={$CACHEVERSION}"></script>
     <script type="text/javascript" src="{theme_url filename='js/masonry.min.js'}?v={$CACHEVERSION}"></script>

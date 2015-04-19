@@ -445,13 +445,14 @@ class ArtefactTypeBlog extends ArtefactType {
                     'value' => $id,
                 ),
                 'submit' => array(
-                    'type' => 'submit',
-                    'class' => 'input-as-icon icon-trash',
-                    // 'src' => $THEME->get_url('images/btn_deleteremove.png'),
+                    'type' => 'button',
+                    'usebuttontag' => true,
+                    'class' => 'btn btn-default btn-sm',
+
                     'alt' => get_string('deletespecific', 'mahara', $title),
                     'elementtitle' => get_string('delete'),
                     'confirm' => $confirm,
-                    'value' => get_string('delete'),
+                    'value' => '<span class="fa fa-trash text-danger prs"></span> ' .get_string('delete'),
                 ),
             ),
         ));
@@ -963,9 +964,10 @@ class ArtefactTypeBlogPost extends ArtefactType {
                     'type' => 'hidden',
                     'value' => $published,
                 ),'submit' => array(
-                    'type' => 'submit',
-                    'class' => 'publish btn btn-success btn-xs',
-                    'value' => $strchangepoststatus,
+                    'type' => 'button',
+                    'usebuttontag' => true,
+                    'class' => 'publish btn btn-default btn-sm',
+                    'value' => '<span class="fa fa-undo"></span> ' . $strchangepoststatus,
                     'help' => true,
                 ),
             ),
@@ -987,11 +989,12 @@ class ArtefactTypeBlogPost extends ArtefactType {
                     'help' => true,
                 ),
                 'submit' => array(
-                    'type' => 'submit',
-                    'class' => 'input-as-icon icon-trash',
+                    'type' => 'button',
+                    'usebuttontag' => true,
+                    'class' => 'btn btn-default btn-sm',
                     'elementtitle' => get_string('delete'),
                     'confirm' => get_string('deleteblogpost?', 'artefact.blog'),
-                    'value' => get_string('delete'),
+                    'value' => '<span class="fa fa-trash text-danger prs"></span> ' .get_string('delete'),
                 ),
             ),
         ));
