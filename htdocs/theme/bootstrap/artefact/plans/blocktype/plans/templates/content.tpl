@@ -1,4 +1,5 @@
-{if $tags}<p class="tags s"><strong>{str tag=tags}:</strong> {list_tags owner=$owner tags=$tags}</p>{/if}
+<p class="detail">{$description}</p>
+{if $tags}<p class="tags"><strong>{str tag=tags}:</strong> {list_tags owner=$owner tags=$tags}</p>{/if}
 {if $tasks.data}
 <table id="tasktable_{$blockid}" class="plansblocktable fullwidth">
     <thead>

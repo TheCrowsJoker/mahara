@@ -19,12 +19,16 @@
 	width: 100%;
 }
 
+.row-content {
+    @media (min-width: $screen-sm-min + 1) {
+        margin-left: -2%;
+    }
+}
+
 .column-layout {
     float: left;
-    &:not(.first) {
-        @media (min-width: $screen-sm-min + 1) {
-            margin-left: 4%;
-        }
+    @media (min-width: $screen-sm-min + 1) {
+        margin-left: 2%;
     }
     @media (max-width: $screen-sm-min) {
         width: 100% !important; // override inline style

@@ -25,7 +25,9 @@
         </h3>
     {/if}
 
-    <div class="block{if $retractable} collapse{if $retractedonload}{else} in{/if}{/if}"  id="blockinstance_{$id}_target">
-        {$content|safe}
+    <div class="block{if $retractable} collapse{if $retractedonload}{else} in{/if}{/if}"  id="blockinstance_{$id}_target" {if $loadbyajax}data-blocktype-ajax="{$id}"{/if}>
+        {if !$loadbyajax}
+            {$content|safe}
+        {/if}
     </div>
 </div>

@@ -149,5 +149,4 @@
     {if $tabs}
     </div>
     {/if}
-
 </div>

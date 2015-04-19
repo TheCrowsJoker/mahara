@@ -3,15 +3,14 @@
         <tr class="incomplete">
             <td class="completiondate">{$task->completiondate}</td>
             <td class="plantasktitle">{$task->title}</td>
-            <td class="plantaskdescription"><small>{$task->description|clean_html|safe}</small></td>
+            <td class="plantaskdescription">{$task->description|clean_html|safe}</td>
+            <td class="plantasktags">{if $task->tags}{list_tags owner=$task->owner tags=$task->tags}{/if}</td>
             <td class="incomplete">
                 <span class="sr-only">{str tag=overdue section=artefact.plans}</span>
             </td>
     {else}
-        <tr class="complete">
-            <td class="completiondate">{$task->completiondate}</td>
-            <td class="plantasktitle">{$task->title}</td>
-            <td class="plantaskdescription"><small>{$task->description|clean_html|safe}</small></td>
+            <td class="plantaskdescription">{$task->description|clean_html|safe}</td>
+            <td class="plantasktags">{if $task->tags}{list_tags owner=$task->owner tags=$task->tags}{/if}</td>
             {if $task->completed == 1}
                 <td class="completed">
                     <span class="fa fa-check text-success"></span>

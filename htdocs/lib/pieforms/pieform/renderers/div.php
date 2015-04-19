@@ -70,7 +70,9 @@ function pieform_renderer_div(Pieform $form, $element) {/*{{{*/
         $result .= '<span class="prehtml">' . $element['prehtml'] . '</span>';
     }
 
-    $result .= $element['html'];
+    if (isset($element['html'])) {
+        $result .= $element['html'];
+    }
 
     if (isset($element['posthtml'])) {
         $result .= '<span class="posthtml">' . $element['posthtml'] . '</span>';
