@@ -1,15 +1,18 @@
 {include file="header.tpl"}
 
-<div class="text-right btn-top-right">
-    <form method="post" action="{$WWWROOT}skin/design.php{if $siteskins}?site=1{/if}">
-        <input class="submit btn btn-success" type="submit" value="{str tag=createskin section=skin}">
-    </form>
-    <form method="post" action="{$WWWROOT}skin/import.php{if $siteskins}?site=1{/if}">
-        <input class="submit btn btn-success" type="submit" value="{str tag=importskins section=skin}">
-    </form>
-    <form method="post" action="{$WWWROOT}skin/export.php{if $siteskins}?site=1{/if}" class="mtl">
-        <input class="submit btn btn-success" type="submit" value="{str tag=exportskins section=skin}">
-    </form>
+<div class="text-right btn-top-right btn-group btn-group-top">
+    <a href="{$WWWROOT}skin/design.php{if $siteskins}?site=1{/if}" class="btn btn-default button" type="submit">
+        <span class="fa fa-plus fa-lg text-primary prs"></span>
+        {str tag=createskin section=skin}
+    </a>
+    <a href="{$WWWROOT}skin/import.php{if $siteskins}?site=1{/if}" class="btn btn-default button" type="submit">
+        <span class="fa fa fa-external-link fa-rotate-180 fa-lg pls"></span>
+        {str tag=importskins section=skin}
+    </a>
+    <a href="{$WWWROOT}skin/export.php{if $siteskins}?site=1{/if}" class="btn btn-default button" type="submit">
+        <span class="fa fa fa-external-link fa-lg prs"></span>
+        {str tag=exportskins section=skin}
+    </a>
 </div>
 
 {if !$siteskins}
@@ -58,14 +61,14 @@
     
         {if $skin.removable}
         <a href="{$WWWROOT}skin/export.php?id={$skin.id}" title="{str tag='exportthisskin' section='skin'}" class="btn btn-default btn-xs">
-            <span class="fa fa-download"></span>
+            <span class="fa fa fa-external-link"></span>
             <span class="sr-only">
                 {str tag=exportspecific section=skin arg1=$skin.title}
             </span>
         </a>
        
-        <a href="{$WWWROOT}skin/delete.php?id={$skin.id}{if $skin.type == 'site'}&site=1{/if}" title="{str tag='deletethisskin' section='skin'}" class="btn btn-danger btn-xs">
-            <span class="fa fa-trash"></span>
+        <a href="{$WWWROOT}skin/delete.php?id={$skin.id}{if $skin.type == 'site'}&site=1{/if}" title="{str tag='deletethisskin' section='skin'}" class="btn btn-default btn-xs">
+            <span class="fa fa-trash text-danger"></span>
             <span class="sr-only">
                 {str tag=deletespecific arg1=$skin.title}
             </span>
@@ -149,8 +152,10 @@
 
 {else}
 
-<div class="message">
+<div class="mtxl ptxl">
+    <p class="lead mtxl ptxl text-center">
     {str tag="noskins" section="skin"}
+    </p>
 </div>
 
 {/if}

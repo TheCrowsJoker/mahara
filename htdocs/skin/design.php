@@ -202,8 +202,7 @@ if (!$designsiteskin) {
                 'title' => get_string('backgroundposition', 'skin'),
                 'defaultvalue' => (!empty($viewskin['body_background_position']) ? intval($viewskin['body_background_position']) : 1),
                 'rowsize' => 3,
-                'hiddenlabels' => true,
-                'separator' => '<br />',
+                'hiddenlabels' => false,
                 'options' => $positions,
         )
     ));
@@ -276,8 +275,7 @@ if (!$designsiteskin) {
                 'title' => get_string('backgroundposition', 'skin'),
                 'defaultvalue' => (!empty($viewskin['view_background_position']) ? intval($viewskin['view_background_position']) : 1),
                 'rowsize' => 3,
-                'hiddenlabels' => true,
-                'separator' => '<br />',
+                'hiddenlabels' => false,
                 'options' => $positions,
         ),
         'view_background_width' => array(
@@ -384,7 +382,6 @@ $elements['viewcontent'] = array(
                         'title' => get_string('fontsize', 'skin'),
                         'defaultvalue' => (!empty($viewskin['view_text_font_size']) ? $viewskin['view_text_font_size'] : 'small'),
                         'width' => 144,
-                        'height' => 22,
                         'options' => array(
                                 'xx-small' => array('value' => get_string('fontsizesmallest', 'skin'), 'style' => 'font-size: xx-small;'),
                                 'x-small' => array('value' => get_string('fontsizesmaller', 'skin'), 'style' => 'font-size: x-small;'),
