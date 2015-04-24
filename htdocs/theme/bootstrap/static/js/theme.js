@@ -43,20 +43,6 @@ jQuery(function($) {
     }
 
 
-
-
-    // Add markup to switch type input
-    $('.switch').each(function(index){
-        
-        var inputId = $(this).children('input').attr('id');
-
-        $(this).append(
-            '<label class="switch-label" for="'+ inputId +'"><span class="switch-inner"></span><span class="switch-switch"></span></label>'
-        );
-    });
-
-
-
     // Add bootstrap class to the add file content for filebrowser
     // modal screen
     $('.js-filebrowser').wrapInner('<div class="modal-dialog modal-lg"><div class="modal-content modal-filebrowser"></div></div>');
@@ -79,7 +65,6 @@ jQuery(function($) {
         placement: 'right',
         viewport: 'body'
     });
-
 
 });
 

@@ -40,7 +40,10 @@ function pieform_element_fieldset(Pieform $form, $element) {
 
     $openparam = false;
     $formname = $form->get_name();
-    $legendcontent = Pieform::hsc($element['legend']);
+
+    if (!empty($element['legend'])) {
+        $legendcontent = Pieform::hsc($element['legend']);
+    }
 
     $iscollapsible = pieform_is_collapsible($element);
     $iscollapsed = pieform_is_collapsed($form, $element);

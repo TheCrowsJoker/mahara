@@ -1,7 +1,7 @@
 {include file="header.tpl"}
 
 {if $instructions}
-<p class="ptl pbl">
+<p class="lead ptm pbm">
     {$instructions|clean_html|safe}
 </p>
 {/if}
@@ -21,7 +21,7 @@
         </div>
         {/if}
         
-        <div class="panel panel-default pll pbm">
+        <div class="panel panel-default pll">
             {$form|safe}
         </div>
     </div>

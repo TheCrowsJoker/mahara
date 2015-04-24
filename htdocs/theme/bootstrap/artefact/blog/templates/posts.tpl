@@ -10,7 +10,7 @@
                         {str tag=draft section=artefact.blog}
                     {/if}
                 </span>
-                <span id="changepoststatus{$post->id}" class="changepoststatus">
+                <span id="changepoststatus{$post->id}" class="changepoststatus prm">
                     {if !$post->locked}
                         {$post->changepoststatus|safe}
                     {/if}

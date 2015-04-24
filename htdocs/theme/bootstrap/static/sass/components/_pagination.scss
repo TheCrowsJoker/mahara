@@ -18,7 +18,7 @@
     .form-pagination {
         font-size: $font-size-small;
         label {
-            min-width: auto;
+            min-width: inherit;
         }
     }
 }

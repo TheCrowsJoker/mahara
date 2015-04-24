@@ -77,17 +77,3 @@
         }
     }
 }
-
-// styles for delete confirmation
-.delete-wrapper {
-    background-color: $alert-danger-bg;
-    padding: 15px;
-    
-    h3 {
-        margin-top: 0;
-    }
-    
-    .form-delete {
-        margin-bottom: 0;
-    }
-}

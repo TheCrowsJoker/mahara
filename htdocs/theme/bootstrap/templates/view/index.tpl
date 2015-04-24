@@ -22,7 +22,7 @@
     {/if}
     </div>
     <div class="grouppageswrap">
-        <div class="panel panel-default pll pbm">
+        <div class="panel panel-default pll">
             {$searchform|safe}
         </div>
         <div class="panel panel-default">

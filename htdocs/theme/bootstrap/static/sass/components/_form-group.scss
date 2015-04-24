@@ -59,6 +59,10 @@
          input[type=checkbox] {
             margin-left: 0;
         }
+        .checkboxes-option {
+            margin-left: 265px;
+            display: inline-block;
+        }
     }
 
     &.checkbox {
@@ -80,8 +84,13 @@
         }
     }
 
+    &.submit {
+        border-bottom: none;
+    }
+
     // reset bootstrap button style for cancel button
     &.submitcancel {
+        border-bottom: none;
         .cancel {
             background-color: transparent;
             border: none;
@@ -120,6 +129,28 @@
                 }
             }
         }
+    }
+
+    &.color {
+        label {
+            &:first-child {
+                display: block;
+                @media (min-width: $screen-sm-min) {
+                    display: inline-block;
+                }
+            }
+            &:not(:first-child) {
+                min-width: inherit;
+            }
+        }
+        input {
+            &.color {
+                max-width: 240px;
+            }
+        }
+    }
+    &.html {
+        border-bottom: none;
     }
     &.double {
         .description {
@@ -171,7 +202,7 @@
     h3 {
         padding-bottom: 5px;
         margin-bottom: 20px;
-        border-bottom: 1px solid $gray-lighter;
+        // border-bottom: 1px solid $gray-lighter;
     } 
       h3 {
         font-size: $font-size-large;

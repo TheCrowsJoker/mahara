@@ -4,7 +4,7 @@
     	<span class="fa fa-plus fa-lg prs text-primary"></span>
     	{str section="artefact.plans" tag="newplan"}</a>
 </div>
-<div id="planswrap" class="posts-wrapper clearfix">
+<div id="planswrap" class="posts-wrapper ptxl">
 {if !$plans.data}
     <div class="lead">{$strnoplansaddone|safe}</div>
 {else}

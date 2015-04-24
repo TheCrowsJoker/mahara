@@ -4,6 +4,7 @@
     padding: 5px;
     display: table;
     border: 1px solid $panel-default-border;
+    overflow: hidden;
     &.left {
         position:absolute;
         left: 5px;

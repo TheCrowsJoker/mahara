@@ -46,16 +46,20 @@
 
 {elseif $group->membershiptype == 'invite'}
 
-    <div class="invite btn-action-list">
+    <div class="invite btn-action-list btn-top-right btn-group btn-group-top">
         {$group->invite|safe}
     </div>
 
     {if $group->role}
-        {assign var=grouptype value=$group->grouptype}
-        {assign var=grouprole value=$group->role}
-        {str tag="grouphaveinvitewithrole" section="group"}: {str tag="$grouprole" section="grouptype.$grouptype"}
+        <div class="small-text">
+            {assign var=grouptype value=$group->grouptype}
+            {assign var=grouprole value=$group->role}
+            {str tag="grouphaveinvitewithrole" section="group"}: {str tag="$grouprole" section="grouptype.$grouptype"}
+        </div>
     {else}
-        {str tag="grouphaveinvite" section="group"}
+        <div class="metadata">
+            {str tag="grouphaveinvite" section="group"}
+        </div>
     {/if}
 
 
