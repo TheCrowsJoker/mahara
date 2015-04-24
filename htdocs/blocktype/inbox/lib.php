@@ -98,7 +98,6 @@ class PluginBlocktypeInbox extends SystemBlocktype {
         }
         $smarty->assign('blockid', 'blockinstance_' . $instance->get('id'));
         $smarty->assign('items', $records);
-        $smarty->assign('readicon', $THEME->get_url('images/readusermessage.png'));
 
         return $smarty->fetch($smartytemplate);
     }

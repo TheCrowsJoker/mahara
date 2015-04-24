@@ -77,7 +77,6 @@ $activitylist = activitylistin_html($type);
 
 
 $star = json_encode($THEME->get_url('images/star.png'));
-$readicon = json_encode($THEME->get_url('images/readusermessage.png'));
 $strread = json_encode(get_string('read', 'activity'));
 $strnodelete = json_encode(get_string('nodelete', 'activity'));
 

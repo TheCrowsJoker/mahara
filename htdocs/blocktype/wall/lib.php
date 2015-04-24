@@ -128,7 +128,7 @@ class PluginBlocktypeWall extends SystemBlocktype {
         require_once('pieforms/pieform.php');
         return pieform(array(
             'name'      => 'wallpost_'.$instance->get('id'),
-            'renderer'  => 'maharatable',
+            'renderer'  => 'dev',
             'autofocus' => false,
             'jsform'    => true,
             'template'  => 'wallpost.php',

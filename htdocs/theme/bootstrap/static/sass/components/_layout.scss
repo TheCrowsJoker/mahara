@@ -52,3 +52,17 @@ body {
 .footer {
     max-width:100%;
 }
+
+.column {
+      vertical-align: top;
+      float: left;
+      margin: 0;
+      padding: 0 0.9% 10px 0.9%;
+      position: relative;
+      &:first-child {
+            padding-left:0;
+      }
+      &:last-child {
+            padding-right:0;
+      }
+}

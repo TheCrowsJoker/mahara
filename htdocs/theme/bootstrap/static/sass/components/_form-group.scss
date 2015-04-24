@@ -16,6 +16,14 @@
     padding: 20px 0;
     position: relative;
 
+    .modal-body & {
+        padding: 10px 0;
+
+        .description:not(.html) {
+            padding-top: 5px;
+        }
+    }
+
     &.hide-label {
         label {
             @extend .sr-only;

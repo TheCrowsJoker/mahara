@@ -72,6 +72,7 @@ class PluginArtefactBlog extends PluginArtefact {
         return array(
             'type' => 'fieldset',
             'name' => 'advanced',
+            'class' => 'first last',
             'collapsible' => true,
             'collapsed' => false,
             'legend' => get_string('moreoptions', 'artefact.blog'),

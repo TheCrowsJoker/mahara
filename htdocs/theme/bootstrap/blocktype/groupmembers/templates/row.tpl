@@ -1,4 +1,4 @@
-<div class="friends panel-body">
+<div class="friends">
     <div class="js-masonry" data-masonry-options='{ "itemSelector": ".item", "gutter" : 10 }'>
         {foreach from=$groupmembers item=groupmember}
 

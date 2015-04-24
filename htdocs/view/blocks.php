@@ -159,12 +159,13 @@ $addform = pieform(array(
     'jsform' => true,
     'renderer' => 'div',
     'autofocus' => false,
+    'class' => 'cell-radios',
     'elements' => array(
         'cellchooser' => array(
             'type' => 'radio',
+            'class' => 'fullwidth mls',
             'title' => get_string('blockcell', 'view'),
             'rowsize' => 2,
-            'separator' => '<br />',
             'options' => array('R1C1', 'R1C2', 'R2C1'),
         ),
         'position' => array(
@@ -174,6 +175,7 @@ $addform = pieform(array(
         ),
         'submit' => array(
             'type' => 'submitcancel',
+            'class' => 'btn btn-default',
             'value' => array(get_string('add'), get_string('cancel')),
         ),
     ),

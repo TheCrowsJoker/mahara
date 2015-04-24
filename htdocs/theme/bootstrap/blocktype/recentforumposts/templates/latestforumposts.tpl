@@ -23,7 +23,7 @@
         {/foreach}
         <a href="{$WWWROOT}interaction/forum/index.php?group={$group->id}" class="panel-footer">
         {str tag=gotoforums section=interaction.forum}
-        <span class="fa fa-arrow-circle-right mls pull-right"></span>
+        <span class="fa fa-arrow-circle-right mls"></span>
         </a>
     </div>
 {else}

@@ -214,7 +214,7 @@ a.panel-control {
 }
 
 
-.panel-collapse {
+.panel-collapse:not(.panel-secondary) {
     border: 0;
 
      // Remove border from heading - add to link tag. 
@@ -271,6 +271,7 @@ a.panel-control {
         }
     }
 }
+
 
 .panel-footer {
     &.has-form {
@@ -342,3 +343,17 @@ a.panel-control {
 .fieldset-body .panel-footer {
     margin: 20px -15px -10px;
 }
+
+.wallpost:first-child {
+    margin-top:20px;
+}
+
+.columns3,
+.columns4,
+.columns5 {
+    .wallpost .panel-heading{
+        font-size: 12px;
+        padding-right:40px;
+    }
+}
+

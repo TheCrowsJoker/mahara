@@ -3,7 +3,7 @@
 jQuery(function($) {
 "use strict";
 
-    // Load content into ajax vlocks
+    // Load content into ajax blocks
 
     var baseurl = $('head').attr('data-basehref'),
         blocks,

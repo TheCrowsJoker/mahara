@@ -707,8 +707,7 @@ abstract class ArtefactTypeFileBase extends ArtefactType {
                 'artefacttype' => 'folder',
                 'description'  => get_string('parentfolder', 'artefact.file'),
                 'isparent'     => true,
-                'id'           => $grandparentid,
-                'icon'         => ArtefactTypeFolder::get_icon(),
+                'id'           => $grandparentid
             );
         }
 
@@ -2041,7 +2040,7 @@ class ArtefactTypeFolder extends ArtefactTypeFileBase {
 
     public static function get_icon($options=null) {
         global $THEME;
-        return $THEME->get_url('images/folder.png');
+        return false;
     }
 
     public static function collapse_config() {

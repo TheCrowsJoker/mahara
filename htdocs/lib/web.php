@@ -1185,14 +1185,7 @@ function themepaths() {
     if (empty($paths)) {
         $paths = array(
             'mahara' => array(
-                'images/btn_close.png',
-                'images/btn_deleteremove.png',
-                'images/btn_edit.png',
-                'images/failure.png',
-                'images/loading.gif',
-                'images/success.png',
-                'images/warning.png',
-                'images/help.png'
+               
             ),
         );
     }
@@ -2831,7 +2824,6 @@ function right_nav() {
             'path' => 'settings',
             'url' => 'account/index.php',
             'title' => get_string('settings'),
-            'icon' => $THEME->get_url('images/settings.png'),
             'alt' => '',
             'weight' => 10,
             'iconclass' => 'cogs'
@@ -2839,7 +2831,6 @@ function right_nav() {
         'inbox' => array(
             'path' => 'inbox',
             'url' => 'account/activity/index.php',
-            'icon' => $THEME->get_url($unread ? 'images/newmail.png' : 'images/message.png'),
             'alt' => get_string('inbox'),
             'count' => $unread,
             'countclass' => 'unreadmessagecount',

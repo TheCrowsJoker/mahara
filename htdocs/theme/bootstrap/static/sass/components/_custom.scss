@@ -73,3 +73,30 @@
 
     }
 }
+
+.modal {
+    background: rgba(0,0,0,0.3);
+}
+
+.model-shown {
+    display:block;
+}
+
+.modal-content {
+    height: 90%;
+}
+
+.modal-body {
+  max-height: 85%;
+  overflow: auto;
+}
+
+.modal-dialog { 
+    height:100%;
+}
+
+.toolbar-affix.affix {
+    position: fixed;
+    top: 70px;
+    z-index: 1;
+}
