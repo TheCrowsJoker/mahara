@@ -19,7 +19,7 @@
 @import "utilities/var/brand"; // Import our brand variables
 @import "utilities/var/bootstrap-variables";  // ...and our custom bootstrap variables file
 
-@import "compass/css3";
+@import "compass";
 
 @import "../bootstrap/assets/stylesheets/bootstrap/mixins";
 @import "utilities/mixins";  // include after bootstrap mixins in case we want to override
@@ -83,11 +83,10 @@
 @import "utilities/classes"; // Custom utility classes
 @import "utilities/whitespace"; // Custom utility classes
 @import "components/alert";
-@import "components/attachments";
-@import "components/blockinstances";
 @import "components/btn";
 @import "components/btn-group";
 @import "components/collapse";
+@import "components/col-collapse";
 @import "components/contextual-help";
 @import "components/dashboard-widget";
 @import "components/dropzone-previews";
@@ -98,6 +97,7 @@
 @import "components/forms";
 @import "components/forum-post";
 @import "components/header";
+@import "components/icons";
 @import "components/input-as-icon";
 @import "components/input-group";
 @import "components/js";
@@ -127,6 +127,7 @@
 @import "components/typography";
 @import "components/ui-draggable";
 @import "components/user-icon";
+
 
 
 // Keep these files last to override all other style sheets

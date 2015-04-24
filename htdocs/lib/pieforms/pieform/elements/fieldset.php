@@ -276,9 +276,7 @@ function pieform_element_fieldset_views_js(Pieform $form, $element) {
     global $_PIEFORM_FIELDSETS;
 
     $result = '';
-
-    $result .= "pieform_update_legends('instconf');";
-
+    
     foreach ($element['elements'] as $subelement) {
         $function = 'pieform_element_' . $subelement['type'] . '_views_js';
         if (is_callable($function)) {

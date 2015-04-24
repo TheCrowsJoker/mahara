@@ -41,6 +41,7 @@
     <script type="text/javascript" src="{theme_url filename='js/masonry.min.js'}?v={$CACHEVERSION}"></script>
      <script type="text/javascript" src="{theme_url filename='js/pieform.js'}?v={$CACHEVERSION}"></script>
     <script type="text/javascript" src="{theme_url filename='js/block.js'}?v={$CACHEVERSION}"></script>
+    <script type="text/javascript" src="{theme_url filename='js/formtabs.js'}?v={$CACHEVERSION}"></script>
     <script type="text/javascript" src="{theme_url filename='js/theme.js'}?v={$CACHEVERSION}"></script>
 
     <script type="text/javascript" src="{theme_url filename='js/notification.js'}?v={$CACHEVERSION}"></script>

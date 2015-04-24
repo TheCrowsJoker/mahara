@@ -1,6 +1,6 @@
-<div class="bt-{$blocktype} panel panel-secondary" id="blockinstance_{$id}">
+<div class="bt-{$blocktype} panel panel-secondary {if $retractable}collapsible panel-collapse{/if}" id="blockinstance_{$id}">
     {if $title}
-        <h3 class="title panel-heading">
+        <h3 class="title panel-heading js-heading">
             {if $retractable}
             <a data-toggle="collapse" href="#blockinstance_{$id}_target" aria-expanded="true" aria-controls="blockinstance_{$id}_target">
             {/if}
@@ -8,6 +8,7 @@
             {$title}
             
             {if $retractable}
+            <span class="fa fa-chevron-down pls collapse-indicator pull-right"></span>
             </a>
             {/if}
 

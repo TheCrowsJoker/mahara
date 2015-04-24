@@ -113,7 +113,8 @@ h1 + .subpage > .btn-group-top {
     }
 }
 
-.list-group {
+.list-group,
+.panel {
     .btn-group {
         @include clearfix;
         text-align: right;
@@ -142,5 +143,145 @@ h1 + .subpage > .btn-group-top {
     .btn-action-list{
         float:right;
         width:100%;
+    }
+}
+
+.panel-secondary .btn-group-top {
+    position: absolute;
+    top: 11px;
+    right: 10px;
+    .btn {
+       // @extend .btn-xs;
+       // opacity: 0.8;
+        background: rgba(#ccc, 0.8);
+       // color:#fff;
+        &:hover {
+            // opacity: 1;
+            background: rgba(#ddd, 1);
+        }
+    }
+
+}
+
+
+.btn-header {
+    width:100%;
+
+    &.btn-two .btn {
+        width: 25%;
+        &:first-child {
+            width:75%
+        }
+    }
+    &.btn-three .btn {
+        width: 50%;
+        &:first-child, 
+        &:last-child {
+            width:25%;
+        }
+    }
+}
+.btn.text-left {
+    text-align:left;
+}
+
+.btn.text-right {
+    text-align:right;
+}
+
+.btn label {
+   min-width: 0;
+}
+
+.btn-group-vertical {
+    .indicator {
+        margin-left: -4px;
+        font-size: 9px;
+        &.fa-arrows {
+            vertical-align: middle;
+            margin-left: -7px;
+        }
+    }
+    .icon {
+        vertical-align: middle;
+        margin-left:-2px;
+        font-size: 14px;
+        .col-collapsed & {
+            margin-left: 2px;
+            font-size: 18px;
+        }
+    }
+     &.btn-accordion {
+        .btn {
+            font-size: 13px;
+            margin-bottom: -1px;
+            max-width: 100%;
+            overflow: hidden;
+            width:100%;
+            &.ui-accordion-header {
+                 margin-bottom: -3px;
+            }
+            &.last {
+                @include border-bottom-radius(3px);
+            }
+        }
+    }
+    label {
+        font-size: 12px;
+        white-space: normal;
+        vertical-align: middle;
+        padding: 0;
+        padding-right: 5px;
+        padding-top: 3px;
+        width: auto;
+        max-width: 90%;
+        margin-left: 2px;
+    }
+}
+
+
+.btn-accordion.ui-accordion .ui-accordion-content {
+    @include box-sizing(border-box);
+    @include border-radius(0);
+    margin-top: 10px;
+    margin-bottom:15px;
+    padding: 0;
+    max-width:100%;
+    border:0;
+    .btn-group-vertical {
+        @include box-sizing(border-box);
+        max-width: 100%;
+        width: 100%;
+        .btn {
+            @include border-radius(0);
+            display:block;
+            margin: 0;
+            &:not(:last-child) {
+                border-bottom: 0;
+
+                &:hover {
+                    +.btn {
+                        border-top-color: darken($btn-default-border, 12%);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.btn {
+    .fa-chevron-down {
+        opacity: 0.5;
+    }
+    &:hover {
+        .fa-chevron-down {
+            opacity: 1;
+        }
+    }
+}
+
+.btn:disabled {
+    .fa {
+        opacity:0.3;
     }
 }

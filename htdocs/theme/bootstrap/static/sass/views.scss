@@ -7,3 +7,63 @@
 
  * This file is licensed under the same terms as Mahara itself
  */
+@import "utilities/var/brand"; // Import our brand variables
+@import "utilities/var/bootstrap-variables";  // ...and our custom bootstrap variables file
+
+
+
+
+/******************** Column layout ********************/
+
+
+
+/******************** Blocks ********************/
+
+.blocktype {
+
+  &.ui-draggable:before {
+    display: none;
+  }
+}
+
+.blockinstance {
+  clear: both;
+  .list-group{
+    margin-bottom: 0;
+  }
+}
+
+
+.cell-radios {
+	.form-group.radio .pseudolabel ~ {
+		div.radio:nth-child(n+3) {
+			margin-left:0;
+		}
+	}
+	div.radio{
+		float:left;
+		clear:bloth;
+		input[type="radio"] {
+			margin-left: 0;
+		}
+	}
+	.form-group {
+		clear:both;
+	}
+
+}
+
+.cellchooser {
+	// @include clearfix;
+	float:left;
+	label {
+		width: 240px;
+		padding-left:0;
+	}
+}
+
+.artefactchooser-data.form-group {
+	label {
+		padding-left:20px;
+	}
+}

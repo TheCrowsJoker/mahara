@@ -17,5 +17,5 @@
 <div id="plans_page_container_{$blockid}" class="nojs-hidden-block">{$tasks.pagination|safe}</div>
 {/if}
 {else}
-    <p>{str tag='notasks' section='artefact.plans'}</p>
+    <p class="lead small-text pll">{str tag='notasks' section='artefact.plans'}</p>
 {/if}

@@ -5,7 +5,7 @@
             {$groupmembers.tablerows|safe}
         {/if}
         </div>
-        <a class="morelink panel-footer" href="{$show_all.url}">
+        <a class="panel-footer" href="{$show_all.url}">
             {$show_all.message}
             <span class="fa fa-arrow-circle-right mls"></span>
         </a>

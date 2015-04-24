@@ -1,9 +1,4 @@
-{if $microheaders}
-  {include file="viewmicroheader.tpl"}
-{else}
-  {include file="header.tpl"}
-  <h1>{$viewtitle}</h1>
-{/if}
+{include file="header.tpl"}
 
 {include file="view/editviewtabs.tpl" selected='skin' new=$new issiteview=$issiteview}
 <div class="subpage">
