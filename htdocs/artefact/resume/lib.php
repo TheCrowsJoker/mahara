@@ -1107,14 +1107,14 @@ EOF;
                     SPAN({'class': 'fa fa-pencil'}),
                     SPAN({'class': 'sr-only'}, {$editstr}));
             var dellink = 
-                A({'href': '', 'title': {$delstr}, 'class': 'btn btn-danger btn-xs'},
-                    SPAN({'class': 'fa fa-trash'}),
+                A({'href': '', 'title': {$delstr}, 'class': 'btn btn-default btn-xs'},
+                    SPAN({'class': 'fa fa-trash text-danger'}),
                     SPAN({'class': 'sr-only'}, {$deljsstr})); 
             connect(dellink, 'onclick', function (e) {
                 e.stop();
                 return deleteComposite(d.type, r.id, r.artefact);
             });
-            return TD({'class':'control-buttons'}, null, editlink, ' ', dellink);
+            return TD({'class':'control-buttons'}, DIV({'class':'btn-group'}, null, editlink, ' ', dellink));
         }
     ]
 );

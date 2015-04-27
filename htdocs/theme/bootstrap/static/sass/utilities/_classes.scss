@@ -23,6 +23,14 @@
 	color: #333;
 }
 
+.link-unstyled {
+	color: #333;
+	&:hover {
+		text-decoration: none;
+		color: inherit;
+	}
+}
+
 .js .js-hide {
 	display: none;
 }

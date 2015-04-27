@@ -25,7 +25,7 @@
 			<tbody>
 			{foreach from=$filelist item=file}
 				{if !$publishing || !$file->permissions || $file->can_republish}{assign var=publishable value=1}{else}{assign var=publishable value=0}{/if}
-			<tr id="file:{$file->id}" class="{cycle values='r0,r1'} directory-item{if $file->isparent} parentfolder{/if}{if $file->artefacttype == 'folder'} folder{elseif $file->artefacttype == 'profileicon'} profileicon{/if}{if $highlight && $highlight == $file->id} highlight-file{/if}{if $edit == $file->id} hidden{/if}{if !$publishable && $file->artefacttype != 'folder'} disabled{/if}" {if !$publishable && $file->artefacttype != 'folder'} title="{str tag=notpublishable section=artefact.file}"{/if}>
+			<tr id="file:{$file->id}" class="directory-item{if $file->isparent} parentfolder{/if}{if $file->artefacttype == 'folder'} folder{elseif $file->artefacttype == 'profileicon'} profileicon{/if}{if $highlight && $highlight == $file->id} highlight-file{/if}{if $edit == $file->id} hidden{/if}{if !$publishable && $file->artefacttype != 'folder'} disabled{/if}" {if !$publishable && $file->artefacttype != 'folder'} title="{str tag=notpublishable section=artefact.file}"{/if}>
 				<td class="icon-container">
 					{if $file->isparent}
 						<span class="pls fa-level-up fa fa-lg "></span>
@@ -67,7 +67,7 @@
 				{if $editmeta}
 				<td class="right s nowrap">
 					{if $file->locked}
-						<span class="dull">{str tag=Submitted section=view}</span>
+						<span class="dull text-muted">{str tag=Submitted section=view}</span>
 					{elseif !$file->isparent}
 						{if !isset($file->can_edit) || $file->can_edit !== 0}<input type="submit" class="btn-big-edit tag-edit submit" name="{$prefix}_edit[{$file->id}]" value="{str tag=edit}" title="{str tag=edit}" />{/if}
 					{/if}
@@ -77,28 +77,35 @@
 				<td class="text-right control-buttons">
 				{if $editable && !$file->isparent}
 					{if $file->locked}
-						<span class="dull">{str tag=Submitted section=view}</span>
+						<span class="dull text-muted">
+							{str tag=Submitted section=view}
+						</span>
 					{elseif !isset($file->can_edit) || $file->can_edit != 0}
-						{if $file->artefacttype == 'archive'}
-						<a href="{$WWWROOT}artefact/file/extract.php?file={$file->id}">
-								<img src="{theme_url filename="images/btn_extract.png"}" title="{str tag=Decompress section=artefact.file}" alt="{str(tag=decompressspecific section=artefact.file arg1=$displaytitle)|escape:html|safe}"/>
-						</a>
-						{/if}
-						{if $file->artefacttype == 'folder'}
-								{assign var=edittext value=str(tag=editfolderspecific section=artefact.file arg1=$displaytitle)}
-								{assign var=deletetext value=str(tag=deletefolderspecific section=artefact.file arg1=$displaytitle)}
-						{else}
-								{assign var=edittext value=str(tag=editspecific arg1=$displaytitle)}
-								{assign var=deletetext value=str(tag=deletespecific arg1=$displaytitle)}
-						{/if}
-						<button name="{$prefix}_edit[{$file->id}]" class="btn btn-default btn-xs">
-							<span class="fa fa-pencil"></span>
-							<span class="sr-only">{$edittext|escape:html|safe}</span>
-						</button>
-						<button name="{$prefix}_delete[{$file->id}]" class="btn btn-danger btn-xs">
-							<span class="fa fa-trash"></span>
-							<span class="sr-only">{$deletetext|escape:html|safe}</span>
-						</button>
+						<div class="btn-group">
+							{if $file->artefacttype == 'archive'}
+							<a href="{$WWWROOT}artefact/file/extract.php?file={$file->id}" title="{str tag=Decompress section=artefact.file}" class="btn btn-default btn-xs">
+								<span class="fa fa-file-archive-o "></span>
+								<span class="sr-only">
+									{str(tag=decompressspecific section=artefact.file arg1=$displaytitle)|escape:html|safe}
+								</span>
+							</a>
+							{/if}
+							{if $file->artefacttype == 'folder'}
+									{assign var=edittext value=str(tag=editfolderspecific section=artefact.file arg1=$displaytitle)}
+									{assign var=deletetext value=str(tag=deletefolderspecific section=artefact.file arg1=$displaytitle)}
+							{else}
+									{assign var=edittext value=str(tag=editspecific arg1=$displaytitle)}
+									{assign var=deletetext value=str(tag=deletespecific arg1=$displaytitle)}
+							{/if}
+							<button name="{$prefix}_edit[{$file->id}]" class="btn btn-default btn-xs">
+								<span class="fa fa-pencil"></span>
+								<span class="sr-only">{$edittext|escape:html|safe}</span>
+							</button>
+							<button name="{$prefix}_delete[{$file->id}]" class="btn btn-default btn-xs">
+								<span class="fa fa-trash text-danger"></span>
+								<span class="sr-only">{$deletetext|escape:html|safe}</span>
+							</button>
+						</div>
 					{/if}
 				{/if}
 				{if $selectable && ($file->artefacttype != 'folder' || $selectfolders) && $publishable && !$file->isparent}
@@ -115,7 +122,7 @@
 	</div>
 </div>
 <a id="downloadfolder" class="panel-footer" href="{$WWWROOT}artefact/file/downloadfolder.php?{$folderparams|safe}">
-	<span class="fa fa-file-archive-o"></span>
+	<span class="fa fa-download"></span>
 	{str tag=downloadfolderziplink section=artefact.file}
 </a>
 {else}

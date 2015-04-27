@@ -213,7 +213,6 @@ function get_desired_fields(&$allfields, $desiredfields, $section) {
     $return = array(
         "{$section}description" => array(
             'type'      => 'html',
-            'class'     => 'form-group',
             'labelhtml' => $label,
             'value'     => $descr,
         )

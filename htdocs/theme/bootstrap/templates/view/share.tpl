@@ -20,8 +20,8 @@
     <tr>
       <th>{str tag=Collections section=collection}</th>
       <th>{str tag=accesslist section=view}</th>
-      <th class="al-edit">{str tag=editaccess section=view}</th>
-      <th class="secreturls">{str tag=secreturls section=view}</th>
+      <th class="al-edit text-center">{str tag=editaccess section=view}</th>
+      <th class="secreturls text-center">{str tag=secreturls section=view}</th>
     </tr>
   </thead>
 {foreach from=$accesslists.collections item=collection}
@@ -47,12 +47,12 @@
       <th>{str tag=Views section=view}</th>
     {if $accesslists.collections}
       <th>{str tag=accesslist section=view}</th>
-      <th class="al-edit">{str tag=editaccess section=view}</th>
-      <th class="secreturls">{str tag=secreturls section=view}</th>
+      <th class="al-edit text-center">{str tag=editaccess section=view}</th>
+      <th class="secreturls text-center">{str tag=secreturls section=view}</th>
     {else}
       <th>{str tag=accesslist section=view}</th>
-      <th class="al-edit">{str tag=editaccess section=view}</th>
-      <th class="secreturls">{str tag=secreturls section=view}</th>
+      <th class="al-edit text-center">{str tag=editaccess section=view}</th>
+      <th class="secreturls text-center">{str tag=secreturls section=view}</th>
     {/if}
     </tr>
   </thead>

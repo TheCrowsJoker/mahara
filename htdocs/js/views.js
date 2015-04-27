@@ -483,9 +483,7 @@
 	 * Rewrites one configure button to be AJAX
 	 */
 	function rewriteConfigureButton(button) {
-
 		button.off('click');
-
 		button.on('click', function(e) {
 			e.stopPropagation();
 			e.preventDefault();
@@ -502,7 +500,6 @@
 	 * Rewrites one delete button to be AJAX
 	 */
 	function rewriteDeleteButton(button) {
-
 		button.off('click');
 
 		button.on('click', function(e) {
@@ -772,7 +769,6 @@
 	 * element will be rewritten
 	 */
 	function rewriteRemoveColumnButtons() {
-
 		workspace.find('.removecolumn').off('click'); // prevent double binding
 
 		workspace.find('.removecolumn').on('click', function(e) {
@@ -803,7 +799,6 @@
 
 				});
 			}
-			
 		});
 	}
 

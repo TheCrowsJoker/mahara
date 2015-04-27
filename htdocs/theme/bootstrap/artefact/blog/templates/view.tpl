@@ -11,7 +11,7 @@
     </a>
     {/if}
 </div>
-<div id="myblogs" class="rel">
+<div id="myblogs" class="rel ptxl mtxl">
     <div id="blogdescription">
         {clean_html($blog->get('description'))|safe}
     </div>
@@ -39,10 +39,13 @@
     {/if}
 
     {if $enablemultipleblogstext}
-    <p class="dull center">{str tag=enablemultipleblogstext section=artefact.blog arg1=$WWWROOT}</p>
+    <p class="lead text-center ptl">
+        {str tag=enablemultipleblogstext section=artefact.blog arg1=$WWWROOT}</p>
     {/if}
+    
     {if $hiddenblogsnotification}
-    <p class="dull center">{str tag=hiddenblogsnotification section=artefact.blog arg1=$WWWROOT}</p>
+    <p class="lead text-center ptl">
+        {str tag=hiddenblogsnotification section=artefact.blog arg1=$WWWROOT}</p>
     {/if}
 </div>
 {include file="footer.tpl"}

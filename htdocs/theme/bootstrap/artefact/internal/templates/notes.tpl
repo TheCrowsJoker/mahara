@@ -44,33 +44,30 @@
                     </h3>
                     {/if}
                     <div id="n{$n->id}_desc" class="hidden">
-                        <div class="mtm">
+                        <p class="mtm">
                             {$n->description|clean_html|safe}
-                        </div>
+                        </p>
                         {if $n->files}
                         <div id="notefiles_{$n->id}">
-                            <table class="table fullwidth">
-                                <thead class="">
-                                    <tr>
-                                        <td colspan="2">
-                                            <p>
-                                                <strong>{str tag=attachedfiles section=artefact.blog}</strong>
-                                            </p>
-                                        </td>
-                                    </tr>
-                                </thead>
-                                <tbody class="">
-                                    {foreach from=$n->files item=file}
-                                    <tr class="{cycle values='r1,r0'}">
-                                        <td class="icon-container"><img src="{$file->icon}" alt=""></td>
-                                        <td class="valign">
-                                            <div><a href="{$WWWROOT}artefact/file/download.php?file={$file->attachment}">{$file->title}</a></div>
-                                            <div class="detail small-text">{$file->description}</div>
-                                        </td>
-                                    </tr>
-                                    {/foreach}
-                                </tbody>
-                            </table>
+                            <p>
+                                <span class="fa fa-lg prs fa-paperclip"></span>
+                                <strong>
+                                {str tag=attachedfiles section=artefact.blog}
+                                </strong>
+                            </p>
+                            <ul class="list-group list-unstyled mbs">
+                            {foreach from=$n->files item=file}
+                                <li class="list-group-item-text list-group-item-link">
+                                    <a href="{$WWWROOT}artefact/file/download.php?file={$file->attachment}" {if $file->description} title="{$file->description}" data-toggle="tooltip"{/if}>
+                                        <div class="file-icon mrs">
+                                            <img src="{$file->icon}" alt="">
+                                        </div>
+                                        {$file->title|truncate:40} -
+                                        ({$file->size|display_size})
+                                    </a>
+                                </li>
+                            {/foreach}
+                            </ul>
                         </div>
                         {/if}
                     </div>
@@ -98,14 +95,21 @@
                     {/if}
                     {/foreach}
                 </td>
-                <td class="note-attachment"><label class="hidden">{str tag=Attachments section=artefact.resume}: </label> {$n->count}</td>
+                <td class="note-attachment">
+                    <label class="hidden">
+                        {str tag=Attachments section=artefact.resume}: 
+                    </label> 
+                    {$n->count}
+                </td>
                 <td class="control-buttons">
                     {if $n->locked}
-                    <span class="s dull">{str tag=Submitted section=view}</span>
+                    <span class="s dull text-muted">{str tag=Submitted section=view}</span>
                     {else}
                     <a href="{$WWWROOT}artefact/internal/editnote.php?id={$n->id}" title="{str tag=edit}" class="btn btn-default btn-xs">
                         <span class="fa fa-pencil"></span>
-                        <span class="sr-only">{str(tag=editspecific arg1=$n->title)|escape:html|safe}</span>
+                        <span class="sr-only">
+                            {str(tag=editspecific arg1=$n->title)|escape:html|safe}
+                        </span>
                     </a>
                     {if $n->deleteform}{$n->deleteform|safe}{/if}
                     {/if}

@@ -71,7 +71,6 @@ jQuery(function($) {
         $('[data-action="reset-on-collapse"]').on('hidden.bs.collapse', function () {
             var i, 
                 forms =$(this).find('form');
-
             for (i = 0; i < forms.length; i = i + 1){
                 forms[i].reset();
             }
@@ -92,7 +91,6 @@ jQuery(function($) {
     bootstrapFileBrowser();
     resetOnCollapse();
     attachTooltip();
-
 
 
 });

@@ -11,7 +11,7 @@
  <tbody>
     {foreach from=$selectedlist item=file}
         {assign var=displaytitle value=$file->title|str_shorten_text:34|safe}
-    <tr class="{cycle values='r0,r1'}{if $highlight && $highlight == $file->id} highlight-file{/if}">
+    <tr class="{if $highlight && $highlight == $file->id} highlight-file{/if}">
         <td class="icon-container">
             <img src="{if $file->artefacttype == 'image' || $file->artefacttype == 'profileicon'}{$WWWROOT}artefact/file/download.php?file={$file->id}&size=24x24{else}{theme_url filename=images/`$file->artefacttype`.png}{/if}">
         </td>
@@ -19,7 +19,7 @@
             {if $selectfolders}{$displaytitle}{else}<a href="{$WWWROOT}artefact/file/download.php?file={$file->id}" target="_blank" title="{str tag=downloadfile section=artefact.file arg1=$displaytitle}">{$displaytitle}</a>{/if}
         </td>
         <td class="filedescription">{$file->description}</td>
-        <td class="text-center">
+        <td class="text-center s">
              <input type="submit" class="btn btn-danger btn-xs button submit unselect" name="{$prefix}_unselect[{$file->id}]" value="{str tag=remove}" id="{$prefix}_unselect_{$file->id}" />
              <input type="hidden" class="hidden" id="{$prefix}_selected[{$file->id}]" name="{$prefix}_selected[{$file->id}]" value="{$file->id}">
         </td>
