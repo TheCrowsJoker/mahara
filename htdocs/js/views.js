@@ -434,26 +434,20 @@
 	}
 
 	function showColumnBackgrounds() {
-		$('.js-col-row .column-content').each(function() {
-			$(this).addClass('block-drop-on', 100);
-		});
+		$('.js-col-row .column-content').addClass('block-drop-on', 100);
 	}
 
 	function hideColumnBackgrounds() {
-		$('.js-col-row .column-content').each(function() {
-			$(this).removeClass('block-drop-on', 500);
-		});
+		$('.js-col-row .column-content').removeClass('block-drop-on', 500);
 	}
 
 	function showColumnBackgroundsOnSort() {
-		$('.blockinstance .blockinstance-header, .blocktype-list .blocktype').each(function() {
-			$(this).mousedown(function() {
-				showColumnBackgrounds();
-			});
+		$('.blockinstance .blockinstance-header, .blocktype-list .blocktype').mousedown(function() {
+			showColumnBackgrounds();
+		});
 
-			$(this).mouseup(function() {
-				hideColumnBackgrounds();
-			});
+		$('.blockinstance .blockinstance-header, .blocktype-list .blocktype').mouseup(function() {
+			hideColumnBackgrounds();
 		});
 	}
 
@@ -482,15 +476,16 @@
 	 * Rewrites the blockinstance configure buttons to be AJAX
 	 */
 	function rewriteConfigureButtons() {
-		workspace.find('.configurebutton').each(function() {
-			rewriteConfigureButton($(this));
-		});
+		rewriteConfigureButton(workspace.find('.configurebutton'));
 	}
 
 	/**
 	 * Rewrites one configure button to be AJAX
 	 */
 	function rewriteConfigureButton(button) {
+
+		button.off('click');
+
 		button.on('click', function(e) {
 			e.stopPropagation();
 			e.preventDefault();
@@ -500,16 +495,17 @@
 	}
 
 	function rewriteDeleteButtons() {
-		workspace.find('.deletebutton').each(function() {
-			rewriteDeleteButton($(this));
-		});
+		rewriteDeleteButton(workspace.find('.deletebutton'));
 	}
 
 	/**
 	 * Rewrites one delete button to be AJAX
 	 */
 	function rewriteDeleteButton(button) {
-		button.on('click',function(e) {
+
+		button.off('click');
+
+		button.on('click', function(e) {
 
 			e.stopPropagation();
 			e.preventDefault();
@@ -551,37 +547,11 @@
 		});
 	}
 
-	/**
-	 * Rewrites the blockinstance delete buttons to be AJAX
-	 */
-	// Why does this exist?
-	this.rewriteCategorySelectList = function() {
-		console.log('rewriting category select');
-		forEach(getElementsByTagAndClassName('a', null, 'category-list'), function(i) {
-			connect(i, 'onclick', function(e) {
-				var queryString = parseQueryString(i.href.substr(i.href.indexOf('?')));
-				removeElementClass(getFirstElementByTagAndClassName('li', 'current', 'category-list'), 'current');
-				addElementClass(i.parentNode, 'current');
-				sendjsonrequest(config['wwwroot'] + 'view/blocks.json.php', {'id': $('viewid').value, 'action': 'blocktype_list', 'c': queryString['c']}, 'POST', function(data) {
-					setNodeAttribute('category', 'value', queryString['c']);
-					$('blocktype-list').innerHTML = data.data;
-					console.log(self);
-					self.makeBlockTypesDraggable();
-					self.showBlockTypeDescription();
-				});
-				e.stop();
-			});
-		});
-	}
-
-
 	/*
 	 * Shows all keyboard-accessible ajax move buttons
 	 */
 	function rewriteMoveButtons() {
-		workspace.find('.keyboardmovebutton').each(function() {
-			rewriteMoveButton($(this));
-		});
+		rewriteMoveButton(workspace.find('.keyboardmovebutton'));
 	}
 
 	/*
@@ -802,42 +772,38 @@
 	 * element will be rewritten
 	 */
 	function rewriteRemoveColumnButtons() {
-		var parentNode = workspace;
 
-		$('.removecolumn', parentNode).each(function() {
+		workspace.find('.removecolumn').off('click'); // prevent double binding
 
-			$(this).off('click'); // prevent double binding
+		workspace.find('.removecolumn').on('click', function(e) {
 
-			$(this).on('click', function(e) {
+			e.stopPropagation();
+			e.preventDefault();;
 
-				e.stopPropagation();
-				e.preventDefault();
+			// Work around for a konqueror bug - konqueror passes onclick
+			// events to disabled buttons
+			if (!this.disabled) {
+				$(this).attr('disabled', 'disabled');
 
-				// Work around for a konqueror bug - konqueror passes onclick
-				// events to disabled buttons
-				if (!this.disabled) {
-					$(this).attr('disabled', 'disabled');
+				var name = $(this).attr('name'),
+					match = name.match(/action_removecolumn_row_(\d+)_column_(\d+)/),
+					rowid = parseInt(match[1], 10),
+					colid = parseInt(match[2], 10),
+					pd   = {'id': $('#viewid').val(), 'change': 1};
 
-					var name = $(this).attr('name'),
-						match = name.match(/action_removecolumn_row_(\d+)_column_(\d+)/),
-						rowid = parseInt(match[1], 10),
-						colid = parseInt(match[2], 10),
-						pd   = {'id': $('#viewid').val(), 'change': 1};
+				pd['action_removecolumn_row_' + rowid + '_column_' + colid] = 1;
+				sendjsonrequest(config['wwwroot'] + 'view/blocks.json.php', pd, 'POST', function(data) {
 
-					pd['action_removecolumn_row_' + rowid + '_column_' + colid] = 1;
-					sendjsonrequest(config['wwwroot'] + 'view/blocks.json.php', pd, 'POST', function(data) {
+					removeColumn(rowid, colid);
+					checkColumnButtonDisabledState();
 
-						removeColumn(rowid, colid);
-						checkColumnButtonDisabledState();
+				}, function() {
 
-					}, function() {
+					checkColumnButtonDisabledState();
 
-						checkColumnButtonDisabledState();
-
-					});
-				}
-				
-			});
+				});
+			}
+			
 		});
 	}
 
@@ -1210,7 +1176,7 @@
 
 		if (colid === 1) {
 			// We are removing the first column, which has the button for adding a column to the left of itself. We want to keep this
-			addColumnLeftButtonContainer = $('.js-add-column-left');
+			addColumnLeftButtonContainer = $('#row_' + rowid).find('.js-add-column-left').first();
 		}
 
 		// Remove the column itself
