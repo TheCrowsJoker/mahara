@@ -1,5 +1,6 @@
 <div class="js-blockinstance blockinstance panel panel-secondary {if $configure} configure{elseif $retractable} retractable{/if}" data-id="{$id}" id="blockinstance_{$id}{if $configure}_configure{/if}">
-	<h3 class="panel-heading js-heading">
+	<h3 class="panel-heading js-heading drag-handle {if !$title}panel-heading-placeholder{/if}">
+		<span class="fa fa-arrows move-indicator"></span>
 		<span class="blockinstance-header">
 			{if $configure}{$configtitle}: {str tag=Configure section=view}{else}{$title|default:"[$strnotitle]"}{/if}
 		</span>

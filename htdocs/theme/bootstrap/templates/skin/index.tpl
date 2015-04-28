@@ -6,11 +6,11 @@
         {str tag=createskin section=skin}
     </a>
     <a href="{$WWWROOT}skin/import.php{if $siteskins}?site=1{/if}" class="btn btn-default button" type="submit">
-        <span class="fa fa fa-external-link fa-rotate-180 fa-lg pls"></span>
+        <span class="fa fa fa-code fa-lg prs"></span>
         {str tag=importskins section=skin}
     </a>
     <a href="{$WWWROOT}skin/export.php{if $siteskins}?site=1{/if}" class="btn btn-default button" type="submit">
-        <span class="fa fa fa-external-link fa-lg prs"></span>
+        <span class="fa fa fa-download fa-lg prs"></span>
         {str tag=exportskins section=skin}
     </a>
 </div>
@@ -61,7 +61,7 @@
     
         {if $skin.removable}
         <a href="{$WWWROOT}skin/export.php?id={$skin.id}" title="{str tag='exportthisskin' section='skin'}" class="btn btn-default btn-xs">
-            <span class="fa fa fa-external-link"></span>
+            <span class="fa fa fa-download"></span>
             <span class="sr-only">
                 {str tag=exportspecific section=skin arg1=$skin.title}
             </span>

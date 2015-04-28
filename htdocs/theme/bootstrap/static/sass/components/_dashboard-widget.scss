@@ -20,7 +20,7 @@ $logged-in-height-mobile: 100px;
         padding: 13px 15px;
         height: $logged-in-height;
         border-top: 3px solid $mahara-green-bright;
-        background-color: $gray-lighter;
+        background-color: darken($panel-default-heading-bg, 3%);
 
         @media (min-width: $screen-sm-min ) and (max-width: $screen-lg-min ) {
             height: $logged-in-height-mobile;
@@ -97,7 +97,6 @@ $logged-in-height-mobile: 100px;
         .widget-heading {
             @include clearfix;
             @include border-radius(3px);
-            background: $gray-lighter;
 
             @media (max-width: $screen-sm-min) {
                 @include border-radius(3px 3px 0 0);

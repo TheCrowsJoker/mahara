@@ -74,26 +74,29 @@
     }
 }
 
-.modal {
-    background: rgba(0,0,0,0.3);
-}
+
+
 
 .model-shown {
+    background: rgba(0,0,0,0.3);
     display:block;
 }
 
-.modal-content {
+.model-shown .modal-content {
     height: 90%;
+    overflow:hidden;
 }
 
-.modal-body {
-  max-height: 85%;
+.model-shown .modal-body {
+  @include border-bottom-radius(3px);
+  max-height: 90%;
   overflow: auto;
 }
 
-.modal-dialog { 
+.model-shown .modal-dialog { 
     height:100%;
 }
+
 
 .toolbar-affix.affix {
     position: fixed;

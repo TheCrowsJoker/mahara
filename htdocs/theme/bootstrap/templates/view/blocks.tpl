@@ -31,7 +31,7 @@
 				</div>
 			</div>
 			<div class="col-with-collapse">
-				<div id="bottom-pane" class="limit-height" data-role="workspace" data-height="screen">
+				<div id="bottom-pane" data-role="workspace">
 					<div id="column-container">
 						{$columns|safe}
 					</div>
@@ -100,9 +100,9 @@
 </div>
 
 
-<div class="modal model-shown hidden blockinstance configure" id="addblock"  role="dialog">
+<div class="modal model-shown hidden blockinstance configure" id="addblock" role="dialog">
 	<div class="modal-dialog">
-		<div class="modal-content">
+		<div class="modal-content" data-height=".modal-body">
 			<div class="modal-header">
 				<button class="deletebutton close" name="action_removeblockinstance_id_{$id}">
 					<span class="fa fa-times "></span>
@@ -119,7 +119,7 @@
 
 <div class="modal model-shown hidden blockinstance configure" id="configureblock" role="dialog">
 	<div class="modal-dialog">
-		<div class="modal-content">
+		<div class="modal-content" data-height=".modal-body">
 			<div class="modal-header">
 				<button class="deletebutton close" name="close_configuration">
 					<span class="fa fa-times "></span>

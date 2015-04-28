@@ -12,37 +12,26 @@
         display: none;
     }
 }
-//adjust header for sitemessages
-.header.message-count-1 {
-    top: 30px;
-    + .main-nav {
-        margin-top: 30px;
+
+
+//adjust header and fixed elements for sitemessages
+
+@for $i from 1 through 5 {
+    .header.message-count-#{$i} {
+        top: 30px * $i;
+        + .main-nav {
+            margin-top: $i * 30px;
+        }
+
+        ~ .container {
+            .toolbar-affix.affix {
+                margin-top: $i * 30px;
+            }
+        }
     }
 }
-.header.message-count-2 {
-    top: 2 * 30px;
-    + .main-nav {
-        margin-top: 2 * 30px;
-    }
-}
-.header.message-count-3 {
-    top: 3 * 30px;
-    + .main-nav {
-        margin-top: 3 * 30px;
-    }
-}
-.header.message-count-4 {
-    top: 4 * 30px;
-    + .main-nav {
-        margin-top: 4 * 30px;
-    }
-}
-.header.message-count-5 {
-    top: 5 * 30px;
-    + .main-nav {
-        margin-top: 5 * 30px;
-    }
-}
+
+
 .no-site-messages {
     top: 0;
     padding-top: 0;

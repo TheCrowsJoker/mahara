@@ -79,9 +79,13 @@
 // END bootstrap //
 
 
-// General customisation and component files go here...
 @import "utilities/classes"; // Custom utility classes
 @import "utilities/whitespace"; // Custom utility classes
+@import "components/typography";
+
+
+// General customisation and component files go here...
+
 @import "components/alert";
 @import "components/btn";
 @import "components/btn-group";
@@ -98,6 +102,7 @@
 @import "components/forum-post";
 @import "components/header";
 @import "components/icons";
+@import "components/indicator";
 @import "components/input-as-icon";
 @import "components/input-group";
 @import "components/js";
@@ -124,7 +129,7 @@
 @import "components/tabs";
 @import "components/toggles";
 @import "components/top-nav";
-@import "components/typography";
+
 @import "components/ui-draggable";
 @import "components/user-icon";
 

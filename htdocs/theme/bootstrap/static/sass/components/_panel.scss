@@ -1,3 +1,11 @@
+
+// If there is no heading we don't want padding on the secondary panel
+.panel-secondary .no-heading {
+    .panel-body {
+        padding: 0;
+    }
+}
+
 .panel-items.js-masonry {
     margin-left: -3%; //take away left margin added again by .panel
     margin-bottom: 100px; //buffer
@@ -314,8 +322,17 @@ a.panel-control {
     @include box-shadow(none);
     > .panel-heading, .panel-heading-nested {
         border-top: 3px solid $mahara-green-bright;
-        background-color: $gray-lighter;
+        background-color: darken($panel-default-heading-bg, 3%);
         border-bottom: 1px solid $panel-default-border;
+        &.panel-heading-placeholder {
+            border: 1px solid darken($gray-lighter, 5%);
+            border-style: dashed;
+            padding-top: 12px;
+            background-color: $panel-default-heading-bg;
+            .blockinstance-header{
+                opacity:0.6;
+            }
+        }
     }
     &.panel-warning {
          > .panel-heading, .panel-heading-nested {

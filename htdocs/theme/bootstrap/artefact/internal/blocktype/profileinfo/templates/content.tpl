@@ -1,12 +1,12 @@
 <div class="panel-body">
 {if $profileiconpath}
-    <div class="user-icon">
+    <div class="user-icon pull-right mll">
         <img src="{$profileiconpath}" alt="{$profileiconalt}" />
     </div>
 {/if}
 
 {if $profileinfo && $profileinfo.introduction}
-    <p class="lead small-text">{$profileinfo.introduction|clean_html|safe}</p>
+    {$profileinfo.introduction|clean_html|safe}
 {/if}
 {if $profileinfo && (count($profileinfo) != 1 || !$profileinfo.introduction || !$profileinfo.socialprofiles)}
     <ul class="unstyled">

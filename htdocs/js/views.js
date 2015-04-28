@@ -12,14 +12,13 @@
 
 	//Private Properties
 	////////////////////
-	var cookieName = 'contenteditorcollapsed';
-	var collapsed = false;
-	//set these in init()
-	var contentEditor = null;
-	var workspace = null;
-	var viewThemeSelect = null;
-	var viewsLoading = null;
-	var navBuffer = 660;
+	var cookieName = 'contenteditorcollapsed',
+		collapsed = false,
+		contentEditor = null,
+		workspace = null,
+		viewThemeSelect = null,
+		viewsLoading = null,
+		navBuffer = 660;
 
 	// Public Properties
 	// Whether the browser is IE - needed for some hacks
@@ -140,11 +139,10 @@
 				cols = $(rows[i]).find('.column .column-content');
 				cols.height('auto');
 
-				console.log('auto');
-				
 				for(j = 0; j < cols.length ; j = j + 1){
 					height = $(cols[j]).height() > height ? $(cols[j]).height() : height;
 				}
+
 				cols.height(height);
 			}
 
@@ -268,7 +266,6 @@
 			stop: function(event, ui) {
 				// see also showColumnBackgroundsOnSort for clicking in place without dragging
 				hideColumnBackgrounds();
-				$(window).trigger('colresize');
 			},
 			appendTo: 'body'
 		});
@@ -336,15 +333,18 @@
 				var whereTo = getBlockinstanceCoordinates(ui.helper);
 
 				if (ui.helper.find('.blocktype-radio').length) {
+
 					addNewBlock(whereTo, ui.helper.find('input.blocktype-radio').val());
-					$('.block-placeholder').siblings('.blocktype').remove();
-				}
-				else {
+					$('.block-placeholder').siblings('.blocktype-drag').remove();
+				
+				} else {
 					//move existing block
-					var uihId = ui.helper.attr('id');
-					var blockinstanceId = uihId.substr(uihId.lastIndexOf('_') + 1);
+					var uihId = ui.helper.attr('id'),
+						blockinstanceId = uihId.substr(uihId.lastIndexOf('_') + 1);
+
 					moveBlock(whereTo, blockinstanceId);
 				}
+
 				$(window).trigger('colresize');
 			},
 
@@ -488,7 +488,7 @@
 			e.stopPropagation();
 			e.preventDefault();
 
-			getConfigureForm(button.closest('.js-blockinstance'));
+			getConfigureForm($(this).closest('.js-blockinstance'));
 		});
 	}
 
@@ -902,7 +902,7 @@
 			blockinstanceId = blockinstance.attr('data-id'),
 			content = blockinstance.find('.js-blockinstance-content'),
 			oldContent = content.html(),
-			loading = $('<span>').attr('class', 'fa fa-spinner fa-spin'),
+			loading = $('<span>').attr('class', 'fa fa-spinner fa-spin mtl mlxl'),
 			pd = {'id': $('#viewid').val(), 'change': 1};
 
 
@@ -922,16 +922,40 @@
 			addConfigureBlock(blockinstance, data.data);
 			$('#action-dummy').attr('name', button.attr('name'));
 
-			var cancelButton = $('#cancel_instconf_action_configureblockinstance_id_' + blockinstanceId);
-			cancelButton.on('click',function(event) {
+			var cancelButton = $('#cancel_instconf_action_configureblockinstance_id_' + blockinstanceId),
+				heightTarget = $('#configureblock').find('[data-height]'); 
 
-				event.stopPropagation();
-				event.preventDefault();
+			if(heightTarget.length > 0){
+				limitHeight(heightTarget);
+			}
 
-				removeConfigureBlocks();
-				showMediaPlayers();
-				button.focus();
+			cancelButton.on('click',function(e) {
+				onModalCancel(e, button);
 			});
+		});
+	}
+
+	function onModalCancel(e, button){
+		e.stopPropagation();
+		e.preventDefault();
+
+		removeConfigureBlocks();
+		showMediaPlayers();
+		button.focus();
+	}
+
+	function limitHeight(target) {
+
+		$(window).on('resize', function(){
+
+			target.height('auto'); //reset so measurements will be accurate
+
+			var targetHeight = $(target).find(target.attr('data-height')).height(),
+				windowHeight = $(window).height() - 50,
+				height = windowHeight < targetHeight ? windowHeight : targetHeight;
+				
+
+			target.height(height);
 		});
 	}
 
@@ -1021,7 +1045,7 @@
 				rewriteCancelButton(cancelbutton, blockinstanceId);
 			}
 		} else {
-			console.log('here');
+
 			deletebutton.on('click', function(event) {
 				event.stopPropagation();
 				event.preventDefault();

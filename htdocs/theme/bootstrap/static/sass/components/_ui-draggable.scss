@@ -69,3 +69,8 @@
 		padding-top: 5px;
 	}
 }
+
+.drag-handle,
+.ui-draggable {
+  cursor: move;
+}
