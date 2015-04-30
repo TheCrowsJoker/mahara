@@ -1,5 +1,5 @@
 {include file="header.tpl"}
-<div class="ptl pbl">
+<div class="panel panel-default pll">
 {$form|safe}
 </div>
 {if $groups}
@@ -13,7 +13,7 @@
 </div>
 {$pagination|safe}
 {else}
-<div class="no-result ptxl mtxl">
+<div class="no-result ptxl">
     <p class="lead text-center">{str tag="nogroupsfound" section="group"}</p>
 </div>
 {/if}

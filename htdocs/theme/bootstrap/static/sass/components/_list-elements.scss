@@ -1,22 +1,18 @@
 // // modiufications for list elements such a list of pages, collections 
 
-.list-group-item .list-group-item-link {
-    margin: 5px -15px 0;
-    a {
-        padding: 5px 15px;
-    }
-}
-
-
+// Left panel
 .list-group {
     .user-panel & {
         min-height: 41px;
+        .list-group-item .list-group-item-link {
+            margin: 5px -15px 0;
+            a {
+                padding: 5px 15px;
+            }
+        }
     }
     a {
         color: inherit;
-    }
-    .list-group-item-warning .list-group-item-heading {
-        color: $state-warning-text;
     }
 }
 
@@ -28,10 +24,15 @@
             color: $link-color;
         }
     }
-
 }
 
+.list-group-item-warning {
+    .list-group-item-heading {
+        color: $state-warning-text;
+    }
+}
 
+// Attachment list
 .list-group-item-link {
     padding: 0;
     a {
@@ -59,6 +60,27 @@
         .file-size {
             float: right;
             color: darken($brand-default, 40%);
+        }
+    }
+}
+
+// Post item
+.list-group-item {
+    &.draft,
+    &.list-group-item-warning {
+        @extend .list-group-item-warning;
+    }
+    &.published {
+        background: #fefefe;
+    }
+    &.list-group-item-lite {
+        @include border-radius(0);
+        border-left: 0;
+        border-right: 0;
+    }
+    @media (max-width: $screen-sm-min) {
+        .btn-title {
+            @include sr-only;
         }
     }
 }

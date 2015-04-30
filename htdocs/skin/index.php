@@ -36,26 +36,33 @@ $data = Skin::get_myskins_data($limit, $offset, $filter);
 $form = pieform(array(
     'name'   => 'filter',
     'method' => 'post',
-    'renderer' => 'oneline',
+    'renderer' => 'div',
     'class' => 'form-inline',
     'elements' => array(
-        'options' => array(
+        'inputgroup' => array(
+            'type' => 'fieldset',
             'title' => get_string('filter'),
-            'hiddenlabel' => true,
-            'type' => 'select',
-            'options' => array(
-                'all'     => get_string('allskins', 'skin'),
-                'site'     => get_string('siteskins', 'skin'),
-                'user'  => get_string('userskins', 'skin'),
-                'public'  => get_string('publicskins', 'skin'),
+            'class' => 'input-group',
+            'elements' => array(
+                'options' => array(
+                    'type' => 'select',
+                    'class' => 'form-control',
+                    'defaultvalue' => $filter,
+                    'options' => array(
+                        'all'     => get_string('allskins', 'skin'),
+                        'site'     => get_string('siteskins', 'skin'),
+                        'user'  => get_string('userskins', 'skin'),
+                        'public'  => get_string('publicskins', 'skin'),
+                    ),
+                ),
+                'submit' => array(
+                    'type' => 'button',
+                    'usebuttontag' => true,
+                    'class' => 'btn btn-success input-group-btn',
+                    'value' => get_string('filter'),
+                ),
             ),
-            'defaultvalue' => $filter
         ),
-        'submit' => array(
-            'type' => 'submit',
-            'class' => 'btn btn-success',
-            'value' => get_string('filter')
-        )
     ),
 ));
 

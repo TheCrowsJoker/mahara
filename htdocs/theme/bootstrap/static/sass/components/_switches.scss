@@ -1,9 +1,35 @@
+$transition: 0.1s ease-in 0s;
+
+
+.switchbox.form-group {
+    > label {
+        vertical-align: bottom;
+    }
+}
+
+
 .form-switch {
+    display: inline-block;
     .switch {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
         position: relative;
-        width: 60px;
+        width: 60px; //overridden with inline styles
         input {
             @extend .sr-only;
+
+            &:focus {
+                + .switch-label {
+                   @include tab-focus;
+                   outline-color: #66afe9;
+                   .switch-inner:before, 
+                   .switch-inner:after {
+                        background-color: darken($brand-default, 5%); 
+                   }
+                }
+            }
         }
     }
 
@@ -13,67 +39,100 @@
         overflow: hidden; 
         cursor: pointer;
         padding: 0;
-        min-width:0;
+        min-width: 0;
+        margin: 0;
+
+        &:hover {
+            .switch-inner:before, 
+            .switch-inner:after {
+                background-color: darken($brand-default, 5%); 
+           }
+        }
     }
     
     .switch-inner {
-        @include transition(margin 0.3s ease-in 0s);
+        @include transition(margin $transition);
         display: block; 
         width: 200%; 
         margin-left: -100%;
-    }
-    
-    .switch-inner:before, 
-    .switch-inner:after {
-        @include box-sizing(border-box);
-        display: block; 
-        float: left; 
-        width: 50%; 
-        height: 28px; 
-        padding: 0; 
-        line-height: 26px;
-        font-size: 14px; 
-        font-weight: bold;
-    }
-    
-    .switch-inner {
+
+        &:before, 
+        &:after {
+            @include box-sizing(border-box);
+            @include box-shadow(none);
+            background-color: $brand-default; 
+            border: 1px solid darken($brand-default, 7%);
+            display: block; 
+            float: left; 
+            width: 50%; 
+            height: 28px; 
+            padding: 0; 
+            line-height: 26px;
+            font-size: 14px; 
+            text-transform: capitalize;
+        } 
+   
         &:before {
-            content: "ON";
+            content:'';
             padding-left: 10px;
-            background-color: $brand-success; 
-            color: lighten($brand-success, 50%);
-            border:1px solid darken($brand-success, 3%);
+            color: $text-color;
         }
 
         &:after {
-            content: "OFF";
+            content:'';
             padding-right: 10px;
-            background-color: darken($brand-default, 10%);
-            border:1px solid darken($brand-default, 10%);
-            color: #555;
+            color: $text-color;
             text-align: right;
         }
     }
 
-    .switch-switch {
-        @include transition(all 0.3s ease-in 0s);
+    input:checked + .switch-label .switch-inner {
+        margin-left: 0;
+    }
+
+    .switch-indicator {
+        @include transition(all $transition);
         @include border-radius(3px);
         display: block; 
         width: 10px; 
         margin: 6px;
-        background: #ffffff;
+        background: $brand-danger;
         position: absolute; 
         top: 0; 
         bottom: 0; 
         right: 38px;
     }
-    
-    input:checked + .switch-label .switch-inner {
-        margin-left: 0;
-    }
-    
-    input:checked + .switch-label .switch-switch {
+
+    input:checked + .switch-label .switch-indicator {
         right: 0px;
-        background-color: rgba($mahara-green-lime, 0.8);
+        background-color: $brand-primary;
+
+        ~ .off {
+            text-indent: 50%;
+        }
+
+        ~ .on {
+            text-indent: -0;
+        }
+    }
+
+
+    .state-label {
+        @include transition(all $transition);
+        display: block;
+        float: left;
+
+        height: 28px;
+        padding:5px;
+        margin-top:-28px;
+
+        &.off {
+            padding-left: 30px;
+            text-indent: 0;
+        }
+
+        &.on {
+            text-indent: -50%;
+        }
     }
 }

@@ -3686,7 +3686,7 @@ class View {
                     'defaultvalue' => $searchdefault,
                 ),
                 'type' => array(
-                    'title'        => get_string('searchwithin'),
+                    'title'        => get_string('searchwithin'). ': ',
                     'class' => 'input-small',
                     'type'         => 'select',
                     'options'      => $searchoptions,
@@ -6015,7 +6015,7 @@ function create_view_form($group=null, $institution=null, $template=null, $colle
                 'type'  => 'button',
                 'usebuttontag' => true,
                 'class' => 'btn btn-default',
-                'value' => '<span class="fa fa-plus fa-lg text-primary prs"></span> ' . get_string('createview', 'view'),
+                'value' => '<span class="fa fa-plus fa-lg text-primary prs"></span>' . get_string('createview', 'view'),
             ),
         )
     );

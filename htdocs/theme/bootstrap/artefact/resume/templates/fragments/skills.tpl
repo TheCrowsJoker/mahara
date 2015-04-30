@@ -1,4 +1,4 @@
-<div class="">
+<div class="skills">
     {if !$hidetitle}
     <h3 class="resumeh3">
         {str tag='myskills' section='artefact.resume'}
