@@ -23,7 +23,7 @@
                     </div>
                     <a class="btn" id="approve_deny_friendrequest_deny" href="{$WWWROOT}user/denyrequest.php?id={$USERID}&returnto=view">
                         <span class="fa fa-ban prs fa-lg text-danger"></span>
-                        {str tag=denyrequest section=group}
+                        <span class="link-unstyled">{str tag='denyrequest' section='group'}</span>
                     </a>
                 </div>
             </div>

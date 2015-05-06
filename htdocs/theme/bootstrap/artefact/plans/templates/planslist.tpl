@@ -1,9 +1,12 @@
 {foreach from=$plans.data item=plan}
-    <div class="post pbl">
-        <div class="post-heading">
-            <h3 class="title pull-left"><a href="{$WWWROOT}artefact/plans/plan.php?id={$plan->id}">{$plan->title}</a></h3>
+    <div class="list-group-item list-group-item-lite">
+        <div class="clearfix ptm pbm">
+            <h3 class="pull-left list-group-item-heading mt0">
+                <a href="{$WWWROOT}artefact/plans/plan.php?id={$plan->id}">{$plan->title}
+                </a>
+            </h3>
 
-            <div class="pull-right post-menu">
+            <div class="pull-right btn-group">
                 <a href="{$WWWROOT}artefact/plans/edit/index.php?id={$plan->id}" title="{str(tag=editspecific arg1=$plan->title)|escape:html|safe}" class="btn btn-default btn-sm">
                     <span class="fa fa-pencil"></span>
                     {str tag=edit}
@@ -19,9 +22,10 @@
             </div>
         </div>
 
-        <div class="postdescription ptl">
+        <div class="postdescription">
             {$plan->description|clean_html|safe}
         </div>
+        
         {if $plan->tags}
         <div class="mtm">
             <strong>{str tag=tags}</strong>: 

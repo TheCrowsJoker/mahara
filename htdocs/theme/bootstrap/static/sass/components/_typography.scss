@@ -172,3 +172,11 @@ table.table tr {
         }
     }
 }
+
+.link-unstyled {
+    color: #333;
+    &:hover {
+        text-decoration: none;
+        color: inherit;
+    }
+}

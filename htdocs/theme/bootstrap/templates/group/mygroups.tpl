@@ -21,6 +21,8 @@
 </div>
 {$pagination|safe}
 {else}
-<div class="no-result">{str tag="trysearchingforgroups" section="group" args=$searchingforgroups}</div>
+<p class="no-result lead text-center">
+    {str tag="trysearchingforgroups" section="group" args=$searchingforgroups}
+</p>
 {/if}
 {include file="footer.tpl"}

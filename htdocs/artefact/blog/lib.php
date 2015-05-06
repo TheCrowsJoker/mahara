@@ -449,7 +449,6 @@ class ArtefactTypeBlog extends ArtefactType {
                     'type' => 'button',
                     'usebuttontag' => true,
                     'class' => 'btn btn-default btn-sm',
-
                     'alt' => get_string('deletespecific', 'mahara', $title),
                     'elementtitle' => get_string('delete'),
                     'confirm' => $confirm,
@@ -945,17 +944,17 @@ class ArtefactTypeBlogPost extends ArtefactType {
             $published = $post->published;
         }
         if ($published) {
-            $strchangepoststatus = get_string('unpublish', 'artefact.blog');
+            $strchangepoststatus = '<span class="prs fa fa-times text-danger"></span> ' .get_string('unpublish', 'artefact.blog');
         }
         else {
-            $strchangepoststatus = get_string('publish', 'artefact.blog');
+            $strchangepoststatus = '<span class="prs fa fa-check text-success"></span> ' . get_string('publish', 'artefact.blog');
         }
         return pieform(array(
             'name' => 'changepoststatus_' . $id,
             'jssuccesscallback' => 'changepoststatus_success',
             'successcallback' => 'changepoststatus_submit',
             'jsform' => true,
-            'renderer' => 'oneline',
+            'renderer' => 'div',
             'elements' => array(
                 'changepoststatus' => array(
                     'type' => 'hidden',
@@ -967,9 +966,8 @@ class ArtefactTypeBlogPost extends ArtefactType {
                 ),'submit' => array(
                     'type' => 'button',
                     'usebuttontag' => true,
-                    'class' => 'publish btn btn-default btn-sm',
-                    'value' => '<span class="fa fa-undo"></span> ' . $strchangepoststatus,
-                    'help' => true,
+                    'class' => 'btn btn-default btn-sm publish',
+                    'value' => $strchangepoststatus,
                 ),
             ),
         ));
@@ -982,7 +980,8 @@ class ArtefactTypeBlogPost extends ArtefactType {
             'successcallback' => 'delete_submit',
             'jsform' => true,
             'jssuccesscallback' => 'delete_success',
-            'renderer' => 'oneline',
+            'renderer' => 'div',
+            'class' => 'form-as-button pull-left',
             'elements' => array(
                 'delete' => array(
                     'type' => 'hidden',
@@ -995,7 +994,7 @@ class ArtefactTypeBlogPost extends ArtefactType {
                     'class' => 'btn btn-default btn-sm',
                     'elementtitle' => get_string('delete'),
                     'confirm' => get_string('deleteblogpost?', 'artefact.blog'),
-                    'value' => '<span class="fa fa-trash text-danger prs"></span> ' .get_string('delete'),
+                    'value' => '<span class="fa fa-trash text-danger"></span><span class="btn-title pls">' .get_string('delete') . '</span>',
                 ),
             ),
         ));

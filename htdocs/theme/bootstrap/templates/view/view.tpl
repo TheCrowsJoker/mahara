@@ -8,10 +8,22 @@
 <div class="btn-group btn-group-top">
 
   {if $editurl}{strip}
+      {if $new}
+      <a class="btn btn-default" href="{$editurl}">
+        {str tag=back}
+      </a>
+      {else}
       <a title="{str tag=editthisview section=view}" href="{$editurl}" class="btn btn-default">
         <span class="fa fa-pencil fa-lg prs"></span>
         {str tag=editthisview section=view}
       </a>
+      {/if}
+  {/strip}{/if}
+  {if $copyurl}{strip}
+    <a title="{str tag=copythisview section=view}" href="{$copyurl}" class="btn btn-default">
+      <span class="text-success fa fa-files-o fa-lg prs"></span>
+      {str tag=copy section=mahara}
+    </a>
   {/strip}{/if}
   {if $mnethost}
   <a href="{$mnethost.url}" class="btn btn-default">

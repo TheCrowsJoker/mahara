@@ -76,8 +76,8 @@
         </div>
 
         <a href="{$WWWROOT}user/denyrequest.php?id={$user->id}&amp;returnto={$page}&amp;offset={$offset}" class="btn">
-             <span class="fa fa-ban prs fa-lg text-danger"></span>
-            {str tag='denyrequest' section='group'}
+            <span class="fa fa-ban prs fa-lg text-danger"></span>
+            <span class="link-unstyled">{str tag='denyrequest' section='group'}</span>
         </a>
     </div>
     {/if}
