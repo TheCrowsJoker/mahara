@@ -80,7 +80,8 @@ h1 + div > .btn-top-right,
 
 h1 + div > .btn-group-top,
 .page-header + div.btn-group-top,
-.page-header + .btn-action-list .btn-group-top {
+.page-header + .btn-action-list .btn-group-top,
+.nav-tabs +  div.btn-group-top{
     margin-top: -20px;
     float: right;
     .btn {
@@ -90,6 +91,10 @@ h1 + div > .btn-group-top,
     .btn-group-top {
         margin: 0;
     }
+}
+
+.nav-tabs +  div.btn-group-top{
+    margin-top: 0;
 }
 
 h1 + .subpage > .btn-group-top {
@@ -151,12 +156,8 @@ h1 + .subpage > .btn-group-top {
     top: 11px;
     right: 10px;
     .btn {
-       // @extend .btn-xs;
-       // opacity: 0.8;
         background: rgba(#ccc, 0.8);
-       // color:#fff;
         &:hover {
-            // opacity: 1;
             background: rgba(#ddd, 1);
         }
     }

@@ -17,13 +17,13 @@
     <div class="message">{$strnotasksaddone|safe}</div>
 {else}
 <div class="table-responsive">
-<table id="taskslist" class="listing table">
+<table id="taskslist" class="listing table table-striped small-text">
     <thead>
         <tr>
-            <th>{str tag='completiondate' section='artefact.plans'}</th>
+            <th>{str tag='completed' section='artefact.plans'}</th>
             <th>{str tag='title' section='artefact.plans'}</th>
+            <th>{str tag='completiondate' section='artefact.plans'}</th>
             <th>{str tag='description' section='artefact.plans'}</th>
-            <th class="center">{str tag='completed' section='artefact.plans'}</th>
             <th></th>
         </tr>
     </thead>

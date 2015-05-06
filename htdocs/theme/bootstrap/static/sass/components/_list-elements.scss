@@ -2,6 +2,9 @@
 
 // Left panel
 .list-group {
+    .panel-body & {
+        margin-bottom: 0;
+    }
     .user-panel & {
         min-height: 41px;
         .list-group-item .list-group-item-link {
@@ -83,4 +86,8 @@
             @include sr-only;
         }
     }
+}
+
+.list-group-item-default{
+    background-color: rgba($brand-default, 0.5);
 }

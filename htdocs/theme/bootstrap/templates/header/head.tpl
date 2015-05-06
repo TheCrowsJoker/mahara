@@ -38,6 +38,7 @@
 {/foreach}
     <script type="text/javascript" src="{theme_url filename='bootstrap/assets/javascripts/bootstrap.js'}?v={$CACHEVERSION}"></script>
     <script type="text/javascript" src="{theme_url filename='js/bootstrap-accessibility.min.js'}?v={$CACHEVERSION}"></script>
+     <script type="text/javascript" src="{$WWWROOT}js/jquery.rating.js"></script>
     <script type="text/javascript" src="{theme_url filename='js/masonry.min.js'}?v={$CACHEVERSION}"></script>
     <script type="text/javascript" src="{theme_url filename='js/pieform.js'}?v={$CACHEVERSION}"></script>
     <script type="text/javascript" src="{theme_url filename='js/block.js'}?v={$CACHEVERSION}"></script>

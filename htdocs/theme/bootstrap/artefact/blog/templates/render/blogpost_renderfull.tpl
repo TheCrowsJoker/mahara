@@ -16,34 +16,34 @@
         {$license|safe}
     </div>
     {/if}
-</div>
+
+    {if isset($attachments)}
+        <div class="has-attachment in-panel panel panel-default panel-collapse collapsible last">
+            <h4 class="panel-heading">
+                <a class="text-left pts pbm collapsed" aria-expanded="false" href="#blog-attach-{$postid}" data-toggle="collapse">
+                    <span class="fa prm fa-paperclip"></span>
+                    
+                    <span class="small-text">{str tag=attachedfiles section=artefact.blog}</span>
+                    <span class="metadata">({$attachments|count})</span>
+                    <span class="fa pts fa-chevron-down pull-right collapse-indicator"></span>
+                </a>
+            </h4>
 
 
-{if isset($attachments)}
-    <div class="has-attachment panel panel-default mlm mrm">
-        <a class="collapsible collapsed in-panel panel-footer" aria-expanded="false" href="#blog-attach-{$postid}" data-toggle="collapse">
-            <p class="text-left mbs">
-                <span class="fa fa-lg prm fa-paperclip"></span>
-                <span class="label label-info mrs"> {$attachments|count}</span>
-                <span class="small-text">{str tag=attachedfiles section=artefact.blog}</span>
-                <span class="fa fa-chevron-down pull-right collapse-indicator"></span>
-            </p>
-        </a>
-
-
-        <div id="blog-attach-{$postid}" class="collapse">
-            <ul class="list-unstyled list-group mbs">
-            {foreach from=$attachments item=item}
-                <li class="list-group-item-text list-group-item-link">
-                    <a href="{$item->downloadpath}">
-                        <div class="file-icon mrs">
-                            <img src="{$item->iconpath}" alt="">
-                        </div>
-                        {$item->title|truncate:25}
-                    </a>
-                </li>
-            {/foreach}
-            </ul>
+            <div id="blog-attach-{$postid}" class="collapse">
+                <ul class="list-unstyled list-group">
+                {foreach from=$attachments item=item}
+                    <li class="list-group-item-text list-group-item-link">
+                        <a href="{$item->downloadpath}">
+                            <div class="file-icon mrs">
+                                <img src="{$item->iconpath}" alt="">
+                            </div>
+                            {$item->title|truncate:25}
+                        </a>
+                    </li>
+                {/foreach}
+                </ul>
+            </div>
         </div>
-    </div>
-{/if}
+    {/if}
+</div>

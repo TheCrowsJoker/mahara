@@ -63,7 +63,7 @@
     background: #F9F9F9;
     border: 0;
     .mce-panel {
-         background: #F9F9F9;
+        background: #F9F9F9;
     }
 
     .mce-statusbar.mce-container{
@@ -72,6 +72,21 @@
         border: 1px solid $panel-info-border !important; //override inline
 
     }
+}
+
+.wysiwyg {
+    label {
+        display:block;
+    }
+    label  + .mce-tinymce {
+        width:100%;
+    }
+}
+//tinymce modal
+.blockinstance-as-modal {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid $modal-header-border-color;
 }
 
 

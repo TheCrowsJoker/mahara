@@ -7,7 +7,7 @@
             <div class="panel panel-default wallpost{if $wallpost->private} private{/if} {cycle name=rows values='r0,r1'}">
                 <h4 class="panel-heading has-link">
                     <a href="{$wallpost->profileurl}" class="userinfo has-user-icon">
-                        <span class="user-icon left">
+                        <span class="user-icon small-icon left">
                             <img src="{profile_icon_url user=$wallpost maxheight=60 maxwidth=60}" alt="{str tag=profileimagetext arg1=$wallpost|display_default_name}" />
                         </span>
                             {$wallpost->displayname} - <span class="postedon metadata">{$wallpost->postdate|format_date}</span>

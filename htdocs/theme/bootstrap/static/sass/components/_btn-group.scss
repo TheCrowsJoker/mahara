@@ -30,7 +30,7 @@
   margin:0;
 }
 
-.btn-group .form-as-button:first-child {
+.btn-group .form-as-button:first-child:not(.last) {
   .btn {
      @include border-right-radius(0);
   }

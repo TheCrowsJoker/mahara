@@ -730,7 +730,6 @@ class ArtefactTypeComment extends ArtefactType {
         $form = array(
             'name'            => 'add_feedback_form',
             'method'          => 'post',
-            'class'           => 'js-hidden',
             'plugintype'      => 'artefact',
             'pluginname'      => 'comment',
             'jsform'          => true,
@@ -793,7 +792,8 @@ class ArtefactTypeComment extends ArtefactType {
         }
         $form['elements']['submit'] = array(
             'type'  => 'submitcancel',
-            'value' => array(get_string('placefeedback', 'artefact.comment'), get_string('cancel')),
+            'class' => 'btn btn-default',
+            'value' => array(get_string('Comment', 'artefact.comment'), get_string('cancel')),
         );
         return $form;
     }
@@ -801,14 +801,16 @@ class ArtefactTypeComment extends ArtefactType {
     public static function make_public_form($id) {
         return array(
             'name'            => 'make_public',
-            'renderer'        => 'oneline',
+            'renderer'        => 'div',
+            'class'           => 'form-as-button',
             'elements'        => array(
                 'comment'  => array('type' => 'hidden', 'value' => $id),
                 'submit'   => array(
-                    'type'  => 'submit',
-                    'class' => 'quiet',
+                    'type'  => 'button',
+                    'usebuttontag' => true,
+                    'class' => 'btn btn-link btn-xs',
                     'name'  => 'make_public_submit',
-                    'value' => get_string('makepublic', 'artefact.comment'),
+                    'value' => '<span class="fa fa-lock text-default prs"></span>' . get_string('makepublic', 'artefact.comment'),
                 ),
             ),
         );
@@ -818,14 +820,15 @@ class ArtefactTypeComment extends ArtefactType {
     	global $THEME;
         return array(
             'name'     => 'delete_comment',
-            'renderer' => 'oneline',
+            'renderer' => 'div',
+            'class' => 'form-as-button',
             'elements' => array(
                 'comment' => array('type' => 'hidden', 'value' => $id),
                 'submit'  => array(
-                    'type'  => 'image',
-                    'src' => $THEME->get_url('images/btn_deleteremove.png'),
-                    'value' => get_string('delete'),
-                    'elementtitle' => get_string('delete'),
+                    'type'  => 'button',
+                    'usebuttontag' => true,
+                    'class' => 'btn btn-link btn-sm',
+                    'value' => '<span class="fa fa-trash fa-lg text-danger"></span> <span class="sr-only">' . get_string('delete') . '</span>',
                     'confirm' => get_string('reallydeletethiscomment', 'artefact.comment'),
                     'name'  => 'delete_comment_submit',
                 ),
@@ -902,7 +905,7 @@ class ArtefactTypeComment extends ArtefactType {
         return array(
             'name'     => 'commentconfig',
             'elements' => $elements,
-            'renderer' => 'table'
+            'renderer' => 'div'
         );
     }
 

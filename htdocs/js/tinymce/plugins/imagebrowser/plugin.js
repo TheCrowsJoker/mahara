@@ -93,7 +93,7 @@ tinymce.PluginManager.add('imagebrowser', function(editor) {
         });
 
         function addImageBrowser(configblock) {
-            var browser = jQuery('<div>').attr({'id':'imagebrowser', 'role':'dialog'}).addClass('blockinstance cb configure');
+            var browser = jQuery('<div>').attr({'id':'imagebrowser', 'role':'dialog'}).addClass('blockinstance blockinstance-as-modal cb configure');
             jQuery(browser).append(configblock.data.html);
             jQuery('body').append(browser);
             win = jQuery('#imagebrowser');

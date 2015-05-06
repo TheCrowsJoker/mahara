@@ -1,8 +1,11 @@
 
 // If there is no heading we don't want padding on the secondary panel
-.panel-secondary .no-heading {
-    .panel-body {
+.panel-secondary > .no-heading {
+    > .panel-body {
         padding: 0;
+    }
+    .has-attachment {
+        margin: 0;
     }
 }
 
@@ -51,12 +54,13 @@
     border-bottom-left-radius: 3px;
 }
 
-.panel-items {
+.panel {
     form {
         margin:0;
     }
-    table {
-        font-size: 0.9em;
+    table,
+    table thead {
+        font-size: 12px;
     }
     small {
         margin-top:5px;
@@ -124,9 +128,11 @@ a.panel-footer {
 //Display objects in panels differently
 .panel-body {
     ul {
-        padding-left: 20px;
-        margin: 0 0 20px;
         font-size: 0.9em;
+        &:not(.list-unstyled):not(.unstyled){
+            padding-left: 20px;
+            margin: 0 0 20px;
+        }
     }
     .sidebar & .form-group {
         padding: 0;
@@ -155,6 +161,10 @@ a.panel-footer {
     }
     &.has-link {
         padding: 0;
+        h4 {
+            padding: 0;
+            margin: 0;
+        }
     }
     a:not(.secondary-link) {
         display: block;
@@ -167,7 +177,7 @@ a.panel-footer {
             padding: 10px 15px;
         }
         &:hover, &:focus {
-            background-color: darken(#f5f5f5, 1%);
+            background-color: none;
             text-decoration: none;
         }
         .pieform > .collapsible-group:first-child &,
@@ -184,8 +194,7 @@ a.panel-footer {
 }
 
 /*
- * Input boxes positioned on the right over the panel header
- * or icon link positioned on the left over the panel header
+ * Input boxes, links, or buttons positioned over the panel header
  */
 .panel-control {
     display: block;
@@ -199,7 +208,18 @@ a.panel-footer {
     &.panel-header-action {
         right:0;
         top:0;
+        .btn {
+            padding-top:0;
+        }
     }
+     &.panel-header-form-actions {
+        right:0;
+        top:0;
+        padding:0;
+        .btn {
+          
+        }
+     }
    
     input {
         margin-top:0;
@@ -222,8 +242,8 @@ a.panel-control {
 }
 
 
-.panel-collapse:not(.panel-secondary) {
-    border: 0;
+.panel-collapse:not(.panel-secondary):not(.in-panel) {
+    border-width: 0;
 
      // Remove border from heading - add to link tag. 
      // In this case we have a nested a tag that takes up the whole of the heading space
@@ -282,6 +302,9 @@ a.panel-control {
 
 
 .panel-footer {
+    p {
+        margin:0;
+    }
     &.has-form {
         @include clearfix;
         .control {
@@ -368,9 +391,27 @@ a.panel-control {
 .columns3,
 .columns4,
 .columns5 {
-    .wallpost .panel-heading{
+    .wallpost .panel-heading {
         font-size: 12px;
         padding-right:40px;
+        h4 {
+            font-size: 12px;
+        }
     }
 }
 
+.panel-small .panel-heading {
+    font-size: 12px;
+    padding-right:40px;
+    h4 {
+        font-size: 12px;
+    }
+}
+
+.panel-heading .btn-link {
+    &:hover{
+        .fa {
+            color: $link-color;
+        }
+    }
+}

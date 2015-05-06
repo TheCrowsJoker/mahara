@@ -1,6 +1,7 @@
 {include file="header.tpl"}
 
 {include file="view/editviewtabs.tpl" selected='skin' new=$new issiteview=$issiteview}
+
 <div class="subpage">
     <div class="skinsbtns pbl text-right">
         <a class="btn btn-lg btn-default" href="{$WWWROOT}skin/index.php">

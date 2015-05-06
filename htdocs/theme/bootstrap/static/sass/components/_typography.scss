@@ -25,8 +25,14 @@ strong i {
     font-style: normal; //No italics on bold fonts thanks
 }
 
-a:focus {
-    outline-color:$input-border-focus;
+
+a:focus, 
+a:hover {
+    text-decoration-color: #aaa;
+    outline-color: rgba($input-border-focus, 0.3);
+}
+a.link-block {
+    display: block;
 }
 
 .lead, .lead p {
@@ -47,10 +53,17 @@ a:focus {
     font-size: 0.8em;
     color: #888;
 }
+.text-light {
+    color: #888;
+}
 
 .page-header,
 h1, h2 {
     margin-top:0;
+}
+
+h4 {
+    margin-bottom: 5px;
 }
 
 .page-header {
@@ -58,7 +71,6 @@ h1, h2 {
 }
 
 .page-header ~ .with-heading {
-
     margin-top: -16px;
 }
 
@@ -75,6 +87,10 @@ h2, h3, h4, h5, legend {
 
 img {
     max-width: 100%;
+}
+
+hr {
+    margin-top: $line-height-computed / 2;
 }
 
 .alert {

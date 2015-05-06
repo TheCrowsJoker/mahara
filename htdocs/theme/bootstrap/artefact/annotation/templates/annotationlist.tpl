@@ -10,17 +10,16 @@
             {/if}
         </div>
         <div class="commentrightwrap">
-              <div class="fr">
-                  {if $item->makepublicform}<div class="makepublicbtn">{$item->makepublicform|safe}</div>{/if}
-                  {if $item->canedit}
-                      <form name="edit_{$post->id}" action="{$WWWROOT}artefact/annotation/edit.php">
-                          <input type="hidden" name="id" value="{$item->id}">
-                          <input type="hidden" name="viewid" value="{$viewid}">
-                          <input type="image" src="{theme_url filename="images/btn_edit.png"}" title="{str tag=edit}">
-                      </form>
-                  {/if}
-                  {if $item->deleteform}{$item->deleteform|safe}{/if}
-              </div>
+                {if $item->makepublicform}<div class="makepublicbtn">{$item->makepublicform|safe}</div>{/if}
+                {if $item->canedit}
+                    <form name="edit_{$post->id}" action="{$WWWROOT}artefact/annotation/edit.php">
+                        <input type="hidden" name="id" value="{$item->id}">
+                        <input type="hidden" name="viewid" value="{$viewid}">
+                        <input type="image" src="{theme_url filename="images/btn_edit.png"}" title="{str tag=edit}">
+                    </form>
+                {/if}
+                {if $item->deleteform}{$item->deleteform|safe}{/if}
+
               {if $item->author}
                   <div class="author">
                       <a href="{$item->author->profileurl}" class="username">{$item->author|display_name}</a>
