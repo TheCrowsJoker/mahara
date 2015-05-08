@@ -7,7 +7,7 @@
         {/if}
     </h3>{/if}
     <div id="goalslist{$suffix}" class="panel-items js-masonry" data-masonry-options='{ "itemSelector": ".panel" }'>
-        {foreach from=$goals item=n}
+        {foreach from=$goals item=n, name='default'}
         <div class="panel panel-default">
             <h4 class="panel-heading has-link">
                 {if $n->exists}
@@ -24,7 +24,7 @@
                     </a>
                 {/if}
             </h4>
-            <div id="n{$n->id}_desc" class="panel-body">
+            <div class="panel-body">
                 {if $n->description != ''}
                 {$n->description|clean_html|safe}
                 {else}
@@ -33,7 +33,7 @@
             </div>
             {if $n->files}
             <div id="resume_{$n->id}" class="has-attachment">
-                <a class="collapsible collapsed in-panel panel-footer" aria-expanded="false" href="#attach_goal_{$n->id}" data-toggle="collapse">
+                <a class="collapsible collapsed in-panel panel-footer" aria-expanded="false" href="#attach_goal_{$.foreach.default.index}" data-toggle="collapse">
                     <p class="text-left mbs">
                         <span class="fa fa-lg prm fa-paperclip"></span>
                         
@@ -44,7 +44,7 @@
                 </a>
 
 
-                <div id="attach_goal_{$n->id}" class="collapse">
+                <div id="attach_goal_{$.foreach.default.index}" class="collapse">
                     <ul class="list-unstyled list-group mbs">
                     {foreach from=$n->files item=file}
                         <li class="list-group-item-text list-group-item-link">
