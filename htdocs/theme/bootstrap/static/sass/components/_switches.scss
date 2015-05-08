@@ -1,9 +1,11 @@
 $transition: 0.1s ease-in 0s;
+$height: 28px;
 
 
 .switchbox.form-group {
     > label {
         vertical-align: bottom;
+        line-heigth: $height;
     }
 }
 
@@ -61,11 +63,11 @@ $transition: 0.1s ease-in 0s;
             @include box-sizing(border-box);
             @include box-shadow(none);
             background-color: $brand-default; 
-            border: 1px solid darken($brand-default, 7%);
+            border: 1px solid $btn-default-border;
             display: block; 
             float: left; 
             width: 50%; 
-            height: 28px; 
+            height: $height; 
             padding: 0; 
             line-height: 26px;
             font-size: 14px; 
@@ -92,20 +94,23 @@ $transition: 0.1s ease-in 0s;
 
     .switch-indicator {
         @include transition(all $transition);
-        @include border-radius(3px);
+        @include border-radius(20px);
         display: block; 
         width: 10px; 
-        margin: 6px;
-        background: $brand-danger;
+        height:10px;
+        margin: 6px 7px;
+        background: rgba($brand-danger, 0.8);
+        border: 1px solid rgba(darken($brand-danger, 5%), 0.8);
         position: absolute; 
-        top: 0; 
-        bottom: 0; 
+        top: 3px; 
+        //bottom: 0; 
         right: 38px;
     }
 
     input:checked + .switch-label .switch-indicator {
         right: 0px;
-        background-color: $brand-primary;
+        background-color: rgba($brand-primary, 0.8);
+        border: 1px solid rgba(darken($brand-primary, 5%), 0.8);
 
         ~ .off {
             text-indent: 50%;
@@ -121,10 +126,9 @@ $transition: 0.1s ease-in 0s;
         @include transition(all $transition);
         display: block;
         float: left;
-
-        height: 28px;
-        padding:5px;
-        margin-top:-28px;
+        height: $height;
+        padding:3px 10px;
+        margin-top:-$height;
 
         &.off {
             padding-left: 30px;

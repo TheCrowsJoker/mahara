@@ -17,20 +17,25 @@
             <span class="sr-only">{$i->strtype}</span>
             {/if}
         </div>
-        <div>
-            {if $i->message}
-            <a href="{if $i->url}{$WWWROOT}{$i->url}{else}{$WWWROOT}account/activity/index.php{/if}" class="inbox-showmessage{if !$i->read} unread{/if}">
-                {if !$i->read}<span class="accessible-hidden sr-only">{str tag=unread section=activity}: </span>{/if}{$i->subject|truncate:50}
+
+        {if $i->message}
+        <a href="{if $i->url}{$WWWROOT}{$i->url}{else}{$WWWROOT}account/activity/index.php{/if}" class="link-block collapsed inbox-showmessage{if !$i->read} unread{/if} mochi-collapse">
+            {if !$i->read}<span class="accessible-hidden sr-only">{str tag=unread section=activity}: </span>{/if}{$i->subject|truncate:50}
+            <span class="fa fa-chevron-down pls collapse-indicator pull-right"></span>
+        </a>
+        <div class="panel-body inbox-message hidden messagebody-{$i->type}" id="inbox-message-{$i->table}-{$i->id}">
+            <p>{$i->message|safe}</p>
+            {if $i->url}
+            <a href="{$WWWROOT}{$i->url}" class="btn btn-default btn-xs pull-right">
+                {str tag="more..."} <span class="fa fa-arrow-right mls fa-sm"></span>
             </a>
-            <div class="inbox-message hidden messagebody-{$i->type}" id="inbox-message-{$i->table}-{$i->id}">{$i->message|safe}
-                {if $i->url}<br><a href="{$WWWROOT}{$i->url}">{if $i->urltext}{$i->urltext} &raquo;{else}{str tag="more..."}{/if}</a>{/if}
-            </div>
-            {elseif $i->url}
-            <a href="{$WWWROOT}{$i->url}">{$i->subject}</a>
-            {else}
-            {$i->subject}
             {/if}
         </div>
+        {elseif $i->url}
+        <a href="{$WWWROOT}{$i->url}">{$i->subject}</a>
+        {else}
+        {$i->subject}
+        {/if}
     </div>
     {/foreach}
     <script>
@@ -42,6 +47,7 @@
                 {literal}
                 function(element) {
                     connect(element, 'onclick', function(e) {
+
                         e.stop();
                         var message = getFirstElementByTagAndClassName('div', 'inbox-message', element.parentNode);
                         var unreadText = getFirstElementByTagAndClassName(null, 'accessible-hidden', element);

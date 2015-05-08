@@ -956,6 +956,11 @@ class BlockInstance {
         if (method_exists($classname, 'feed_url')) {
             $smarty->assign('feedlink', call_static_method($classname, 'feed_url', $this));
         }
+
+        if (method_exists($classname, 'get_link')) {
+            $smarty->assign('link', call_static_method($classname, 'get_link', $this));
+        }
+
         $smarty->assign('content', $content);
         if (isset($configdata['retractable']) && $title) {
             $smarty->assign('retractable', $configdata['retractable']);

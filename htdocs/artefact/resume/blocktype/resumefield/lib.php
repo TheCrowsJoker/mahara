@@ -52,7 +52,8 @@ class PluginBlocktypeResumefield extends PluginBlocktype {
             if (!empty($rendered['javascript'])) {
                 $result .= '<script type="application/javascript">' . $rendered['javascript'] . '</script>';
             }
-            return $result;
+            $smarty->assign('content', $result);
+            return $smarty->fetch('blocktype:resumefield:content.tpl');;
         }
         return '';
     }

@@ -28,5 +28,15 @@ jQuery(function($) {
     // Hide empty panels
     $('.block[data-blocktype-noajax]:empty').closest('.panel').addClass('hidden');
 
+
+    // hack to fix issue with mochi kit js in inbox blocks
+    $('.mochi-collapse').on('click', function(){
+        $(window).trigger('colresize');
+    });
+
+    $('.has-attachment .collapse').on('shown.bs.collapse', function () {
+        $(window).trigger('colresize');
+    });
+
 });
 

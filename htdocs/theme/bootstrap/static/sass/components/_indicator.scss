@@ -11,7 +11,35 @@
     }
     .panel-secondary & {
         margin-top: -5px;
-        margin-left: -11px;
-        margin-right: 3px;
+        margin-left: -6px;
+        margin-right: -2px;
+    }
+}
+
+.collapse-indicator {
+    color: $brand-success;
+    font-size: 13px;
+    display: block;
+    .collapsed & {
+        color: #aaa;
+    }
+    a:hover &, 
+    a:focus & {
+        color: $brand-success;
+    }
+}
+
+// syntax change if link is an outer-link
+[data-toggle="collapse"].outer-link {
+    &.collapsed {
+        ~ .collapse-indicator {
+            color: #aaa;
+        }
+    }
+    &:hover,
+    &:focus {
+        ~ .collapse-indicator {
+            color: $brand-success;
+        }
     }
 }

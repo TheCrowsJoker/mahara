@@ -1901,6 +1901,8 @@ class ArtefactTypeResumeGoalAndSkill extends ArtefactTypeResume {
             $smarty->assign('count', count($attachments));
         }
 
+        $smarty->assign('id', $this->get('id'));
+
         $result = array(
             'html' => $smarty->fetch('artefact:resume:fragments/goalsandskills.tpl')
         );

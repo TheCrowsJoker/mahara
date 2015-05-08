@@ -29,6 +29,11 @@ class PluginBlocktypeInbox extends SystemBlocktype {
         return array('dashboard');
     }
 
+    public static function get_link(BlockInstance $instance) {
+        $data = get_config('wwwroot') . 'account/activity/index.php';
+        return sanitize_url($data);
+    }
+
     public static function render_instance(BlockInstance $instance, $editing=false) {
         global $USER, $THEME;
         $configdata = $instance->get('configdata');

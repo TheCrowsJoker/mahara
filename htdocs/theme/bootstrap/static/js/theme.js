@@ -85,7 +85,6 @@ jQuery(function($) {
         });
     }
 
-
     affixSize();
     siteMessages();
     bootstrapFileBrowser();

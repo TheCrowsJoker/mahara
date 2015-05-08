@@ -1280,7 +1280,7 @@ class ArtefactTypeFile extends ArtefactTypeFileBase {
         }
 
         $smarty = smarty_core();
-        $smarty->assign('iconpath', $this->get_icon($options));
+       // $smarty->assign('iconpath', $this->get_icon($options));
         $smarty->assign('downloadpath', $downloadpath);
         $smarty->assign('filetype', $filetype);
         $smarty->assign('ownername', $this->display_owner());
@@ -1339,6 +1339,8 @@ class ArtefactTypeFile extends ArtefactTypeFileBase {
             return;
         }
         $file = $this->get_path();
+
+
         if (is_file($file)) {
             $size = filesize($file);
             // Only delete the file on disk if no other artefacts point to it
@@ -1440,7 +1442,7 @@ class ArtefactTypeFile extends ArtefactTypeFileBase {
 
     public static function get_icon($options=null) {
         global $THEME;
-        return $THEME->get_url('images/file.png');
+        return false;
     }
 
     public static function get_config_options() {
@@ -2493,7 +2495,7 @@ class ArtefactTypeArchive extends ArtefactTypeFile {
 
     public static function get_icon($options=null) {
         global $THEME;
-        return $THEME->get_url('images/archive.png');
+        return false;
     }
 
     public function open_archive() {
@@ -2796,7 +2798,7 @@ class ArtefactTypeVideo extends ArtefactTypeFile {
 
     public static function get_icon($options=null) {
         global $THEME;
-        return $THEME->get_url('images/video.png');
+        return false;
     }
 
     public static function get_title_progressbar() {
@@ -2851,7 +2853,7 @@ class ArtefactTypeAudio extends ArtefactTypeFile {
 
     public static function get_icon($options=null) {
         global $THEME;
-        return $THEME->get_url('images/audio.png');
+        return false;
     }
 
     public static function get_title_progressbar() {

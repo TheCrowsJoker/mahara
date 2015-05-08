@@ -63,10 +63,11 @@
         <div class="panel panel-default mbm" id="postfiles_{$post->id}">
             <a class="panel-heading collapsible collapsed" data-toggle="collapse" href="#attach_{$post->id}" aria-expanded="false">
                 <span class="fa fa-lg prm fa-paperclip"></span>
-                <span class="label label-info mrs">
-                    {$post->files|count}
+               
+                <span class="small-text"> {str tag=attachedfiles section=artefact.blog} </span>
+                 <span class="metadata">
+                    ({$post->files|count})
                 </span>
-                <span class="small-text"> {str tag=attachedfiles section=artefact.blog}</span>
                 <span class="fa fa-chevron-down collapse-indicator pull-right"></span>
             </a>
             <div class="collapse" id="attach_{$post->id}">

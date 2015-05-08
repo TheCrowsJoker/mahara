@@ -51,10 +51,12 @@ label.sr-only + div.mce-tinymce {
     }
 }
 
-.message {
-    font-size: 0.9em;
-    color: $gray;
-    margin-left: 20px;
+.form-group {
+    .message {
+        font-size: 0.9em;
+        color: $gray;
+        margin-left: 20px;
+    }
 }
 
 .pieform-fieldset {

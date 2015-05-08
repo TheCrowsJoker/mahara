@@ -38,8 +38,9 @@
                     <a class="panel-footer in-panel collapsed" aria-expanded="false" href="#attach_skill_{$n->id}" data-toggle="collapse">
                         <p class="text-left mbs">
                             <span class="fa fa-lg prm fa-paperclip"></span>
-                            <span class="label label-info mrs">{$n->count}</span>
+                           
                             <span class="small-text">{str tag=attachedfiles section=artefact.blog}</span>
+                            <span class="metadata">({$n->count})</span>
                             <span class="fa fa-chevron-down collapse-indicator pull-right"></span>
                         </p>
                         

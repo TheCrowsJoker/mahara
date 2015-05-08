@@ -1,16 +1,3 @@
-.collapse-indicator {
-    color: $brand-success;
-    font-size: 13px;
-    display: block;
-    .collapsed & {
-        color: #aaa;
-    }
-    a:hover &, 
-    a:focus & {
-        color: $brand-success;
-    }
-}
-
 .collapsible{
     legend h4,
     legend h3 {
