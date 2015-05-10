@@ -79,8 +79,19 @@ class PluginBlocktypeImage extends PluginBlocktype {
         $configdata = $instance->get('configdata');
         safe_require('artefact', 'file');
         $instance->set('artefactplugin', 'file');
+        $filebrowser = self::filebrowser_element($instance, (isset($configdata['artefactid'])) ? array($configdata['artefactid']) : null);
+
         return array(
-            'artefactid' => self::filebrowser_element($instance, (isset($configdata['artefactid'])) ? array($configdata['artefactid']) : null),
+            'artefactfieldset' => array(
+                'type'         => 'fieldset',
+                'collapsible'  => true,
+                'collapsed'    => true,
+                'legend'       => get_string('select', 'blocktype.file/gallery'),
+                'class'        => 'last',
+                'elements'     => array(
+                    'artefactid' => $filebrowser
+                )
+            ),
             'showdescription' => array(
                 'type'  => 'switchbox',
                 'title' => get_string('showdescription', 'blocktype.file/image'),

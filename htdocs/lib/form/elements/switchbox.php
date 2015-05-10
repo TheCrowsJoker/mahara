@@ -84,6 +84,17 @@ function pieform_element_switchbox_labeltext($element){
     );
 }
 
+/**
+ * Returns code to go in <head> for the given switchbox instance
+ *
+ * @param array $element The element to get <head> code for
+ * @return array         An array of HTML elements to go in the <head>
+ */
+function pieform_element_switchbox_get_headdata($element) {
+    global $THEME;
+    return array();
+}
+
 function pieform_element_switchbox_get_value(Pieform $form, $element) {
     return pieform_element_checkbox_get_value($form, $element);
 }

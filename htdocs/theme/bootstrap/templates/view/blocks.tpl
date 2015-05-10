@@ -118,7 +118,7 @@
 </div>
 
 <div class="modal model-shown hidden blockinstance configure" id="configureblock" role="dialog">
-	<div class="modal-dialog">
+	<div class="modal-dialog modal-lg">
 		<div class="modal-content" data-height=".modal-body">
 			<div class="modal-header">
 				<button class="deletebutton close" name="close_configuration">
