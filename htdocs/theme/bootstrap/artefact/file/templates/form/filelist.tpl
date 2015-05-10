@@ -1,7 +1,7 @@
 {if $filelist}
-<div class="{if !$config.selectone}panel-body{/if}">
+<div class="{if $config.selectone != 1}panel-body{/if}">
     <!-- <div class="table-responsive"> -->
-        <table id="{$prefix}_filelist" class="tablerenderer filelist fullwidth table">
+        <table id="{$prefix}_filelist" class="tablerenderer filelist table">
             <thead>
                 <tr>
                     <th></th>
@@ -27,7 +27,7 @@
                     {/if}
                     
                     <th class="right nowrap">
-                        <span class="accessible-hidden sr-only">{str tag=edit}</span>
+                        <!-- <span class="">{str tag=edit}</span> -->
                     </th>
                 </tr>
             </thead>
@@ -40,8 +40,9 @@
                     {assign var=publishable value=0}
                 {/if}
                 
-                <tr id="file:{$file->id}" class="directory-item {if $file->isparent} parentfolder{/if} {if $file->artefacttype == 'folder'} folder{elseif $file->artefacttype == 'profileicon'} profileicon{/if}{if $highlight && $highlight == $file->id} highlight-file{/if}{if $edit == $file->id} hidden{/if}{if !$publishable && $file->artefacttype != 'folder'} disabled{/if}" {if !$publishable && $file->artefacttype != 'folder'} title="{str tag=notpublishable section=artefact.file}"{/if}>
+                <tr id="file:{$file->id}" class="file-item {if $file->isparent} parentfolder{/if}{if $highlight && $highlight == $file->id} warning{/if}{if $file->artefacttype == 'folder'} folder{else}{if !$publishable } disabled{/if}{if $file->artefacttype == 'profileicon'} profileicon{/if}{/if}{if $edit == $file->id} hidden{/if}{if $selectable && ($file->artefacttype != 'folder' || $selectfolders) && $publishable && !$file->isparent} js-file-select{/if}" {if $selectable && ($file->artefacttype != 'folder' || $selectfolders) && $publishable && !$file->isparent} data-id="{$file->id}" data-select="select-file" {/if} {if !$publishable && $file->artefacttype != 'folder'} title="{str tag=notpublishable section=artefact.file}"{/if}>
                     <td class="icon-container">
+                      
                         {if $file->isparent}
                             <span class="pls fa-level-up fa fa-lg "></span>
                         {else}
@@ -67,19 +68,16 @@
                         {assign var=displaytitle value=$file->title|safe}
                         
                         {if $file->artefacttype == 'folder'}
-                            <a href="{$querybase|safe}folder={$file->id}{if $owner}&owner={$owner}{if $ownerid}&ownerid={$ownerid}{/if}{/if}" id="changefolder:{$file->id}" class="changefolder" title="{str tag=gotofolder section=artefact.file arg1=$displaytitle}">
+                            <a href="{$querybase|safe}folder={$file->id}{if $owner}&owner={$owner}{if $ownerid}&ownerid={$ownerid}{/if}{/if}" id="changefolder:{$file->id}" class="inner-link changefolder" title="{str tag=gotofolder section=artefact.file arg1=$displaytitle}">
                                 <span class="accessible-hidden sr-only">{str tag=folder section=artefact.file}:</span>
                                 <span class="display-title {if $file->isparent}accessible-hidden{/if}">{$displaytitle}</span>
                             </a>
                         {elseif !$publishable}
                             {$displaytitle}
                         {else}
-                    {if $selectable && ($file->artefacttype != 'folder' || $selectfolders) && $publishable && !$file->isparent}
-                        <input type="submit" class="btn btn-success btn-xs button select small inline" name="{$prefix}_select[{$file->id}]" id="{$prefix}_select_{$file->id}" value="{str tag=select}" title="{str tag=select}" />
-                    {/if}
-                            <a href="{$WWWROOT}artefact/file/download.php?file={$file->id}" target="_blank" title="{str tag=downloadfile section=artefact.file arg1=$displaytitle}">
+                            <span class="inner-link text-success">
                                 {$displaytitle}
-                            </a>
+                            </span>
                         {/if}
                     </td>
                 <td class="filedescription">
@@ -154,7 +152,14 @@
                     {/if}
                 {/if}
                 {if $selectable && ($file->artefacttype != 'folder' || $selectfolders) && $publishable && !$file->isparent}
-                    <input type="submit" class="btn btn-success btn-xs button select small inline" name="{$prefix}_select[{$file->id}]" id="{$prefix}_select_{$file->id}" value="{str tag=select}" title="{str tag=select}" />
+                    <input type="submit" class="sr-only"" name="{$prefix}_select[{$file->id}]" id="{$prefix}_select_{$file->id}" value="{str tag=select}" title="{str tag=select}" />
+                    
+                    <a href="{$WWWROOT}artefact/file/download.php?file={$file->id}" target="_blank" title="{str tag=downloadfile section=artefact.file arg1=$displaytitle}" class="btn btn-default btn-xs">
+                        <span class="fa fa-download"></span>
+                        <span class="sr-only">
+                            {str tag=downloadfile section=artefact.file arg1=$displaytitle}
+                        </span>
+                    </a>
                 {/if}
                 </td>
             </tr>
@@ -168,10 +173,12 @@
         </table>
     <!-- </div> -->
 </div>
-<a id="downloadfolder" class="panel-footer" href="{$WWWROOT}artefact/file/downloadfolder.php?{$folderparams|safe}">
-    <span class="fa fa-download"></span>
-    {str tag=downloadfolderziplink section=artefact.file}
-</a>
+{if $config.select != 1}
+    <a id="downloadfolder" class="panel-footer" href="{$WWWROOT}artefact/file/downloadfolder.php?{$folderparams|safe}">
+        <span class="fa fa-download"></span>
+        <span>{str tag=downloadfolderziplink section=artefact.file}</span>
+    </a>
+{/if}
 {else}
 <div class="panel-body">
     <p class="lead ptm pbm text-center">{str tag=nofilesfound section=artefact.file}</p>

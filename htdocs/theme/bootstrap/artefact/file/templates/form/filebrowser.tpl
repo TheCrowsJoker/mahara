@@ -14,11 +14,6 @@
 <div id="{$prefix}_open_upload_browse_container">
 
     {if $config.selectone}
-        <!-- <button type="button" class="btn btn-default">
-            <span class="fa fa-paperclip fa-lg prs"></span>
-            {str tag=selectafile section=artefact.file}
-        </button> -->
-        
         <!-- <input type="submit" class="buttondk btn btn-success" id="{$prefix}_open_upload_browse" name="browse" value="{str tag=selectafile section=artefact.file}" /> -->
 
         <!-- For adding image block -->
@@ -37,29 +32,26 @@
     {/if}
 
 {else}
-    <!-- For file page  -->
     <div id="{$prefix}_upload_browse" class="upload_browse select">
 {/if}
 
-    {if $config.select && !$config.alwaysopen}
-        <button type="button" class="close" data-dismiss="modal">
-            <span class="sr-only">{str tag=Close}</span>
-            <span aria-hidden="true">&times;</span>
-        </button>
-    {/if}
+        {if $config.select && !$config.alwaysopen}
+            <button type="button" class="close" data-dismiss="modal">
+                <span class="sr-only">{str tag=Close}</span>
+                <span aria-hidden="true">&times;</span>
+            </button>
+        {/if}
 
-        <!-- Tabs for selectfile from different library -->
+        <!-- Group and intitution files (display as tabs and button dropdown) -->
         {if $tabs}
             <input type="hidden" name="{$prefix}_owner" id="{$prefix}_owner" value="{$tabs.owner}" />
             <input type="hidden" name="{$prefix}_ownerid" id="{$prefix}_ownerid" value="{$tabs.ownerid}" />
             <input type="hidden" name="{$prefix}_changeowner" id="{$prefix}_changeowner" value="" />
             
-            <!-- Rendering the tabs -->
             <div id="{$prefix}_ownertabs">
                 {include file="artefact:file:form/ownertabs.tpl" tabs=$tabs prefix=$prefix querybase=$querybase}
             </div>
 
-            <!-- Displaying tab content -->
             <div id="artefactchooser-body">
                 <div id="{$prefix}_ownersubtabs" {if !$tabs.subtabs}class="hidden"{/if}>
                 {if $tabs.subtabs}
@@ -68,8 +60,7 @@
                 </div>
         {/if}
 
-        <!-- If user is allowed to upload file -->
-        <!-- Checking for selectone but to ommit panel but check -->
+        <!-- Include upload form -->
         {if $config.upload}
         <div id="{$prefix}_upload_container" class="{if !$config.selectone}panel panel-default fileupload {/if} {if ($tabs && !$tabs.upload) || $uploaddisabled} hidden{/if}">
             {* config.uploadagreement: disable the file chooser unless the agreement is checked *}
@@ -83,8 +74,8 @@
             {if $config.uploadagreement}
                 <div id="{$prefix}_agreement" class="uploadform clearfix">
                     <label for="{$prefix}_notice">{str tag='uploadfile' section='artefact.file'}</label>
-                        <input type="checkbox" name="{$prefix}_notice" id="{$prefix}_notice" />
-                        {$agreementtext|clean_html|safe}
+                    <input type="checkbox" name="{$prefix}_notice" id="{$prefix}_notice" />
+                    {$agreementtext|clean_html|safe}
                 </div>
             {/if}
             
@@ -163,13 +154,13 @@
             </div>
         {/if}
 
-        <div class="{if config.selectone}filelist-wrapper pbl {else}panel panel-default{/if}">
+        <div class="{if $config.selectone}filelist-wrapper{else} panel panel-default{/if}">
         
-            <h3 id="{$prefix}_foldernav" class="{if !$config.selectone}panel-heading{/if}">
+            <h3 id="{$prefix}_foldernav" class="{if $config.selectone}heading {else}panel-heading{/if}">
             {include file="artefact:file:form/folderpath.tpl" path=$path querybase=$querybase owner=$tabs.owner ownerid=$tabs.ownerid}
             </h3>
 
-            <!-- load this thing for the first time -->
+            <!-- Select filelist -->
             <div id="{$prefix}_filelist_container">
                 {include file="artefact:file:form/filelist.tpl" prefix=$prefix filelist=$filelist folderdownload=$folderdownload folderparams=$folderparams editable=$config.edit selectable=$config.select highlight=$highlight edit=$edit querybase=$querybase groupinfo=$groupinfo owner=$tabs.owner ownerid=$tabs.ownerid selectfolders=$config.selectfolders showtags=$config.showtags editmeta=$config.editmeta}
             </div>
@@ -183,9 +174,11 @@
             </tbody>
         </table>
         {/if}
-
     {if $tabs}
     </div>
     {/if}
 </div>
+{if $config.select}
 </div>
+{/if}
+

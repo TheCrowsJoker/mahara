@@ -25,7 +25,6 @@
 			<a class="btn btn-default {if $selected == 'title'}active{/if}" href="{$WWWROOT}view/edit.php?id={$viewid}{if $new}&new=1{/if}">
 				<span class="fa fa-lg fa-cogs prs"></span>
 				{str tag=edittitleanddescription section=view}
-
 			</a>
 		{/if}
 		

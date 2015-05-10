@@ -905,6 +905,7 @@
 			loading = $('<span>').attr('class', 'fa fa-spinner fa-spin mtl mlxl'),
 			pd = {'id': $('#viewid').val(), 'change': 1};
 
+		
 
 		if (config.blockeditormaxwidth) {
 			// Shouldn't have to pass browser window dimensions here, but can't find
@@ -917,6 +918,8 @@
 		content.empty().append(loading).append(' Loading...');
 
 		sendjsonrequest('blocks.json.php', pd, 'POST', function(data) {
+
+
 
 			content.html(oldContent);
 			addConfigureBlock(blockinstance, data.data);
@@ -1061,6 +1064,8 @@
 
 		newblock.removeClass('hidden');
 		appendChildNodes(document.body, DIV({id: 'overlay'}));
+
+		$(window).trigger('maharagetconfigureform');
 		
 		// still needed for tinymce :-/
 		// @todo - find a way to remove the eval

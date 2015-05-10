@@ -20,7 +20,11 @@
         </td>
         <td class="filedescription">{$file->description}</td>
         <td class="text-center s">
-             <input type="submit" class="btn btn-danger btn-xs button submit unselect" name="{$prefix}_unselect[{$file->id}]" value="{str tag=remove}" id="{$prefix}_unselect_{$file->id}" />
+            <button id="{$prefix}_unselect_{$file->id}" name="{$prefix}_unselect[{$file->id}]" class="btn btn-default btn-xs button submit unselect" title="{str tag=remove}">
+                <span class="fa fa-times text-danger"></span>
+                <span class="sr-only">{str tag=remove}</span>
+            </button>
+             <!-- <input type="submit" class="btn btn-danger btn-xs button submit unselect" name="{$prefix}_unselect[{$file->id}]" value="{str tag=remove}" id="{$prefix}_unselect_{$file->id}" /> -->
              <input type="hidden" class="hidden" id="{$prefix}_selected[{$file->id}]" name="{$prefix}_selected[{$file->id}]" value="{$file->id}">
         </td>
     </tr>

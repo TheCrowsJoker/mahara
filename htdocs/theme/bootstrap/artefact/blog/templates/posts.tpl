@@ -48,11 +48,11 @@
             {$post->ctime}
             
             {if $post->tags}
-            <span id="posttags_{$post->id}" class="tags mrs">
+            <p id="posttags_{$post->id}" class="tags mrs">
                 <span class="fa fa-tags"></span>
                 <strong>{str tag=tags}:</strong> 
                 {list_tags owner=$post->author tags=$post->tags}
-            </span>
+            </p>
             {/if}
         </div>
         <p id="postdescription_{$post->id}" class="postdescription">
