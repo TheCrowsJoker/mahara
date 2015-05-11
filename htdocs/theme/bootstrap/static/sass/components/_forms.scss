@@ -31,6 +31,15 @@ textarea,
 select {
     @extend .form-control;
     max-width: 500px;
+    .modal & {
+        width: auto;
+    }
+}
+
+.modal .tags {
+    input {
+        max-width:250px;
+    }
 }
 
 label.sr-only + div.mce-tinymce {

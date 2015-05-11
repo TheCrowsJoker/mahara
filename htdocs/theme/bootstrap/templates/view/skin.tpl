@@ -1,49 +1,69 @@
 {include file="header.tpl"}
 
+<a class="btn btn-lg btn-default btn-with-heading" href="{$WWWROOT}skin/index.php">
+    <span class="fa fa-magic fa-flip-horizontal fa-lg pls"></span>
+    {str tag=manageskins section=skin}
+</a>
+
 {include file="view/editviewtabs.tpl" selected='skin' new=$new issiteview=$issiteview}
 
 <div class="subpage">
-    <div class="skinsbtns pbl text-right">
-        <a class="btn btn-lg btn-default" href="{$WWWROOT}skin/index.php">
-            <span class="fa fa-pencil fa-lg"></span>
-            {str tag=manageskins section=skin}
-        </a>
+    {if !$saved}
+    <div class="alert alert-warning">
+        <span class="fa fa-lg fa-exclamation-triangle prs"></span>
+        {str tag=notsavedyet section=skin}
     </div>
+    {/if}
+
+    {if $incompatible}
+    <div class="alert alert-danger pbm">
+        <span class="fa fa-ban"></span>
+        {$incompatible}
+    </div>
+    {/if}
+
+
     <div class="row ptm">
         <div class="col-md-3">
-            {if !$saved}
-            <div class="alert alert-warning pbm">
-                <span class="fa fa-exclamation-circle"></span>
-                {str tag=notsavedyet section=skin}
-            </div>
-            {/if}
-            
-            {if $incompatible}
-            <div class="alert alert-danger pbm">
-                <span class="fa fa-ban"></span>
-                {$incompatible}
-            </div>
-            {/if}
-
-            <h2 class="mt0 mbl">
-                {str tag=currentskin section=skin}
-            </h2>
-            
             <div class="panel panel-default">
-                <h3 class="title panel-heading">
-                    {$currenttitle|safe}
-                </h3>
-                
-                <img src="{$WWWROOT}skin/thumb.php?id={$currentskin}" width="100%" alt="{$currenttitle}">
-                
-                <div class="panel-footer has-form">
+                <h2 class="mt0 panel-heading">
+                    {str tag=currentskin section=skin}
+                </h2>
+
+                <div class="panel-body">
+                    <img class="thumbnail mb0" src="{$WWWROOT}skin/thumb.php?id={$currentskin}" alt="{$currenttitle}">
+                    <ul class="metadata unstyled">
+                        <li class="title">
+                            <h3 class="h4 text-light mbs">{$currenttitle|safe}</h3>
+                        </li>
+                        {if $currentmetadata}
+                            <li class="metadisplayname">
+                                <strong>{str tag=displayname section=skin}: </strong> {$currentmetadata.displayname|clean_html|safe}
+                            </li>
+                            {if $currentmetadata.description}
+                            <li class="metadescription">
+                                <strong>{str tag=description section=skin}: </strong>{$currentmetadata.description|clean_html|safe}
+                            </li>
+                            {/if}
+                            <li class="metacreationdate">
+                                <strong>{str tag=creationdate section=skin}: </strong> {$currentmetadata.ctime}
+                            </li>
+                            <li class="metamodifieddate">
+                                <strong>{str tag=modifieddate section=skin}: </strong> {$currentmetadata.mtime}
+                            </li>
+                         {/if}
+                    </ul>
+                </div>
+
+                <div class="panel-footer has-form ">
                     <div class="pull-left">
                         {$form|safe}
                     </div>
 
-                    {if $defualtskin->id != $currentskin}
+                    {if $defaultskin->id != $currentskin}
                     <span class="defaultskin pull-right">
                         <a href="{$WWWROOT}view/skin.php?id={$viewid}&skin={$defaultskin->id}" class="btn btn-default btn-sm">
+                            <span class="fa fa-ban text-danger prs"></span>
                             {$defaultskin->title|safe}
                         </a>
                     </span>
@@ -51,25 +71,7 @@
                 </div>
             </div>
         
-            {if $currentmetadata}
-            <div class="skin-metadata">
-                <p class="metadisplayname">
-                    <strong>{str tag=displayname section=skin}: </strong> {$currentmetadata.displayname|clean_html|safe}
-                </p>
-                
-                <p class="metadescription">
-                    <strong>{str tag=description section=skin}: </strong>{$currentmetadata.description|clean_html|safe}
-                </p>
-                
-                <p class="metacreationdate">
-                    <strong>{str tag=creationdate section=skin}: </strong> {$currentmetadata.ctime}
-                </p>
-                
-                <p class="metamodifieddate">
-                    <strong>{str tag=modifieddate section=skin}: </strong> {$currentmetadata.mtime}
-                </p>
-            </div>
-            {/if}
+           
 
         </div>
         <div class="col-md-9">
@@ -83,13 +85,13 @@
                     </h3>
                     <div id="userskins" class="panel-body collapse in">
                         {foreach from=$userskins item=skin}
-                            <div class="thumbnail pull-left mrm">
+                            <div class="pull-left mrm">
                                 <a href="{$WWWROOT}view/skin.php?id={$viewid}&skin={$skin->id}">
-                                    <img src="{$WWWROOT}skin/thumb.php?id={$skin->id}" width="180" height="101" alt="{$skin->title}"/>
-                                </a>
-                                <div class="caption text-center">
+                                    <img src="{$WWWROOT}skin/thumb.php?id={$skin->id}" class="thumbnail mbs" width="180" alt="{$skin->title}"/>
+                                     <div class="lead text-center mbs small-text">
                                     {$skin->title|safe}
-                                </div>
+                                    </div>
+                                </a>
                             </div>
                         {/foreach}
                     </div>
@@ -104,11 +106,11 @@
                     </h3>
                     <div id="favorskins" class="panel-body collapse">
                         {foreach from=$favorskins item=skin}
-                            <div class="thumbnail pull-right mrm">
+                            <div class="pull-left mrm">
                                 <a href="{$WWWROOT}view/skin.php?id={$viewid}&skin={$skin->id}">
-                                    <img src="{$WWWROOT}skin/thumb.php?id={$skin->id}" width="180" height="101" alt="{$skin->title}"/>
-                                    <div class="caption text-center">
-                                        {$skin->title|safe}
+                                    <img src="{$WWWROOT}skin/thumb.php?id={$skin->id}" class="thumbnail mbs" width="180" alt="{$skin->title}"/>
+                                     <div class="lead text-center mbs small-text">
+                                    {$skin->title|safe}
                                     </div>
                                 </a>
                             </div>
@@ -125,11 +127,11 @@
                     </h3>
                     <div id="siteskins" class="panel-body no-footer collapse">
                         {foreach from=$siteskins item=skin}
-                            <div class="thumbnail pull-left mrm">
+                            <div class="pull-left mrm">
                                 <a href="{$WWWROOT}view/skin.php?id={$viewid}&skin={$skin->id}">
-                                    <img src="{$WWWROOT}skin/thumb.php?id={$skin->id}" width="180" height="101" alt="{$skin->title}"/>
-                                    <div class="caption text-center">
-                                        {$skin->title|safe}
+                                    <img src="{$WWWROOT}skin/thumb.php?id={$skin->id}" class="thumbnail mbs" width="180" alt="{$skin->title}"/>
+                                     <div class="lead text-center mbs small-text">
+                                    {$skin->title|safe}
                                     </div>
                                 </a>
                             </div>

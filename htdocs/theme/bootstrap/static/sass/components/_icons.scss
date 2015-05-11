@@ -1,6 +1,9 @@
 // Extra icons to fit db defiend tyopes (cf pagebuilder)
 
 
+.fa-annotation:before {
+  content: $fa-var-pencil-square-o;
+}
 .fa-fileimagevideo:before {
 	content: $fa-var-film;
 }
@@ -42,6 +45,10 @@
   content: $fa-var-code;
 }
 
+.fa-groupviews:before {
+  content: $fa-var-file;
+}
+
 .fa-blogpost:before {
   content: $fa-var-file-text;
 }
@@ -79,6 +86,7 @@
   content: $fa-var-eye;
 }
 
+.fa-groupinfo:before,
 .fa-profileinfo:before {
   content: $fa-var-info;
 }
@@ -99,6 +107,7 @@
   content: $fa-var-user-plus;
 }
 
+.fa-groupmembers:before,
 .fa-mygroups:before {
   content: $fa-var-users;
 }

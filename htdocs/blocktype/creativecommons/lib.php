@@ -141,7 +141,7 @@ class PluginBlocktypeCreativecommons extends SystemBlocktype {
             ),
 
             'noncommercial' => array(
-                'type' => 'radio',
+                'type' => 'switch',
                 'title' => get_string('config:noncommercial', 'blocktype.creativecommons'),
                 'options' => array(
                                    0 => get_string('yes'),

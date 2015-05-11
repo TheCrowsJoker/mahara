@@ -78,8 +78,8 @@ h1 + div > .btn-top-right,
     }
 }
 
-h1 + div > .btn-group-top,
-.page-header + div.btn-group-top,
+h1 ~ div > .btn-group-top,
+.page-header ~ div.btn-group-top,
 .page-header + .btn-action-list .btn-group-top,
 .nav-tabs +  div.btn-group-top{
     margin-top: -20px;
@@ -286,4 +286,10 @@ h1 + .subpage > .btn-group-top {
     .fa {
         opacity:0.3;
     }
+}
+
+
+.btn-with-heading {
+    float: right;
+    margin-top:-75px;
 }
