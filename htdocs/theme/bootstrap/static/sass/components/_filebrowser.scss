@@ -37,9 +37,12 @@
     }
     .js-file-select {
         &:hover {
-            background-color: $alert-warning-bg;
+            background-color: $table-bg-hover;
             cursor: pointer;
         }
+    }
+    .icon-expand-folder {
+        min-width: 45px;
     }
 }
 

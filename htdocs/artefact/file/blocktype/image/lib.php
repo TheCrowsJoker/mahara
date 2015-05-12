@@ -87,7 +87,7 @@ class PluginBlocktypeImage extends PluginBlocktype {
                 'collapsible'  => true,
                 'collapsed'    => true,
                 'legend'       => get_string('select', 'blocktype.file/gallery'),
-                'class'        => 'last',
+                'class'        => 'last in-modal select-file',
                 'elements'     => array(
                     'artefactid' => $filebrowser
                 )

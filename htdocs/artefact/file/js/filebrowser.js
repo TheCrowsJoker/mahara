@@ -646,7 +646,6 @@ function FileBrowser(idprefix, folderid, config, globalconfig) {
         forEach(getElementsByTagAndClassName('button', 'unselect', self.id + '_selectlist'), function (elem) {
             connect(elem, 'onclick', self.unselect);
         });
-        console.log('select_init');
         self.connect_select_buttons();
     }
 
@@ -792,6 +791,15 @@ function FileBrowser(idprefix, folderid, config, globalconfig) {
                 addElementClass(r, 'hidden');
             }
         };
+
+        // Bad javascript
+        // Insert selected file to pieform generated fieldset
+
+       self.createevent('fileselect', document, self.selecteddata[id]);
+        
+ 
+        // end 
+
         if (rcount == 1) {
             removeElementClass(self.id + '_selectlist', 'hidden');
             addElementClass(self.id + '_empty_selectlist', 'hidden');
@@ -801,6 +809,26 @@ function FileBrowser(idprefix, folderid, config, globalconfig) {
         if (window.imgbrowserconf_artefactid) {
             // propagate the click
             jQuery('#filebrowserupdatetarget').click();
+        }
+    }
+
+    this.createevent = function(eventName, element, data) {
+        var e; // The custom event that will be created
+
+        if (document.createEvent) {
+            e = document.createEvent("HTMLEvents");
+            e.initEvent(eventName, true, true);
+        } else {
+            e = document.createEventObject();
+            e.eventType = eventName;
+        }
+
+        e.eventName = eventName;
+        e.data = data;
+        if (document.createEvent) {
+            element.dispatchEvent(e);
+        } else {
+            element.fireEvent("on" + e.eventType, e);
         }
     }
 

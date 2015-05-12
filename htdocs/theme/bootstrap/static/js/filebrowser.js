@@ -12,8 +12,21 @@ jQuery(function($) {
         $('.js-filebrowser').modal('hide');
     }
 
+    function updateFileLegend(e){
+        var selectfileTitle = $('.select-file legend a'),
+            title = e.originalEvent.data.title;
+
+        if(selectfileTitle.find('.file-name').length > 0) {
+            selectfileTitle.find('.file-name').text(' - ' + title);
+        } else {
+            selectfileTitle.find('.collapse-indicator').before('<span class="metadata file-name"> - '+ title + '</span>');
+        }
+    }
+
+    $(document).on('fileselect', function(e){
+        updateFileLegend(e);
+    });
+
     bootstrapFileBrowser();
-
-
 });
 
