@@ -1,12 +1,11 @@
-<div class="panel-body">
+
 {if $groupviews}
-    <div  class="groupviewsection">
-        <div id="groupviewlist" class="listing blocktype">
-            {$groupviews.tablerows|safe}
-        </div>
-    </div>
+    <ul id="groupviewlist" class="list-group list-unstyled list-group-unbordered mtm">
+        {$groupviews.tablerows|safe}
+    </ul>
+
     {if $groupviews.pagination}
-    <div id="groupviews_page_container" class="hidden center">
+    <div id="groupviews_page_container" class="hidden pbm ptm">
         {$groupviews.pagination|safe}
     </div>
     {/if}
@@ -19,20 +18,20 @@
         {literal}}{/literal});
     </script>
     {/if}
+    <hr />
 {/if}
 
 {if $sharedviews}
-    <div class="groupviewsection">
-        <h4 class="title">
-            {str tag="viewssharedtogroup" section="view"}
-        </h4>
-        <div id="sharedviewlist" class="listing blocktype">
-            {$sharedviews.tablerows|safe}
-        </div>
-    </div>
+    <h4 class="title list-group-item-heading pls">
+        {str tag="viewssharedtogroup" section="view"}:
+    </h4>
+    <ul id="sharedviewlist" class="list-group list-unstyled list-group-unbordered">
+        {$sharedviews.tablerows|safe}
+    </ul>
+
     
     {if $sharedviews.pagination}
-        <div id="sharedviews_page_container" class="hidden center">{$sharedviews.pagination|safe}
+        <div id="sharedviews_page_container" class="hidden pbm ptm">{$sharedviews.pagination|safe}
         </div>
     {/if}
     
@@ -44,21 +43,20 @@
         {literal}}{/literal});
     </script>
     {/if}
+    <hr />
 {/if}
 
 
-{if $sharedcollections}
-    <div class="groupviewsection">
-        <h4 class="title">
-            {str tag="collectionssharedtogroup" section="collection"}
-        </h4>
-        <div id="sharedcollectionlist" class="listing blocktype">
-            {$sharedcollections.tablerows|safe}
-        </div>
-    </div>
-    
+{if $sharedcollections.count > 0}
+    <h4 class="title list-group-item-heading pls">
+        {str tag="collectionssharedtogroup" section="collection"}:
+    </h4>
+    <ul id="sharedcollectionlist" class="list-group list-unstyled list-group-unbordered">
+        {$sharedcollections.tablerows|safe}
+    </ul>
+
     {if $sharedcollections.pagination}
-        <div id="sharedcollections_page_container" class="hidden center">
+        <div id="sharedcollections_page_container" class="hidden pbm ptm">
         {$sharedcollections.pagination|safe}
         </div>
     {/if}
@@ -71,53 +69,18 @@
         {literal}}{/literal});
     </script>
     {/if}
-{/if}
-
-
-{if $mysubmitted || $group_view_submission_form}
-    <div class="groupviewsection">
-    {if $group_view_submission_form}
-        <h4 class="title">
-            {str tag="submittogroup" section="view"}
-        </h4>
-    {/if}
-        <div class="listing blocktype">
-        {if $mysubmitted}
-            {foreach from=$mysubmitted item=item}
-                <div class="submittedform listrow">
-                {if $item.submittedtime}
-                    {str tag=youhavesubmittedon section=view arg1=$item.url arg2=$item.name arg3=$item.submittedtime|format_date}
-                {else}
-                    {str tag=youhavesubmitted section=view arg1=$item.url arg2=$item.name}
-                {/if}
-                {* submittedstatus == '2' is equivalent to PENDING_RELEASE *}
-                {if $item.submittedstatus == '2'}- 
-                {str tag=submittedpendingrelease section=view}
-                {/if}
-                </div>
-            {/foreach}
-        {/if}
-        
-        {if $group_view_submission_form}
-            <div class="submissionform listrow">{$group_view_submission_form|safe}
-            </div>
-        {/if}
-        
-        </div>
-    </div>
+    <hr />
 {/if}
 
 {if $allsubmitted}
-    <div class="groupviewsection">
-        <h4 class="title">
-            {str tag="submissionstogroup" section="view"}
-        </h4>
-        <div id="allsubmissionlist" class="listing blocktype">
-            {$allsubmitted.tablerows|safe}
-        </div>
-    </div>
+    <h4 class="title list-group-item-heading pls">
+        {str tag="submissionstogroup" section="view"}:
+    </h4>
+    <ul id="allsubmissionlist" class="list-group list-unstyled list-group-unbordered">
+        {$allsubmitted.tablerows|safe}
+    </ul>
     {if $allsubmitted.pagination}
-        <div id="allsubmitted_page_container" class="hidden center">{$allsubmitted.pagination|safe}</div>
+        <div id="allsubmitted_page_container" class="hidden">{$allsubmitted.pagination|safe}</div>
     {/if}
     {if $allsubmitted.pagination_js}
     <script>
@@ -127,5 +90,43 @@
         {literal}}{/literal});
     </script>
     {/if}
+    <hr />
 {/if}
-</div>
+
+
+{if $mysubmitted || $group_view_submission_form}
+    <h4 class="title list-group-item-heading pls">
+        {if $group_view_submission_form}
+            {str tag="submittogroup" section="view"}: 
+        {else}
+            {str tag="yoursubmissions" section="view"}: 
+        {/if}
+    </h4>
+    <ul id="groupviewlist" class="list-group list-unstyled list-group-unbordered">
+        {if $mysubmitted}
+            {foreach from=$mysubmitted item=item}
+                <li class="list-group-item small-text text-medium {if $item.submittedstatus != '2'}pbm{/if}">
+                    <span>
+                        {if $item.submittedtime}
+                            {str tag=youhavesubmittedon section=view arg1=$item.url arg2=$item.name arg3=$item.submittedtime|format_date}
+                        {else}
+                            {str tag=youhavesubmitted section=view arg1=$item.url arg2=$item.name}
+                        {/if}
+                        {* submittedstatus == '2' is equivalent to PENDING_RELEASE *}
+                        {if $item.submittedstatus == '2'}
+                        <small>{str tag=submittedpendingrelease section=view}</small>
+                        {/if}
+                    </span>
+                </li>
+            {/foreach}
+        {/if}
+        {if $group_view_submission_form}
+        <li class="list-group-item small-text list-group-item-default">
+            <div class="submissionform">
+                {$group_view_submission_form|safe}
+            </div>
+        </li>
+        {/if}
+    </ul>
+
+{/if}

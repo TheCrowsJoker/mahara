@@ -24,9 +24,14 @@
 {elseif $group->membershiptype == 'admin'}
     <div class="btn-action-list">
         <div class="groupuserstatus text-right btn-top-right btn-group btn-group-top">
-            <a href="{$WWWROOT}group/edit.php?id={$group->id}" title="{str(tag=editspecific arg1=$group->name)|escape:html|safe}" class="btn btn-default">
+            <a href="{$WWWROOT}view/blocks.php?id={$viewid}&{$group->id}" title="{str tag=editcontentandlayout section='view'}" class="btn btn-default">
+                <span class="fa fa-pencil fa-lg text-default"></span>
+                <span class="btn-title pls hide-small">{str tag=editthisview section='view'}</span>
+            </a>
+
+            <a href="{$WWWROOT}group/edit.php?id={$group->id}" title="{str(tag=editspecific arg1=$group->name)|escape:html|safe} {str tag=settings}" class="btn btn-default">
                 <span class="fa fa-cog fa-lg text-default"></span>
-                 <span class="btn-title pls hide-small">{str tag=edit}</span>
+                 <span class="btn-title pls hide-small">{str tag=settings}</span>
             </a>
             <a href="{$WWWROOT}group/delete.php?id={$group->id}" title="{str(tag=deletespecific arg1=$group->name)|escape:html|safe}" class="btn btn-default">
                 <span class="fa fa-trash fa-lg text-danger"></span> 

@@ -1,12 +1,14 @@
 {foreach from=$items item=item}
-    <p class="listrow">
-        <a href="{$item.url}">
-            {$item.name|str_shorten_text:60:true}
+    <li class="list-group-item small-text text-medium">
+        <a href="{$item.url}" class="outer-link">
+            <span class="sr-only">{$item.name|str_shorten_text:60:true}</span>
         </a>
-        
-        <span class="owner">
+
+        {$item.name|str_shorten_text:60:true}
+
+        <span class="owner metadata inner-link"> -
             {str tag=by section=view}
-            <a href="{$item.ownerurl}">
+            <a href="{$item.ownerurl}" class="text-success">
             {$item.ownername}
             </a>
         </span>
@@ -20,5 +22,6 @@
             {str tag=submittedpendingrelease section=view}
             {/if}
         </small>
-    </p>
+
+    </li>
 {/foreach}

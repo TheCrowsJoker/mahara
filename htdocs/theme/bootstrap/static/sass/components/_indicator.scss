@@ -20,6 +20,9 @@
     color: $brand-success;
     font-size: 13px;
     display: block;
+    &.text-small {
+        font-size: 11px;
+    }
     .collapsed & {
         color: #aaa;
     }

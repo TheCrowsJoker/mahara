@@ -1,16 +1,19 @@
 {foreach from=$items item=collection}
-    <p class="listrow">
-        <a href="{$collection.fullurl}" class="list-group-item-heading">
-            {$collection.name}
+    <li class="list-group-item small-text text-medium">
+        <a href="{$collection.fullurl}" class="outer-link">
+         <span class="sr-only">{$collection.name}</span>
         </a>
+        
+        {$collection.name}
+
         {if $collection.sharedby}
-        <span class="owner"> 
+        <span class="owner metadata inner-link"> 
             {str tag=by section=view}
             
             {if $collection.group}
-                <a href="{group_homepage_url($collection.groupdata)}">{$collection.sharedby}</a>
+                <a href="{group_homepage_url($collection.groupdata)}" class="text-success">{$collection.sharedby}</a>
             {elseif $collection.owner}
-                <a href="{profile_url($collection.user)}">{$collection.sharedby}</a>
+                <a href="{profile_url($collection.user)}" class="text-success">{$collection.sharedby}</a>
             {else}
                 {$collection.sharedby}
             {/if}
@@ -23,10 +26,11 @@
         {/if}
         
         {if $collection.tags}
-        <small class="tags mts">
+        <small class="">
             <strong>{str tag=tags}:</strong>
-            {list_tags owner=$collection.owner tags=$collection.tags}
+            <span class="inner-link">{list_tags owner=$collection.owner tags=$collection.tags}</span>
         </small>
          {/if}
-    </p>
+
+    </li>
 {/foreach}

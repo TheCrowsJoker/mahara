@@ -1,7 +1,7 @@
 
 <div class="list-group">
     {foreach from=$items item=item}
-    <div class="list-group-item">
+    <div class="list-group-item list-group-item-link">
         <a href="{group_homepage_url($item)}">{$item->name} <span class="metadata"> - {$item->roledisplay}</span></a>
         {if $item->description}
             <div class="details small-text mtm">

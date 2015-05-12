@@ -89,6 +89,7 @@ $string['viewssharedtogroup'] = 'Pages shared with this group';
 $string['viewssharedtogroupbyothers'] = 'Pages shared with this group by others';
 $string['submissionstogroup'] = 'Submissions to this group';
 $string['submittogroup'] = 'Submit a page or collection to this group';
+$string['yoursubmissions'] = 'You have submitted';
 $string['youhavesubmitted'] = 'You have submitted <a href="%s">%s</a> to this group';
 $string['youhavesubmittedon'] = 'You submitted <a href="%s">%s</a> to this group on %s';
 $string['listedinpages'] = 'Listed in pages';

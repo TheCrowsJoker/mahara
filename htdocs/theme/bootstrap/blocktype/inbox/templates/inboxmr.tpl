@@ -6,7 +6,7 @@
 {else}
 <div id="inboxblock" class="list-group">
     {foreach from=$items item=i}
-    <div class="list-group-item">
+    <div class="list-group-item ">
         <div class="icon-container pull-left pls prm">
             {if $i->read}
             <span class="fa fa-envelope type-icon"></span>
@@ -21,7 +21,7 @@
         {if $i->message}
         <a href="{if $i->url}{$WWWROOT}{$i->url}{else}{$WWWROOT}account/activity/index.php{/if}" class="link-block collapsed inbox-showmessage{if !$i->read} unread{/if} mochi-collapse">
             {if !$i->read}<span class="accessible-hidden sr-only">{str tag=unread section=activity}: </span>{/if}{$i->subject|truncate:50}
-            <span class="fa fa-chevron-down pls collapse-indicator pull-right"></span>
+            <span class="text-small fa fa-chevron-down pls collapse-indicator pull-right"></span>
         </a>
         <div class="panel-body inbox-message hidden messagebody-{$i->type}" id="inbox-message-{$i->table}-{$i->id}">
             <p>{$i->message|safe}</p>

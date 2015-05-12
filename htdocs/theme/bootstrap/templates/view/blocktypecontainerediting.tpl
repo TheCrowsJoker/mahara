@@ -45,7 +45,7 @@
 			</span>
 		</span>
 	</h3>
-	<div class="blockinstance-content js-blockinstance-content">
+	<div class="block blockinstance-content js-blockinstance-content">
 		{$content|safe}
 	</div>
 </div>

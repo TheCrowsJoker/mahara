@@ -15,7 +15,7 @@
             <div class="list-group-item">
                 {if $entry->link}<a href="{$entry->link}">{/if}
                 
-                <h4 class="title list-group-heading mb0">
+                <h4 class="title list-group-item-heading mb0">
                     {$entry->title}
                 </h4>
                 <span class="postdetails metadata small-text">

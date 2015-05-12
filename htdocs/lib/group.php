@@ -1386,13 +1386,14 @@ function group_view_submission_form($groupid) {
             ),
             'options' => array(
                 'type' => 'select',
+                'class' => 'mrs',
                 'collapseifoneoption' => false,
                 'optgroups' => $optgroups,
                 'options' => $options,
             ),
             'text2' => array(
                 'type' => 'html',
-                'class' => 'forassessment mrm',
+                'class' => 'forassessment mrs',
                 'value' => get_string('forassessment', 'view'),
             ),
             'submit' => array(

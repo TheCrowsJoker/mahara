@@ -3733,7 +3733,7 @@ function build_pagination($params) {
     $resultsstr = ($params['count'] == 1) ? $params['resultcounttextsingular'] : $params['resultcounttextplural'];
     $output .= '<div class="results pull-right">' . $params['count'] . ' ' . $resultsstr . '</div>';
 
-    $output .= '<nav><ul class="pagination pagination-sm">';
+    $output .= '<nav><ul class="pagination pagination-xs">';
 
     if ($params['limit'] && ($params['limit'] < $params['count'])) {
         $pages = ceil($params['count'] / $params['limit']);
