@@ -5115,15 +5115,21 @@ class View {
      * Generates a title for a newly created View
      */
     private static function new_title($title, $ownerdata) {
+        $temptitle = split(' v.[0-9]', $title);
+        $title = $temptitle[0];
+
         $taken = get_column_sql('
             SELECT title
             FROM {view}
             WHERE ' . self::owner_sql($ownerdata) . "
                 AND title LIKE ? || '%'", array($title));
-        $ext = ''; $i = 0;
+
+        $ext = ''; 
+        $i = 0;
+
         if ($taken) {
             while (in_array($title . $ext, $taken)) {
-                $ext = ' (' . ++$i . ')';
+                $ext = ' v.' . ++$i;
             }
         }
         return $title . $ext;
