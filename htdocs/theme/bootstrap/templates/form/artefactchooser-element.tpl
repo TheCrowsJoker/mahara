@@ -2,3 +2,5 @@
     {$formcontrols|safe}
     <label for="{$elementname}_{$artefact->id}">{$artefact->title}</label>
 </div>
+
+{$templatestring}
