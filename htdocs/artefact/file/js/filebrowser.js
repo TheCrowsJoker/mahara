@@ -745,7 +745,6 @@ function FileBrowser(idprefix, folderid, config, globalconfig) {
         for (i = 0; i < rows.length; i++) {
             var r = rows[i];
             var rowbutton = getFirstElementByTagAndClassName('button', 'button', r);
-            // var rowbutton = getFirstElementByTagAndClassName('input', 'button', r);
             var rowid = rowbutton.name.replace(/.*_unselect\[(\d+)\]$/, '$1');
             if (rowid == id) {
                 existed = true;
@@ -758,9 +757,9 @@ function FileBrowser(idprefix, folderid, config, globalconfig) {
             }
         };
         if (!existed) {
-                var remove = BUTTON({'class': 'btn btn-default btn-xs button submit unselect', 'type': 'submit', 'name': self.id+'_unselect[' + id + ']', 'title': get_string('remove')}, SPAN({'class': 'fa fa-times text-danger'}), SPAN({'class': 'sr-only'}, get_string('remove')));
-            //var remove = INPUT({'type': 'submit', 'class':'button submit unselect btn btn-default btn-xs', 'name':self.id+'_unselect[' + id + ']', 'value':get_string('remove')});
+            var remove = BUTTON({'class': 'btn btn-default btn-xs button submit unselect', 'type': 'submit', 'name': self.id+'_unselect[' + id + ']', 'title': get_string('remove')}, SPAN({'class': 'fa fa-times text-danger'}), SPAN({'class': 'sr-only'}, get_string('remove')));
             connect(remove, 'onclick', self.unselect);
+            
             filelink = ''
             if (self.filedata[id].artefacttype == 'folder') {
                 filelink = self.filedata[id].title;
@@ -768,8 +767,16 @@ function FileBrowser(idprefix, folderid, config, globalconfig) {
             else {
                 filelink = A({'href':self.config.wwwroot + 'artefact/file/download.php?file=' + id, 'target':'_blank'}, self.filedata[id].title);
             }
+            
+            fileIconImg = ''
+            if (self.filedata[id].icon.length) {
+                fileIconImg = IMG({'src':self.filedata[id].icon});
+            } else {
+                fileIconImg = SPAN({'class': 'fa fa-folder fa-lg'});
+            }
+            
             appendChildNodes(tbody, TR({'class': (highlight ? ' highlight-file' : '')},
-                   TD(null, IMG({'src':self.filedata[id].icon})),
+                   TD(null, fileIconImg),
                    TD(null, filelink),
                    TD({'class':'filedescription'}, self.filedata[id].description),
                    TD({'class':'text-center s'}, remove, INPUT({'type':'hidden', 'class':'hidden', 'id':self.id+'_selected[' + id + ']', 'name':self.id+'_selected[' + id + ']', 'value':id}))
@@ -792,14 +799,8 @@ function FileBrowser(idprefix, folderid, config, globalconfig) {
             }
         };
 
-        // Bad javascript
-        // Insert selected file to pieform generated fieldset
-
        self.createevent('fileselect', document, self.selecteddata[id]);
-        
- 
-        // end 
-
+       
         if (rcount == 1) {
             removeElementClass(self.id + '_selectlist', 'hidden');
             addElementClass(self.id + '_empty_selectlist', 'hidden');

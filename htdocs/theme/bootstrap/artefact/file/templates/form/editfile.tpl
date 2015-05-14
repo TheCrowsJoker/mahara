@@ -1,11 +1,9 @@
-<tr id="{$prefix}_edit_row"{if !$fileinfo} class="hidden editrow"{/if}>
+<tr id="{$prefix}_edit_row"{if !$fileinfo} class="hidden editrow no-hover"{/if}>
     <td colspan="6" class="fileedittablewrap">
         <div class="fileedittable">
-            <div>
-                <div id="{$prefix}_edit_heading" class="edit-heading">
-                    {if $fileinfo}{if $fileinfo->artefacttype == 'folder'}{str tag=editfolder section=artefact.file}{else}{str tag=editfile section=artefact.file}{/if}{/if}
-                </div>
-            </div>
+            <h4 id="{$prefix}_edit_heading" class="edit-heading">
+                {if $fileinfo}{if $fileinfo->artefacttype == 'folder'}{str tag=editfolder section=artefact.file}{else}{str tag=editfile section=artefact.file}{/if}{/if}
+            </h4>
             <div class="required form-group">
                 <label for="{$prefix}_edit_title">{str tag=name}<span class="requiredmarker"> *</span>
                 </label> 

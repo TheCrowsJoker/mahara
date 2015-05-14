@@ -13,23 +13,21 @@
 {if $config.select}
 <div id="{$prefix}_open_upload_browse_container">
 
-    {if $config.selectone}
-        <!-- <input type="submit" class="buttondk btn btn-success" id="{$prefix}_open_upload_browse" name="browse" value="{str tag=selectafile section=artefact.file}" /> -->
-
+    {if $config.selectone || $config.selectmodal}
         <!-- For adding image block -->
         <div id="{$prefix}_upload_browse" class="filebrowser in-collapsible">
     {else}
         <!-- Modal screen file browser -->
-        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#{$prefix}_modal">
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#{$prefix}_upload_browse">
             <span class="fa fa-paperclip fa-lg prs"></span>
             {str tag=addafile section=artefact.file}
         </button>
-        <div id="{$prefix}_modal" class="modal fade js-filebrowser" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+        <div id="{$prefix}_upload_browse" class="modal fade js-filebrowser" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
     {/if}
 
-    {if $config.browsehelp}
+<!--     {if $config.browsehelp}
         {contextualhelp plugintype=$config.plugintype pluginname=$config.pluginname section=$config.browsehelp}
-    {/if}
+    {/if} -->
 
 {else}
     <div id="{$prefix}_upload_browse" class="upload_browse select">
@@ -62,7 +60,7 @@
 
         <!-- Include upload form -->
         {if $config.upload}
-        <div id="{$prefix}_upload_container" class="{if !$config.selectone}panel panel-default fileupload {/if} {if ($tabs && !$tabs.upload) || $uploaddisabled} hidden{/if}">
+        <div id="{$prefix}_upload_container" class="{if $config.selectone || $config.selectmodal} panel-fake{else} panel panel-default fileupload {/if} {if ($tabs && !$tabs.upload) || $uploaddisabled} hidden{/if}">
             {* config.uploadagreement: disable the file chooser unless the agreement is checked *}
             {* config.simpleupload: the form only contains a file chooser *}
             {* config.submitbutton: add submit button even if js is enabled & don't start uploading as soon as a file is chosen *}
@@ -154,9 +152,8 @@
             </div>
         {/if}
 
-        <div class="{if $config.selectone}filelist-wrapper{else} panel panel-default{/if}">
-        
-            <h3 id="{$prefix}_foldernav" class="{if $config.selectone}heading {else}panel-heading{/if}">
+        <div class="filelist-wrapper panel panel-secondary">
+            <h3 id="{$prefix}_foldernav" class="panel-heading panel-heading-plain mtl">
             {include file="artefact:file:form/folderpath.tpl" path=$path querybase=$querybase owner=$tabs.owner ownerid=$tabs.ownerid}
             </h3>
 

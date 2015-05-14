@@ -18,13 +18,6 @@
     margin-bottom: 20px;
 }
 
-.foldernav {
-    border-top: 1px solid $gray-lighter;
-    font-size: $font-size-large;
-    margin-top: 30px;
-    padding-top: 20px;
-}
-
 .filelist {
     .file-move-list {
         list-style-type: none;
@@ -34,23 +27,6 @@
         li .fa {
             color: $mahara-green;
         }
-    }
-    .js-file-select {
-        &:hover {
-            background-color: $table-bg-hover;
-            cursor: pointer;
-        }
-    }
-    .icon-expand-folder {
-        min-width: 45px;
-    }
-}
-
-
-.fileedittable {
-    margin: 30px 0;
-    .edit-heading {
-        font-size: $font-size-large;
     }
 }
 
@@ -64,19 +40,5 @@
         text-align: right;
         float: none;
         margin-bottom: 10px;
-    }
-}
-
-.filebrowser {
-    &.in-collapsible {
-        .filelist-wrapper {
-            .heading {
-                display: block;
-                @include border-radius(3px);
-                background-color: #f1f1f1;
-                margin-bottom: 0;
-                padding: 10px 15px;
-            }
-        }
     }
 }

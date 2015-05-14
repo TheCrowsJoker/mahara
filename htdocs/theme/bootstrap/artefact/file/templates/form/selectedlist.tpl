@@ -13,7 +13,11 @@
     {assign var=displaytitle value=$file->title|str_shorten_text:34|safe}
     <tr class="{if $highlight && $highlight == $file->id} highlight-file{/if}">
         <td class="icon-container">
-            <img src="{if $file->artefacttype == 'image' || $file->artefacttype == 'profileicon'}{$WWWROOT}artefact/file/download.php?file={$file->id}&size=24x24{else}{theme_url filename=images/`$file->artefacttype`.png}{/if}">
+            {if $file->artefacttype == 'folder'}
+                <span class="fa fa-folder"></span>
+            {else}
+                <img src="{if $file->artefacttype == 'image' || $file->artefacttype == 'profileicon'}{$WWWROOT}artefact/file/download.php?file={$file->id}&size=24x24{else}{theme_url filename=images/`$file->artefacttype`.png}{/if}">
+            {/if}
         </td>
         <td class="filename">
             {if $selectfolders}

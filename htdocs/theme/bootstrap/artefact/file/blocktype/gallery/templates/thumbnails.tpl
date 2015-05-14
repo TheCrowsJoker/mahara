@@ -1,4 +1,4 @@
-<div class="thumbnails" id="thumbnails{$instanceid}">
+<div class="thumbnails clearfix" id="thumbnails{$instanceid}">
     {foreach from=$images item=image}
         <div style="float:left;{if $frame} padding: 3px;{/if}" class="thumb">
         <a rel="{$image.slimbox2}" href="{$image.link}" title="{$image.title}" target="_blank">

@@ -82,7 +82,16 @@ class PluginBlocktypeFiledownload extends PluginBlocktype {
         safe_require('artefact', 'file');
         $instance->set('artefactplugin', 'file');
         return array(
-            'artefactids' => self::filebrowser_element($instance, (isset($configdata['artefactids'])) ? $configdata['artefactids'] : null),
+            'artefactfieldset' => array(
+                'type'         => 'fieldset',
+                'collapsible'  => true,
+                'collapsed'    => true,
+                'legend'       => get_string('Files', 'blocktype.file/filedownload'),
+                'class'        => 'last mtl',
+                'elements'     => array(
+                    'artefactid' => self::filebrowser_element($instance, (isset($configdata['artefactids'])) ? $configdata['artefactids'] : null)
+                )
+            )
         );
     }
 
@@ -95,6 +104,7 @@ class PluginBlocktypeFiledownload extends PluginBlocktype {
             'blocktype' => 'filedownload',
             'limit' => 10,
             'selectone' => false,
+            'selectmodal' => true,
             'artefacttypes' => array('file', 'image', 'profileicon'),
             'template' => 'artefact:file:artefactchooser-element.tpl',
         );
@@ -113,6 +123,7 @@ class PluginBlocktypeFiledownload extends PluginBlocktype {
         $element['title'] = get_string('Files', 'blocktype.file/filedownload');
         $element['name'] = 'artefactids';
         $element['config']['selectone'] = false;
+        $element['config']['selectmodal'] = true;
         return $element;
     }
 

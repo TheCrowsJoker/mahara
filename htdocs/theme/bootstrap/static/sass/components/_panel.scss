@@ -351,7 +351,6 @@ a.panel-control {
 .panel-secondary {
 	@include box-shadow(none);
 	> .panel-heading, .panel-heading-nested {
-		
 		border-left: 4px solid $mahara-green-bright;
 		background-color: darken($panel-default-heading-bg, 3%);
 		border-bottom: 1px solid $panel-default-border;
@@ -380,6 +379,9 @@ a.panel-control {
 		&:first-child {
 			border-top:0;
 		}
+	}
+	.panel-heading-plain {
+		border: 1px solid darken($gray-lighter, 5%);
 	}
 	.panel-body {
 		padding: 15px 8px;

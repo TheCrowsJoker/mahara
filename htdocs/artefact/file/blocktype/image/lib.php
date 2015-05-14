@@ -86,8 +86,8 @@ class PluginBlocktypeImage extends PluginBlocktype {
                 'type'         => 'fieldset',
                 'collapsible'  => true,
                 'collapsed'    => true,
-                'legend'       => get_string('select', 'blocktype.file/gallery'),
-                'class'        => 'last in-modal select-file',
+                'legend'       => get_string('image'),
+                'class'        => 'last select-file mtl',
                 'elements'     => array(
                     'artefactid' => $filebrowser
                 )
@@ -117,6 +117,7 @@ class PluginBlocktypeImage extends PluginBlocktype {
         $element['name'] = 'artefactid';
         $element['accept'] = 'image/*';
         $element['config']['selectone'] = true;
+        $element['config']['selectmodal'] = true;
         $element['filters'] = array(
             'artefacttype'    => array('image', 'profileicon'),
         );
@@ -131,6 +132,7 @@ class PluginBlocktypeImage extends PluginBlocktype {
             'defaultvalue' => $default,
             'blocktype' => 'image',
             'limit' => 10,
+            'selectmodal' => true,
             'artefacttypes' => array('image', 'profileicon'),
             'template' => 'artefact:file:artefactchooser-element.tpl',
         );
@@ -147,5 +149,4 @@ class PluginBlocktypeImage extends PluginBlocktype {
     public static function default_copy_type() {
         return 'full';
     }
-
 }

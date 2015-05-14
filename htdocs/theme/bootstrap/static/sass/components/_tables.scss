@@ -1,6 +1,10 @@
 .table {
     max-width:100%;
 
+    .icon-cell {
+        min-width: 50px; //width of two icons
+    }
+
     thead {
         color: $gray;
         font-size: $font-size-base + 1;
@@ -36,4 +40,16 @@
     }
 }
 
+.table-hover {
+  > tbody > tr {
+    &.no-hover {
+        &:hover {
+            background:inherit;
+        }
+    }
+      &:hover {
+        cursor: pointer;
+      }
+  }
+}
 

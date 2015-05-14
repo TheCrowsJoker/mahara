@@ -668,6 +668,7 @@ class PluginBlocktypeGallery extends PluginBlocktype {
             $element['class'] = $class;
         }
         $element['config']['selectone'] = false;
+        $element['config']['selectmodal'] = true;
         $element['filters'] = array(
             'artefacttype'    => array('image', 'profileicon'),
         );

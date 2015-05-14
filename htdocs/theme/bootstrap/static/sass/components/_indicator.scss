@@ -1,3 +1,4 @@
+.expand-indicator,
 .move-indicator {
     @extend .metadata;
     font-size: 9px;
@@ -31,6 +32,19 @@
         color: $brand-success;
     }
 }
+
+.expand-indicator {
+    font-size: 12px;
+    padding-right: 5px;
+    + .fa {
+        color: $text-color;
+        &:hover, &:focus {
+            color: lighten($text-color, 10%);
+        }
+    }
+}
+
+
 
 // syntax change if link is an outer-link
 [data-toggle="collapse"].outer-link {

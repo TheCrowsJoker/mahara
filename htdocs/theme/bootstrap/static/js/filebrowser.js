@@ -25,6 +25,7 @@ jQuery(function($) {
 
     $(document).on('fileselect', function(e){
         updateFileLegend(e);
+        $('.select-file').find('.collapse').collapse('hide');
     });
 
     bootstrapFileBrowser();

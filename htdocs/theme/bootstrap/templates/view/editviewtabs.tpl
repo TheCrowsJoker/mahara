@@ -11,7 +11,6 @@
 		<a class="btn btn-default {if $selected == 'layout'}active{/if}" href="{$WWWROOT}view/layout.php?id={$viewid}{if $new}&new=1{/if}">
 			<span class="fa fa-lg fa-columns prs"></span>
 			{str tag=editlayout section=view}
-		
 		</a>
 
 		{if !$issitetemplate && can_use_skins(null, false, $issiteview)}
