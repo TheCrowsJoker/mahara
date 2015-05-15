@@ -39,7 +39,7 @@
                         <span class="fa fa-check-square-o fa-lg text-success prs"></span>
                         <span class="sr-only">{str tag=completed section=artefact.plans}</span>
                     {else}
-                        <span class="fa-square-o fa fa-lg text-light prs"></span>
+                        <span class="fa-square-o fa fa-lg text-light prs fa-placeholder"></span>
                         <span class="sr-only">{str tag=incomplete section=artefact.plans}</span>
                     {/if}
 

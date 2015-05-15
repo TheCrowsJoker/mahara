@@ -1,5 +1,5 @@
 /*jslint browser: true, nomen: true,  white: true */
-
+/* global jQuery, $ */
 jQuery(function($) {
 "use strict";
 
@@ -54,13 +54,13 @@ jQuery(function($) {
         }
     }
 
-    /* 
+    /*
      * Clear form when a form is collapsed
      */
     function resetOnCollapse() {
 
         $('[data-action="reset-on-collapse"]').on('hidden.bs.collapse', function () {
-            var i, 
+            var i,
                 forms =$(this).find('form');
             for (i = 0; i < forms.length; i = i + 1){
                 forms[i].reset();
@@ -83,4 +83,3 @@ jQuery(function($) {
 
 
 });
-

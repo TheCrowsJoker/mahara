@@ -1,5 +1,5 @@
 /*jslint browser: true, nomen: true,  white: true */
-
+/* global jQuery, $ */
 jQuery(function($) {
 "use strict";
 
@@ -56,7 +56,7 @@ jQuery(function($) {
             restoreTab();
         }
     }
-    
+
     /*
      * Restore any tab state stored in sessionStorage
      */
@@ -91,4 +91,3 @@ jQuery(function($) {
     checkSavedTab();
 
 });
-

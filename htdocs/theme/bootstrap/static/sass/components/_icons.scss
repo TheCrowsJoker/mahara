@@ -1,5 +1,8 @@
 // Extra icons to fit db defiend tyopes (cf pagebuilder)
 
+.fa-placeholder {
+  opacity:0;
+}
 
 .fa-annotation:before {
   content: $fa-var-pencil-square-o;

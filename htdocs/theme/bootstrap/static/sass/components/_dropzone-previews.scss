@@ -32,7 +32,7 @@
 .block-placeholder {
     @extend .dropzone-previews;
     width: 100%;
-    padding: 15px;
+    padding: 20px;
     margin-bottom: 20px;
     background-color: $panel-warning-heading-bg;
     border: 2px dashed darken( $panel-warning-border, 10%);
