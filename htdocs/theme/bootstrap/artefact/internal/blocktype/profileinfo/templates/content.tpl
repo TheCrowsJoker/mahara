@@ -19,8 +19,8 @@
 {/if}
 
 {if $profileinfo.socialprofiles}
-    <h4>{str tag=socialprofiles section=artefact.internal}</h4>
-    <ul class="unstyled">
+    <h4 class="sr-only">{str tag=socialprofiles section=artefact.internal}</h4>
+    <ul class="unstyled mtm">
         {foreach from=$profileinfo.socialprofiles item=item}
             <li><strong>{$item.description}:</strong>
                 {if $item.link}<a href="{$item.link}" title="{$item.link}" target="_blank">{/if}{$item.title|clean_html|safe}{if $item.link}</a>{/if}

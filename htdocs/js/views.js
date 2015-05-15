@@ -257,7 +257,7 @@
 
 				helper.children().each(function(index) {
 					// Set helper cell sizes to match the original sizes
-					$(this).width(original.eq(index).width());
+					$(this).width(original.eq(index).outerWidth());
 				});
 
 				return helper;
@@ -321,6 +321,7 @@
 	}
 
 	function makeExistingBlocksSortable() {
+
 		// Make existing and new blocks sortable
 		$('.column .column-content').sortable({
 			handle: '.js-heading',
@@ -364,10 +365,11 @@
 				// Also if height of dragging block is greater than height
 				// row(s) above it then it can't be dropped in that row.
 				// Could use a custom version of Sortable in future?
-				ui.helper.width(200);
-				ui.helper.height(80);
+				ui.helper.width($(this).outerWidth());
+				ui.helper.height($(this).find('.drag-handle').outerHeight());
 			}
 		});
+
 	} // end of makeNewBlocksSortable()
 
 	function cellChanged() {

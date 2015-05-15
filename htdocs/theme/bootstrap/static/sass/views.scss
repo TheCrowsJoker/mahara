@@ -33,37 +33,3 @@
   }
 }
 
-
-.cell-radios {
-	.form-group.radio .pseudolabel ~ {
-		div.radio:nth-child(n+3) {
-			margin-left:0;
-		}
-	}
-	div.radio{
-		float:left;
-		clear:bloth;
-		input[type="radio"] {
-			margin-left: 0;
-		}
-	}
-	.form-group {
-		clear:both;
-	}
-
-}
-
-.cellchooser {
-	// @include clearfix;
-	float:left;
-	label {
-		width: 240px;
-		padding-left:0;
-	}
-}
-
-.artefactchooser-data.form-group {
-	label {
-		padding-left:20px;
-	}
-}

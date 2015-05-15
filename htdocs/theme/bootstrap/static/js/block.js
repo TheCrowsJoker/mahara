@@ -1,5 +1,5 @@
 /*jslint browser: true, nomen: true,  white: true */
-
+/* global jQuery, $ */
 jQuery(function($) {
 "use strict";
 
@@ -21,7 +21,7 @@ jQuery(function($) {
                     $(this).closest('.panel').addClass('hidden');
                 }
            });
-          
+
         }
     }
 
@@ -39,4 +39,3 @@ jQuery(function($) {
     });
 
 });
-

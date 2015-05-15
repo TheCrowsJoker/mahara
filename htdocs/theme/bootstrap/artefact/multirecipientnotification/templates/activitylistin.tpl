@@ -123,16 +123,18 @@
             </div>
             {/if}
         
-            {if $item->url && $item->urltext === 'Reply'}
+            {if ($item->canreply || $item->canreplyall)}
             <div class="actions panel-footer mbl">
                 <div class="url">
-                    <a class="action" href="{$WWWROOT}{$item->url}">
+                    {if $item->canreply}
+                    <a class="action" href="{$WWWROOT}artefact/multirecipientnotification/sendmessage.php?id={$item->fromusr}{if !$item->startnewthread}&replyto={$item->id}{/if}&returnto=outbox">
                         <span class="fa fa-reply"></span> 
-                        {$item->urltext}
+                        {str tag=reply section=artefact.multirecipientnotification}
                     </a>
-                    {if $item->return}
-                    <a class="action" href="{$WWWROOT}{$item->return}">
-                        <span class="fa fa-reply-all"></span> {$item->returnoutput}
+                    {/if}
+                    {if $item->canreplyall}
+                    <a class="action" href="{$WWWROOT}artefact/multirecipientnotification/sendmessage.php?replyto={$item->id}&returnto=outbox">
+                        <span class="fa fa-reply-all"></span> {str tag=replyall section=artefact.multirecipientnotification}
                     </a>
                     {/if}
                 </div>

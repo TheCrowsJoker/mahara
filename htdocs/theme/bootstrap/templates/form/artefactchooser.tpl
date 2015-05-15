@@ -13,7 +13,7 @@
         {if !$artefacts}
         <p class="noartefacts">{str tag=noartefactstochoosefrom section=view}</p>
         {/if}
-        <div id="{$datatable}" class="artefactchooser-data form-group checkbox">
+        <div id="{$datatable}" class="artefactchooser-data form-group checkbox last">
             {$artefacts|safe}
         </div>
         {$pagination|safe}
