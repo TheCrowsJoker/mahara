@@ -18,8 +18,9 @@ label,
 }
 
 
-
-.column
+.checkbox .with-label {
+    padding-left: 17px;
+}
 
 input + label {
     font-weight: normal;
