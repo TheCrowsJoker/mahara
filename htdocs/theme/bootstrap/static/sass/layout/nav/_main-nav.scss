@@ -84,15 +84,15 @@
         li {
             display: block;
             a { //styles that need to override bootstrap specificity
-                padding: 10px 12px; 
-                font-weight: normal; 
+                padding: 10px 12px;
+                font-weight: normal;
                 &:hover, &:focus {
                     text-decoration:none;
                     background-color: rgba(darken($navbar-inverse-link-hover-bg, 5%), 0.5);
                 }
             }
         }
-       
+
        // If this link is the current pafge or section
         .active > a {
             font-weight: bold;
@@ -104,7 +104,7 @@
                 }
             }
         }
-   
+
         a  { // styles that don't need to override bootstrap specificity
             display:block;
             width:100%;
@@ -168,4 +168,6 @@
 }
 
 
-
+.dropdown-menu .btn-link:not(.btn-link-danger) {
+    color: $text-color;
+}

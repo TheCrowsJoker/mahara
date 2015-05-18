@@ -4,7 +4,7 @@
 *}
 {assign var='author_link_index' value=1}
 {foreach from=$items item=view}
-    <li class="list-group-item small-text text-medium">
+    <li class="list-group-item text-small text-medium">
         <a href="{$view.fullurl}" class="outer-link">
               <span class="sr-only">{$view.title}</span>
         </a>
@@ -60,7 +60,7 @@
             {/if}
     </li>
     {if $view.template}
-        <li class="list-group-item small-text list-group-item-default">
+        <li class="list-group-item text-small list-group-item-default">
             {$view.form|safe}
         </li>
     {/if}

@@ -70,13 +70,13 @@
                     {/if}
                 </div>
             </div>
-        
-           
+
+
 
         </div>
         <div class="col-md-9">
             <div class="collapsible-group">
-                <div class="panel panel-default panel-collapse collapsible collapsible-group first">
+                <div class="panel panel-default collapsible collapsible-group first">
                     <h3 class="panel-heading">
                         <a href="#userskins" data-toggle="collapse" aria-expanded="false" aria-controls="#userskins" class="">
                             {str tag=userskins section=skin}
@@ -88,7 +88,7 @@
                             <div class="pull-left mrm">
                                 <a href="{$WWWROOT}view/skin.php?id={$viewid}&skin={$skin->id}">
                                     <img src="{$WWWROOT}skin/thumb.php?id={$skin->id}" class="thumbnail mbs" width="180" alt="{$skin->title}"/>
-                                     <div class="lead text-center mbs small-text">
+                                     <div class="lead text-center mbs text-small">
                                     {$skin->title|safe}
                                     </div>
                                 </a>
@@ -97,7 +97,7 @@
                     </div>
                 </div>
                 {if $favourskins}
-               <div class="panel panel-default panel-collapse collapsible collapsible-group first">
+               <div class="panel panel-default collapsible collapsible-group first">
                     <h3 class="panel-heading">
                         <a href="#favorskins" data-toggle="collapse" aria-expanded="false" aria-controls="#favorskins" class="collapsed">
                             {str tag=favoriteskins section=skin}
@@ -109,7 +109,7 @@
                             <div class="pull-left mrm">
                                 <a href="{$WWWROOT}view/skin.php?id={$viewid}&skin={$skin->id}">
                                     <img src="{$WWWROOT}skin/thumb.php?id={$skin->id}" class="thumbnail mbs" width="180" alt="{$skin->title}"/>
-                                     <div class="lead text-center mbs small-text">
+                                     <div class="lead text-center mbs text-small">
                                     {$skin->title|safe}
                                     </div>
                                 </a>
@@ -118,7 +118,7 @@
                     </div>
                 </div>
                 {/if}
-               <div class="panel panel-default panel-collapse collapsible collapsible-group last">
+               <div class="panel panel-default collapsible collapsible-group last">
                     <h3 class="panel-heading">
                         <a href="#siteskins" data-toggle="collapse" aria-expanded="false" aria-controls="#siteskins" class="collapsed">
                             {str tag=siteskins section=skin}
@@ -130,7 +130,7 @@
                             <div class="pull-left mrm">
                                 <a href="{$WWWROOT}view/skin.php?id={$viewid}&skin={$skin->id}">
                                     <img src="{$WWWROOT}skin/thumb.php?id={$skin->id}" class="thumbnail mbs" width="180" alt="{$skin->title}"/>
-                                     <div class="lead text-center mbs small-text">
+                                     <div class="lead text-center mbs text-small">
                                     {$skin->title|safe}
                                     </div>
                                 </a>

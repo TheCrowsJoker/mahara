@@ -1,7 +1,7 @@
 
 {if !$items}
 <div class="panel-body">
-<p class="lead small-text">{str tag=nomessages section=blocktype.inbox}</p>
+<p class="lead text-small">{str tag=nomessages section=blocktype.inbox}</p>
 </div>
 {else}
 <div id="inboxblock" class="list-group">

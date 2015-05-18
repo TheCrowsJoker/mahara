@@ -4,5 +4,5 @@
     {if $artefact->ownerurl}({str tag=by section=view} 
         <a href="{$artefact->ownerurl}" class="metadata">{$artefact->ownername}</a>)
     {/if}
-    <div class="with-label small-text">{$artefact->description|str_shorten_html:80:true|strip_tags|safe}</div>
+    <div class="with-label text-small">{$artefact->description|str_shorten_html:80:true|strip_tags|safe}</div>
 </div>

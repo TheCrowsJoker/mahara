@@ -1,4 +1,9 @@
-.collapsible{
+.collapse > .collapse {
+    display: block ; // fix for not being able to put a class just on the wrapper
+    visibility: visible;
+}
+
+.collapsible {
     legend h4,
     legend h3 {
         a {
@@ -11,10 +16,9 @@
     }
 }
 .pieform-fieldset,
-.panel-collapse {
-    @include box-shadow(none);
+.panel {
     &.collapsible {
-
+        @include box-shadow(none);
         &.last {
             legend,
             .panel-heading {
@@ -50,7 +54,8 @@
             width: 32px;
         }
 
-        //.panel-heading,
+        &.has-attachment .panel-heading,
+        .collapsible-group & .panel-heading,
         legend h4,
          legend h3  {
             margin: 0;
@@ -82,15 +87,18 @@
                 }
             }
         }
-    }
-
-    .html {
-        @include clearfix;
+        .html {
+            @include clearfix;
+        }
     }
 }
 
-.collapsible-group {
+.panel.collapsible {
     margin-bottom: 0;
+    @include border-radius(0);
+    .panel-heading a {
+        @include border-radius(0);
+    }
     &.form-group {
         display:block;
     }
@@ -98,4 +106,3 @@
         @include border-radius(0);
     }
 }
-

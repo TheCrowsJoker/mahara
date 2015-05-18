@@ -1,5 +1,5 @@
 
-<div class="panel-body small-text">
+<div class="panel-body text-small">
 
     <p class="mbm">
         <span class="prs fa fa-birthday-cake"></span>

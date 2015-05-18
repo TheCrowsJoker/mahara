@@ -2,7 +2,7 @@
 {if $message}
     <div class="deletemessage">
         <h2>{$subheading}</h2>
-        <p class="lead small-text">{$message}</p>
+        <p class="lead text-small">{$message}</p>
         <div>{$form|safe}</div>
     </div>
 {else}

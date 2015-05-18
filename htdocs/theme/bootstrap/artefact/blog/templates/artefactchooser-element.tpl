@@ -4,6 +4,6 @@
         <span class="metadata">({if $artefact->blog}{$artefact->blog}{/if})</span>
     </label>
     {if $artefact->description}
-    <div class="small-text with-label">{$artefact->description|clean_html|safe}</div>
+    <div class="text-small with-label">{$artefact->description|clean_html|safe}</div>
     {/if}
 </div>

@@ -34,7 +34,7 @@
                     </div>
                     
                     <div class="jointime detail mtm">
-                        <span class="lead small-text">
+                        <span class="lead text-small">
                             {str tag="Joined" section="group"}:
                         </span> 
                         {$r.jointime}
@@ -48,7 +48,7 @@
                     
                     {if $r.reason}
                     <p class="ptm">
-                        <span class="lead small-text">{str tag=reason}:</span> 
+                        <span class="lead text-small">{str tag=reason}:</span> 
                         {$r.reason|format_whitespace|safe}
                     </p>
                     {/if}

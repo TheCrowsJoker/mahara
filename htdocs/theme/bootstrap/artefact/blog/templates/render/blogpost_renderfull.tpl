@@ -18,12 +18,12 @@
     {/if}
 
     {if isset($attachments)}
-        <div class="has-attachment in-panel panel panel-default panel-collapse collapsible last">
+        <div class="has-attachment in-panel panel panel-default collapsible last">
             <h4 class="panel-heading">
                 <a class="text-left pts pbm collapsed" aria-expanded="false" href="#blog-attach-{$postid}" data-toggle="collapse">
                     <span class="fa prm fa-paperclip"></span>
-                    
-                    <span class="small-text">{str tag=attachedfiles section=artefact.blog}</span>
+
+                    <span class="text-small">{str tag=attachedfiles section=artefact.blog}</span>
                     <span class="metadata">({$attachments|count})</span>
                     <span class="fa pts fa-chevron-down pull-right collapse-indicator"></span>
                 </a>

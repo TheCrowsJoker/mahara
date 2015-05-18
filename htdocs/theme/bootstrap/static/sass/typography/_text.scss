@@ -1,0 +1,25 @@
+// Text modifying class (start with .text-)
+.text-default {
+    color: #333;
+}
+
+.text-light {
+    color: #888;
+}
+
+.text-medium {
+    color: #666;
+}
+
+.text-orange {
+    color: #FE6500;
+}
+
+.text-watermark {
+    @include text-shadow(-1px 0 0 #fff);
+    opacity: 0.3;
+}
+
+.text-small {
+    font-size: $font-size-small;
+}

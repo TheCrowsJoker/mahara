@@ -10,13 +10,13 @@
                     <h4 class="title list-group-item-heading mts mlxl">
                          <a href="{$WWWROOT}interaction/forum/topic.php?id={$postinfo->topic|escape}&post={$postinfo->id}" class="plm">
                             {$postinfo->topicname}
-                            <span class="metadata small-text">
+                            <span class="metadata text-small">
                                 {$postinfo->author|display_name}
                             </span>
                         </a>
                     </h4>
                    <div class="ptl detail">
-                         <p class="small-text">
+                         <p class="text-small">
                             {$postinfo->body|str_shorten_html:100:true|safe}
                         </p>
                     </div>

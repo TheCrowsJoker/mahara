@@ -1,5 +1,5 @@
 {foreach from=$items item=item}
-    <li class="list-group-item small-text text-medium">
+    <li class="list-group-item text-small text-medium">
         <a href="{$item.url}" class="outer-link">
             <span class="sr-only">{$item.name|str_shorten_text:60:true}</span>
         </a>

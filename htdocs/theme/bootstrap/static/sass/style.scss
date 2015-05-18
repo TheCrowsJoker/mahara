@@ -16,8 +16,8 @@
 
 
 // Core variables and mixins
-@import "utilities/var/brand"; // Import our brand variables
-@import "utilities/var/bootstrap-variables";  // ...and our custom bootstrap variables file
+@import "utilities/brand-variables"; // Import our brand variables
+@import "utilities/bootstrap-variables";  // ...and our custom bootstrap variables file
 
 @import "compass";
 
@@ -30,7 +30,7 @@
 @import "../bootstrap/assets/stylesheets/bootstrap/print";
 //@import "../bootstrap/assets/stylesheets/bootstrap/glyphicons";
 
-@import "font-awesome/font-awesome";
+@import "lib/font-awesome/font-awesome";
 
 
 // Core CSS
@@ -81,61 +81,76 @@
 
 @import "utilities/classes"; // Custom utility classes
 @import "utilities/whitespace"; // Custom utility classes
-@import "components/typography";
+
+@import "typography/fonts";
+@import "typography/typography";
+@import "typography/tables";
+@import "typography/icons";
+@import "typography/text";
 
 
 // General customisation and component files go here...
+@import "layout/layout";
+@import "layout/columns";
+@import "layout/col-collapse";
+@import "layout/footer";
+@import "layout/header";
+@import "layout/profile-block";
 
-@import "components/alert";
+@import "layout/panel/collapse";
+@import "layout/panel/panel";
+
+@import "layout/nav/nav-tabs";
+@import "layout/nav/navbar";
+@import "layout/nav/main-nav";
+@import "layout/nav/minor-nav";
+@import "layout/nav/top-nav";
+@import "layout/nav/tabs";
+
+@import "form/form-group";
+@import "form/forms";
+@import "form/input-group";
+@import "form/site-messages";
+@import "form/alert";
+
+
 @import "components/btn";
 @import "components/btn-group";
-@import "components/col-collapse";
-@import "components/collapse";
-@import "components/contextual-help";
-@import "components/dashboard-widget";
-@import "components/dropzone-previews";
-@import "components/filebrowser";
-@import "components/fonts";
-@import "components/footer";
-@import "components/form-group";
-@import "components/forms";
-@import "components/forum-post";
-@import "components/gallery-thumb";
-@import "components/header";
-@import "components/icons";
-@import "components/indicator";
+
 @import "components/input-as-icon";
-@import "components/input-group";
-@import "components/js";
-@import "components/label";
-@import "components/layout";
-@import "components/link-thumb"; //what is ?
-@import "components/list-elements";
-@import "components/loading-box";
-@import "components/main-nav";
-@import "components/message-thread";
-@import "components/meter.scss";
-@import "components/minor-nav";
-@import "components/nav-tabs";
-@import "components/navbar";
-@import "components/notification";
-@import "components/pagination";
-@import "components/panel";
-@import "components/profile-block";
-@import "components/select2";
-@import "components/site-messages";
-@import "components/star";
-@import "components/switches";
-@import "components/tables";
-@import "components/tabs";
+@import "components/indicator";
 @import "components/toggles";
-@import "components/top-nav";
+@import "components/switch";
+@import "components/model";
 
-@import "components/ui-draggable";
+
+@import "components/contextual-help";
+@import "components/link-thumb"; // text displayed as a thumbnail (cf. admin cookie consent directives)
 @import "components/user-icon";
+@import "components/dropzone-previews";
+@import "components/label";
+@import "components/list-group";
+@import "components/loading-box";
+@import "components/pagination";
 
 
+// Feature related sass. We avoid this where we can in favour of reusable components
+@import "features/dashboard-widget";
+@import "features/filebrowser";
+@import "features/forum-post";
+@import "features/notification"; //email style
+@import "features/message-thread";
+
+@import "components/gallery-thumb"; //@todo , move this to 'features' or make it redundant
+
+
+// Supporting sass for library code
+@import "lib/select2";
+@import "lib/ui-draggable";
+@import "lib/meter.scss"; // progress bar (old/ported)
+@import "lib/tinymce";
+@import "lib/star";
 
 // Keep these files last to override all other style sheets
-@import "components/custom";
-@import "components/shame";
+@import "custom";
+@import "shame";

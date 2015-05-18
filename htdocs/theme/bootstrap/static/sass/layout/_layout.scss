@@ -1,8 +1,6 @@
 /*
  * Base structure
  */
-
-
 body {
     max-width:100%;
     overflow-x:hidden;
@@ -49,20 +47,29 @@ body {
     }
 }
 
-.footer {
-    max-width:100%;
+// Expose a section of the page
+.expose {
+    background-color: $brand-default;
+    margin-bottom: 40px;
+    margin-top: -109px;
+    padding: 40px 0px 20px;
 }
 
-.column {
-      vertical-align: top;
-      float: left;
-      margin: 0;
-      padding: 0 0.9% 10px 0.9%;
-      position: relative;
-      &:first-child {
-            padding-left:0;
-      }
-      &:last-child {
-            padding-right:0;
-      }
+.subpage {
+    clear:both;
+}
+
+
+// Needed to clear the float when dropzone is visible
+.blocktype {
+  &.ui-draggable:before {
+    display: none;
+  }
+}
+
+.blockinstance {
+  clear: both;
+  .list-group{
+    margin-bottom: 0;
+  }
 }

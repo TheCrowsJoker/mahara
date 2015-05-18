@@ -4,11 +4,11 @@
     {if $artefact->get('tags')}
     <div class="tags">{str tag=tags}: {list_tags owner=$artefact->get('owner') tags=$artefact->get('tags')}</div>
     {/if}
+</div>
 
     {if $annotationfeedbackcount || $annotationfeedbackcount == 0}
         {$annotationfeedback|safe}
     {/if}
-</div>
 
 
 {if $addannotationscript}

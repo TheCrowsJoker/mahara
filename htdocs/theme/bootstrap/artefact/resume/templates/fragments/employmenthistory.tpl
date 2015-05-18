@@ -56,7 +56,7 @@
                                         </td>
                                         {/if}
                                         
-                                        <td  class="small-text">
+                                        <td  class="text-small">
                                             <a href="{$item->viewpath}">
                                                 {$item->title}
                                             </a> 

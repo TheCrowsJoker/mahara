@@ -58,7 +58,7 @@
         border: 0;
     }
 
-    &.tab-pane, 
+    &.tab-pane,
     &.collapsible-group {
         border: 0;
         padding: 0;
@@ -216,7 +216,7 @@
         padding-bottom: 5px;
         margin-bottom: 20px;
         // border-bottom: 1px solid $gray-lighter;
-    } 
+    }
       h3 {
         font-size: $font-size-large;
         padding-bottom: 10px;
@@ -232,10 +232,15 @@
     input[type=file],
     textarea,
     select {
-        max-width: 85%;
         display: inline-block;
         @media (min-width: $screen-sm-min) {
             width: 420px;
+            max-width: 85%;
+            .columns3 &,
+            .columns3 &,
+            .columns3 & {
+                max-width:100%;
+            }
         }
         @media (min-width: $screen-lg-min) {
             width: 500px;
@@ -247,7 +252,7 @@
             @extend .align-with-input;
         }
     }
-    
+
     .form-group.radio,
     .radio {
         @media (min-width: $screen-sm-min) {
@@ -273,7 +278,7 @@
         font-size: $font-size-base - 1;
         display: block;
         padding-top: 10px;
-        
+
         @media (min-width: $screen-md-min) {
             margin-left: 230px;
         }

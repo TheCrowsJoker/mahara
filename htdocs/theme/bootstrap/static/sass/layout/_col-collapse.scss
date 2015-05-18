@@ -3,7 +3,7 @@
     @extend .col-xs-3;
 
     @media (max-width: $screen-sm-min) {
-        .title, 
+        .title,
         .indicator {
             font-size: 0.7em;
         }
@@ -41,7 +41,7 @@
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     border: 0;
-}   
+}
 
 .collapse-expand {
     .fa-angle-double-right {
@@ -56,32 +56,3 @@
         }
     }
 }
-
-$columns: 8; //up to 8
-
-@for $i from 1 through $columns {
-    .columns#{$i} {
-        width: 100 / $i - 2%;
-
-        -ms-word-break: break-all;
-        word-break: break-all;
-        word-break:     break-word;
-    }
-}
-
-.column-content {
-    min-height: 50px;
-}
-
-.col-row,
-.row-content {
-    padding-bottom: 50px;
-
-    .column .post,
-    .column-layout .post {
-        padding: 0;
-    }
-}
-
-
-

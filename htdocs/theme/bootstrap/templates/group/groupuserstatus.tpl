@@ -41,7 +41,7 @@
     </div>
 
     {if $group->requests}
-        <a href="{$WWWROOT}group/members.php?id={$group->id}&amp;membershiptype=request" class="small-text with-heading">
+        <a href="{$WWWROOT}group/members.php?id={$group->id}&amp;membershiptype=request" class="text-small with-heading">
             <span class="label label-warning">{$group->requests}</span>
             <span class="btn-title pls text-warning">
                 {str tag="membershiprequests" section="group"} 
@@ -56,7 +56,7 @@
     </div>
 
     {if $group->role}
-        <div class="small-text">
+        <div class="text-small">
             {assign var=grouptype value=$group->grouptype}
             {assign var=grouprole value=$group->role}
             {str tag="grouphaveinvitewithrole" section="group"}: {str tag="$grouprole" section="grouptype.$grouptype"}

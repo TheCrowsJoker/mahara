@@ -17,7 +17,7 @@
                     {/if}
                 </h4>
                 {if $user->institutions}
-                <p class="memberof mtm detail small-text">
+                <p class="memberof mtm detail text-small">
                     <span class="fa fa-lg text-default fa-university prs"></span>
                     <span>
                     {$user->institutions|safe}
