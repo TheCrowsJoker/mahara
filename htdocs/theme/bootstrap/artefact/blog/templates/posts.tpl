@@ -64,7 +64,7 @@
             <a class="panel-heading collapsible collapsed" data-toggle="collapse" href="#attach_{$post->id}" aria-expanded="false">
                 <span class="fa fa-lg prm fa-paperclip"></span>
                
-                <span class="small-text"> {str tag=attachedfiles section=artefact.blog} </span>
+                <span class="text-small"> {str tag=attachedfiles section=artefact.blog} </span>
                  <span class="metadata">
                     ({$post->files|count})
                 </span>

@@ -32,7 +32,7 @@
             
             {if $user->friend && $page == 'myfriends' && $user->views}
             <p class="viewlist">
-                <span class="lead small-text">
+                <span class="lead text-small">
                     {str tag='Views' section='group'}:
                 </span>
                 {foreach from=$user->views item=view}
@@ -45,7 +45,7 @@
             
             {if $user->pending}
             <div class="whymakemeyourfriend">
-                <span class="lead small-text">
+                <span class="lead text-small">
                     {str tag='whymakemeyourfriend' section='group'}
                 </span>
                 <p>{$user->message|format_whitespace|safe}</p>
@@ -53,7 +53,7 @@
             {/if}
         </div>
         {if $user->messages}
-        <div class="sendmessage small-text prxxl">
+        <div class="sendmessage text-small prxxl">
             <span class="fa fa-envelope prs"></span>
             <a href="{$WWWROOT}user/sendmessage.php?id={$user->id}&amp;returnto={$page}&amp;offset={$offset}" class="text-right" title="{str tag='sendmessage' section='group'}">
             {str tag='sendmessage' section='group'}
@@ -61,7 +61,7 @@
         </div>
         {/if}
         {if $admingroups}
-        <div class="editgroup small-text prxxl">
+        <div class="editgroup text-small prxxl">
             <span class="fa fa-pencil prs"></span>
             <a href="" onclick="showGroupBox(event, {$user->id})" class="btn-edit">{str tag='editgroupmembership' section='group'}</a>
         </div>
@@ -69,7 +69,7 @@
     </div>
 
     {if $user->pending}
-    <div class="has-form small-text panel-footer btn-toggle">
+    <div class="has-form text-small panel-footer btn-toggle">
         <div class="btn">
             <span class="fa fa-check fa-lg text-primary prs"></span>
             {$user->accept|safe}

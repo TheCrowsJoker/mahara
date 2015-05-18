@@ -12,6 +12,6 @@
     </ul>
 {else}
 <div class="panel-body">
-    <p class="lead small-text">{str tag='noviewstosee' section='group'}</p>
+    <p class="lead text-small">{str tag='noviewstosee' section='group'}</p>
 </div>
 {/if}

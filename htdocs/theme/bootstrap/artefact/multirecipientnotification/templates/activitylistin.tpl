@@ -1,6 +1,6 @@
 <div class="collapsible-group">
 {foreach from=$data item=item name='notification'}
-    <div class="panel panel-collapse collapsible notification collapsible-group  {if !$item->read}panel-primary js-panel-unread{else}panel-default{/if} {if $dwoo.foreach.notification.first}first{/if} {if $dwoo.foreach.notification.last}last{/if} ">
+    <div class="panel collapsible notification collapsible-group  {if !$item->read}panel-primary js-panel-unread{else}panel-default{/if} {if $dwoo.foreach.notification.first}first{/if} {if $dwoo.foreach.notification.last}last{/if} ">
         <h4 class="panel-heading">
             <label class="panel-control">
                 <span class="control prl {if !$item->read}unread{/if}">
@@ -24,7 +24,7 @@
                     <span class="sr-only">{$item->strtype}</span>
                     {/if}
                     <span class="sr-only">{str section='activity' tag='subject'}</span>
-                    {if !$item->read} 
+                    {if !$item->read}
                         <span class="accessible-hidden sr-only">
                             {str tag='unread' section='activity'}:
                         </span>
@@ -67,7 +67,7 @@
                         {str section='artefact.multirecipientnotification' tag='fromuser'}:
                     </strong>
                     {if ($item->fromusrlink)}
-                    <span class="fromusers prm"> 
+                    <span class="fromusers prm">
                         <a href="{$item->fromusrlink}">
                             {/if}
                             {$item->fromusr|display_name|truncate:$maxnamestrlength}
@@ -86,7 +86,7 @@
                 {/if}
                 <p class="tousers">
                     <strong>
-                        {str section='artefact.multirecipientnotification' tag='touser'}: 
+                        {str section='artefact.multirecipientnotification' tag='touser'}:
                     </strong>
                     {if $item->return}
                     <span class="tousers">
@@ -122,13 +122,13 @@
                 {/if}
             </div>
             {/if}
-        
+
             {if ($item->canreply || $item->canreplyall)}
             <div class="actions panel-footer mbl">
                 <div class="url">
                     {if $item->canreply}
                     <a class="action" href="{$WWWROOT}artefact/multirecipientnotification/sendmessage.php?id={$item->fromusr}{if !$item->startnewthread}&replyto={$item->id}{/if}&returnto=outbox">
-                        <span class="fa fa-reply"></span> 
+                        <span class="fa fa-reply"></span>
                         {str tag=reply section=artefact.multirecipientnotification}
                     </a>
                     {/if}

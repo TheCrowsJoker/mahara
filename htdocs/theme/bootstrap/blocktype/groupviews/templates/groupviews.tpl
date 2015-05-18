@@ -105,7 +105,7 @@
     <ul id="groupviewlist" class="list-group list-unstyled list-group-unbordered">
         {if $mysubmitted}
             {foreach from=$mysubmitted item=item}
-                <li class="list-group-item small-text text-medium {if $item.submittedstatus != '2'}pbm{/if}">
+                <li class="list-group-item text-small text-medium {if $item.submittedstatus != '2'}pbm{/if}">
                     <span>
                         {if $item.submittedtime}
                             {str tag=youhavesubmittedon section=view arg1=$item.url arg2=$item.name arg3=$item.submittedtime|format_date}
@@ -121,7 +121,7 @@
             {/foreach}
         {/if}
         {if $group_view_submission_form}
-        <li class="list-group-item small-text list-group-item-default">
+        <li class="list-group-item text-small list-group-item-default">
             <div class="submissionform">
                 {$group_view_submission_form|safe}
             </div>

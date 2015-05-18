@@ -1,6 +1,6 @@
 <div class="collapsible-group">
 {foreach from=$data item=item name='notification'}
-    <div class="panel panel-default panel-collapse collapsible notification collapsible-group {if $dwoo.foreach.notification.first}first{/if} {if $dwoo.foreach.notification.last}last{/if}">
+    <div class="panel panel-default collapsible notification collapsible-group {if $dwoo.foreach.notification.first}first{/if} {if $dwoo.foreach.notification.last}last{/if}">
         <h4 class="panel-heading">
             <label class="panel-control">
                 <span class="control prl">
@@ -23,15 +23,15 @@
                     {/if}
 
                     <span class="sr-only">{str section='activity' tag='subject'}</span>
-                    {if !$item->read} 
+                    {if !$item->read}
                         <span class="accessible-hidden sr-only">
-                            {str tag='unread' section='activity'}: 
+                            {str tag='unread' section='activity'}:
                         </span>
                     {/if}
 
                     {$item->subject|truncate:40}
 
-                    <span class="metadata"> - 
+                    <span class="metadata"> -
                         <span>
                             {str section='artefact.multirecipientnotification' tag='touser'}:
                         </span>
@@ -64,7 +64,7 @@
                 <p class="tousers">
                     <span class="recipientlist">
                     <strong>
-                        {str section='artefact.multirecipientnotification' tag='touser'}: 
+                        {str section='artefact.multirecipientnotification' tag='touser'}:
                     </strong>
                     {if count($item->tousr) > 1}
                     <span>
@@ -94,7 +94,7 @@
                 <div class="url">
                     {if $item->url}
                     <a class="action" href="{$WWWROOT}{$item->url}">
-                        <span class="fa fa-reply"></span> 
+                        <span class="fa fa-reply"></span>
                         {if $item->urltext}
                         {$item->urltext}
                         {/if}

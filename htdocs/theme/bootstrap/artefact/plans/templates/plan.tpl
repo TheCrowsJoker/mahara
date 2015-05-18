@@ -17,7 +17,7 @@
     <div class="message">{$strnotasksaddone|safe}</div>
 {else}
 <div class="table-responsive">
-<table id="taskslist" class="listing table table-striped small-text">
+<table id="taskslist" class="listing table table-striped text-small">
     <thead>
         <tr>
             <th>{str tag='completed' section='artefact.plans'}</th>

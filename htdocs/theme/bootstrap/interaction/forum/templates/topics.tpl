@@ -36,7 +36,7 @@
             </a>
             {/if}
         </h3>
-        <div class="detail small-text mts">
+        <div class="detail text-small mts">
             {$topic->body|str_shorten_html:50:true:false|safe}
         </div>
     </td>

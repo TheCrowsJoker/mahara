@@ -18,12 +18,12 @@
                 <h4 class="title list-group-item-heading mb0">
                     {$entry->title}
                 </h4>
-                <span class="postdetails metadata small-text">
+                <span class="postdetails metadata text-small">
                     {if $entry->pubdate}{str tag=publishedon section=blocktype.externalfeed arg1=$entry->pubdate}{/if}
                 </span>
 
                 {if $entry->link}</a>{/if}
-                <div class="feedcontent mtl small-text">{$entry->description|clean_html|safe}</div>
+                <div class="feedcontent mtl text-small">{$entry->description|clean_html|safe}</div>
              </div>
             {/foreach}
         <div>

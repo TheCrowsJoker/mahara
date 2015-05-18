@@ -725,6 +725,10 @@ $panel-primary-text:          $gray-dark !default;
 $panel-primary-border:        #ddd !default;
 $panel-primary-heading-bg:    #fff !default;
 
+$panel-secondary-text:          $gray-dark !default;
+$panel-secondary-border:        $mahara-green-bright !default;
+$panel-secondary-heading-bg:    darken($panel-default-heading-bg, 3%) !default;
+
 $panel-success-text:          $state-success-text !default;
 $panel-success-border:        $state-success-border !default;
 $panel-success-heading-bg:    $state-success-bg !default;
@@ -743,8 +747,8 @@ $panel-danger-heading-bg:     $state-danger-bg !default;
 
 
 $panel-background: (
-    danger: $panel-danger-heading-bg, 
-    info: $panel-info-heading-bg, 
+    danger: $panel-danger-heading-bg,
+    info: $panel-info-heading-bg,
     success: $panel-success-heading-bg,
     primary: $panel-primary-heading-bg,
     warning : $panel-warning-heading-bg // should be last so we can use it as a highlight by adding a class

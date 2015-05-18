@@ -13,14 +13,14 @@
     </script>
 {else}
     {if $lookingatownpage}
-        <div class="lead small-text text-center">{str tag="trysearchingforfriends" section=group args=$searchingforfriends}</div>
+        <div class="lead text-small text-center">{str tag="trysearchingforfriends" section=group args=$searchingforfriends}</div>
     {elseif $loggedin}
         {if $relationship == 'none' && $friendscontrol == 'auto'}
-            <div class="lead small-text text-center">{$newfriendform|safe}</div>
+            <div class="lead text-small text-center">{$newfriendform|safe}</div>
         {elseif $relationship == 'none' && $friendscontrol == 'auth'}
-            <div class="lead small-text text-center"><a href="{$WWWROOT}user/requestfriendship.php?id={$USERID}&amp;returnto=view">{str tag='requestfriendship' section='group'}</a></div>
+            <div class="lead text-small text-center"><a href="{$WWWROOT}user/requestfriendship.php?id={$USERID}&amp;returnto=view">{str tag='requestfriendship' section='group'}</a></div>
         {elseif $relationship == 'requestedfriendship'}
-            <div class="lead small-text text-center">{str tag=friendshiprequested section=group}</div>
+            <div class="lead text-small text-center">{str tag=friendshiprequested section=group}</div>
         {/if}
         {* Case not covered here: friendscontrol disallows new users. The block will appear empty. *}
     {/if}

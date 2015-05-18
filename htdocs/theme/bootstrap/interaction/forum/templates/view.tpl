@@ -147,7 +147,7 @@
 </div>
 
 <div class="forumfooter ptl pbl">
-    <p class="lead small-text">
+    <p class="lead text-small">
         {str tag="groupadminlist" section="interaction.forum"}
     </p>
     
@@ -159,7 +159,7 @@
     {/foreach}
 
     {if $moderators}
-        <p class="lead small-text">
+        <p class="lead text-small">
             {str tag="moderatorslist" section="interaction.forum"}
         </p>
         

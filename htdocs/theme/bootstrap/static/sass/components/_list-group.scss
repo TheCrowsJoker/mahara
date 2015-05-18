@@ -1,10 +1,10 @@
-// // modiufications for list elements such a list of pages, collections 
+// // modiufications for list elements such a list of pages, collections
 
 // Left panel
 .list-group {
     a {
         color: inherit;
-        &.tag { 
+        &.tag {
             display:inline-block;
             @extend .text-success;
         }
@@ -114,4 +114,28 @@ h4.list-group-item-heading {
 
 .list-group-item-default{
     background-color: rgba($brand-default, 0.5);
+}
+
+
+// Modifiy for list-groups in panels
+.panel > .block {
+    > .list-group {
+        margin-bottom: 0;
+    }
+    .list-group {
+        .list-group-item {
+            border-width: 1px 0;
+            border-radius: 0;
+        }
+        &:last-child .list-group-item:last-child{
+            border-bottom: 0;
+            border-bottom-right-radius: 3px;
+            border-bottom-left-radius: 3px;
+        }
+    }
+
+}
+
+.panel-heading + .block > .list-group .list-group-item:first-child {
+    border-top-width: 0;
 }

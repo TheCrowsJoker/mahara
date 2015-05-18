@@ -17,7 +17,7 @@
             {if $task->description}</a>{/if}
 
             {if $task->description}
-            <div class="small-text collapse" id="expand-task-{$task->id}">
+            <div class="text-small collapse" id="expand-task-{$task->id}">
                  <div class="panel-body">
                     {$task->description|clean_html|safe}
                     {if $task->tags}
@@ -56,7 +56,7 @@
             {if $task->description}</a>{/if}
 
             {if $task->description}
-            <div class="small-text collapse" id="expand-task-{$task->id}">
+            <div class="text-small collapse" id="expand-task-{$task->id}">
                 <div class="panel-body">
                 
                     {$task->description|clean_html|safe}

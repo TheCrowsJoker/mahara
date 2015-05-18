@@ -1,30 +1,56 @@
 {foreach from=$data item=item}
-    <div class="{cycle name=rows values='r0,r1'}{if $item->highlight} highlight{/if}{if $item->makepublicform} private{/if}">
-        <div class="commentleft">
-            {if $item->author}
-                <a href="{$item->author->profileurl}">
-                    <img src="{profile_icon_url user=$item->author maxheight=40 maxwidth=40}" valign="middle" alt="{str tag=profileimagetext arg1=$item->author|display_default_name}">
-                </a>
-            {else}
-                <img src="{profile_icon_url user=null maxheight=20 maxwidth=20}" valign="middle" alt="{str tag=profileimagetextanonymous}">
-            {/if}
-        </div>
-        <div class="commentrightwrap">
-                {if $item->makepublicform}<div class="makepublicbtn">{$item->makepublicform|safe}</div>{/if}
-                {if $item->canedit}
-                    <form name="edit_{$post->id}" action="{$WWWROOT}artefact/annotation/edit.php">
-                        <input type="hidden" name="id" value="{$item->id}">
-                        <input type="hidden" name="viewid" value="{$viewid}">
-                        <input type="image" src="{theme_url filename="images/btn_edit.png"}" title="{str tag=edit}">
-                    </form>
+    <li class="{cycle name=rows values='r0,r1'}{if $item->highlight} list-group-item-warning{/if}{if $item->makepublicform} list-group-item-warning{/if} list-group-item">
+        {if $item->author}
+            <a href="{$item->author->profileurl}" class="user-icon small-icon">
+                <img src="{profile_icon_url user=$item->author maxheight=25 maxwidth=25}" alt="{str tag=profileimagetext arg1=$item->author|display_default_name}">
+            </a>
+        {else}
+        <span class="user-icon small-icon left">
+            <img src="{profile_icon_url user=null maxheight=20 maxwidth=20}" alt="{str tag=profileimagetextanonymous}">
+        </span>
+        {/if}
+        <div class="">
+                {if $item->makepublicform}
+                <div class="makepublicbtn">{$item->makepublicform|safe}</div>
                 {/if}
+
+                {if $item->canedit}{/if}
+
+
+
+                    <div class="text-right">
+                        <div class="btn-action-list">
+                            <div class="text-right btn-top-right btn-group btn-group-top">
+
+                                <form class="form-as-button pull-left" name="edit_{$post->id}" action="{$WWWROOT}artefact/annotation/edit.php">
+                                    <input type="hidden" name="id" value="{$item->id}">
+                                    <input type="hidden" name="viewid" value="{$viewid}">
+                                    <button class="btn btn-default btn-sm button">
+                                        <span class="fa fa-lg fa-pencil text-default"></span>
+                                        <span class="sr-only">{str tag=edit}</span>
+                                    </button>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
                 {if $item->deleteform}{$item->deleteform|safe}{/if}
 
               {if $item->author}
-                  <div class="author">
-                      <a href="{$item->author->profileurl}" class="username">{$item->author|display_name}</a>
-                      <span class="postedon"> - {$item->date} {if $item->updated}[{str tag=Updated}: {$item->updated}]{/if}</span>
-                  </div>
+              <h4 class="title list-group-item-heading mts">
+                        <a class="" href="{$item->author->profileurl}">
+                            {$item->author|display_name}
+                            <span class="metadata text-small">
+                                - {$item->date} {if $item->updated}[{str tag=Updated}: {$item->updated}]{/if}
+                            </span>
+                        </a>
+                    </h4>
               {else}
                   <div class="author">{$item->authorname}<span class="postedon"> - {$item->date}</span></div>
               {/if}
@@ -39,6 +65,5 @@
                   {/if}
               {/if}
         </div>
-        <div class="cb"></div>
-    </div>
+    </li>
 {/foreach}

@@ -54,7 +54,7 @@
                 </a>
                 {/if}
             </h3>
-            <div class="detail small-text pts">
+            <div class="detail text-small pts">
                 {$forum->description|str_shorten_html:1000:true|safe}
             </div>
             
@@ -108,7 +108,7 @@
 </div>
 {/if}
 <div class="forummods">
-    <p class="lead small-text">
+    <p class="lead text-small">
         {str tag="groupadminlist" section="interaction.forum"}
     </p>
     

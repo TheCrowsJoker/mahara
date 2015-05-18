@@ -1,6 +1,6 @@
 {if $watchlistempty}
 <div class="panel-body">
-    <p class="lead small-text">{str tag=nopages section=blocktype.watchlist}</p>
+    <p class="lead text-small">{str tag=nopages section=blocktype.watchlist}</p>
 </div>
 {else}
 <ul id="watchlistblock" class="viewlist list-group">

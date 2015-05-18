@@ -16,7 +16,7 @@
             <div class="attentionmessage panel panel-warning">
                 <h3 class="panel-heading">{str tag='whymakemeyourfriend' section='group'}</h3>
                 <p class="panel-body">{$message}</p>
-                <div class="has-form small-text panel-footer btn-toggle">
+                <div class="has-form text-small panel-footer btn-toggle">
                     <div class="btn">
                         <span class="fa fa-check fa-lg text-primary prs"></span>
                         {$acceptform|safe}
@@ -96,13 +96,13 @@
     <div class="row">
         <div class="col-md-8 ptxl">
             {if $institutions}
-            <p class="pll lead small-text">
+            <p class="pll lead text-small">
                 <span class="fa fa-lg fa-university  prs"></span>
                 {$institutions|safe}
             </p>
             {/if}
             {if $invitedlist}
-            <p class="pll lead small-text">
+            <p class="pll lead text-small">
                 <span class="fa fa-lg fa-users prs"></span>
                 {str tag=groupinvitesfrom section=group}
                 {$invitedlist}
@@ -110,7 +110,7 @@
             {/if}
 
             {if $requestedlist}
-            <p class="pll lead small-text">
+            <p class="pll lead text-small">
                 <span class="fa fa-lg fa-users prs"></span>
                 {str tag=requestedmembershipin section=group}
                 {$requestedlist}

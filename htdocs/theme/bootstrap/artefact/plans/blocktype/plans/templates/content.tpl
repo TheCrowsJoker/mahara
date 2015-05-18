@@ -14,6 +14,6 @@
         </div>
         {/if}
     {else}
-        <p class="lead small-text pll">{str tag='notasks' section='artefact.plans'}</p>
+        <p class="lead text-small pll">{str tag='notasks' section='artefact.plans'}</p>
     {/if}
 </div>

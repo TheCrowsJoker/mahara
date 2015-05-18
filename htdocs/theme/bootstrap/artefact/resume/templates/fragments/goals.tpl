@@ -36,8 +36,8 @@
                 <a class="collapsible collapsed in-panel panel-footer" aria-expanded="false" href="#attach_goal_{$.foreach.default.index}" data-toggle="collapse">
                     <p class="text-left mbs">
                         <span class="fa fa-lg prm fa-paperclip"></span>
-                        
-                        <span class="small-text">{str tag=attachedfiles section=artefact.blog}</span>
+
+                        <span class="text-small">{str tag=attachedfiles section=artefact.blog}</span>
                          <span class="metadata">({$n->count})</span>
                         <span class="fa fa-chevron-down pull-right collapse-indicator"></span>
                     </p>
@@ -48,7 +48,7 @@
                     <ul class="list-unstyled list-group mbs">
                     {foreach from=$n->files item=file}
                         <li class="list-group-item-text list-group-item-link">
-                            <a href="{$WWWROOT}artefact/file/download.php?file={$file->attachment}" '{if $file->description}' title="{$file->description}" data-toggle="tooltip" '{/if}' >  
+                            <a href="{$WWWROOT}artefact/file/download.php?file={$file->attachment}" '{if $file->description}' title="{$file->description}" data-toggle="tooltip" '{/if}' >
                                 <div class="file-icon mrs">
                                     <img src="{$file->icon}" alt="">
                                 </div>

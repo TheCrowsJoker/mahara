@@ -1,5 +1,9 @@
 .btn {
     vertical-align: baseline;
+
+    .customrow & {
+        margin-top: 26px; // layout builder button alignment
+    }
 }
 
 .btn-sm,
@@ -70,7 +74,7 @@ h1 + div > .btn-top-right,
             color: #222;
             background: $gray-lighter;
             text-decoration: none;
-            
+
             .fa {
                 color: #777;
             }
@@ -142,7 +146,7 @@ h1 + .subpage > .btn-group-top {
             @extend .sr-only;
         }
         .btn-top-right {
-            margin: 0; // negate nested margin 
+            margin: 0; // negate nested margin
         }
     }
     .btn-action-list{
@@ -151,7 +155,7 @@ h1 + .subpage > .btn-group-top {
     }
 }
 
-.panel-secondary .btn-group-top {
+.panel-secondary .blockinstance-controls .btn-group-top {
     position: absolute;
     top: 11px;
     right: 10px;
@@ -176,7 +180,7 @@ h1 + .subpage > .btn-group-top {
     }
     &.btn-three .btn {
         width: 50%;
-        &:first-child, 
+        &:first-child,
         &:last-child {
             width:25%;
         }

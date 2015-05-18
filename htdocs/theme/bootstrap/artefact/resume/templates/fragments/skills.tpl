@@ -39,7 +39,7 @@
                         <p class="text-left mbs">
                             <span class="fa fa-lg prm fa-paperclip"></span>
                            
-                            <span class="small-text">{str tag=attachedfiles section=artefact.blog}</span>
+                            <span class="text-small">{str tag=attachedfiles section=artefact.blog}</span>
                             <span class="metadata">({$n->count})</span>
                             <span class="fa fa-chevron-down collapse-indicator pull-right"></span>
                         </p>

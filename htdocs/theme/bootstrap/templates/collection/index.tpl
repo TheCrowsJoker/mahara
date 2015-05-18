@@ -23,7 +23,7 @@
                         <div class="detail">{$collection->description}</div>
 
                         <div class="detail">
-                            <span class="lead small-text">{str tag=Views section=view}:</span>
+                            <span class="lead text-small">{str tag=Views section=view}:</span>
                             {if $collection->views}
                                 {foreach from=$collection->views item=view name=cviews}
                                     <a href="{$view->fullurl}" class="inner-link">{$view->title}</a>{if !$.foreach.cviews.last}, {/if}

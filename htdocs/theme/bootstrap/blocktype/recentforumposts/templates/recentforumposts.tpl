@@ -12,12 +12,12 @@
                     <h4 class="title list-group-item-heading mts mlxl">
                         <a class="plm" href="{$WWWROOT}interaction/forum/topic.php?id={$postinfo->topic}&post={$postinfo->id}">
                             {$postinfo->topicname} 
-                            <span class="metadata small-text">
+                            <span class="metadata text-small">
                                 - {$postinfo->author|display_name}</span>
                         </a>
                     </h4>
                     <div class="ptl detail">
-                        <p class=" small-text">{$postinfo->body|str_shorten_html:100:true|safe}</p>
+                        <p class=" text-small">{$postinfo->body|str_shorten_html:100:true|safe}</p>
                     </div>
 
             </li>
@@ -25,7 +25,7 @@
         <ul>
     {else}
     <div class="panel-body">
-        <p class="lead small-text">
+        <p class="lead text-small">
             {str tag=noforumpostsyet section=interaction.forum}
         </p>
     </div>

@@ -31,11 +31,11 @@
 
 		{if !$issitetemplate}
 
-		<a class="small-text pull-left" href="{$displaylink}">
+		<a class="text-small pull-left" href="{$displaylink}">
 			{str tag=displayview section=view}
 		</a>
 		{if $edittitle || $viewtype == 'profile'}
-			<a class="plm small-text pull-left" href="{$WWWROOT}view/access.php?id={$viewid}{if $new}&new=1{/if}">
+			<a class="plm text-small pull-left" href="{$WWWROOT}view/access.php?id={$viewid}{if $new}&new=1{/if}">
 				<span class="fa fa-unlock-alt"></span> 
 				{str tag=shareview section=view}
 			</a>
