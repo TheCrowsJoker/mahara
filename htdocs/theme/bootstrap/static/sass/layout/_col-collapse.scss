@@ -1,3 +1,6 @@
+// Collapsible columns.
+// Used for the page builder
+
 .col-collapse {
     @extend .col-md-2;
     @extend .col-xs-3;
@@ -15,7 +18,7 @@
     }
 }
 
-.col-with-collapse{
+.col-with-collapse {
     @extend .col-md-10;
     @extend .col-xs-9;
 

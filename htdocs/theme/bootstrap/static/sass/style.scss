@@ -9,147 +9,98 @@
  */
 
 
-
-// START Bootstrap components and customisation overrides
-
-//@import "../bootstrap/assets/stylesheets/bootstrap-compass";
-
-
 // Core variables and mixins
 @import "utilities/brand-variables"; // Import our brand variables
 @import "utilities/bootstrap-variables";  // ...and our custom bootstrap variables file
+@import "utilities/bootstrap-index"; // bootstrap scss dependecy file
 
-@import "compass";
-
-@import "../bootstrap/assets/stylesheets/bootstrap/mixins";
-@import "utilities/mixins";  // include after bootstrap mixins in case we want to override
-
-
-// Reset and dependencies
-@import "../bootstrap/assets/stylesheets/bootstrap/normalize";
-@import "../bootstrap/assets/stylesheets/bootstrap/print";
-//@import "../bootstrap/assets/stylesheets/bootstrap/glyphicons";
+@import "compass"; //include compass libraries
 
 @import "lib/font-awesome/font-awesome";
 
-
-// Core CSS
-@import "../bootstrap/assets/stylesheets/bootstrap/scaffolding";
-@import "../bootstrap/assets/stylesheets/bootstrap/type";
-@import "../bootstrap/assets/stylesheets/bootstrap/code";
-@import "../bootstrap/assets/stylesheets/bootstrap/grid";
-@import "../bootstrap/assets/stylesheets/bootstrap/tables";
-@import "../bootstrap/assets/stylesheets/bootstrap/forms";
-@import "../bootstrap/assets/stylesheets/bootstrap/buttons";
-
-// Components
-@import "../bootstrap/assets/stylesheets/bootstrap/component-animations";
-@import "../bootstrap/assets/stylesheets/bootstrap/dropdowns";
-@import "../bootstrap/assets/stylesheets/bootstrap/button-groups";
-@import "../bootstrap/assets/stylesheets/bootstrap/input-groups";
-@import "../bootstrap/assets/stylesheets/bootstrap/navs";
-@import "../bootstrap/assets/stylesheets/bootstrap/navbar";
-@import "../bootstrap/assets/stylesheets/bootstrap/breadcrumbs";
-@import "../bootstrap/assets/stylesheets/bootstrap/pagination";
-@import "../bootstrap/assets/stylesheets/bootstrap/pager";
-@import "../bootstrap/assets/stylesheets/bootstrap/labels";
-@import "../bootstrap/assets/stylesheets/bootstrap/badges";
-@import "../bootstrap/assets/stylesheets/bootstrap/jumbotron";
-@import "../bootstrap/assets/stylesheets/bootstrap/thumbnails";
-@import "../bootstrap/assets/stylesheets/bootstrap/alerts";
-@import "../bootstrap/assets/stylesheets/bootstrap/progress-bars";
-@import "../bootstrap/assets/stylesheets/bootstrap/media";
-@import "../bootstrap/assets/stylesheets/bootstrap/list-group";
-@import "../bootstrap/assets/stylesheets/bootstrap/panels";
-@import "../bootstrap/assets/stylesheets/bootstrap/responsive-embed";
-@import "../bootstrap/assets/stylesheets/bootstrap/wells";
-@import "../bootstrap/assets/stylesheets/bootstrap/close";
-
-// Components w/ JavaScript
-@import "../bootstrap/assets/stylesheets/bootstrap/modals";
-@import "../bootstrap/assets/stylesheets/bootstrap/tooltip";
-@import "../bootstrap/assets/stylesheets/bootstrap/popovers";
-@import "../bootstrap/assets/stylesheets/bootstrap/carousel";
-
-// Utility classes
-@import "../bootstrap/assets/stylesheets/bootstrap/utilities";
-@import "../bootstrap/assets/stylesheets/bootstrap/responsive-utilities";
-
-
-// END bootstrap //
-
-
+@import "utilities/mixins";
 @import "utilities/classes"; // Custom utility classes
-@import "utilities/whitespace"; // Custom utility classes
+@import "utilities/whitespace"; // Padding and margin classes
 
 @import "typography/fonts";
 @import "typography/typography";
-@import "typography/tables";
 @import "typography/icons";
+@import "typography/tables";
 @import "typography/text";
 
 
 // General customisation and component files go here...
 @import "layout/layout";
-@import "layout/columns";
 @import "layout/col-collapse";
+@import "layout/columns";
 @import "layout/footer";
 @import "layout/header";
 @import "layout/profile-block";
 
-@import "layout/panel/collapse";
+// Panels are a very commonly used layout component
 @import "layout/panel/panel";
+@import "layout/panel/panel-body";
+@import "layout/panel/panel-collapse"; // for collapsible panels and collapsible fieldsets
+@import "layout/panel/panel-control";
+@import "layout/panel/panel-footer";
+@import "layout/panel/panel-form";
+@import "layout/panel/panel-half";
+@import "layout/panel/panel-heading";
+@import "layout/panel/panel-items"; // groups of panels
+@import "layout/panel/panel-secondary";
 
-@import "layout/nav/nav-tabs";
-@import "layout/nav/navbar";
+// Navigation
 @import "layout/nav/main-nav";
 @import "layout/nav/minor-nav";
-@import "layout/nav/top-nav";
+@import "layout/nav/nav-tabs";
+@import "layout/nav/navbar";
 @import "layout/nav/tabs";
+@import "layout/nav/top-nav";
 
+
+// Forms
+@import "form/alert";
+@import "form/form";
 @import "form/form-group";
-@import "form/forms";
 @import "form/input-group";
 @import "form/site-messages";
-@import "form/alert";
 
 
+// Components - small reusable design elements
 @import "components/btn";
 @import "components/btn-group";
-
-@import "components/input-as-icon";
-@import "components/indicator";
-@import "components/toggles";
-@import "components/switch";
-@import "components/model";
-
-
 @import "components/contextual-help";
-@import "components/link-thumb"; // text displayed as a thumbnail (cf. admin cookie consent directives)
-@import "components/user-icon";
 @import "components/dropzone-previews";
+@import "components/indicator";
+@import "components/input-as-icon";
 @import "components/label";
+@import "components/link-thumb"; // text displayed as a thumbnail (cf. admin cookie consent directives)
 @import "components/list-group";
-@import "components/loading-box";
+@import "components/loading-inner";
+@import "components/model";
 @import "components/pagination";
+@import "components/switch";
+@import "components/toggles";
+@import "components/user-icon";
 
 
 // Feature related sass. We avoid this where we can in favour of reusable components
 @import "features/dashboard-widget";
 @import "features/filebrowser";
 @import "features/forum-post";
-@import "features/notification"; //email style
 @import "features/message-thread";
+@import "features/notification"; // email style notification panels
 
 @import "components/gallery-thumb"; //@todo , move this to 'features' or make it redundant
 
 
 // Supporting sass for library code
-@import "lib/select2";
-@import "lib/ui-draggable";
 @import "lib/meter.scss"; // progress bar (old/ported)
-@import "lib/tinymce";
+@import "lib/select2";
 @import "lib/star";
+@import "lib/tinymce";
+@import "lib/ui-draggable";
+
 
 // Keep these files last to override all other style sheets
 @import "custom";

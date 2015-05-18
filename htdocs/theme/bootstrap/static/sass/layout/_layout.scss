@@ -59,6 +59,22 @@ body {
     clear:both;
 }
 
+.wallpost:first-child {
+    margin-top: 20px;
+}
+
+.columns3,
+.columns4,
+.columns5 {
+    .wallpost .panel-heading {
+        font-size: 12px;
+        padding-right:40px;
+        h4 {
+            font-size: 12px;
+        }
+    }
+}
+
 
 // Needed to clear the float when dropzone is visible
 .blocktype {
