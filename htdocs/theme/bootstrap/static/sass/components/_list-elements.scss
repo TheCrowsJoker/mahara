@@ -34,13 +34,14 @@
     }
 }
 
-
-
 .list-group-item-heading {
     a {
         &:hover {
             text-decoration: none;
             color: $link-color;
+            &.inner-link {
+                 text-decoration: underline;
+            }
             .metadata {
                 color: $link-color;
             }

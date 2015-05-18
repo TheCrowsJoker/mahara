@@ -50,7 +50,7 @@ a.link-block {
   }
 }
 
-.metadata{
+.metadata {
     font-size: 0.8em;
     color: #888;
 }
@@ -63,6 +63,10 @@ a.link-block {
 
 .text-orange {
     color: #FE6500;
+}
+.text-watermark {
+    @include text-shadow(-1px 0 0 #fff);
+    opacity: 0.3;
 }
 
 a:hover, a:focus {

@@ -7,7 +7,8 @@
 .fa-annotation:before {
   content: $fa-var-pencil-square-o;
 }
-.fa-fileimagevideo:before {
+.fa-fileimagevideo:before,
+.fa-video:before {
 	content: $fa-var-film;
 }
 .fa-blog:before {
@@ -129,4 +130,26 @@
 
 .fa-wall:before {
   content: $fa-var-quote-left;
+}
+
+.fa-audio:before {
+  content: $fa-var-music;
+}
+
+
+.icon-on-hover {
+
+  ~ .icon-action {
+    opacity: 0;
+    visibility: hidden;
+  }
+  &:hover {
+    ~ .fa {
+        opacity: 1;
+        visibility: visible;
+        &.text-watermark {
+           opacity: 0.2;
+        }
+    }
+  }
 }
