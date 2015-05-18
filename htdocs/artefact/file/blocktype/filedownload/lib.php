@@ -48,6 +48,7 @@ class PluginBlocktypeFiledownload extends PluginBlocktype {
                     'description' => $artefact->get('description'),
                     'size' => $artefact->get('size'),
                     'ctime' => $artefact->get('ctime'),
+                    'artefacttype' => $artefact->get('artefacttype'),
                     'iconsrc' => call_static_method(
                         generate_artefact_class_name($artefact->get('artefacttype')),
                         'get_icon',

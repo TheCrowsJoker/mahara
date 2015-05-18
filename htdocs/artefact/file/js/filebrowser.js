@@ -757,7 +757,7 @@ function FileBrowser(idprefix, folderid, config, globalconfig) {
             }
         };
         if (!existed) {
-            var remove = BUTTON({'class': 'btn btn-default btn-xs button submit unselect', 'type': 'submit', 'name': self.id+'_unselect[' + id + ']', 'title': get_string('remove')}, SPAN({'class': 'fa fa-times text-danger'}), SPAN({'class': 'sr-only'}, get_string('remove')));
+            var remove = BUTTON({'class': 'btn btn-default btn-xs button submit unselect', 'type': 'submit', 'name': self.id+'_unselect[' + id + ']', 'title': get_string('remove')}, SPAN({'class': 'fa fa-times text-danger prs'}), SPAN(null, get_string('remove')));
             connect(remove, 'onclick', self.unselect);
             
             filelink = ''
@@ -770,9 +770,9 @@ function FileBrowser(idprefix, folderid, config, globalconfig) {
             
             fileIconImg = ''
             if (self.filedata[id].icon.length) {
-                fileIconImg = IMG({'src':self.filedata[id].icon});
+                fileIconImg = IMG({'src':self.filedata[id].icon, 'class': 'test'});
             } else {
-                fileIconImg = SPAN({'class': 'fa fa-folder fa-lg'});
+                fileIconImg = SPAN({'class': 'fa fa-' + self.filedata[id].artefacttype + ' fa-lg'});
             }
             
             appendChildNodes(tbody, TR({'class': (highlight ? ' highlight-file' : '')},
@@ -790,7 +790,7 @@ function FileBrowser(idprefix, folderid, config, globalconfig) {
             var rowbutton = getFirstElementByTagAndClassName('button', 'button', r);
             var rowid = rowbutton.name.replace(/.*_unselect\[(\d+)\]$/, '$1');
             if (typeof(self.selecteddata[rowid]) != 'undefined') {
-                setNodeAttribute(r, 'class', 'r' + rcount % 2);
+                setNodeAttribute(r, 'class', 'r' + rcount % 2 + ' warning');
                 removeElementClass(r, 'hidden');
                 rcount ++;
             }
@@ -843,10 +843,9 @@ function FileBrowser(idprefix, folderid, config, globalconfig) {
         for (i = 0; i < rows.length; i++) {
             var r = rows[i];
             var rowbutton = getFirstElementByTagAndClassName('button', 'button', r);
-            // var rowbutton = getFirstElementByTagAndClassName('input', 'button', r);
             var rowid = rowbutton.name.replace(/.*_unselect\[(\d+)\]$/, '$1');
             if (typeof(self.selecteddata[rowid]) != 'undefined') {
-                setNodeAttribute(r, 'class', 'r' + rcount % 2);
+                setNodeAttribute(r, 'class', 'r' + rcount % 2 + ' warning');
                 removeElementClass(r, 'hidden');
                 rcount ++;
             }

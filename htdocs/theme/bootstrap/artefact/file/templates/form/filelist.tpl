@@ -61,7 +61,11 @@
                                         <span class="pls fa-folder-open fa fa-lg "></span>
                                     {/if} 
                                 {else}
-                                    <img src="{$file->icon}" title="{str tag=clickanddragtomovefile section=artefact.file arg1=$file->title}" alt="{$file->title}">
+                                    {if $file->icon}
+                                        <img src="{$file->icon}" title="{str tag=clickanddragtomovefile section=artefact.file arg1=$file->title}" alt="{$file->title}">
+                                    {else}
+                                        <span class="fa fa-{$file->artefacttype} fa-lg prm"></span>
+                                    {/if}
                                 {/if}
                         {/if}
                     </td>

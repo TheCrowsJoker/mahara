@@ -1541,14 +1541,16 @@ if (typeof jQuery == 'function') {
 
 			// fail #2.1 custom content inside container
 			if (!root.innerHTML.replace(/\s/g, '')) {
+				root.style.width = "auto";
+				root.style.height = "auto";
 				root.innerHTML =
-					"<h2>Flash version " + opts.version + " or greater is required</h2>" +
-					"<h3>" +
+					"<h2 class='lead text-danger'>Flash version " + opts.version + " or greater is required</h2>" +
+					"<h3 class='lead text-danger'>" +
 						(VERSION[0] > 0 ? "Your version is " + VERSION : "You have no flash plugin installed") +
 					"</h3>" +
 
 					(root.tagName == 'A' ? "<p>Click here to download latest version</p>" :
-						"<p>Download latest version from <a href='" + URL + "'>here</a></p>");
+						"<span>Download latest version from <a href='" + URL + "'>here</a></span>");
 
                 //#526. allow click through event for flash installation message when using div containers.
 				if (root.tagName == 'A' || root.tagName == "DIV") {
