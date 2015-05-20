@@ -76,6 +76,15 @@ jQuery(function($) {
         });
     }
 
+    $('.modal-docked-right').on('click',function(e) {
+        var dialog = $('.modal-dialog'),
+            dialogParent = $(e.target).closest('.modal-dialog').length;
+
+        if(e.target !== dialog && !dialogParent){
+            $(this).find('button.close').trigger('click');
+        }
+    });
+
     affixSize();
     siteMessages();
     resetOnCollapse();

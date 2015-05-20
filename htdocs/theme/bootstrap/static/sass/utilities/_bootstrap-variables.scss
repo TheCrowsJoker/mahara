@@ -725,9 +725,9 @@ $panel-primary-text:          $gray-dark !default;
 $panel-primary-border:        #ddd !default;
 $panel-primary-heading-bg:    #fff !default;
 
-$panel-secondary-text:          $gray-dark !default;
-$panel-secondary-border:        $mahara-green-bright !default;
-$panel-secondary-heading-bg:    darken($panel-default-heading-bg, 3%) !default;
+$panel-secondary-text:         $gray-dark !default;
+$panel-secondary-border:       $mahara-green-bright !default;
+$panel-secondary-heading-bg:   darken($panel-default-heading-bg, 2%) !default;
 
 $panel-success-text:          $state-success-text !default;
 $panel-success-border:        $state-success-border !default;

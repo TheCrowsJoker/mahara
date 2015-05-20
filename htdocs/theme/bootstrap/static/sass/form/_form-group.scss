@@ -225,7 +225,6 @@
 
     .file-wrapper,
     .tag-wrapper input,
-    .mce-tinymce,
     .about-text,
     input[type=text],
     input[type=password],
@@ -240,6 +239,21 @@
             .columns3 &,
             .columns3 & {
                 max-width:100%;
+            }
+        }
+        @media (min-width: $screen-lg-min) {
+            width: 500px;
+        }
+    }
+
+    .mce-tinymce {
+        @media (min-width: $screen-sm-min) {
+            width: 420px;
+            max-width: 100%;
+            .columns3 &,
+            .columns3 &,
+            .columns3 & {
+                max-width: 100%;
             }
         }
         @media (min-width: $screen-lg-min) {
