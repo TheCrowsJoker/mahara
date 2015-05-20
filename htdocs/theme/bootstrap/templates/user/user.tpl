@@ -1,15 +1,15 @@
 <div class="{if $user->pending}pending panel-warning{else}panel-default{/if} panel panel-half">
     <h3 class="panel-heading profile-block">
-        <a href="{profile_url($user)}">
+        <a href="{profile_url($user)}" class="prl">
             {$user->display_name}
             {if $user->pending}
-            <span class="pendingfriend"> 
-            <i>- {str tag='pendingsince' section='group' arg1=$user->pending_time}</i>
-            </span>
+            <em class="pendingfriend prxxl"> 
+            - {str tag='pendingsince' section='group' arg1=$user->pending_time}
+            </em>
             {elseif $user->friend && $page == 'find'}
-            <span class="existingfriend"> 
-            <i>- {str tag='existingfriend' section='group'}</i>
-            </span>
+            <em class="existingfriend prxxl"> 
+            - {str tag='existingfriend' section='group'}
+            </em>
             {/if}
         </a>
         <span class="user-icon" id="friendinfo_{$user->id}">

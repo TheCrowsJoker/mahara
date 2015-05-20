@@ -658,7 +658,9 @@ function FileBrowser(idprefix, folderid, config, globalconfig) {
                 addElementClass(elem, 'hidden');
             }
             connect(elem, 'onclick', function (e) {
-
+                
+                addElementClass(elem, 'warning');
+                
                 if(e._event.target.nodeName === 'A'){
                     return;
                 }
@@ -757,7 +759,7 @@ function FileBrowser(idprefix, folderid, config, globalconfig) {
             }
         };
         if (!existed) {
-            var remove = BUTTON({'class': 'btn btn-default btn-xs button submit unselect', 'type': 'submit', 'name': self.id+'_unselect[' + id + ']', 'title': get_string('remove')}, SPAN({'class': 'fa fa-times text-danger prs'}), SPAN(null, get_string('remove')));
+            var remove = BUTTON({'class': 'btn-link text-small button submit unselect', 'type': 'submit', 'name': self.id+'_unselect[' + id + ']', 'title': get_string('remove')}, SPAN({'class': 'fa fa-times fa-lg text-danger prs'}), SPAN(null, get_string('remove')));
             connect(remove, 'onclick', self.unselect);
             
             filelink = ''
@@ -778,8 +780,7 @@ function FileBrowser(idprefix, folderid, config, globalconfig) {
             appendChildNodes(tbody, TR({'class': (highlight ? ' highlight-file' : '')},
                    TD(null, fileIconImg),
                    TD(null, filelink),
-                   TD({'class':'filedescription'}, self.filedata[id].description),
-                   TD({'class':'text-center s'}, remove, INPUT({'type':'hidden', 'class':'hidden', 'id':self.id+'_selected[' + id + ']', 'name':self.id+'_selected[' + id + ']', 'value':id}))
+                   TD({'class':'text-right s'}, remove, INPUT({'type':'hidden', 'class':'hidden', 'id':self.id+'_selected[' + id + ']', 'name':self.id+'_selected[' + id + ']', 'value':id}))
                   ));
         }
         // Display the list

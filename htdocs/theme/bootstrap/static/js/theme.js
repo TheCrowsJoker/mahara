@@ -76,6 +76,37 @@ jQuery(function($) {
         });
     }
 
+    /*
+     * Calculate carousel(image gallery) height 
+     */
+    function carouselHeight() {
+        var carousel = $('.carousel'),
+            i, j,
+            image,
+            height;
+
+        carousel.removeClass('carousel-ready');
+
+        for (i = 0; i < carousel.length; i = i + 1) {
+
+            height = 0;
+            image = $(carousel[i]).find('.item img');
+
+            for (j = 0; j < image.length; j = j + 1){
+                if($(image[j]).height() > height){
+                    height = $(image[j]).height();
+                }
+            }
+
+            $(carousel[i]).height(height);
+            $(carousel[i]).addClass('carousel-ready');
+        }
+    }
+
+    $(window).on('resize colresize blockupdate', function(){
+        carouselHeight();
+    });
+
     $('.modal-docked-right').on('click',function(e) {
         var dialog = $('.modal-dialog'),
             dialogParent = $(e.target).closest('.modal-dialog').length;
@@ -83,8 +114,9 @@ jQuery(function($) {
         if(e.target !== dialog && !dialogParent){
             $(this).find('button.close').trigger('click');
         }
-    });
+    });    
 
+    carouselHeight();
     affixSize();
     siteMessages();
     resetOnCollapse();

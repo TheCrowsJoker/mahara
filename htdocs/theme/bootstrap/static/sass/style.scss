@@ -69,6 +69,7 @@
 // Components - small reusable design elements
 @import "components/btn";
 @import "components/btn-group";
+@import "components/carousel";
 @import "components/contextual-help";
 @import "components/dropzone-previews";
 @import "components/indicator";
@@ -90,8 +91,6 @@
 @import "features/forum-post";
 @import "features/message-thread";
 @import "features/notification"; // email style notification panels
-
-@import "components/gallery-thumb"; //@todo , move this to 'features' or make it redundant
 
 
 // Supporting sass for library code

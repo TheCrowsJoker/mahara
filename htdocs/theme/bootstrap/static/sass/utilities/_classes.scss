@@ -1,7 +1,7 @@
 // Reusable modifying classes
 
 
-.inner-link{
+.inner-link {
     position: relative;
     top: 0;
     left: 0;
@@ -9,7 +9,7 @@
     zoom: 1;
 }
 
-.outer-link{
+.outer-link {
     position: absolute;
     top: 0;
     left: 0;
@@ -25,7 +25,8 @@
     }
 }
 
-.js .js-hide {
+.js .js-hide,
+.js-hidden {
     display: none;
 }
 

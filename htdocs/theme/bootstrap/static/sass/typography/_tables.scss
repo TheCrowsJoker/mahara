@@ -83,6 +83,10 @@
     }
 }
 
+.table-selectedlist {
+    font-size: $font-size-small;
+}
+
 table.table tr {
     .with-checkbox {
         min-width: 74px;

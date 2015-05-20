@@ -28,7 +28,7 @@
         <span class="fa fa-download fa-lg pull-right pts text-watermark icon-action"></span>
         {if $file.description}
         <div class="description ptm">
-            <p class="small-text">
+            <p class="text-small">
                 {$file.description}
             </p>
         </div>

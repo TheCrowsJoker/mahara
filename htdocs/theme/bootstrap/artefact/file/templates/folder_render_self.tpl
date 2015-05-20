@@ -11,7 +11,7 @@
     
     {if $tags}
     <div class="tags">
-        <span class="lead small-text">{str tag=tags}</span>: {list_tags owner=$owner tags=$tags}
+        <span class="lead text-small">{str tag=tags}</span>: {list_tags owner=$owner tags=$tags}
     </div>
     {/if}
     
@@ -48,7 +48,7 @@
                         {/if}
                     </h5>
                     {if $child->description}
-                    <p class="filedescription small-text">
+                    <p class="filedescription text-small">
                         {$child->description}
                     </p>
                     {/if}

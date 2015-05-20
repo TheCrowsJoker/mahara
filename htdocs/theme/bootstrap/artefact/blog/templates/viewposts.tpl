@@ -46,7 +46,7 @@
             {if $post->commentcount > 0}
                 <a id="block_0{$post->id}{$options.blockid}" class="commentlink" href="{$WWWROOT}artefact/artefact.php?artefact={$post->id}&view={$options.viewid}">{str tag=Comments section=artefact.comment} ({$post->commentcount})</a>
             {else}
-                {if iallowcomments}
+                {if $allowcomments}
                     <span class="nocomments">{str tag=Comments section=artefact.comment} ({$post->commentcount})</span>
                 {/if}
             {/if}

@@ -738,6 +738,7 @@
                 // Work around for a konqueror bug - konqueror passes onclick
                 // events to disabled buttons
 
+<<<<<<< HEAD
                 if (!$(this).disabled) {
                     $(this).prop('disabled', true);
 
@@ -1106,15 +1107,17 @@
     } // end of addConfigureBlock()
 
     function removeConfigureBlocks() {
+
+        $(window).trigger('blockupdate');
+        $(window).trigger('colresize');
+
         $('.configure').each( function() {
             $(this).removeClass('active');
             $(this).addClass('closed');
-
         });
         //
         // $('.navbar-fixed-top').width('auto');
         $('body, .navbar-fixed-top').width('auto');
-
         $('body').removeClass('modal-open modal-open-docked');
     }
 

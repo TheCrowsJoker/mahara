@@ -1,13 +1,13 @@
-<div id="thumbnails{$instanceid}" class="thumbnails ptl js-masonry" data-masonry='{ "itemSelector": ".thumb" }'>
+<div id="thumbnails{$instanceid}" class="panel-body thumbnails js-masonry" data-masonry='{ "itemSelector": ".thumb" }'>
     {foreach from=$images item=image}
-        <div style="width: {$width * 2}px;" class="thumb">
+        <div style="width: {$width * 2}px;" class="thumb mts mbs mrs mls ptm">
         <a rel="{$image.slimbox2}" href="{$image.link}" title="{$image.title}" target="_blank">
-            <img src="{$image.source}" {if $image.height}height="{$image.height}"{/if} alt="{$image.title}" title="{$image.title}" {if $frame}class="frame"{/if} />
+            <img src="{$image.source}" {if $image.height}height="{$image.height}"{/if} alt="{$image.title}" title="{$image.title}" {if $frame}class="frame center-block pbm"{/if} />
         </a>
         {if $showdescription && $image.title}
-            <div class="small-text">
+            <p class="text-small prs pls">
                 {$image.title|truncate:60|safe}
-            </div>
+            </p>
         {/if}
         </div>
     {/foreach}

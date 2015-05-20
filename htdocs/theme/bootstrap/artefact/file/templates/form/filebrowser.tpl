@@ -14,20 +14,14 @@
 <div id="{$prefix}_open_upload_browse_container">
 
     {if $config.selectone || $config.selectmodal}
-        <!-- For adding image block -->
         <div id="{$prefix}_upload_browse" class="filebrowser in-collapsible">
     {else}
-        <!-- Modal screen file browser -->
         <button type="button" class="btn btn-default" data-toggle="modal" data-target="#{$prefix}_upload_browse">
             <span class="fa fa-paperclip fa-lg prs"></span>
             {str tag=addafile section=artefact.file}
         </button>
         <div id="{$prefix}_upload_browse" class="modal fade js-filebrowser" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
     {/if}
-
-<!--     {if $config.browsehelp}
-        {contextualhelp plugintype=$config.plugintype pluginname=$config.pluginname section=$config.browsehelp}
-    {/if} -->
 
 {else}
     <div id="{$prefix}_upload_browse" class="upload_browse select">
@@ -40,7 +34,6 @@
             </button>
         {/if}
 
-        <!-- Group and intitution files (display as tabs and button dropdown) -->
         {if $tabs}
             <input type="hidden" name="{$prefix}_owner" id="{$prefix}_owner" value="{$tabs.owner}" />
             <input type="hidden" name="{$prefix}_ownerid" id="{$prefix}_ownerid" value="{$tabs.ownerid}" />
@@ -58,7 +51,6 @@
                 </div>
         {/if}
 
-        <!-- Include upload form -->
         {if $config.upload}
         <div id="{$prefix}_upload_container" class="{if $config.selectone || $config.selectmodal} panel-fake{else} panel panel-default fileupload {/if} {if ($tabs && !$tabs.upload) || $uploaddisabled} hidden{/if}">
             {* config.uploadagreement: disable the file chooser unless the agreement is checked *}
@@ -153,11 +145,10 @@
         {/if}
 
         <div class="filelist-wrapper panel panel-secondary">
-            <h3 id="{$prefix}_foldernav" class="panel-heading panel-heading-plain mtl">
+            <h3 id="{$prefix}_foldernav" class="panel-heading panel-heading-plain ptm pbm mtl mbl pll ">
             {include file="artefact:file:form/folderpath.tpl" path=$path querybase=$querybase owner=$tabs.owner ownerid=$tabs.ownerid}
             </h3>
 
-            <!-- Select filelist -->
             <div id="{$prefix}_filelist_container">
                 {include file="artefact:file:form/filelist.tpl" prefix=$prefix filelist=$filelist folderdownload=$folderdownload folderparams=$folderparams editable=$config.edit selectable=$config.select highlight=$highlight edit=$edit querybase=$querybase groupinfo=$groupinfo owner=$tabs.owner ownerid=$tabs.ownerid selectfolders=$config.selectfolders showtags=$config.showtags editmeta=$config.editmeta}
             </div>

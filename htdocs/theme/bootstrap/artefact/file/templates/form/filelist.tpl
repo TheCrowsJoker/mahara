@@ -2,36 +2,24 @@
 <div class="">
     <div class="table-responsive">
         <table id="{$prefix}_filelist" class="tablerenderer filelist table table-hover">
-<!--             <thead>
+            <thead>
                 <tr>
                     <th class="icon-cell"></th>
                     <th>{str tag=Name section=artefact.file}</th>
-                    <th>{str tag=Description section=artefact.file}</th> -->
+                    <th>{str tag=Description section=artefact.file}</th>
                     
-                    <!-- {if !$showtags && !$editmeta}{/if} -->
-<!--                     {if !selectable}
+                    {if !$selectable}
                     <th class="filesize">
                         {str tag=Size section=artefact.file}
                     </th>
-                    
                     <th class="filedate">
                         {str tag=Date section=artefact.file}
                     </th>
-                    {/if} -->
-                    
-<!--                     {if $showtags}
-                    <th class="filetags">{str tag=tags}</th>
-                    {/if} -->
-                
-<!--                     {if $editmeta}
-                    <th class="right"></th>
                     {/if}
-                    
-                    <th class="right nowrap"> -->
-                        <!-- <span class="">{str tag=edit}</span> -->
-<!--                     </th>
+                    <th class="right nowrap">
+                    </th>
                 </tr>
-            </thead> -->
+            </thead>
             
             <tbody>
             {foreach from=$filelist item=file}
@@ -45,7 +33,15 @@
                     <td class="icon-cell">
 
                         {if $file->isparent}
-                            <span class="pls fa-level-up fa fa-lg "></span>
+                            {if $file->artefacttype == 'folder'}
+                            <a href="{$querybase|safe}folder={$file->id}{if $owner}&owner={$owner}{if $ownerid}&ownerid={$ownerid}{/if}{/if}" id="changefolder:{$file->id}" class="changefolder">
+                                <span class="pls fa-level-up fa fa-lg text-default">
+                                </span>
+                                <span class="sr-only">
+                                    {str tag=folder section=artefact.file}:{$displaytitle}
+                                </span>
+                            </a>
+                            {/if}
                         {else}
 
                             {if $editable}

@@ -3897,7 +3897,7 @@ function build_pagination($params) {
                 join(' ', $strlimitoptions) .
             '</select>
             <input class="currentoffset" type="hidden" name="' . $params['offsetname'] . '" value="' . $params['offset'] . '"/>
-            <input class="pagination js-hidden" type="submit" name="submit" value="' . get_string('change') . '"/>
+            <input class="pagination js-hidden hidden" type="submit" name="submit" value="' . get_string('change') . '"/>
         </form>';
     }
     // if $params['count'] is less than 10 add the setlimitselect as a hidden field so that elasticsearch js can access it

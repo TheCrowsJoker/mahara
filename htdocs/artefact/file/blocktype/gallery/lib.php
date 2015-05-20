@@ -42,7 +42,6 @@ class PluginBlocktypeGallery extends PluginBlocktype {
     public static function get_instance_config_javascript(BlockInstance $instance) {
         return array(
             'js/configform.js',
-            'js/slideshow.js',
         );
     }
 
