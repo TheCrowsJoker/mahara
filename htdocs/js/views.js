@@ -737,8 +737,6 @@
 
                 // Work around for a konqueror bug - konqueror passes onclick
                 // events to disabled buttons
-
-<<<<<<< HEAD
                 if (!$(this).disabled) {
                     $(this).prop('disabled', true);
 
