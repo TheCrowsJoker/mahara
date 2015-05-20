@@ -909,7 +909,7 @@
 
         // Open form here even though it's currently empty (its quicker)
         newblock.find('.blockinstance-header').html(get_string('loading'));
-        newblock.find('.blockinstance-content').html('<div class="text-center mtxl"><span class="text-light fa fa-spinner fa-pulse fa-2x"></span></div>');
+        newblock.find('.blockinstance-content').html('<div class="text-center ptxl mtxl"><span class="text-watermark fa fa-spinner fa-pulse fa-3x"></span></div>');
 
         // Prevent disappearing scroll bars for interfering with smooth animation
         $('body, .navbar-fixed-top').width($('body').width());
