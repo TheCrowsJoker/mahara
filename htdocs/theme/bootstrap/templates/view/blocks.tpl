@@ -112,7 +112,7 @@
                 <span class="fa fa-cogs fa-2x pull-right"></span>
             </div>
             <div class="modal-body blockinstance-content pt0 pb0">
-                {$addform|safe}
+                <div class="block-inner">{$addform|safe}</div>
             </div>
         </div>
     </div>

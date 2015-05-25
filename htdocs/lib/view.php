@@ -619,7 +619,7 @@ class View {
     public static function default_columnsperrow() {
         $default = array(1 => (object)array('row' => 1, 'columns' => 3, 'widths' => '33,33,33'));
         if (!$id = get_field('view_layout_columns', 'id', 'columns', $default[1]->columns, 'widths', $default[1]->widths)) {
-            throw new SystemException("View::default_columnsperrow: Default columns = 3, widths = '33,33,33' not in view_layout_columns table");
+            throw new SystemException("View::default_columnsperrow: Default c olumns = 3, widths = '33,33,33' not in view_layout_columns table");
         }
         return $default;
     }
@@ -2081,7 +2081,7 @@ class View {
         $smarty->assign('blockcontent', $blockcontent);
 
         if (isset($data['width'])) {
-            $smarty->assign('width', intval($data['width']));
+            $smarty->assign('width', $data['width']);
         }
 
         $smarty->assign('addremovecolumns', $USER->get_account_preference('addremovecolumns'));
@@ -5124,7 +5124,7 @@ class View {
             WHERE ' . self::owner_sql($ownerdata) . "
                 AND title LIKE ? || '%'", array($title));
 
-        $ext = ''; 
+        $ext = '';
         $i = 0;
 
         if ($taken) {

@@ -69,7 +69,7 @@
             rewriteConfigureButton(newblock.find('.configurebutton'));
             rewriteDeleteButton(newblock.find('.deletebutton'));
         }
-        removeConfigureBlocks();
+        hideDock();
         showMediaPlayers();
         setTimeout(function() {
             newblock.find('.configurebutton').focus();
@@ -276,7 +276,7 @@
         $('.blocktype-drag').on('click keydown', function(e) {
 
             // Add a block when click left button or press 'Space bar' or 'Enter' key
-            if (isHit(e) && $('#addblock').is(':hidden')) {
+            if (isHit(e) && $('#addblock').hasClass('closed')) {
                 startAddBlock($(this));
             }
         });
@@ -301,25 +301,30 @@
     }
 
     function startAddBlock(element) {
-        var addblockdialog = $('#addblock').removeClass('hidden');
+        var addblockdialog = $('#addblock');
 
-        addblockdialog.one('dialog.end', function(event, options) {
-            if (options.saved) {
-                addNewBlock(options, element.parent().find('.blocktype-radio').val());
-            }
-            else {
-                element.focus();
-            }
-        });
+        showDock(addblockdialog, false);
+        //
+        // addblockdialog.one('dialog.end', function(event, options) {
+        //     if (options.saved) {
+        //         addNewBlock(options, element.parent().find('.blocktype-radio').val());
+        //     }
+        //     else {
+        //         element.focus();
+        //     }
+        // });
 
 
         addblockdialog.find('h4.modal-title').text(get_string('addblock', element.text()));
         computeColumnInputs(addblockdialog);
+        addblockdialog.find('.block-inner').removeClass('hidden');
 
         addblockdialog.find('.deletebutton').focus();
 
         keytabbinginadialog(addblockdialog, addblockdialog.find('.deletebutton'), addblockdialog.find('.cancel'));
     }
+
+
 
     function makeExistingBlocksSortable() {
 
@@ -375,8 +380,10 @@
 
     function cellChanged() {
 
-        $(this).closest('.cellchooser').find('.active').removeClass('active');
+        $(this).closest('.js-cell-chooser').find('.active').removeClass('active');
         $(this).parent().addClass('active');
+
+        console.log(this);
 
         var position = $(this).val().split('-'),
             element = workspace.find('.js-col-row').eq(parseInt(position[0], 10) - 1).find('.column').eq(parseInt(position[1], 10) - 1),
@@ -421,7 +428,7 @@
             insertBlockStub(blockinstance, whereTo);
 
             if (data.data.configure) {
-                showConfigureDock();
+                showDock($('#configureblock'), true);
                 addConfigureBlock(blockinstance, data.data.configure, true);
             } else {
                 blockinstance.find('.deletebutton').focus();
@@ -526,7 +533,7 @@
                     $('#blockinstance_' + blockinstanceId).remove();
 
                     if (!$('#configureblock').hasClass('hidden')) {
-                        removeConfigureBlocks();
+                        hideDock();
                         showMediaPlayers();
                         self.focus();
                     }
@@ -557,6 +564,7 @@
 
     /*
      * Shows and sets up one keyboard-accessible ajax move button
+     *
      */
     function rewriteMoveButton(button) {
 
@@ -626,53 +634,63 @@
     }
 
     function computeColumnInputs(dialog) {
-        var inputcontainer = dialog.find('#addblock_cellchooser_container'),
-            result = $('<div>').addClass('cellchooser'),
+        var inputcontainer = dialog.find('.blockinstance-content #addblock_cellchooser_container'),
+            result = $('<div>').addClass('cell-chooser js-cell-chooser'),
             firstcell,
             rows = workspace.find('.js-col-row'),
             i,
-            j;
+            j,
+            row,
+            cols,
+            radios,
+            label,
+            value,
+            radio;
 
 
         for(i = 0; i < rows.length; i = i + 1){
 
-            var row = $('<div>'),
-                cols = $(rows[i]).find('.column'),
-                radios = [];
+            row = $('<div class="cell-row">');
+            cols = $(rows[i]).find('.column');
+            radios = [];
 
             for(j = 0; j < cols.length; j = j + 1){
-                var label,
-                    value = (i + 1) + '-' + (j + 1),
-                    radio = $('<input>').attr({
-                        'type': 'radio',
-                        'id': 'cellchooser_' + value,
-                        'name': 'cellchooser',
-                        'value': value
-                    });
 
-                radio.change(cellChanged);
-
-                radio.focus(function() {
-                    $(this).parent().addClass('focused');
+                value = (i + 1) + '-' + (j + 1); //rowNumber-colNumber
+                radio = $('<input>').attr({
+                    'type': 'radio',
+                    'style': $(cols[j]).attr('style'),
+                    'id': 'cellchooser_' + value,
+                    'name': 'cellchooser',
+                    'value': value
                 });
 
-                radio.blur(function() {
-                    $(this).parent().removeClass('focused');
-                });
 
-                label = $('<label>').addClass('cell').attr('for', 'cellchooser_' + value);
+
+                label = $('<label>').addClass('cell').attr('for', 'cellchooser_' + value).attr('style', $(cols[j]).attr('style'));
 
                 label.append(radio)
                     .append($('<span>').addClass('pseudolabel mll').html(get_string('cellposition', i + 1, j + 1)));
 
                 row.append(label);
 
+                radio.on('change', cellChanged);
+
+                radio.on('focus', function() {
+                    $(this).parent().addClass('focused');
+                });
+
+                radio.on('blur', function() {
+                    $(this).parent().removeClass('focused');
+                });
+
             }
 
             result.append(row);
         }
 
-        inputcontainer.html('').append(result);
+        dialog.find('.dock-loading').remove();
+        inputcontainer.append(result);
 
         firstcell = inputcontainer.find('input').first();
         firstcell.prop('checked', true);
@@ -713,7 +731,7 @@
                 $('#blockinstance_' + blockinstanceId).remove();
 
                 if (!$('#configureblock').hasClass('hidden')) {
-                    removeConfigureBlocks();
+                    hideDock();
                     showMediaPlayers();
                     button.focus();
                 }
@@ -850,7 +868,6 @@
      * Initialises the dialog used to add and move blocks
      */
     function setupPositionBlockDialog() {
-        $('body').append($('#addblock')); //move to end of page
 
         $('#addblock .cancel, #addblock .deletebutton').on('mousedown keydown', function(e) {
             if (isHit(e)) {
@@ -901,14 +918,22 @@
     }
 
     /*
-     * Trigger the empty configure dock
+     * Trigger an empty dock
      */
-    function showConfigureDock() {
-        var newblock = $('#configureblock');
+    function showDock(newblock, replaceContent) {
+        var contentArea = newblock.find('.blockinstance-content'),
+            content = '<div class="dock-loading text-center ptxl mtxl"><span class="text-watermark fa fa-spinner fa-pulse fa-3x"></span></div>';
 
         // Open form here even though it's currently empty (its quicker)
         newblock.find('.blockinstance-header').html(get_string('loading'));
-        newblock.find('.blockinstance-content').html('<div class="text-center ptxl mtxl"><span class="text-watermark fa fa-spinner fa-pulse fa-3x"></span></div>');
+
+        if(replaceContent) {
+            contentArea.html(content);
+        } else {
+
+            contentArea.append(content);
+            contentArea.find('.block-inner').addClass('hidden');
+        }
 
         // Prevent disappearing scroll bars for interfering with smooth animation
         $('body, .navbar-fixed-top').width($('body').width());
@@ -928,7 +953,7 @@
             pd = {'id': $('#viewid').val(), 'change': 1};
 
 
-        showConfigureDock();
+        showDock($('#configureblock'), true);
 
         // delay processing so animation can complete smoothly
         // this may not be neccessary once json requests are done with jquery
@@ -966,7 +991,7 @@
         e.stopPropagation();
         e.preventDefault();
 
-        removeConfigureBlocks();
+        hideDock();
         showMediaPlayers();
         button.focus();
     }
@@ -1079,7 +1104,7 @@
                 e.stopPropagation();
                 e.preventDefault();
 
-                removeConfigureBlocks();
+                hideDock();
                 showMediaPlayers();
 
                 setTimeout(function() {
@@ -1104,8 +1129,8 @@
 
     } // end of addConfigureBlock()
 
-    function removeConfigureBlocks() {
 
+    function hideDock() {
         $(window).trigger('blockupdate');
         $(window).trigger('colresize');
 
@@ -1113,8 +1138,7 @@
             $(this).removeClass('active');
             $(this).addClass('closed');
         });
-        //
-        // $('.navbar-fixed-top').width('auto');
+
         $('body, .navbar-fixed-top').width('auto');
         $('body').removeClass('modal-open modal-open-docked');
     }
