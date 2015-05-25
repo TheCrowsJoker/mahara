@@ -467,7 +467,6 @@ function FileBrowser(idprefix, folderid, config, globalconfig) {
 
     this.create_move_list = function(icon, moveid) {
         var self = this;
-
         if (self.move_list) {
             self.move_list.remove();
         }
@@ -646,35 +645,42 @@ function FileBrowser(idprefix, folderid, config, globalconfig) {
         forEach(getElementsByTagAndClassName('button', 'unselect', self.id + '_selectlist'), function (elem) {
             connect(elem, 'onclick', self.unselect);
         });
-        self.connect_select_buttons();
     }
 
     this.connect_select_buttons = function () {
-        forEach(getElementsByTagAndClassName('tr', 'js-file-select', self.id + '_filelist'), function (elem) {
 
-            var id = elem.getAttribute('data-id');
-            
-            if (self.selecteddata[id]) {
-                addElementClass(elem, 'hidden');
-            }
-            connect(elem, 'onclick', function (e) {
-                
-                addElementClass(elem, 'warning');
-                
-                if(e._event.target.nodeName === 'A'){
+        var elem = document.getElementById(self.id + '_filelist').getElementsByClassName('js-file-select'),
+            i;
+
+        for(var i = 0; i<elem.length; i = i + 1) {
+
+            elem[i].addEventListener('click', function(e){
+
+                e.preventDefault();
+
+                // if folder, or a link that goes somewhere exit out
+                if(e.target.nodeName === 'A'){
                     return;
                 }
 
-                e.stop();
+                var id = this.getAttribute('data-id'),
+                    j;
 
-                var id = this.getAttribute('data-id');
+                // remove visual selection if this is for selecting 1 file
+                if (self.config.selectone) {
+                    for(j = 0; j < elem.length; j = j + 1){
+                        removeElementClass(elem[j], 'warning');
+                    }
+                }
+
+                addElementClass(this, 'warning');
 
                 if (!self.selecteddata[id]) {
-                    self.add_to_selected_list(id);
+                     self.add_to_selected_list(id);
                 }
                 return false;
             });
-        });
+        }
     }
 
     this.update_metadata_to_selected_list = function () {
@@ -702,18 +708,16 @@ function FileBrowser(idprefix, folderid, config, globalconfig) {
         if (!self.filedata[id]) {
             return;
         }
-        var tbody = getFirstElementByTagAndClassName('tbody', null, self.id + '_selectlist');
-        var rows = getElementsByTagAndClassName('tr', null, tbody);
+        var tbody = getFirstElementByTagAndClassName('tbody', null, self.id + '_selectlist'),
+            rows = getElementsByTagAndClassName('tr', null, tbody);
+
         if (self.config.selectone) {
+            // Do we still need the hidden inout for anything? 
             forEach(rows, function (row) {
                 var hiddeninput = getFirstElementByTagAndClassName('input', 'hidden', row);
+
                 if (hiddeninput) {
-                    var rowid = hiddeninput.name.replace(/.*_selected\[(\d+)\]$/, '$1');
                     removeElement(hiddeninput);
-                    var selectbutton = $(self.id + '_select_' + rowid);
-                    if (selectbutton) {
-                        removeElementClass('file:' + rowid, 'warning');
-                    }
                 }
             });
             self.selecteddata = {};
@@ -772,7 +776,7 @@ function FileBrowser(idprefix, folderid, config, globalconfig) {
             
             fileIconImg = ''
             if (self.filedata[id].icon.length) {
-                fileIconImg = IMG({'src':self.filedata[id].icon, 'class': 'test'});
+                fileIconImg = IMG({'src':self.filedata[id].icon});
             } else {
                 fileIconImg = SPAN({'class': 'fa fa-' + self.filedata[id].artefacttype + ' fa-lg'});
             }

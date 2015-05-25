@@ -36,7 +36,11 @@
                     <li class="list-group-item-text list-group-item-link">
                         <a href="{$item->downloadpath}">
                             <div class="file-icon mrs">
+                                {if $item->iconpath}
                                 <img src="{$item->iconpath}" alt="">
+                                {else}
+                                <span class="fa fa-{$item->artefacttype} fa-lg text-default"></span>
+                                {/if}
                             </div>
                             {$item->title|truncate:25}
                         </a>

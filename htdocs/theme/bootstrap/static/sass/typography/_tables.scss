@@ -45,12 +45,13 @@
     &.no-hover {
         &:hover {
             background:inherit;
+            cursor: default;
         }
     }
-      &:hover {
-        cursor: pointer;
-      }
-  }
+        &:hover {
+            cursor: pointer;
+        }
+    }
 }
 
 

@@ -18,6 +18,12 @@ a.panel-footer {
     }
 }
 
+.has-attachment {
+    position: relative;
+    z-index: 1;
+    background-color:#fff;
+}
+
 .panel-footer {
     p {
         margin:0;
@@ -33,10 +39,7 @@ a.panel-footer {
             display: block;
         }
     }
-    &.has-attachment {
-        position: relative;
-        z-index: 999;
-    }
+
     .expand-add-button {
         .show-form {
             display: none;

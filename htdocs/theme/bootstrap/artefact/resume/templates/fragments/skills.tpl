@@ -51,7 +51,11 @@
                             <li class="list-group-item-text list-group-item-link">
                                 <a href="{$WWWROOT}artefact/file/download.php?file={$file->attachment}" '{if $file->description}' title="{$file->description}" data-toggle="tooltip" '{/if}'>
                                     <div class="file-icon mrs">
-                                        <img src="{$file->icon}" alt="" class="mrs">
+                                        {if $file->icon}
+                                        <img src="{$file->icon}" alt="">
+                                        {else}
+                                        <span class="fa fa-{$file->artefacttype} fa-lg text-default"></span>
+                                        {/if}
                                     </div>
                                     {$file->title|truncate:40}
                                 </a>

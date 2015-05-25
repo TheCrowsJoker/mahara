@@ -18,3 +18,7 @@
 
     }
 }
+
+.modal-tinymce .hidden-xs {
+    @extend .sr-only;
+}

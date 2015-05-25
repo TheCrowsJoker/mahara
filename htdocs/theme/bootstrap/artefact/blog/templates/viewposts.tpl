@@ -30,7 +30,11 @@
                     <li class="list-group-item-text list-group-item-link">
                         <a href="{$WWWROOT}artefact/file/download.php?file={$file->attachment}&view={$options.viewid}">
                             <div class="file-icon mrs">
+                                {if $file->icon}
                                 <img src="{$file->icon}" alt="">
+                                {else}
+                                <span class="fa fa-{$file->artefacttype} fa-lg text-default"></span>
+                                {/if}
                             </div>
                             {$file->title} [{$file->size|display_size}]
                         </a>

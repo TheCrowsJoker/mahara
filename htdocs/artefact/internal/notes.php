@@ -208,6 +208,7 @@ function deletenote_form($id, $notedata) {
     $form = array(
         'name'            => 'delete_' . $id,
         'successcallback' => 'deletenote_submit',
+        'class' => 'form-as-button btn-group',
         'elements' => array(
             'delete' => array(
                 'type'         => 'hidden',
@@ -216,7 +217,7 @@ function deletenote_form($id, $notedata) {
             'submit' => array(
                 'type' => 'button',
                 'usebuttontag' => true,
-                'class' => 'btn btn-default btn-xs',
+                'class' => 'btn btn-default btn-xs last',
                 'elementtitle' => get_string('delete'),
                 'value' => '<span class="fa fa-trash text-danger"></span> ',
             ),

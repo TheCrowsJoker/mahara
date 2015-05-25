@@ -2,24 +2,22 @@
 <p class="lead">{str tag=notesdescription1 section=artefact.internal}</p>
 <div class="table-responsive">
     <table id="notes" class="table">
-        <thead>
-            <tr>
-                <th>{str tag=Note section=artefact.internal}</th>
-                <th>{str tag=currenttitle section=artefact.internal}</th>
-                <th>{str tag=containedin section=artefact.internal}</th>
-                <th class="text-center">
-                    <span class="fa fa-paperclip"></span>
-                    <span class="sr-only">
-                        {str tag=Attachments section=artefact.resume}
-                    </span>
-                </th>
-                <th>
-                    <span class="accessible-hidden sr-only">
-                        {str tag=edit}
-                    </span>
-                </th>
-            </tr>
-        </thead>
+        <tr>
+            <th>{str tag=Note section=artefact.internal}</th>
+            <th>{str tag=currenttitle section=artefact.internal}</th>
+            <th>{str tag=containedin section=artefact.internal}</th>
+            <th class="text-center">
+                <span class="fa fa-paperclip"></span>
+                <span class="sr-only">
+                    {str tag=Attachments section=artefact.resume}
+                </span>
+            </th>
+            <th>
+                <span class="accessible-hidden sr-only">
+                    {str tag=edit}
+                </span>
+            </th>
+        </tr>
         <tbody>
             {foreach from=$data item=n}
             <tr class="{cycle values='r1,r0'}">
@@ -59,11 +57,14 @@
                             {foreach from=$n->files item=file}
                                 <li class="list-group-item-text list-group-item-link">
                                     <a href="{$WWWROOT}artefact/file/download.php?file={$file->attachment}" {if $file->description} title="{$file->description}" data-toggle="tooltip"{/if}>
-                                        <div class="file-icon mrs">
+                                        <div class="file-icon">
+                                            {if $file->icon}
                                             <img src="{$file->icon}" alt="">
+                                            {else}
+                                            <span class="fa fa-{$file->artefacttype} fa-lg text-default"></span>
+                                            {/if}
                                         </div>
-                                        {$file->title|truncate:40} -
-                                        ({$file->size|display_size})
+                                        <span>{$file->title|truncate:40} - ({$file->size|display_size})</span>
                                     </a>
                                 </li>
                             {/foreach}
@@ -72,7 +73,7 @@
                         {/if}
                     </div>
                     {if $n->tags}
-                    <div class="tags">{str tag=tags}: {list_tags tags=$n->tags owner=$n->owner}</div>
+                    <div class="tags text-small ptm">{str tag=tags}</span>: {list_tags tags=$n->tags owner=$n->owner}</div>
                     {/if}
                 </td>
                 <td class="note-titled"><label class="hidden">{str tag=currenttitle section=artefact.internal}: </label>
@@ -103,15 +104,19 @@
                 </td>
                 <td class="control-buttons">
                     {if $n->locked}
-                    <span class="s dull text-muted">{str tag=Submitted section=view}</span>
+                    <span class="s dull text-muted">
+                        {str tag=Submitted section=view}
+                    </span>
                     {else}
-                    <a href="{$WWWROOT}artefact/internal/editnote.php?id={$n->id}" title="{str tag=edit}" class="btn btn-default btn-xs">
-                        <span class="fa fa-pencil"></span>
-                        <span class="sr-only">
-                            {str(tag=editspecific arg1=$n->title)|escape:html|safe}
-                        </span>
-                    </a>
-                    {if $n->deleteform}{$n->deleteform|safe}{/if}
+                    <div class="btn-group">
+                        <a href="{$WWWROOT}artefact/internal/editnote.php?id={$n->id}" title="{str tag=edit}" class="btn btn-default btn-xs">
+                            <span class="fa fa-pencil"></span>
+                            <span class="sr-only">
+                                {str(tag=editspecific arg1=$n->title)|escape:html|safe}
+                            </span>
+                        </a>
+                        {if $n->deleteform}{$n->deleteform|safe}{/if}
+                    </div>
                     {/if}
                 </td>
             </tr>

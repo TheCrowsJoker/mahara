@@ -17,10 +17,10 @@
         {foreach from=$attachments item=item}
             <li class="list-group-item-text list-group-item-link">
                 <a href="{$item->downloadpath}">
-                    {if $icons}
-                    <div class="file-icon mrs">
-                        <img src="{$item->iconpath}" alt="">
-                    </div>
+                    {if $item->iconpath}
+                    <img src="{$item->iconpath}" alt="">
+                    {else}
+                    <span class="fa fa-{$item->artefacttype} fa-lg text-default"></span>
                     {/if}
                     {$item->title|truncate:50}
                 </a>

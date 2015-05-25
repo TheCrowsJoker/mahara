@@ -88,15 +88,17 @@
         </td>
         
         <td class="right control-buttons">
-            <a href="{$WWWROOT}interaction/edit.php?id={$forum->id}&amp;returnto=index" class="icon btn btn-default btn-xs" title="{str tag=edit}">
-                <span class="fa fa-pencil"></span>
-                <span class="sr-only">{str tag=editspecific arg1=$forum->title}</span>
-            </a>
-            
-            <a href="{$WWWROOT}interaction/delete.php?id={$forum->id}&amp;returnto=index" class="icon btn btn-danger btn-xs" title="{str tag=delete}">
-                <span class="fa fa-trash"></span>
-                <span class="sr-only">{str tag=deletespecific arg1=$forum->title}</span>
-            </a>
+            <div class="btn-group">
+                <a href="{$WWWROOT}interaction/edit.php?id={$forum->id}&amp;returnto=index" class="icon btn btn-default btn-xs" title="{str tag=edit}">
+                    <span class="fa fa-pencil"></span>
+                    <span class="sr-only">{str tag=editspecific arg1=$forum->title}</span>
+                </a>
+                
+                <a href="{$WWWROOT}interaction/delete.php?id={$forum->id}&amp;returnto=index" class="icon btn btn-default btn-xs" title="{str tag=delete}">
+                    <span class="text-danger fa fa-trash"></span>
+                    <span class="sr-only">{str tag=deletespecific arg1=$forum->title}</span>
+                </a>
+            </div>
         </td>
     </tr>
     {/foreach}

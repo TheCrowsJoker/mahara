@@ -1,4 +1,4 @@
-<tr id="{$prefix}_edit_row"{if !$fileinfo} class="hidden editrow no-hover"{/if}>
+<tr id="{$prefix}_edit_row"{if !$fileinfo} class="text-regular hidden editrow no-hover"{/if}>
     <td colspan="6" class="fileedittablewrap">
         <div class="fileedittable">
             <h4 id="{$prefix}_edit_heading" class="edit-heading">
@@ -57,27 +57,32 @@
             </div>
           </div>
 {/if}
-          {license_form_files($prefix, 'edit')}
-          <div class="checkbox form-group">
-             <label for="{$prefix}_edit_allowcomments">{str tag=Comments section=artefact.comment}</label>
-             <div class="form-switch ">
-                    <div class="switch onoff"><input class="switchbox" type="checkbox" name="{$prefix}_edit_allowcomments" id="{$prefix}_edit_allowcomments" {if $fileinfo->allowcomments}checked {/if}/>
-                    <label class="switch-label">
-                       <span class="switch-inner"></span>
-                       <span class="switch-switch"></span>
+        {license_form_files($prefix, 'edit')}
+        <div class="form-group">
+            <label for="{$prefix}_edit_allowcomments">
+                {str tag=Comments section=artefact.comment}
+            </label>
+            <div class="form-switch">
+                <div class="switch onoff" style="width: {$switchwidth}">
+                    <input class="switchbox" type="checkbox" name="{$prefix}_edit_allowcomments" id="{$prefix}_edit_allowcomments" {if $fileinfo->allowcomments}checked {/if} aria-describedby />
+                    <label class="switch-label" tabindex="1" for="{$prefix}_edit_allowcomments">
+                        <span class="switch-inner" role="presentation"></span>
+                        <span class="switch-indicator" role="presentation"></span>
+                        <span class="state-label on" role="presentation" tabindex="-1">On</span>
+                        <span class="state-label off" role="presentation" tabindex="-1">Off<span>
                     </label>
                     </div>
                 </div>
-          </div>
-          <div>
-            <div class="submitcancel form-group">
-                <input type="submit" class="submit btn btn-success" name="{$prefix}_update[{$fileinfo->id}]" id="{$prefix}_edit_artefact" value="{str tag=savechanges section=artefact.file}" />
-                <input type="submit" class="cancel" name="{$prefix}_canceledit" id="{$prefix}_edit_cancel" value="{str tag=cancel}" />
             </div>
-            <div>
-                <div id="{$prefix}_edit_messages" class="ptm">
-                </div>
+        <div>
+        <div class="submitcancel form-group">
+            <input type="submit" class="submit btn btn-success" name="{$prefix}_update[{$fileinfo->id}]" id="{$prefix}_edit_artefact" value="{str tag=savechanges section=artefact.file}" />
+            <input type="submit" class="cancel" name="{$prefix}_canceledit" id="{$prefix}_edit_cancel" value="{str tag=cancel}" />
+        </div>
+        <div>
+            <div id="{$prefix}_edit_messages" class="ptm">
             </div>
+        </div>
         </div>
     </td>
 </tr>

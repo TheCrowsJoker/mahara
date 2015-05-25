@@ -37,7 +37,7 @@ function pieform_element_switchbox(Pieform $form, $element) {
     $offlabel = $labels['off'];
 
     $strlength = max(strlen($onlabel), strlen($offlabel));
-    $width = (57 + (($strlength - 2) * 3.5) + pow(1.4, ($strlength - 2))) . 'px';
+    $width = floor((57 + (($strlength - 2) * 3.5) + pow(1.4, ($strlength - 2)))) . 'px';
 
     $elementid = $form->make_id($element, $form->get_name());
 
@@ -48,7 +48,7 @@ function pieform_element_switchbox(Pieform $form, $element) {
 
     $html .= '            <span class="switch-inner" role="presentation"></span>';
     $html .= '            <span class="switch-indicator" role="presentation"></span>';
-    $html .= '            <span class="state-label on" role="presentation" tabindex="-1">'. $onlabel.'</span>';
+    $html .= '            <span class="state-label on" role="presentation" tabindex="-1">'. $onlabel .'</span>';
     $html .= '            <span class="state-label off" role="presentation" tabindex="-1">'. $offlabel .'</span>';
     $html .= '        </label>';
     $html .= '    </div>';
