@@ -86,6 +86,7 @@ switch ($action) {
 function print_upload_form() {
 
     $form = pieform(array(
+        'class' => 'mtxl ptxl',
         'name'        => 'import',
         'method'      => 'post',
         'plugintype ' => 'core',
@@ -99,6 +100,7 @@ function print_upload_form() {
                 )
             ),
             'submit' => array(
+                'class' => 'btn btn-success',
                 'type'  => 'submit',
                 'value' => get_string('Import', 'import'),
             ),
