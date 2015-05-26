@@ -158,9 +158,10 @@ if (ul) {
             // Hide the search form
             connect(a, 'onclick', function(e) {
                 hideElement('artefactchooser-searchform');
-                removeElementClass(searchA.parentNode, 'current');
+                removeElementClass(searchA.parentNode, 'active');
                 getFirstElementByTagAndClassName(searchA, null, 'accessible-hidden').innerHTML = '(' + get_string('tab') + ')';
-                addElementClass(browseA.parentNode, 'current');
+                console.log(browseA);
+                addElementClass(browseA.parentNode, 'active');
                 getFirstElementByTagAndClassName(browseA, null, 'accessible-hidden').innerHTML = '(' + get_string('tab') + get_string('selected') + ')';
                 browseA.blur();
                 $('artefactchooser-searchfield').value = ''; // forget the search for now, easier than making the tabs remember it
@@ -177,8 +178,8 @@ if (ul) {
             // Display the search form
             connect(a, 'onclick', function(e) {
                 showElement('artefactchooser-searchform');
-                removeElementClass(browseA.parentNode, 'current');
-                addElementClass(searchA.parentNode, 'current');
+                removeElementClass(browseA.parentNode, 'active');
+                addElementClass(searchA.parentNode, 'active');
 
                 connect('artefactchooser-searchfield', 'onkeypress', function(e) {
                     if (e.key().code == 13) { // enter pressed - submitting form
