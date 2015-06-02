@@ -119,15 +119,17 @@ $viewsform = null;
 if ($available = Collection::available_views($owner, $groupid, $institutionname)) {
     foreach ($available as $a) {
         $elements['view_'.$a->id] = array(
+            'class'     => 'btn btn-default',
             'renderer' => 'div',
             'type'      => 'checkbox',
             'title'     => $a->title,
         );
     }
     $elements['submit'] = array(
-        'class' => 'btn btn-primary pull-right input-with-icon icon-arrow-right',
-        'type' => 'submit',
-        'value' => get_string('addviews','collection'),
+        'class' => 'btn btn-primary pull-right mtl',
+        'type' => 'button',
+        'usebuttontag' => true,
+        'value' => '<span class="fa fa-arrow-right prs"></span>' . get_string('addviews','collection'),
         'goto' => get_config('wwwroot') . 'collection/views.php?id='.$id,
     );
 
