@@ -105,9 +105,11 @@ if ($views) {
                     'value' => $v->view,
                 ),
                 'submit' => array(
-                    'type' => 'submit',
+                    'type' => 'button',
+                    'usebuttontag' => true,
+                    'class' => 'btn btn-default',
                     'confirm' => get_string('viewconfirmremove', 'collection'),
-                    'value' => get_string('remove'),
+                    'value' => '<span class="fa fa-trash"><span class="sr-only">' . get_string('remove') . '</span></span>',
                 ),
             ),
         ));
