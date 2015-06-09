@@ -1787,7 +1787,7 @@ class View {
             case 'removeblockinstance': // requires action_removeblockinstance_id_\d
                 if (!defined('JSON')) {
                     if (!$sure = param_boolean('sure')) {
-                        $yesform = '<form action="' . get_config('wwwroot') . '/view/blocks.php" class="inline">'
+                        $yesform = '<form action="' . get_config('wwwroot') . '/view/blocks.php" class="text-inline">'
                             . '<input type="hidden" name="id" value="' . $this->get('id') . '">'
                             . '<input type="hidden" name="c" value="file">'
                             . '<input type="hidden" name="action_' . $action . '_' .  $actionstring . '" value="1">'
@@ -3677,20 +3677,26 @@ class View {
         $searchform = array(
             'name' => 'searchviews',
             'checkdirtychange' => false,
-            'class' => 'search-views-form form-inline ptl pbl',
+            'class' => 'search-views-form with-heading form-inline',
             'elements' => array(
-                'query' => array(
-                    'type' => 'text',
-                    'title' => get_string('search') . ': ',
-                    'class' => 'input-small',
-                    'defaultvalue' => $searchdefault,
-                ),
-                'type' => array(
-                    'title'        => get_string('searchwithin'). ': ',
-                    'class' => 'input-small',
-                    'type'         => 'select',
-                    'options'      => $searchoptions,
-                    'defaultvalue' => $searchtype,
+                'searchwithin' => array (
+                    'type' => 'fieldset',
+                    'class' => 'dropdown-group js-dropdown-group',
+                    'elements' => array(
+                        'query' => array(
+                            'type' => 'text',
+                            'title' => get_string('search') . ': ',
+                            'class' => 'with-dropdown js-with-dropdown',
+                            'defaultvalue' => $searchdefault,
+                        ),
+                        'type' => array(
+                            'title'        => get_string('searchwithin'). ': ',
+                            'class' => 'dropdown-connect js-dropdown-connect',
+                            'type'         => 'select',
+                            'options'      => $searchoptions,
+                            'defaultvalue' => $searchtype,
+                        )
+                    )
                 ),
                 'orderby' => array(
                     'type' => 'select',
@@ -3711,7 +3717,7 @@ class View {
                 ),
                 'submit' => array(
                     'type' => 'submit',
-                    'class' => 'btn btn-success mtm',
+                    'class' => 'btn btn-primary mtm',
                     'value' => get_string('search')
                 )
             )
@@ -6266,7 +6272,7 @@ function view_group_submission_form($view, $tutorgroupdata, $returnto=null) {
         'elements' => array(
             'text1' => array(
                 'type' => 'html',
-                'class' => 'inline',
+                'class' => 'text-inline',
                 'value' => '',
             ),
             'text2' => array(
@@ -6280,7 +6286,6 @@ function view_group_submission_form($view, $tutorgroupdata, $returnto=null) {
                 'elements' => array(
                     'options' => array(
                         'type' => 'select',
-                        'class' => 'form-control',
                         'collapseifoneoption' => false,
                         'options' => $options,
                     ),
