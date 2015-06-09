@@ -160,7 +160,6 @@ if (ul) {
                 hideElement('artefactchooser-searchform');
                 removeElementClass(searchA.parentNode, 'active');
                 getFirstElementByTagAndClassName(searchA, null, 'accessible-hidden').innerHTML = '(' + get_string('tab') + ')';
-                console.log(browseA);
                 addElementClass(browseA.parentNode, 'active');
                 getFirstElementByTagAndClassName(browseA, null, 'accessible-hidden').innerHTML = '(' + get_string('tab') + get_string('selected') + ')';
                 browseA.blur();
