@@ -329,6 +329,17 @@ function general_account_prefs_form_elements($prefs) {
         }
     }
 
+    if(isset($elements['type'])){
+        $elements['theme'] = array(
+        'type' => 'select',
+        'defaultvalue' => $defaulttheme,
+        'title' => get_string('theme'),
+        'options' => $themes,
+        'ignore' => count($themes) < 2,
+        'help' => true,
+        );
+    }
+
     $elements['addremovecolumns'] = array(
         'type' => 'switchbox',
         'defaultvalue' => $prefs->addremovecolumns,
