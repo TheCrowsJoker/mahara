@@ -37,19 +37,20 @@ $inlinejs = <<<JS
             $.post('index.php', $('#activate_webservice_protos_' + name).serialize());
         }
 
-        $('#activate_webservices_enabled').change(function() {
+        $('#activate_webservices_enabled').on('change', function() {
+            var target = $(this).closest('form').siblings('.form-group').find('input:checkbox');
+
             // open the protocols fieldset
             if ($(this).is(':checked')) {
                 // alert user to switch protocols on if none are active
-                if ($('#activate_webservices_protos_pseudofieldset').closest('.pseudofieldset').find('input:checkbox:checked').length == 0) {
-                    $('#activate_webservices_protos_pseudofieldset').parent().find('.panel-body').collapse('show');
-                    $('#activate_webservices_protos_pseudofieldset').find('div:first').before('<div class="error">You need to enable at least one Protocol</div>');
+                if (target.filter(':checked').length === 0) {
+                    $(this).closest('.form-group').append('<span class="form-message-inline text-danger pll">You need to enable at least one Protocol</span>');
                 }
-            }
-            else {
+            } else {
                 // turn all protocols off - not sure if we need this or should leave protocols on when master switch is off
-                $('#activate_webservices_protos_pseudofieldset').closest('.pseudofieldset').find('input:checkbox').attr('checked', false);
+                target.prop('checked', false);
                 $('#activate_webservices').append('<input type="hidden" name="ajax" value="1">');
+                $('#activate_webservices_pseudofieldset .form-message-inline').remove();
             }
             // save master switch form
             $.post('index.php', $('#activate_webservices').serialize());
@@ -120,7 +121,7 @@ function activate_webservice_proto_submit(Pieform $form, $values) {
     if (!empty($_POST['ajax'])) {
         exit;
     }
-    redirect('/webservice/admin/index.php?open=activate_webservices_protos');
+    redirect('/webservice/admin/index.php');
 }
 
 function webservices_function_groups_submit(Pieform $form, $values) {
@@ -315,7 +316,12 @@ function webservices_master_switch_form() {
 function webservices_protocol_switch_form() {
     // enable/disable separate protocols of SOAP/XML-RPC/REST
     $elements = array();
-    $elements['label'] = array('title' => ' ', 'type' => 'html', 'value' => '<div class="title">' . get_string('protocol', 'auth.webservice') . '</div>');
+    $elements['label'] = array(
+        'title' => ' ',
+        'type' => 'html',
+        'class' => 'fake-form',
+        'value' => '<h4 class="mb0 title">' . get_string('protocol', 'auth.webservice') . '</h4>'
+    );
 
     foreach (array('soap', 'xmlrpc', 'rest', 'oauth') as $proto) {
         $enabled = (get_config('webservice_' . $proto . '_enabled') || 0);
@@ -989,30 +995,25 @@ function get_config_options_extended() {
             // fieldset of master switch
             'webservicesmaster' => array(
                 'type' => 'fieldset',
-                'legend' => get_string('masterswitch', 'auth.webservice'),
-                'elements' =>  webservices_master_switch_form(),
-                'collapsible' => true,
-                'collapsed'   => true,
-                'name' => 'activate_webservices',
-            ),
-
-            // fieldset of protocol switches
-            'protocolswitches' => array(
-                'type' => 'fieldset',
                 'legend' => get_string('protocolswitches', 'auth.webservice'),
                 'elements' =>  array(
                     'protos_help' =>  array(
-                    'type' => 'html',
-                    'value' => '<div><p>' . get_string('manage_protocols', 'auth.webservice') . '</p></div>',
+                        'type' => 'html',
+                        'value' => '<div><p>' . get_string('manage_protocols', 'auth.webservice') . '</p></div>',
                     ),
+                    'masterswitchlabel' =>  array(
+                        'type' => 'html',
+                        'value' => '<h4 class="mtxl">' . get_string('masterswitch', 'auth.webservice') . '</h4>',
+                    ),
+                    'webservicesmasterswitchform' => webservices_master_switch_form()['webservicesmasterswitchform'],
                     'enablewebserviceprotos' =>  array(
-                    'type' => 'html',
-                    'value' => $protos->build(false),
-                    ),
+                        'type' => 'html',
+                        'value' => $protos->build(false),
+                    )
                 ),
                 'collapsible' => true,
                 'collapsed'   => true,
-                'name' => 'activate_webservices_protos',
+                'name' => 'activate_webservices',
             ),
 
             // System Certificates
