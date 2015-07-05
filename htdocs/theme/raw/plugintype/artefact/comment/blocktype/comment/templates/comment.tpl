@@ -8,9 +8,11 @@
     </div>
     {$feedback->pagination|safe}
     {if $enablecomments}
-        <a id="add_feedback_link" class="feedback panel-footer mtl" href="#" data-toggle="modal" data-target="#feedback-form">
-            <span class="icon icon-lg icon-comments prm"></span>
+    <div class="text-right">
+        <a id="add_feedback_link" class="feedback btn btn-default btn-sm" href="#" data-toggle="modal" data-target="#feedback-form">
+            <span class="icon icon-lg icon-plus prm"></span>
             {str tag=addcomment section=artefact.comment}
         </a>
+    </div>
     {/if}
 {/if}
