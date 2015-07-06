@@ -106,7 +106,6 @@ addLoadEvent(function() {
             i.checked = !i.checked;
         });
     });
-
-    insertSiblingNodesBefore(getFirstElementByTagAndClassName('table', null, containers.views.container), checkboxHelperDiv);
-
+    
+    insertSiblingNodesBefore(getFirstElementByTagAndClassName('div', null, containers.views.container), checkboxHelperDiv);
 });
