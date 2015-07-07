@@ -4006,11 +4006,11 @@ function build_pagination($params) {
             }
         }
         $output .= '</ul></nav>';
-        $output .= '<form class="form-pagination js-pagination form-inline" action="' . hsc($params['url']) . '" method="POST">
+        $output .= '<form class="form-pagination js-pagination form-inline pagination-page-limit dropdown" action="' . hsc($params['url']) . '" method="POST">
             <label for="setlimitselect" class="set-limit"> ' . $params['limittext'] . ' </label>' .
-            '<select id="setlimitselect" class="js-pagination input-xs" name="limit"> '.
+            '<span class="picker input-sm"><select id="setlimitselect" class="js-pagination input-sm select form-control" name="limit"> '.
                 join(' ', $strlimitoptions) .
-            '</select>
+            '</select></span>
             <input class="currentoffset" type="hidden" name="' . $params['offsetname'] . '" value="' . $params['offset'] . '"/>
             <input class="pagination js-hidden hidden" type="submit" name="submit" value="' . get_string('change') . '"/>
         </form>';

@@ -12,58 +12,65 @@
 {/if}
 
 {if $upgrades['settings']['toupgradecount']}
-<div class="alert alert-info" id="">
-	<h3>{str tag="upgrades" section=admin}</h3>
+<div class="panel panel-warning" id="">
+	<h3 class="panel-heading">{str tag="upgrades" section=admin}</h3>
+	<div class="panel-body">
+		<p>{str tag=thefollowingupgradesareready section=admin}</p>
+		<table id="upgrades-table" class="table">
 
-	<p>{str tag=thefollowingupgradesareready section=admin}</p>
-	<table id="upgrades-table" class="table">
-		
-		<thead>
-		<tr>
-			<th>{str tag=Plugin section=admin}</th>
-			<th>{str tag=From}</th>
-			<th>{str tag=To}</th>
-		</tr>
-		</thead>
-		<tbody>
-	{foreach from=$upgrades key=key item=upgrade}
-	{if $key != 'settings' && $upgrade->upgrade}
-		<tr>
-			<td><strong>{$key}</strong></td>
-			<td>{$upgrade->fromrelease} ({$upgrade->from})</td>
-			<td>{$upgrade->torelease} ({$upgrade->to})</td>
-		</tr>
-	{/if}
-	{/foreach}
-		</tbody>
-	</table>
-	 <a class="btn btn-default" href="upgrade.php">{str tag=runupgrade section=admin}</a>
+			<thead>
+			<tr>
+				<th>{str tag=Plugin section=admin}</th>
+				<th>{str tag=From}</th>
+				<th>{str tag=To}</th>
+			</tr>
+			</thead>
+			<tbody>
+		{foreach from=$upgrades key=key item=upgrade}
+		{if $key != 'settings' && $upgrade->upgrade}
+			<tr>
+				<td><strong>{$key}</strong></td>
+				<td>{$upgrade->fromrelease} ({$upgrade->from})</td>
+				<td>{$upgrade->torelease} ({$upgrade->to})</td>
+			</tr>
+		{/if}
+		{/foreach}
+			</tbody>
+		</table>
+		<a class="btn btn-default" href="upgrade.php">{str tag=runupgrade section=admin}</a>
+	</div>
 </div>
 {/if}
 
 {if $upgrades['settings']['newinstallcount']}
-<div class="warning" id="runinstall">
-<h3>{str tag="newplugins" section=admin}</h3>
-<div class="fr"><span class="upgrade"><a class="btn" href="extensions/plugins.php">{str tag=gotoinstallpage section=admin}</a></span></div>
-<h4>{str tag=thefollowingpluginsareready section=admin}</h4>
-<table id="upgradestable" class="fullwidth">
-	<thead>
-	<tr>
-		<th>{str tag=Plugin section=admin}</th>
-		<th>{str tag=From}</th>
-		<th>{str tag=To}</th>
-	</tr>
-	</thead>
-	<tbody>
-{foreach from=$upgrades['settings']['newinstalls'] key=key item=upgrade}
-<tr>
-	<td><strong>{$key}</strong></td>
-	<td>{$upgrade->fromrelease}</td>
-	<td>{$upgrade->torelease} ({$upgrade->to})</td>
-</tr>
-{/foreach}
-	</tbody>
-</table>
+<div class="panel panel-warning" id="runinstall">
+	<h3 class="panel-heading">{str tag="newplugins" section=admin}</h3>
+	<div class="panel-body">
+		<p>{str tag=thefollowingpluginsareready section=admin}</p>
+
+		<table id="upgradestable" class="table mbm">
+			<thead>
+			<tr>
+				<th>{str tag=Plugin section=admin}</th>
+				<th>{str tag=From}</th>
+				<th>{str tag=To}</th>
+			</tr>
+			</thead>
+			<tbody>
+				{foreach from=$upgrades['settings']['newinstalls'] key=key item=upgrade}
+				<tr>
+					<td><strong>{$key}</strong></td>
+					<td>{$upgrade->fromrelease}</td>
+					<td>{$upgrade->torelease} ({$upgrade->to})</td>
+				</tr>
+				{/foreach}
+			</tbody>
+		</table>
+		<a class="btn btn-default" href="extensions/plugins.php">
+			{str tag=gotoinstallpage section=admin}
+			<span class="mls icon icon-arrow-right"></span>
+		</a>
+	</div>
 </div>
 {/if}
 <div class="panel-items js-masonry" data-masonry-options='{ "itemSelector": ".panel" }'>
@@ -105,9 +112,9 @@
 			</div>
 		</div>
 	</div>
-	
 
-	
+
+
 	<div class="panel panel-default">
 		<h3 class="panel-heading">{str tag=configsite section=admin} <span class="icon icon-cogs pls pull-right"></span></h3>
 		<ul class="list-group">
@@ -271,4 +278,3 @@
 
 </div>
 {include file='footer.tpl'}
-
