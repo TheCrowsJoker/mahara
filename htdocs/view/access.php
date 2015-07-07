@@ -59,6 +59,7 @@ if ($group && !group_within_edit_window($group)) {
 $form = array(
     'name' => 'editaccess',
     'renderer' => 'div',
+    'class' => 'panel panel-body',
     'plugintype' => 'core',
     'pluginname' => 'view',
     'viewid' => $view->get('id'),
@@ -82,36 +83,36 @@ if ($view->get('type') != 'profile') {
     );
 }
 
-if (!empty($collections)) {
-    foreach ($collections as &$c) {
-        $c = array(
-            'title'        => $c['name'],
-            'value'        => $c['id'],
-            'defaultvalue' => $collectionid == $c['id'] || !empty($c['match']),
-            'views'        => $c['views'], // Keep these hanging around to check in submit function
-        );
-    }
-    $form['elements']['collections'] = array(
-        'type'         => 'checkboxes',
-        'title'        => get_string('Collections', 'collection'),
-        'elements'     => $collections,
-    );
-}
+// if (!empty($collections)) {
+//     foreach ($collections as &$c) {
+//         $c = array(
+//             'title'        => $c['name'],
+//             'value'        => $c['id'],
+//             'defaultvalue' => $collectionid == $c['id'] || !empty($c['match']),
+//             'views'        => $c['views'], // Keep these hanging around to check in submit function
+//         );
+//     }
+//     $form['elements']['collections'] = array(
+//         'type'         => 'checkboxes',
+//         'title'        => get_string('Collections', 'collection'),
+//         'elements'     => $collections,
+//     );
+// }
 
-if (!empty($views)) {
-    foreach ($views as &$v) {
-        $v = array(
-            'title'        => $v['name'],
-            'value'        => $v['id'],
-            'defaultvalue' => $viewid == $v['id'] || !empty($v['match']),
-        );
-    }
-    $form['elements']['views'] = array(
-        'type'         => 'checkboxes',
-        'title'        => get_string('views'),
-        'elements'     => $views,
-    );
-}
+// if (!empty($views)) {
+//     foreach ($views as &$v) {
+//         $v = array(
+//             'title'        => $v['name'],
+//             'value'        => $v['id'],
+//             'defaultvalue' => $viewid == $v['id'] || !empty($v['match']),
+//         );
+//     }
+//     $form['elements']['views'] = array(
+//         'type'         => 'checkboxes',
+//         'title'        => get_string('views'),
+//         'elements'     => $views,
+//     );
+// }
 
 if ($view->get('type') == 'profile') {
     // Make sure all the user's institutions have access to profile view
@@ -142,6 +143,7 @@ $form['elements']['accesslist'] = array(
 $form['elements']['more'] = array(
     'type' => 'fieldset',
     'class' => $view->get('type') == 'profile' ? 'hidden' : '',
+    'class' => 'last',
     'collapsible' => true,
     'collapsed' => true,
     'legend' => get_string('moreoptions', 'view'),

@@ -23,6 +23,7 @@ $query  = param_variable('query', '');
 $limit  = param_integer('limit', 10);
 $offset = param_integer('offset', 0);
 
+
 switch ($type) {
     case 'friend':
         $data = search_user($query, $limit, $offset,  array('exclude' => $USER->get('id'), 'friends' => true));
@@ -41,6 +42,9 @@ switch ($type) {
         foreach ($data['data'] as &$r) {
             $r->url = group_homepage_url($r);
         }
+        break;
+    default:
+        $data = search_user($query, $limit, $offset,  array('exclude' => $USER->get('id'), 'friends' => true));
         break;
 }
 
