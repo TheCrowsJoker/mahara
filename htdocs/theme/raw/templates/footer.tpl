@@ -43,7 +43,7 @@
               </li>
             {/foreach}
             </ul>
-           
+
             <div class="metadata pull-right ptm" id="version">
              {mahara_version}
             </div>
@@ -57,6 +57,12 @@
 
 
     {if $ADDITIONALHTMLFOOTER}{$ADDITIONALHTMLFOOTER|safe}{/if}
+
+    {if isset($INLINEJAVASCRIPT)}
+        <script type="application/javascript">
+                {$INLINEJAVASCRIPT|safe}
+        </script>
+    {/if}
 
 </body>
 </html>

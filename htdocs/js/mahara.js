@@ -38,13 +38,14 @@ function get_string(s) {
  * Getting the string via ajax as deferred object
  */
 function get_string_ajax(str, section) {
+
     // If string already exists in strings object
-    if (typeof(strings[str]) !== 'undefined') {
-        return get_string.apply(arguments);
+    if (strings[str] !== undefined) {
+        return get_string(str, section);
     }
 
     var rnd = randString(10);
-    var placeholder = '<span id="str_' + rnd + '">' + get_string(str, section) + '</span>';
+    var placeholder = '<span id="str_' + rnd + '"></span>';
     get_string_ajax_call.apply(this, arguments).done(function(r) {
         // need to find the random string in the text and replace it with our lang string
         jQuery('#str_' + rnd).replaceWith(r.message.data.string);
