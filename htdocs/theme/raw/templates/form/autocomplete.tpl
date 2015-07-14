@@ -1,37 +1,45 @@
-<input type="hidden" id="{{$id}}" name="{{$name}}" {{if $describedby}}aria-describedby="{{$describedby}}"{{/if}} value="{{$value}}"/>
+<select class="js-data-ajax" multiple="multiple" id="{{$id}}" name="{{$name}}" {{if $describedby}}aria-describedby="{{$describedby}}"{{/if}} value="{{$value}}">
+</select>
 
 <script type="application/javascript">
 {{if !$inblockconfig}}
+
+
     addLoadEvent(function () {
 {{/if}}
     jQuery("#{{$id}}").select2({
-        initSelection : function(element, callback) {
-            callback({{$initvalue|safe}});
-        },
-        multiple: {{$multiple}},
-        width: "{{$width}}",
-        allowClear: {{$allowclear}},
-        {{if $hint}}placeholder: "{{$hint}}",{{/if}}
-        minimumInputLength: {{$mininputlength}},
         ajax: {
             url: "{{$ajaxurl}}",
             dataType: 'json',
-            data: function(term, page) {
+            type: 'POST',
+            delay: 250,
+            data: function(params) {
                 return {
-                    q: term,
-                    page: page,
-                    sesskey: "{{$sesskey}}"
+                    'q': params.term,
+                    'page': params.page || 0,
+                    'sesskey': "{{$sesskey}}",
+                    'offset': 0, 
+                    'limit': 10,
                 }
             },
-            results: function(data, page) {
+            processResults: function(data, page) {
                 return {
                     results: data.results,
                     more: data.more
                 };
             }
-        },
+        }, 
+        {{if $myarray|@count gt 0}}
+        dataAdapter: {{$initvalue|safe}},
+        {{/if}}
+        multiple: {{$multiple}},
+        width: "{{$width}}",
+        allowClear: {{$allowclear}},
+        {{if $hint}}placeholder: "{{$hint}}",{{/if}}
+        minimumInputLength: {{$mininputlength}},
         {{$extraparams|safe}}
     });
+ 
 {{if !$inblockconfig}}
     });
 {{/if}}

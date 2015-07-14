@@ -135,7 +135,6 @@ function pieform_element_autocomplete(Pieform $form, $element) {
 function pieform_element_autocomplete_get_headdata($element) {
     global $THEME;
     $cssfile = $THEME->get_url('style/select2.css');
-    $jsfile = get_config('wwwroot') . 'js/select2/select2.js';
 
     // Add language file if required.
     $lang = current_language();
@@ -159,7 +158,6 @@ function pieform_element_autocomplete_get_headdata($element) {
 
     $r = <<<JS
 <link rel="stylesheet" href="{$cssfile}" />
-<script type="application/javascript" src="{$jsfile}"></script>
 {$langfile}
 JS;
     return array($r);

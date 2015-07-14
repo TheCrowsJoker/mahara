@@ -20,6 +20,7 @@ global $USER;
 
 $request = param_variable('q');
 $page = param_integer('page');
+
 if ($page < 1) {
     $page = 1;
 }

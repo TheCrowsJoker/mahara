@@ -134,3 +134,61 @@ label,
 .form-message-inline  {
     vertical-align: top;
 }
+
+.date-picker {
+    position: relative;
+    &:before {
+        font-family: "FontAwesome";
+        font-size: 1.5em;
+        content: '\f073';
+        color: lighten($text-color, 20%);
+        position:absolute;
+        right: 10px;
+        top: 5px;
+        z-index: 0;
+    }
+    input.form-control {
+        width: 100%;
+        max-width:100%;
+        z-index: 1;
+        position:relative;
+        background-color: transparent;
+    }
+}
+
+.select2.select2-container .select2-selection {
+    height: $input-height-base;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    color: $input-color;
+    &.select2-selection--multiple {
+        &:after {
+            content: "\f002";
+            color: lighten($text-color, 50%);
+            font-family: FontAwesome;
+            font-size: 1em;
+            display:inline-block;
+            position:absolute;
+            right: 12px;
+            top: 7px;
+        }
+    }
+}
+
+.select2 {
+    min-width: 200px;
+}
+
+.select2-dropdown .select2-search {
+    position: relative;
+    &:after {
+        content: "\f002";
+        color: lighten($text-color, 50%);
+        font-family: FontAwesome;
+        font-size: 1em;
+        display:inline-block;
+        position:absolute;
+        right: 12px;
+        top: 8px;
+    }
+}

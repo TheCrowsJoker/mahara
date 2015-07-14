@@ -73,6 +73,9 @@
  * @return string           The HTML for the element
  */
 function pieform_element_select(Pieform $form, $element) {
+
+    $wrapperclass = !empty($element['isSelect2']) ? '' : 'picker';
+
     if (!empty($element['multiple'])) {
         $element['name'] .= '[]';
     }
@@ -98,7 +101,7 @@ function pieform_element_select(Pieform $form, $element) {
         return $result;
     }
 
-    $result = '<span class="picker"><select'
+    $result = '<span class="' . $wrapperclass . '"><select'
         . $form->element_attributes($element)
         . (!empty($element['multiple']) ? ' multiple="multiple"' : '')
         . (!empty($element['allowother']) ? ' onChange="pieform_select_other(this);"' : '')

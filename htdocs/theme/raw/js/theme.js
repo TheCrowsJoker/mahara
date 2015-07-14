@@ -154,5 +154,7 @@ jQuery(function($) {
         attachInputDropdown();
     }
 
+      $(".js-select2 select").select2({});
+
 
 });

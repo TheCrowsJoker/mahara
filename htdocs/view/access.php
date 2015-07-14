@@ -59,6 +59,7 @@ if ($group && !group_within_edit_window($group)) {
 $form = array(
     'name' => 'editaccess',
     'renderer' => 'div',
+    'class' => 'panel panel-body',
     'plugintype' => 'core',
     'pluginname' => 'view',
     'viewid' => $view->get('id'),
@@ -71,6 +72,7 @@ $form = array(
     )
 );
 
+
 // Create checkboxes to allow the user to apply these access rules to
 // any of their views/collections.
 // For institution views, force edit access of one view at a time for now.  Editing multiple
@@ -82,34 +84,51 @@ if ($view->get('type') != 'profile') {
     );
 }
 
+
+
 if (!empty($collections)) {
+    $defaultvalues = array();
+    $data = array();
     foreach ($collections as &$c) {
-        $c = array(
-            'title'        => $c['name'],
-            'value'        => $c['id'],
-            'defaultvalue' => $collectionid == $c['id'] || !empty($c['match']),
-            'views'        => $c['views'], // Keep these hanging around to check in submit function
-        );
+        $data[$c['id']] =  $c['name'];
+        $testdefault = $c['id'];
+        if($viewid === $c['id']){
+            $defaultvalues[] = $data[$c['id']];
+        }
     }
+
     $form['elements']['collections'] = array(
-        'type'         => 'checkboxes',
+        'type'         => 'select',
         'title'        => get_string('Collections', 'collection'),
-        'elements'     => $collections,
+        'class'     =>  'js-select2',
+        'isSelect2' => true,
+        'multiple' => true,
+        'options' => $data,
+       // 'collapseifoneoption' => false,
+        'defaultvalue' => $defaultvalues
     );
 }
 
 if (!empty($views)) {
+    $defaultvalues = array();
+    $data = array();
     foreach ($views as &$v) {
-        $v = array(
-            'title'        => $v['name'],
-            'value'        => $v['id'],
-            'defaultvalue' => $viewid == $v['id'] || !empty($v['match']),
-        );
+        $data[$v['id']] =  $v['name'];
+        $testdefault = $v['id'];
+        if($viewid === $v['id']){
+            $defaultvalues[] = $data[$v['id']];
+        }
     }
+
     $form['elements']['views'] = array(
-        'type'         => 'checkboxes',
+        'type'         => 'select',
         'title'        => get_string('views'),
-        'elements'     => $views,
+        'class'     =>  'js-select2',
+        'isSelect2' => true,
+        'multiple' => true,
+        'options' => $data,
+       // 'collapseifoneoption' => false,
+        'defaultvalue' => $defaultvalues
     );
 }
 
@@ -142,6 +161,7 @@ $form['elements']['accesslist'] = array(
 $form['elements']['more'] = array(
     'type' => 'fieldset',
     'class' => $view->get('type') == 'profile' ? 'hidden' : '',
+    'class' => 'last',
     'collapsible' => true,
     'collapsed' => true,
     'legend' => get_string('moreoptions', 'view'),
