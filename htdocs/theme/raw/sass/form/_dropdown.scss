@@ -7,7 +7,12 @@
         min-width: 20px;
         max-width: 100%;
         &.input-short {
-            max-width: 48%;
+            //width: 100px;
+            max-width: 170px;
+            .select2 {
+                min-width:150px;
+                display:block;
+            }
         }
         .select2-container--default .select2-selection--single .select2-selection__arrow b {
             display:none;

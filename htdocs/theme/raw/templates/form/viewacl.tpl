@@ -100,7 +100,7 @@ jQuery(function($) {
     $(document).ready(function() {
 
         function setDatePicker(target){
-            target.datepicker({
+            target.datetimepicker({
                 dateFormat: 'dd/mm/yy',
                 showOtherMonths: true,
                 selectOtherMonths: true,
@@ -112,10 +112,10 @@ jQuery(function($) {
                         settarget = $(this).closest('td').siblings(['data-name="' + setdatatarget + '"']).find('input');
 
                     if(setmin !== undefined){
-                        settarget.datepicker( "option", "minDate", selectedDate);
+                        settarget.datetimepicker( "option", "minDate", selectedDate);
                     }
                     if(setmax !== undefined){
-                        settarget.datepicker( "option", "maxDate", selectedDate);
+                        settarget.datetimepicker( "option", "maxDate", selectedDate);
                     }
                 }
             });
@@ -147,21 +147,22 @@ jQuery(function($) {
         }
 
         function attachSelect2Search(object) {
-            $(object).select2({
+            var self = object;
+            $(self).select2({
                 ajax: {
                     url: "access.json.php",
                     dataType: 'json',
                     delay: 250,
                     type: 'POST',
                     data: function (params) {
-                      return {
-                        'type' : $(object).attr('data-type'),
-                        'query': params.term, // search term
-                        'offset': 0,
-                        'limit': 10,
-                        'page': params.page,
-                        'sesskey': config.sesskey
-                      };
+                        return {
+                            'type' : $(self).attr('data-type'),
+                            'query': params.term, // search term
+                            'offset': 0,
+                            'limit': 10,
+                            'page': params.page,
+                            'sesskey': config.sesskey
+                        };
                     },
                     processResults: function (data, page) {
                         // parse the results into the format expected by Select2.
@@ -186,6 +187,7 @@ jQuery(function($) {
                 lastrow,
                 id,
                 newrow;
+
             if($('#accesslistitems tr').length > 0){
                 lastrow = $('#accesslistitems tr:last-child');
                 id = parseInt(lastrow.attr('data-id'), 10) + 1;
@@ -197,7 +199,10 @@ jQuery(function($) {
                 id: id,
                 shareoptions: shareoptions
             };
-            newrow = $('#accesslistitems').append(tmpl("row-template", data));
+            
+            $('#accesslistitems').append(tmpl("row-template", data));
+
+            newrow = $('#accesslistitems').find('[data-id="' + id + '"]');
             attachShowSelect();
             setDatePicker($(newrow).find('.js-date-picker > input'));
             attachSelect2Search($(newrow).find('.js-select2-search'));
@@ -290,7 +295,7 @@ jQuery(function($) {
         setDatePicker($( ".js-date-picker > input" ));
 
 
-        // Create a new row by cloning the first one
+        // Create a new row
         $('#add-user').on('click', function(e) {
             e.preventDefault();
             addNewRow(shareoptions);
@@ -303,13 +308,6 @@ jQuery(function($) {
         });
 
         attachShowSelect();
-
-
-
-
-
-
-
 
         $('.allow-comments-checkbox').on('change', function() {
             $('#editaccess_allowcomments').prop('checked', false);
@@ -331,26 +329,10 @@ jQuery(function($) {
         for(i = 0; i < select2.length; i = i + 1) {
             attachSelect2Search($(select2[i]));
         }
-
     });
-
-
-
-
 });
 
 
-// function renderAccessListDefault() {
-//     addElementClass('accesslisttable', 'hidden');
-//     removeElementClass('accesslisttabledefault', 'hidden');
-// }
-
-// if (jQuery('#type').val() == 'users') {
-//     removeElementClass('hidden-user-search', 'hidden')
-// }
-// else {
-//     addElementClass('hidden-user-search', 'hidden')
-// };
 
 // Given a row, render it on the right hand side
 // function renderAccessListItem(item) {
@@ -462,51 +444,51 @@ jQuery(function($) {
 //     return row;
 // }
 
-function makeCalendarInput(item, type, disabled) {
-    var label = LABEL({
-        'for': type + 'date_' + count,
-        'class': 'accessible-hidden sr-only'
-    }, get_string(type + 'date'));
-    var input = INPUT({
-        'type':'text',
-        'name': 'accesslist[' + count + '][' + type + 'date]',
-        'id'  :  type + 'date_' + count,
-        'value': item[type + 'date'] ? item[type + 'date'] : '',
-        'size': '15'
-    });
+// function makeCalendarInput(item, type, disabled) {
+//     var label = LABEL({
+//         'for': type + 'date_' + count,
+//         'class': 'accessible-hidden sr-only'
+//     }, get_string(type + 'date'));
+//     var input = INPUT({
+//         'type':'text',
+//         'name': 'accesslist[' + count + '][' + type + 'date]',
+//         'id'  :  type + 'date_' + count,
+//         'value': item[type + 'date'] ? item[type + 'date'] : '',
+//         'size': '15'
+//     });
+//
+//     input.disabled = (disabled == 0);
+//     return SPAN(null, label, input);
+// }
 
-    input.disabled = (disabled == 0);
-    return SPAN(null, label, input);
-}
+// function setupCalendar(item, type) {
+// //    var dateStatusFunc, selectedFunc;
+//     if (!$(type + 'date_' + count)) {
+//         logWarn('Couldn\'t find element: ' + type + 'date_' + count);
+//         return;
+//     }
+//     var input = jQuery('#' + type + 'date_' + count).datetimepicker({
+//         {{$datepickeroptions|safe}}
+//         beforeShow: function(input, inst) {
+//             setTimeout(function() {
+//                 add_prev_next_year(inst);
+//             }, 1);
+//         },
+//         onChangeMonthYear: function(y, m, inst) {
+//             setTimeout(function() {
+//                 add_prev_next_year(inst);
+//             }, 1);
+//         },
+//         showOn: "input",
+//
+//     });
+// }
 
-function setupCalendar(item, type) {
-//    var dateStatusFunc, selectedFunc;
-if (!$(type + 'date_' + count)) {
-    logWarn('Couldn\'t find element: ' + type + 'date_' + count);
-    return;
-}
-var input = jQuery('#' + type + 'date_' + count).datetimepicker({
-    {{$datepickeroptions|safe}}
-    beforeShow: function(input, inst) {
-        setTimeout(function() {
-            add_prev_next_year(inst);
-        }, 1);
-    },
-    onChangeMonthYear: function(y, m, inst) {
-        setTimeout(function() {
-            add_prev_next_year(inst);
-        }, 1);
-    },
-    showOn: "input",
-
-        });
-}
-
-function updateFormChangeChecker() {
-    if (typeof formchangemanager !== 'undefined') {
-        formchangemanager.setFormStateById('{{$formname}}', FORM_CHANGED);
-    }
-}
+// function updateFormChangeChecker() {
+//     if (typeof formchangemanager !== 'undefined') {
+//         formchangemanager.setFormStateById('{{$formname}}', FORM_CHANGED);
+//     }
+// }
 
 // SETUP
 
@@ -584,32 +566,32 @@ function updateFormChangeChecker() {
 
 
 // Right hand side
-addLoadEvent(function () {
-    {{if $defaultaccesslist}}
-    // renderAccessListDefault();
-    {{else}}
-    var accesslist = {{$accesslist|safe}};
-    if (accesslist) {
-        forEach(accesslist, function(item) {
-            renderAccessListItem(item);
-        });
-    }
-    {{/if}}
-});
+// addLoadEvent(function () {
+//     {{if $defaultaccesslist}}
+//     // renderAccessListDefault();
+//     {{else}}
+//     var accesslist = {{$accesslist|safe}};
+//     if (accesslist) {
+//         forEach(accesslist, function(item) {
+//             renderAccessListItem(item);
+//         });
+//     }
+//     {{/if}}
+// });
 
-addLoadEvent(function() {
-    // Populate the "potential access" things (public|loggedin|allfreidns)
-
-    connect($('search'), 'onkeydown', function(e) {
-        if (e.key().string == 'KEY_ENTER') {
-            search(e);
-        }
-    });
-    connect($('dosearch'), 'onclick', search);
-    // connect('viewacl-advanced-show', 'onclick', function(e) {
-    //     e.stop();
-    //     toggleElementClass('hidden', 'viewacl-advanced-search');
-    // });
-});
+// addLoadEvent(function() {
+//     // Populate the "potential access" things (public|loggedin|allfreidns)
+//
+//     connect($('search'), 'onkeydown', function(e) {
+//         if (e.key().string == 'KEY_ENTER') {
+//             search(e);
+//         }
+//     });
+//     connect($('dosearch'), 'onclick', search);
+//     // connect('viewacl-advanced-show', 'onclick', function(e) {
+//     //     e.stop();
+//     //     toggleElementClass('hidden', 'viewacl-advanced-search');
+//     // });
+// });
 
 </script>
