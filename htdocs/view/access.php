@@ -84,16 +84,14 @@ if ($view->get('type') != 'profile') {
     );
 }
 
-
-
 if (!empty($collections)) {
     $defaultvalues = array();
     $data = array();
     foreach ($collections as &$c) {
         $data[$c['id']] =  $c['name'];
-        $testdefault = $c['id'];
-        if($viewid === $c['id']){
-            $defaultvalues[] = $data[$c['id']];
+
+        if($collectionid == $c['id'] || !empty($c['match'])){
+            $defaultvalues[$c['id']] = $c['id'];
         }
     }
 
@@ -104,8 +102,7 @@ if (!empty($collections)) {
         'isSelect2' => true,
         'multiple' => true,
         'options' => $data,
-       // 'collapseifoneoption' => false,
-        'defaultvalue' => $defaultvalues
+        'value' => $defaultvalues
     );
 }
 
@@ -114,9 +111,9 @@ if (!empty($views)) {
     $data = array();
     foreach ($views as &$v) {
         $data[$v['id']] =  $v['name'];
-        $testdefault = $v['id'];
-        if($viewid === $v['id']){
-            $defaultvalues[] = $data[$v['id']];
+
+        if($viewid == $v['id'] || !empty($v['match'])){
+            $defaultvalues[$v['id']] = $v['id'];
         }
     }
 
@@ -127,8 +124,7 @@ if (!empty($views)) {
         'isSelect2' => true,
         'multiple' => true,
         'options' => $data,
-       // 'collapseifoneoption' => false,
-        'defaultvalue' => $defaultvalues
+        'value' => $defaultvalues
     );
 }
 
@@ -157,11 +153,9 @@ $form['elements']['accesslist'] = array(
     'viewtype'      => $view->get('type'),
 );
 
-
 $form['elements']['more'] = array(
     'type' => 'fieldset',
-    'class' => $view->get('type') == 'profile' ? 'hidden' : '',
-    'class' => 'last',
+    'class' => $view->get('type') == 'profile' ? ' hidden' : 'last',
     'collapsible' => true,
     'collapsed' => true,
     'legend' => get_string('moreoptions', 'view'),
@@ -447,6 +441,13 @@ function editaccess_submit(Pieform $form, $values) {
 
     if ($values['accesslist']) {
         $dateformat = get_string('strftimedatetimeshort');
+
+        for($i = 0; $i < count($values['accesslist']); $i++) {
+            if(empty($values['accesslist'][$i]['type'])) {
+                unset($values['accesslist'][$i]);
+            }
+        }
+
         foreach ($values['accesslist'] as &$item) {
             if (!empty($item['startdate'])) {
                 $item['startdate'] = ptimetotime(strptime($item['startdate'], $dateformat));
@@ -547,7 +548,7 @@ function editaccess_submit(Pieform $form, $values) {
 $form = pieform($form);
 
 $smarty = smarty(
-    array('tablerenderer'),
+    array(),
     array(),
     array(
         'mahara' => array('From', 'To', 'datetimeformatguide'),

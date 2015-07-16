@@ -152,7 +152,12 @@ label,
         max-width:100%;
         z-index: 1;
         position:relative;
-        background-color: transparent;
+        &:not(:disabled) {
+            background-color: transparent;
+        }
+        &:disabled {
+            opacity: 0.5;
+        }
     }
 }
 

@@ -172,12 +172,12 @@ function pieform_element_select_render_options($options, $values, &$optionselect
     foreach ($options as $key => $value) {
         // Select the element if it's in the values or if there are no values
         // and this is the first option
-        if (
-            (!is_array($values) && $key == $values)
-            ||
-            (is_array($values) &&
-                (in_array($key, $values)
-                || (isset($values[0]) && $values[0] === null && !$optionselected)))) {
+
+        $stringvalue = !is_array($values) && $key == $values;
+        $inarrayvalue = is_array($values) && in_array($key, $values);
+        $firstoption = isset($values[0]) && $values[0] === null && !$optionselected;
+
+        if ($stringvalue || $inarrayvalue || $firstoption) {
             $selected = ' selected="selected"';
             $optionselected = true;
         }
