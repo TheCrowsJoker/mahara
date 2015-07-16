@@ -8,7 +8,6 @@
         {else}
         <a class="addcomment" href="{$artefacturl}">
             {str tag=addcomment section=artefact.comment}
-            <span class="icon icon-arrow-right text-success pls"></span>
         </a>
         {/if}
     </div>
