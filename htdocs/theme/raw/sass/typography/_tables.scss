@@ -1,6 +1,13 @@
 .table>thead>tr>th {
     border-color: #ccc;
 }
+td.short {
+    width: 180px;
+}
+td.tiny {
+    width: 20px;
+}
+
 
 .table {
     max-width:100%;

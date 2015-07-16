@@ -34,14 +34,21 @@
 {% if (o.id) { %}<option value="{%=o.id%}" selected></option>{% } %}
 </script>
 
+<script type="text/x-tmpl" id="roles-template">
+    <option value="" selected>{%=o.defaultText%}</option>
+    {% for (var i=0; i<o.roles.length; i++) { %}
+         <option value="{%=o.roles[i].name%}">{%=o.roles[i].display%}</option>
+    {% } %}
+</script>
+
 <script type="text/x-tmpl" id="row-template">
 <tr id="row-{%=o.id%}" data-id="{%=o.id%}">
-    <td class="text-center pr0">
+    <td class="text-center pr0 ptl tiny">
     {% if (o.id < 1 || o.presets.locked) { %}
-        <span class="icon icon-times icon-lg icon-placeholder">&nbsp;</span>
+        <span class="icon icon-minus icon-lg icon-placeholder">&nbsp;</span>
     {% } else { %}
         <a data-bind="remove-share" href="#" id="remove-share{%=o.id%}">
-            <span class="icon icon-times icon-lg text-danger ptm"></span>
+            <span class="icon icon-minus icon-lg text-danger"></span>
         </a>
     {% } %}
     </td>
@@ -50,25 +57,30 @@
             <span class="picker input-short mts">
                 <input data-settype="true" type="hidden" id="typehidden-{%=o.id%}" value="{%=o.presets.type%}" name="accesslist[{%=o.id%}][type]" />
                 <select id="type-{%=o.id%}" name="accesslist[{%=o.id%}][searchtype]" class="js-share-type form-control input-small select" {% if (o.presets.locked) { %}disabled{% } %}>
-                    <option data-type="" disabled {% if (!o.presets.type) { %}selected{% } %} value="">Share</option>
-                    <optgroup label="Users &amp; Groups">
+                    <option data-type="" {% if (!o.presets.type) { %}selected{% } %} value="">{%={{jstr tag=sharewith section=view}}%}</option>
+
+                    <optgroup label="{%={{jstr tag=searchfor section=view}}%}">
                         <option data-search-option="true" id="friend" value="friend"{% if (o.presets.type == "friend") { %} selected{% } %}>{{str tag=friends section=view}}</option>
                         <option data-search-option="true" id="group" value="group"{% if (o.presets.type == "group") { %} selected{% } %}>{{str tag=groups}}</option>
                         <option data-search-option="true" id="user" value="user"{% if (o.presets.type == "user") { %} selected{% } %}>{{str tag=users}}</option>
                     </optgroup>
-                    <optgroup label="Share with" id="potentialpresetitemssharewith">
+
+                    <optgroup label="{%={{jstr tag=general section=view}}%}" id="potentialpresetitemssharewith">
                         {% for (var i=0; i<o.shareoptions.general.length; i++) { %}
                             <option value="{%=o.shareoptions.general[i].id%}"{% if (o.presets.type == o.shareoptions.general[i].id) { %} selected{% } %}>{%=o.shareoptions.general[i].name%}</option>
                         {% } %}
                     </optgroup>
-                    <optgroup label="Institutions" id="potentialpresetitemsinstitutions">
+
+                    <optgroup label="{%={{jstr tag=institutions section=view}}%}" id="potentialpresetitemsinstitutions">
                         {% for (var i=0; i<o.shareoptions.institutions.length; i++) { %}
                             <option data-type="institution" value="{%=o.shareoptions.institutions[i].id%}"{% if (o.presets.id == o.shareoptions.institutions[i].id) { %} selected{% } %}>{%=o.shareoptions.institutions[i].name%}</option>
                         {% } %}
                     </optgroup>
-                    <optgroup label="Groups" id="potentialpresetitemsgroups">
+                    <optgroup label="{%={{jstr tag=groups section=view}}%}" id="potentialpresetitemsgroups">
                         {% for (var i=0; i<o.shareoptions.myGroups.length; i++) { %}
-                            <option data-type="group" value="{%=o.shareoptions.myGroups[i].id%}"{% if (o.presets.id == o.shareoptions.myGroups[i].id) { %} selected{% } %}>{%=o.shareoptions.myGroups[i].name%}</option>
+                            <option data-type="group" value="{%=o.shareoptions.myGroups[i].id%}"{% if (o.presets.id == o.shareoptions.myGroups[i].id) { %} selected{% } %}>
+                            {%=o.shareoptions.myGroups[i].name%}
+                            </option>
                         {% } %}
                     </optgroup>
                 </select>
@@ -78,24 +90,29 @@
                     {% if (o.presets.id) { %}<option value="{%=o.presets.id%}">{%=o.presets.name%}</option>{% } %}
                 </select>
             </div>
+             <span class="picker input-short mts{% if (!o.presets.role) { %} hidden{% } %}">
+                <select data-roles="grouproles" name="accesslist[{%=o.id%}][role]" class="form-control input-small select" {% if (o.presets.role) { %}disabled{% } %}>
+                    {% if (o.presets.role) { %}<option value="{%=o.presets.role%}" selected>{%=o.presets.roledisplay%}</option>{% } %}
+                </select>
+            </span>
         </div>
     </td>
 
     {% if (o.viewtype !== "profile") { %}
-        <td class="text-center">
+        <td class="text-center tiny">
             <input name="accesslist[{%=o.id%}][allowcomments]" class="mtm allow-comments-checkbox" type="checkbox" {% if (o.presets.allowcomments == "0") { %}{% } else { %}checked{% } %} {% if (o.presets.locked) { %}disabled{% } %}>
         </td>
-        <td class="text-center">
+        <td class="text-center tiny">
             <input name="accesslist[{%=o.id%}][approvecomments]" class="mtm moderate-comments-checkbox" type="checkbox" {% if (o.presets.approvecomments) { %}checked{% } %}  {% if (o.presets.locked) { %}disabled{% } %}>
         </td>
     {% } %}
 
-    <td class="text-center js-date" data-name='from' >
+    <td class="text-center js-date short" data-name='from' >
         <div class="date-picker js-date-picker">
             <input type="text" name="accesslist[{%=o.id%}][startdate]" class="form-control pull-left" data-setmin="true" setdatatarget="to" value="{%=o.presets.startdate%}"  {% if (o.presets.locked) { %}disabled{% } %}>
         </div>
     </td>
-    <td class="text-center js-date" data-name='to'>
+    <td class="text-center js-date short" data-name='to'>
         <div class="date-picker js-date-picker">
             <input type="text" name="accesslist[{%=o.id%}][stopdate]" class="form-control pull-left " data-setmax="true" setdatatarget="from" value="{%=o.presets.stopdate%}"  {% if (o.presets.locked) { %}disabled{% } %}>
         </div>
@@ -134,9 +151,11 @@ jQuery(function($) {
         }
 
         function formatSelect2Results (data) {
+
             if (data.loading) {
                 return data.text;
             }
+
             var markup;
 
             // Need to know which row
@@ -152,7 +171,7 @@ jQuery(function($) {
 
         function formatSelect2Selected (data) {
             if (data.grouptype !== undefined) {
-                return data.name;
+                return '<span data-grouptype="'+ data.grouptype + '">'+ data.name + '</span>';
             } else {
                 return data.firstname || data.text;
             }
@@ -160,7 +179,9 @@ jQuery(function($) {
 
         function attachSelect2Search(object) {
             var self = object;
+
             $(self).select2({
+                placeholder: {{jstr tag=search section=view}},
                 ajax: {
                     url: "access.json.php",
                     dataType: 'json',
@@ -180,6 +201,10 @@ jQuery(function($) {
                         // parse the results into the format expected by Select2.
                         // since we are using custom formatting functions we do not need to
                         // alter the remote JSON data
+                        if(data.message.roles) {
+                            $(self).attr('data-roles', JSON.stringify(data.message.roles));
+                        }
+
                         return {
                             results: data.message.data
                         };
@@ -187,11 +212,19 @@ jQuery(function($) {
                     cache: true
                   },
                 escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
-                minimumInputLength: 1,
                 templateResult: formatSelect2Results,
-                templateSelection: formatSelect2Selected
+                templateSelection: formatSelect2Selected,
+                maximumSelectionSize: 10
+            });
+
+            $(self).on("select2:select", function (e) {
+                if($(self).attr('data-roles').length > 0) {
+                    showRoleSelect(e, self);
+                }
             });
         }
+
+
 
         /*
          * Render all existing rules into our table
@@ -225,7 +258,6 @@ jQuery(function($) {
             var data,
                 lastrow,
                 id,
-                newrow,
                 viewtype = $('[data-viewtype]').attr('data-viewtype');
 
             if($('#accesslistitems tr').length > 0){
@@ -244,11 +276,11 @@ jQuery(function($) {
 
             $('#accesslistitems').append(tmpl("row-template", data));
 
-            attachEventListeners(newrow, id);
+            attachEventListeners(id);
         }
 
-        function attachEventListeners(newrow, id){
-            newrow = $('#accesslistitems').find('[data-id="' + id + '"]');
+        function attachEventListeners(id){
+            var newrow = $('#accesslistitems').find('[data-id="' + id + '"]');
             attachShareTypeEvent(newrow);
             setDatePicker($(newrow).find('.js-date-picker > input'));
             attachSelect2Search($(newrow).find('.js-select2-search'));
@@ -317,17 +349,48 @@ jQuery(function($) {
             }
 
             return results;
-        };
+        }
+
+
         /*
-         * When a 'search option' is picked in the share with dropdown, ID picker (search field)
+         * Show the role select when a group is selected
+         * @param e | event, self | select Object
+         */
+        function showRoleSelect(e, self) {
+
+            var roles = JSON.parse($(self).attr('data-roles')),
+                grouptype = $(self).parent().find('[data-grouptype]').attr('data-grouptype'),
+                data,
+                defaultText = {{jstr tag=everyoneingroup section=view}},
+                id = $(self).closest('tr').attr('data-id'),
+                select = $(self).closest('.dropdown-group').find('[data-roles="grouproles"]');
+
+            data = {
+                id: id,
+                defaultText: defaultText,
+                roles: roles[grouptype]
+            };
+
+            select.html(tmpl("roles-template", data));
+            select.prop('disabled', false).parent().removeClass('hidden');
+        }
+
+        function hideRoleSelect(self) {
+            var roleSelect = $(self).closest('.dropdown-group').find('[data-roles="grouproles"]');
+            roleSelect.prop('disabled', true).empty().parent().addClass('hidden');
+        }
+
+        /*
+         * When a 'search option' is picked in the share with dropdown, show ID picker (search field)
          * When a 'id' option is picked, hide ID picker and set id on ID picker field
          *
          * @params Self | DOM object, isPreset | boolean (clear the search select if false)
          */
         function setIDField(self, isPreset){
 
-            var val = $(self).find("option:selected").val(),
-                searchoption = $(self).find("option:selected").attr("data-search-option"),
+            var selected = $(self).find("option:selected"),
+                val = selected.val(),
+                searchoption = selected.attr("data-search-option"),
                 idFieldWrapper = $(self).closest('td').find('[data-select-wrapper="true"]'),
                 idField = idFieldWrapper.find('.js-select2-search');
 
@@ -340,6 +403,7 @@ jQuery(function($) {
 
             if (searchoption) {
                 idFieldWrapper.removeClass('hidden');
+
                 idField.prop('required', true);
             } else {
                 idFieldWrapper.addClass('hidden');
@@ -350,6 +414,7 @@ jQuery(function($) {
 
         function resetIdField(idField) {
             idField.select2('val', '');
+            idField.attr('data-roles','');
 
             // Reset and remove selected option if set manually
             if(idField.find('option:selected') !== undefined){
@@ -384,6 +449,7 @@ jQuery(function($) {
             scope.find(".js-share-type").on('change', function(){
                 setIDField(this, false);
                 setTypeField(this);
+                hideRoleSelect(this);
             });
         }
 
