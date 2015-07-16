@@ -68,7 +68,6 @@
                     {if $post->allowcomments}
                     <a class="addcomment" href="{$WWWROOT}artefact/artefact.php?artefact={$post->id}&view={$view}">
                         {str tag=addcomment section=artefact.comment}
-                        <span class="icon icon-arrow-right text-success pls"></span>
                     </a>
                     {/if}
                 {/if}
@@ -83,7 +82,7 @@
                             </button>
                             <h4 class="modal-title pull-left">
                                 <span class="icon icon-lg icon-comments prm"></span>
-                                {str tag=Comments section=artefact.comment} -
+                                {str tag=Comments section=artefact.comment} |
                                 {$post->title}
                             </h4>
                             {if $post->allowcomments}
