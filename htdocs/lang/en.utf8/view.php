@@ -435,6 +435,8 @@ $string['institutions'] = 'Institutions';
 $string['groups'] = 'Groups';
 $string['search'] = 'Search';
 $string['Me'] = 'Me';
+$string['entersearchquery'] = 'Enter search query';
+
 
 // Group reports
 $string['sharedby'] = 'Shared by';

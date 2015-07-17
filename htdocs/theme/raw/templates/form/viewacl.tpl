@@ -11,8 +11,8 @@
                     <th class="text-center">Allow comments</th>
                     <th class="text-center">Moderate comments</th>
                 {{/if}}
-                <th class="text-center">From</th>
-                <th class="text-center">To</th>
+                <th class="text-center">{{str tag=From}}</th>
+                <th class="text-center">{{str tag=To}}</th>
             </tr>
         </thead>
         <tbody id ="accesslistitems" data-id="accesslistitems">
@@ -21,7 +21,7 @@
             <tr class="accesslist-foot">
                 <td class="pl0" colspan="6">
                     <a href="#" id="add-row" class="btn btn-default mtm">
-                        <span class="icon icon-plus text-link prs"></span>
+                        <span class="icon icon-plus text-success prs"></span>
                         <span>{{str tag=addarow section=view}}</span>
                     </a>
                 </td>
@@ -44,16 +44,13 @@
 <script type="text/x-tmpl" id="row-template">
 <tr id="row-{%=o.id%}" data-id="{%=o.id%}">
     <td class="text-center pr0 ptl tiny">
-    {% if (o.id < 1 || o.presets.locked) { %}
-        <span class="icon icon-minus icon-lg icon-placeholder">&nbsp;</span>
-    {% } else { %}
-        <a data-bind="remove-share" href="#" id="remove-share{%=o.id%}">
-            <span class="icon icon-minus icon-lg text-danger"></span>
+
+        <a class="{% if (o.presets.locked || o.presets.empty) { %}icon-placeholder{% } %}" data-bind="remove-share" href="#" id="remove-share{%=o.id%}">
+            <span class="icon icon-minus icon-lg text-danger ">&nbsp;</span>
         </a>
-    {% } %}
     </td>
     <td>
-        <div class="dropdown-group">
+        <div class="dropdown-group dropdown-single-option">
             <span class="picker input-short mts">
                 <input data-settype="true" type="hidden" id="typehidden-{%=o.id%}" value="{%=o.presets.type%}" name="accesslist[{%=o.id%}][type]" />
                 <select id="type-{%=o.id%}" name="accesslist[{%=o.id%}][searchtype]" class="js-share-type form-control input-small select" {% if (o.presets.locked) { %}disabled{% } %}>
@@ -100,21 +97,21 @@
 
     {% if (o.viewtype !== "profile") { %}
         <td class="text-center tiny">
-            <input name="accesslist[{%=o.id%}][allowcomments]" class="mtm allow-comments-checkbox" type="checkbox" {% if (o.presets.allowcomments == "0") { %}{% } else { %}checked{% } %} {% if (o.presets.locked) { %}disabled{% } %}>
+            <input name="accesslist[{%=o.id%}][allowcomments]" class="mtm allow-comments-checkbox js-hide-empty {% if (o.presets.empty) { %}hidden{% } %}" type="checkbox" {% if (o.presets.allowcomments == "0") { %}{% } else { %}checked{% } %} {% if (o.presets.locked) { %}disabled{% } %}>
         </td>
         <td class="text-center tiny">
-            <input name="accesslist[{%=o.id%}][approvecomments]" class="mtm moderate-comments-checkbox" type="checkbox" {% if (o.presets.approvecomments) { %}checked{% } %}  {% if (o.presets.locked) { %}disabled{% } %}>
+            <input name="accesslist[{%=o.id%}][approvecomments]" class="mtm moderate-comments-checkbox js-hide-empty {% if (o.presets.empty) { %}hidden{% } %}" type="checkbox" {% if (o.presets.approvecomments) { %}checked{% } %}  {% if (o.presets.locked) { %}disabled{% } %}>
         </td>
     {% } %}
 
     <td class="text-center js-date short" data-name='from' >
-        <div class="date-picker js-date-picker">
+        <div class="date-picker js-date-picker js-hide-empty {% if (o.presets.empty) { %}hidden{% } %}">
             <input type="text" name="accesslist[{%=o.id%}][startdate]" class="form-control pull-left" data-setmin="true" setdatatarget="to" value="{%=o.presets.startdate%}"  {% if (o.presets.locked) { %}disabled{% } %}>
         </div>
     </td>
     <td class="text-center js-date short" data-name='to'>
-        <div class="date-picker js-date-picker">
-            <input type="text" name="accesslist[{%=o.id%}][stopdate]" class="form-control pull-left " data-setmax="true" setdatatarget="from" value="{%=o.presets.stopdate%}"  {% if (o.presets.locked) { %}disabled{% } %}>
+        <div class="date-picker js-date-picker js-hide-empty {% if (o.presets.empty) { %}hidden{% } %}">
+            <input type="text" name="accesslist[{%=o.id%}][stopdate]" class="form-control pull-left" data-setmax="true" setdatatarget="from" value="{%=o.presets.stopdate%}"  {% if (o.presets.locked) { %}disabled{% } %}>
         </div>
     </td>
 </tr>
@@ -214,7 +211,31 @@ jQuery(function($) {
                 escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
                 templateResult: formatSelect2Results,
                 templateSelection: formatSelect2Selected,
-                maximumSelectionSize: 10
+                maximumSelectionSize: 10,
+                minimumInputLength: 1,
+                language: {
+                    errorLoading: function () {
+                        return {{jstr tag=errorLoading section=mahara}};
+                    },
+                    inputTooShort: function () {
+                        return {{jstr tag=inputTooShort section=mahara}};
+                    },
+                    inputTooLong: function () {
+                        return {{jstr tag=inputTooLong section=mahara}};
+                    },
+                    loadingMore: function () {
+                        return {{jstr tag=loadingMore section=mahara}};
+                    },
+                    maximumSelected: function () {
+                        return {{jstr tag=maximumSelected section=mahara}};
+                    },
+                    noResults: function () {
+                        return {{jstr tag=noResults section=mahara}};
+                    },
+                    searching: function () {
+                        return {{jstr tag=searching section=mahara}};
+                    }
+                }
             });
 
             $(self).on("select2:select", function (e) {
@@ -223,7 +244,6 @@ jQuery(function($) {
                 }
             });
         }
-
 
 
         /*
@@ -246,9 +266,11 @@ jQuery(function($) {
                 }
             } else {
                 // render empty row
-                addNewRow(shareoptions);
+
+                addNewRow(shareoptions, {empty: true});
             }
         }
+
 
         function addNewRow(shareoptions, presets){
             if(presets === undefined){
@@ -277,20 +299,44 @@ jQuery(function($) {
             $('#accesslistitems').append(tmpl("row-template", data));
 
             attachEventListeners(id);
+
         }
+
 
         function attachEventListeners(id){
             var newrow = $('#accesslistitems').find('[data-id="' + id + '"]');
             attachShareTypeEvent(newrow);
             setDatePicker($(newrow).find('.js-date-picker > input'));
             attachSelect2Search($(newrow).find('.js-select2-search'));
+            attachCommentEvents($(newrow));
+            onChange($(newrow));
 
             // Remove a table row when the remove button is clicked
             $('[data-bind="remove-share"]').on('click', function(e) {
                 e.preventDefault();
-                $(this).closest('tr').remove();
+
+                clearRow(this);
             });
         }
+
+        function onChange(row) {
+            var remove = row.find('[data-bind="remove-share"]');
+            if(remove.hasClass('icon-placeholder')) {
+                row.find('select').on('change', function(e){
+                    remove.removeClass('icon-placeholder js-empty');
+                    row.find('.js-hide-empty').removeClass('hidden');
+                });
+            }
+        }
+
+        function clearRow(self) {
+            $(self).closest('tr').remove();
+
+            if($('#accesslistitems tr').length < 1) {
+                addNewRow(shareoptions, {empty: true});
+            }
+        }
+
 
         /*
          * Construct data for share with dropdown
@@ -453,6 +499,32 @@ jQuery(function($) {
             });
         }
 
+        function attachCommentEvents(newrow) {
+            newrow.find('.allow-comments-checkbox').on('change', function() {
+                if($(this).prop('checked') == false){
+                    newrow.find('.moderate-comments-checkbox').attr({"disabled":"disabled","checked":false});
+                } else {
+                    newrow.find('.moderate-comments-checkbox').removeAttr('disabled');
+                };
+            });
+
+            newrow.find('.allow-comments-checkbox').on('change', function() {
+                $('#editaccess_allowcomments').prop('checked', false);
+            });
+
+            newrow.find('.moderate-comments-checkbox').on('change', function() {
+                $('#editaccess_approvecomments').prop('checked', false);
+            });
+        }
+
+        $('#editaccess_allowcomments').on('change', function() {
+            $('.allow-comments-checkbox').prop('checked', true);
+        });
+
+        $('#editaccess_approvecomments').on('change', function() {
+            $('.moderate-comments-checkbox').prop('checked', true);
+        });
+
         var rows = $('#accesslistitems > tr'),
             i,
             shareoptions = shareWithOptions(rows[i]);
@@ -463,21 +535,7 @@ jQuery(function($) {
         // Create a new row
         $('#add-row').on('click', function(e) {
             e.preventDefault();
-            addNewRow(shareoptions);
-        });
-
-        $('.allow-comments-checkbox').on('change', function() {
-            $('#editaccess_allowcomments').prop('checked', false);
-        });
-        $('#editaccess_allowcomments').on('change', function() {
-            $('.allow-comments-checkbox').prop('checked', true);
-        });
-
-        $('.moderate-comments-checkbox').on('change', function() {
-            $('#editaccess_approvecomments').prop('checked', false);
-        });
-        $('#editaccess_approvecomments').on('change', function() {
-            $('.moderate-comments-checkbox').prop('checked', true);
+            addNewRow(shareoptions, {empty: true});
         });
 
         var select2 = $(".js-select2-search"),
