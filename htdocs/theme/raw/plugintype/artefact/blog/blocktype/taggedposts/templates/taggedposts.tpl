@@ -8,7 +8,10 @@
             </span>
             <input class="select" type="hidden" value="{$tagselect}">
             <span class="input-group-btn">
-                <a class="btn btnshortcut btn-success">{str tag='shortcutgo' section='artefact.blog'}</a>
+                <a class="btn btnshortcut btn-default">
+                    <span class="icon icon-plus text-success prs"></span>
+                    {str tag='shortcutgo' section='artefact.blog'}
+                </a>
             </span>
         </div>
     </div>
@@ -61,7 +64,7 @@
             {if $post->commentcount != null}
             <div class="comments ptm pbl">
                 {if $post->commentcount > 0}
-                    <a id="block_0{$post->id}{$blockid}" class="commentlink" data-toggle="modal" data-target="#feedbacktable_0{$post->id}{$blockid}" href="#">
+                    <a id="block_0{$post->id}{$blockid}" class="commentlink" data-toggle="modal-docked" data-target="#feedbacktable_0{$post->id}{$blockid}" href="#">
                         {str tag=Comments section=artefact.comment} ({$post->commentcount})
                     </a>
                 {else}
@@ -76,7 +79,7 @@
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header clearfix">
-                            <button class="deletebutton close" data-dismiss="modal">
+                            <button class="close" data-dismiss="modal-docked">
                                 <span class="times">&times;</span>
                                 <span class="sr-only">{str tag=Close}</span>
                             </button>
@@ -86,7 +89,7 @@
                                 {$post->title}
                             </h4>
                             {if $post->allowcomments}
-                            <a class="addcomment pull-right" href="{$WWWROOT}artefact/artefact.php?artefact={$post->id}&view={$options.viewid}">
+                            <a class="addcomment pull-right" href="{$WWWROOT}artefact/artefact.php?artefact={$post->id}&view={$view}">
                                 {str tag=addcomment section=artefact.comment}
                                 <span class="icon icon-arrow-right pls"></span>
                             </a>
