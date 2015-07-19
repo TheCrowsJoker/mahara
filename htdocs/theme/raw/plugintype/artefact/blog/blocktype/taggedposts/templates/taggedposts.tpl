@@ -86,7 +86,7 @@
                                 {$post->title}
                             </h4>
                             {if $post->allowcomments}
-                            <a class="addcomment pull-right" href="{$WWWROOT}artefact/artefact.php?artefact={$post->id}&view={$options.viewid}">
+                            <a class="addcomment pull-right" href="{$WWWROOT}artefact/artefact.php?artefact={$post->id}&view={$view}">
                                 {str tag=addcomment section=artefact.comment}
                                 <span class="icon icon-arrow-right pls"></span>
                             </a>
