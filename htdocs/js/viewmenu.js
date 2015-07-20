@@ -52,7 +52,7 @@ function addFeedbackSuccess(form, data) {
     // Check if the form is displayed inside a modal
     // then close the modal
     if ($j('#feedback-form').length) {
-        $j('#feedback-form').modal('hide');
+        dock.hide();
     }
 }
 
@@ -92,6 +92,10 @@ jQuery(function($j) {
                     $j('#toggle_watchlist_link').html(icon + data.message.newtext);
                     displayMessage(data.message.message, 'ok', true);
                 }
+=======
+            sendjsonrequest(config.wwwroot + 'view/togglewatchlist.json.php', {'view': viewid, 'artefact': artefactid}, 'POST', function(data) {
+                $('toggle_watchlist_link').innerHTML = data.newtext;
+>>>>>>>  Bootstrap tidy up fixes (BUG 1465107)
             });
         });
     }

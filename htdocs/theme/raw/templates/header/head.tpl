@@ -25,11 +25,6 @@
 {foreach from=$JAVASCRIPT item=script}
     <script type="application/javascript" src="{$script}"></script>
 {/foreach}
-{if isset($INLINEJAVASCRIPT)}
-    <script type="application/javascript">
-{$INLINEJAVASCRIPT|safe}
-    </script>
-{/if}
 {foreach from=$HEADERS item=header}
     {$header|safe}
 {/foreach}
@@ -45,6 +40,7 @@
     <script type="application/javascript" src="{theme_url filename='js/block.js'}?v={$CACHEVERSION}"></script>
     <script type="application/javascript" src="{theme_url filename='js/formtabs.js'}?v={$CACHEVERSION}"></script>
     <script type="application/javascript" src="{theme_url filename='js/filebrowser.js'}?v={$CACHEVERSION}"></script>
+    <script type="application/javascript" src="{theme_url filename='js/dock.js'}?v={$CACHEVERSION}"></script>
     <script type="application/javascript" src="{theme_url filename='js/theme.js'}?v={$CACHEVERSION}"></script>
 
     <script type="application/javascript" src="{theme_url filename='js/notification.js'}?v={$CACHEVERSION}"></script>

@@ -146,7 +146,7 @@ if ($USER->is_logged_in() && $submittedgroup && group_user_can_assess_submitted_
                 'submit' => array(
                     'type'  => 'button',
                     'usebuttontag' => true,
-                    'class' => 'btn btn-default pull-right',
+                    'class' => 'btn-default pull-right',
                     'value' => $releasecollection ? '<span class="icon icon-unlock prs"></span>' . get_string('releasecollection', 'group') : '<span class="icon icon-unlock prs"></span>' . get_string('releaseview', 'group'),
                 ),
             ),
@@ -444,6 +444,10 @@ $smarty->assign('viewbeingwatched', $viewbeingwatched);
 
 if ($viewgroupform) {
     $smarty->assign('view_group_submission_form', $viewgroupform);
+}
+
+if($titletext !== $title){
+    $smarty->assign('title', TITLE);
 }
 
 $smarty->display('view/view.tpl');

@@ -37,7 +37,7 @@ jQuery(function($) {
                 $("#" + t).removeClass("js-hidden").focus();
             }
         });
-    }
+    };
 
     simpleresume.connect_cancelbuttons = function() {
         $("#resumefieldform input.submitcancel.cancel").click(function(e) {
@@ -66,7 +66,7 @@ jQuery(function($) {
             }
             $("#" + t + "edit_container").find('input.openedit').focus();
         });
-    }
+    };
 
     simpleresume.simple_resumefield_init = function() {
         this.connect_editbuttons();
@@ -87,7 +87,7 @@ jQuery(function($) {
                 }
             });
         }
-    }
+    };
 
      simpleresume.simple_resumefield_init();
 });

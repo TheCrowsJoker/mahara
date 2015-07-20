@@ -30,6 +30,10 @@
     }
 }
 
+.fileedittablewrap {
+    background-color: $panel-default-heading-bg;
+}
+
 // file browser inside modal screen
 .modal-filebrowser {
     margin-top: 50px;
@@ -45,4 +49,17 @@
 
 .folderhover td{
     background-color: $state-warning-bg;
+}
+
+.filedownload-item {
+    .list-group-item-heading {
+        display: inline-block;
+        max-width: 80%;
+    }
+    a {
+        word-break: break-all;
+    }
+    img {
+        vertical-align: top;
+    }
 }
