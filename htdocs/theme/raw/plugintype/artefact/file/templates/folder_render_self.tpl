@@ -1,17 +1,13 @@
-{if $simpledisplay}
-<div class="panel-body">
+{if $description}
+<p class="ptl text-small description">
+    {$description}
+</p>
 {/if}
-    <p class="text-small description">
-        {$description}
-    </p>
 
-    {if $tags}
-    <div class="tags">
-        <span class="lead text-small">{str tag=tags}</span>:
-        {list_tags owner=$owner tags=$tags}
-    </div>
-    {/if}
-{if $simpledisplay}
+{if $tags}
+<div class="tags">
+    <span class="lead text-small">{str tag=tags}</span>:
+    {list_tags owner=$owner tags=$tags}
 </div>
 {/if}
 <div id="commentfiles" class="folder-panel">
@@ -48,9 +44,9 @@
                     </span>
                     {/if}
                     {if $child->description}
-                    <span class="filedate metadata">
+                    <p class="filedate metadata ptm">
                         {$child->description}
-                    </span>
+                    </p>
                     {/if}
                 </h5>
                 {if $child->artefacttype != 'folder'}

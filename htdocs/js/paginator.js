@@ -31,7 +31,7 @@ var Paginator = function(id, list, heading, script, extradata) {
             self.jsonScript = config['wwwroot'] + script;
             self.extraData = extradata;
 
-            if (self.list !== null && self.list.tagName == 'TABLE') {
+            if(self.list !== null && self.list.tagName == 'TABLE' || list === 'feedbacktable') {
                 self.isTable = true;
             }
 
