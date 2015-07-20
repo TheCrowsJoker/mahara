@@ -541,10 +541,13 @@ class ArtefactTypeComment extends ArtefactType {
             return array(0, '');
         }
 
+        $artefacttitle = $artefact->title;
+
         $artefacturl = get_config('wwwroot') . 'artefact/artefact.php?view=' . $view->get('id') . '&artefact=' . $artefact->get('id');
         if ($html) {
             $smarty = smarty_core();
             $smarty->assign('artefacturl', $artefacturl);
+            $smarty->assign('artefacttitle', $artefacttitle);
             $smarty->assign('blockid', $blockid);
             $smarty->assign('commentcount', $commentcount);
             $smarty->assign('comments', $comments);
@@ -763,6 +766,7 @@ class ArtefactTypeComment extends ArtefactType {
         $form['elements']['message'] = array(
             'type'  => 'wysiwyg',
             'title' => get_string('message'),
+            'class' => 'hide-label',
             'rows'  => 5,
             'cols'  => 80,
             'rules' => array('maxlength' => 8192),
@@ -801,7 +805,7 @@ class ArtefactTypeComment extends ArtefactType {
         }
         $form['elements']['submit'] = array(
             'type'  => 'submitcancel',
-            'class' => 'btn btn-default',
+            'class' => 'btn-default',
             'value' => array(get_string('Comment', 'artefact.comment'), get_string('cancel')),
         );
         return $form;
@@ -817,7 +821,7 @@ class ArtefactTypeComment extends ArtefactType {
                 'submit'   => array(
                     'type'  => 'button',
                     'usebuttontag' => true,
-                    'class' => 'btn btn-link btn-xs',
+                    'class' => 'btn-link btn-xs',
                     'name'  => 'make_public_submit',
                     'value' => '<span class="icon icon-lock text-default prs"></span>' . get_string('makepublic', 'artefact.comment'),
                 ),
@@ -836,7 +840,7 @@ class ArtefactTypeComment extends ArtefactType {
                 'submit'  => array(
                     'type'  => 'button',
                     'usebuttontag' => true,
-                    'class' => 'btn btn-default btn-sm',
+                    'class' => 'btn-default btn-sm',
                     'value' => '<span class="icon icon-trash icon-lg text-danger"></span> <span class="sr-only">' . get_string('delete') . '</span>',
                     'confirm' => get_string('reallydeletethiscomment', 'artefact.comment'),
                     'name'  => 'delete_comment_submit',

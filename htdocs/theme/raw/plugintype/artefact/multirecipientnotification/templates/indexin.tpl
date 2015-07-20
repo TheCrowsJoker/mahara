@@ -1,6 +1,6 @@
 {include file="header.tpl"}
 <a title="{str section='artefact.multirecipientnotification' tag='composemessagedesc'}" class="btn-with-heading btn-lg btn btn-default" href="{$WWWROOT}artefact/multirecipientnotification/sendmessage.php">
-    <span class="icon icon-edit"></span>
+    <span class="icon icon-edit icon-lg prs"></span>
     {str section='artefact.multirecipientnotification' tag='composemessage'}
 </a>
 

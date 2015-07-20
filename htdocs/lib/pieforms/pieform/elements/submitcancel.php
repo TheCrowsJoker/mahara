@@ -36,7 +36,7 @@ function pieform_element_submitcancel(Pieform $form, $element) {/*{{{*/
         throw new PieformException('The submitcancel element "' . $element['name']
             . '" must have a two element array for its value');
     }
-    $form->include_plugin('element', 'submit');
+    $form->include_plugin('element', 'button');
     $form->include_plugin('element', 'cancel');
 
     // first try for string indices
@@ -68,6 +68,7 @@ function pieform_element_submitcancel(Pieform $form, $element) {/*{{{*/
         $submitelement = $element;
         $submitelement['class'] = (isset($submitelement['class'])) ? $submitelement['class'] . ' submit' : 'submit';
         $submitelement['value'] = $element['value'][0];
+        $submitelement['usebuttontag'] = true;
         $cancelelement = $element;
         $cancelelement['class'] = (isset($cancelelement['class'])) ? $cancelelement['class'] . ' cancel' : 'cancel';
         $cancelelement['value'] = $element['value'][1];
@@ -83,7 +84,7 @@ function pieform_element_submitcancel(Pieform $form, $element) {/*{{{*/
         else {
             unset($cancelelement['confirm']);
         }
-        return pieform_element_submit($form, $submitelement) . ' ' . pieform_element_cancel($form, $cancelelement);
+        return pieform_element_button($form, $submitelement) . ' ' . pieform_element_cancel($form, $cancelelement);
     }
 }/*}}}*/
 

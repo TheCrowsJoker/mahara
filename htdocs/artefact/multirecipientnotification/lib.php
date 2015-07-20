@@ -130,13 +130,13 @@ class PluginArtefactMultirecipientnotification extends PluginArtefact {
     public static function submenu_items() {
         $tabs = array(
             'inbox' => array(
-                'iconclass' => 'icon icon-inbox',
+                'iconclass' => 'icon icon-inbox icon-lg',
                 'url' => 'artefact/multirecipientnotification/inbox.php',
                 'title' => get_string('labelinbox', 'artefact.multirecipientnotification'),
                 'tooltip' => get_string('inboxdesc1', 'artefact.multirecipientnotification'),
             ),
             'outbox' => array(
-                'iconclass' => 'icon icon-paper-plane',
+                'iconclass' => 'icon icon-paper-plane icon-lg',
                 'url' => 'artefact/multirecipientnotification/outbox.php',
                 'title' => get_string('labeloutbox1', 'artefact.multirecipientnotification'),
                 'tooltip' => get_string('outboxdesc', 'artefact.multirecipientnotification'),

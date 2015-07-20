@@ -69,7 +69,7 @@
             <div class="panel-footer mbl">
                 <a href="{$link}?replyto={$message->id}&returnto={$returnto}">
                     <span class="icon icon-reply"></span>
-                    {str tag='returnurltext' section='artefact.multirecipientnotification'}
+                    {str tag=reply section=artefact.multirecipientnotification}
                 </a>
             </div>
             {/if}

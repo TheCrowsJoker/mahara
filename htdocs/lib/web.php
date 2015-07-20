@@ -3858,7 +3858,7 @@ function build_pagination($params) {
         $output .= '<div class="lead text-small results pull-right">' . $params['count'] . ' ' . $resultsstr . '</div>';
     }
 
-    $output .= '<nav><ul class="pagination pagination-xs">';
+    $output .= '<ul class="pagination pagination-xs">';
 
     if ($params['limit'] && ($params['limit'] < $params['count'])) {
         $pages = ceil($params['count'] / $params['limit']);
@@ -4015,7 +4015,7 @@ function build_pagination($params) {
                 $strlimitoptions[] = "<option value = '$limitoptions[$i]'> $limitoptions[$i] </option>";
             }
         }
-        $output .= '</ul></nav>';
+        $output .= '</ul>';
         $output .= '<form class="form-pagination js-pagination form-inline pagination-page-limit dropdown" action="' . hsc($params['url']) . '" method="POST">
             <label for="setlimitselect" class="set-limit"> ' . $params['limittext'] . ' </label>' .
             '<span class="picker input-sm"><select id="setlimitselect" class="js-pagination input-sm select form-control" name="limit"> '.

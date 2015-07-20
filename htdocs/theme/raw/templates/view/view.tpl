@@ -8,7 +8,8 @@
 
 {if $maintitle}
 <h1 id="viewh1" class="page-header">
-    {$maintitle|safe}
+    {if $title}<span class="subsection-heading">{$title}</span>{/if}
+    <span class="section-heading">{if $title} | {/if}{$maintitle|safe}</span>
 </h1>
 {/if}
 
@@ -25,14 +26,14 @@
         </a>
         {/if}
     {/strip}{/if}
-    
+
     {if $copyurl}{strip}
     <a title="{str tag=copythisview section=view}" href="{$copyurl}" class="btn btn-default">
         <span class="text-success icon icon-files-o icon-lg prs"></span>
         {str tag=copy section=mahara}
     </a>
     {/strip}{/if}
-    
+
     {if $mnethost}
     <a href="{$mnethost.url}" class="btn btn-default">
         <span class="icon icon-long-arrow-right icon-lg prs"></span>
@@ -69,23 +70,23 @@
     {/if}
 </div>
 
-{if $collection}
-{include file=collectionnav.tpl}
-{/if}
-
-<div class="ptxl">
+<div class="pbxl with-heading metadata">
     {assign var='author_link_index' value=1}
     {include file=author.tpl}
 
     {if $tags}
     <div class="tags pbl">
-        <strong>{str tag=tags}:</strong> 
+        <strong>{str tag=tags}:</strong>
         {list_tags owner=$owner tags=$tags}
     </div>
     {/if}
 </div>
 
-<div id="view-description">{$viewdescription|clean_html|safe}</div>
+{if $collection}
+    {include file=collectionnav.tpl}
+{/if}
+
+<div id="view-description" class="pbl">{$viewdescription|clean_html|safe}</div>
 
 <div id="view">
     <div id="bottom-pane">
@@ -99,13 +100,13 @@
             {$releaseform|safe}
         </div>
         {/if}
-        
+
         {if $view_group_submission_form}
         <div class="submissionform alert alert-default">
             {$view_group_submission_form|safe}
         </div>
         {/if}
-        
+
         {if $feedback->position eq 'base'}
             {if $feedback->count || $enablecomments}
             <h3 class="title">
@@ -122,11 +123,14 @@
         {/if}
 
         {if $feedback->position eq 'blockinstance' && $enablecomments}
-        <div class="feedback in-block modal fade" id="feedback-form">
+        <div class="feedback modal modal-docked" id="feedback-form">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <button class="close" data-dismiss="modal-docked" aria-label="Close">
+                            <span class="times">&times;</span>
+                            <span class="sr-only">{str tag=Close}</span>
+                        </button>
                         <h4 class="modal-title">
                             <span class="icon icon-lg icon-comments prm"></span>
                             {str tag=addcomment section=artefact.comment}
@@ -164,10 +168,8 @@
 </div>
 
 {if $visitstring}
-<div class="metadata text-right">
+<div class="metadata text-right mtxl">
     {$visitstring}
 </div>
 {/if}
 {include file="footer.tpl"}
-
-
