@@ -740,7 +740,6 @@ class ArtefactTypeComment extends ArtefactType {
         $form = array(
             'name'            => 'add_feedback_form',
             'method'          => 'post',
-            //'class'           => 'js-hidden',
             'plugintype'      => 'artefact',
             'pluginname'      => 'comment',
             'jsform'          => true,
