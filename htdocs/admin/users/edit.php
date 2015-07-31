@@ -247,6 +247,7 @@ $elements['tags'] = array(
 
 $elements['submit'] = array(
     'type'  => 'submit',
+    'class' => 'btn-success',
     'value' => get_string('savechanges','admin'),
 );
 
@@ -595,7 +596,7 @@ if (empty($suspended)) {
             ),
             'reason' => array(
                 'type'        => 'textarea',
-                'rows'        => 5,
+                'rows'        => 3,
                 'cols'        => 28,
                 'title'       => get_string('reason'),
                 'description' => get_string('suspendedreasondescription', 'admin'),
@@ -750,10 +751,12 @@ foreach ($institutions as $i) {
             ),
             $i->institution.'_submit' => array(
                 'type'  => 'submit',
+                'class' => 'btn-success',
                 'value' => get_string('update'),
             ),
             $i->institution.'_remove' => array(
                 'type'  => 'submit',
+                'class' => 'btn-default',
                 'value' => get_string('removeuserfrominstitution', 'admin'),
                 'confirm' => get_string('confirmremoveuserfrominstitution', 'admin'),
             ),
