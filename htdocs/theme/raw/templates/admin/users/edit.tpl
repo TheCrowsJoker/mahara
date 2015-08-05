@@ -10,46 +10,32 @@
                     </div>
                 {/if}
                 {$suspendform2|safe}
-            </div>
+           </div>
         {/if}
 
-        <!-- <div class="fullwidth" id="useraccountsettings">
-            <div id="useraccountsettingsright">
-                {if $suspendable}
-                <div id="suspenddelete">
-                    <div id="suspend">
-                        <h3>{str tag="suspenduser" section=admin}</h3>
-                    	<p>{str tag="suspenduserdescription" section=admin}</p>
-                        {$suspendform|safe}
-                    </div>
-                    {if $deletable}
-                    <div id="delete">
-                        <h3>{str tag=deleteuser section=admin}</h3>
-                        <p>{str tag=deleteusernote section=admin}</p>
-                        {$deleteform|safe}
-                    </div>
-                    {/if}
-                </div>
+        <button type="button" class="btn btn-link" data-toggle="modal" data-target="#myModal">
+          Launch demo modal
+        </button>
+
+    <div class="fullwidth" id="useraccountsettings">
+        <div id="useraccountsettingsleft">
+            <div id="profilepict">
+                <a href="{profile_url($user)}"><img src="{profile_icon_url user=$user maxheight=100 maxwidth=100}" alt="{str tag=profileimagetext arg1=$user|display_default_name}"></a>
+                <div id="profilename"><a href="{profile_url($user)}">{$user|display_name}</a></div>
+                {if $loginas}
+                   <div id="loginas"><a class="btn" href="{$WWWROOT}admin/users/changeuser.php?id={$user->id}">{str tag=loginas section=admin}</a></div>
                 {/if}
-            </div> -->
-            <div id="useraccountsettingsleft" class="mt0">
-                <div id="profilepict" class="pull-left">
-                    <a href="{profile_url($user)}"><img src="{profile_icon_url user=$user maxheight=100 maxwidth=100}" alt="{str tag=profileimagetext arg1=$user|display_default_name}"></a>
-                    <div id="profilename"><a href="{profile_url($user)}">{$user|display_name}</a></div>
-                    {if $loginas}
-                       <div id="loginas"><a class="btn" href="{$WWWROOT}admin/users/changeuser.php?id={$user->id}">{str tag=loginas section=admin}</a></div>
-                    {/if}
-                </div>
-                <h2>{str tag="siteaccountsettings" section="admin"}</h2>
-                <p>{str tag="usereditdescription" section="admin"}</p>
-                <p class="errmsg">{str tag="usereditwarning" section="admin"}</p>
-                {$siteform|safe}
             </div>
-            <div class="cb"></div>
+            <h2>{str tag="siteaccountsettings" section="admin"}</h2>
+            <p>{str tag="usereditdescription" section="admin"}</p>
+            <p class="errmsg">{str tag="usereditwarning" section="admin"}</p>
+            {$siteform|safe}
+
         </div>
+        <div class="cb"></div>
     </div>
 </div>
-
+</div>
 {if ($institutions)}
     <div class="has-attachment panel panel-default collapsible">
         <h4 class="panel-heading pts pbs">
@@ -59,10 +45,44 @@
             </a>
         </h4>
         <div class="collapse plm" id="test" aria-expanded="false">
-            <p>{str tag="institutionsettingsdescription" section="admin"}</p>
-            {$institutionform|safe}
-        </div>
+        <p>{str tag="institutionsettingsdescription" section="admin"}</p>
+        {$institutionform|safe}
     </div>
 {/if}
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                {if $suspendable}
+                    <div id="suspenddelete">
+                        <div id="suspend">
+                            <h3>{str tag="suspenduser" section=admin}</h3>
+                            <p>{str tag="suspenduserdescription" section=admin}</p>
+                            {$suspendform|safe}
+                        </div>
+                    </div>
+                {if $deletable}
+                    <div id="delete">
+                        <h3>{str tag=deleteuser section=admin}</h3>
+                        <p>{str tag=deleteusernote section=admin}</p>
+                        {$deleteform|safe}
+                    </div>
+                {/if}
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 {include file="footer.tpl"}

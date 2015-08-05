@@ -596,6 +596,7 @@ if (empty($suspended)) {
             ),
             'reason' => array(
                 'type'        => 'textarea',
+                'class'       => 'form-inline',
                 'rows'        => 3,
                 'cols'        => 28,
                 'title'       => get_string('reason'),

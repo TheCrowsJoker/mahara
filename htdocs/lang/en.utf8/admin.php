@@ -793,7 +793,7 @@ $string['probationreportcolumn'] = 'Probation';
 $string['addusertoinstitution'] = 'Add user to institution';
 $string['removeuserfrominstitution'] = 'Remove user from this institution';
 $string['confirmremoveuserfrominstitution'] = 'Are you sure you want to remove the user from this institution?';
-$string['usereditdescription'] = 'Here you can view and set details for this user account. Below, you can also <a href="#suspend">suspend or delete this account</a> or change settings for this user in the <a href="#institutions">institutions they are in</a>.';
+$string['usereditdescription'] = 'Here you can view and set details for this user account. Below, you can also suspend or delete this account or change settings for this user in the institutions they are in.';
 $string['usereditwarning'] = 'NOTE: Saving the account changes will cause the user to be logged out (if currently logged in).';
 $string['suspenduserdescription'] = 'A suspended user is unable to log in until the account is unsuspended.';
 $string['deleteusernote'] = 'Please note that this operation <strong>cannot be undone</strong>.';
