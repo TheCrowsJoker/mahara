@@ -179,6 +179,7 @@ class PluginSearchElasticsearch extends PluginSearch {
         }
 
         $config = array(
+            'class' => 'panel panel-body',
             'elements' => array(
                 'enablednotice' => array(
                     'type'         => 'html',
@@ -339,11 +340,13 @@ class PluginSearchElasticsearch extends PluginSearch {
             $resetelements['allreset'] = array(
                 'title' => get_string('resetallindexes', 'search.elasticsearch'),
                 'type' => 'submit',
+                'class' => 'btn-default',
                 'defaultvalue' => get_string('reset', 'search.elasticsearch'),
             );
 
             $config['elements']['resetindex'] = array(
                 'type' => 'fieldset',
+                'class' => 'last',
                 'legend' => get_string('resetlegend', 'search.elasticsearch'),
                 'elements' => $resetelements,
                 'collapsible' => true
