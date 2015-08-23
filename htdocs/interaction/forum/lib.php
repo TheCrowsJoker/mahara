@@ -555,6 +555,7 @@ EOF;
         $postdelay = (int) get_config_plugin('interaction', 'forum', 'postdelay');
 
         return array(
+            'class' => 'panel panel-body',
             'elements' => array(
                 'postdelay' => array(
                     'title'        => get_string('postdelay', 'interaction.forum'),
@@ -564,7 +565,7 @@ EOF;
                     'defaultvalue' => $postdelay,
                 ),
             ),
-            'renderer' => 'table'
+            'renderer' => 'div'
         );
     }
 

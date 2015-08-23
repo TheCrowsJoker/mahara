@@ -95,6 +95,7 @@ class PluginBlocktypeWall extends SystemBlocktype {
             ),
         );
         return array(
+            'class' => 'panel panel-body',
             'elements' => $elements,
         );
 
