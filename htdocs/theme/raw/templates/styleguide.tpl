@@ -409,6 +409,62 @@ Arrow pointing down. Usually signifies collapsible elements.
 ```
 </section>
 
+<section data-markdown data-category="icons">
+### Help
+Used as a help icon.
+```
+<i class="icon icon-info-circle" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Inbox
+Used to show the inbox.
+```
+<i class="icon icon-inbox" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Outbox
+Used to show the outbox
+```
+<i class="icon icon-paper-plane" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Search
+Used to signify searchable items
+```
+<i class="icon icon-search" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### RSS
+Used to show external sources.
+```
+<i class="icon icon-rss" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Remove
+Pretty much the same as the times icon. Should use the trash icon instead.
+```
+<i class="icon icon-remove" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Question mark
+
+```
+<i class="icon icon-question-circle" role="presentation"></i>
+```
+</section>
+
 
 {*
     end of examples
