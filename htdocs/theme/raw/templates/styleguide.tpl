@@ -465,6 +465,342 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 ```
 </section>
 
+<section data-markdown data-category="icons">
+### Plus circle
+
+```
+<i class="icon icon-plus-circle" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Book
+
+```
+<i class="icon icon-book" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Annotation
+
+```
+<i class="icon icon-annotation" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Calendar
+
+```
+<i class="icon icon-calendar" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Tags
+
+```
+<i class="icon icon-tags" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Comments
+
+```
+<i class="icon icon-comments" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Paperclip
+
+```
+<i class="icon icon-paperclip" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Reply
+
+```
+<i class="icon icon-reply" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Level up
+
+```
+<i class="icon icon-level-up" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Archive
+
+```
+<i class="icon icon-archive" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Caret down
+
+```
+<i class="icon icon-caret-down" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Envelope
+
+```
+<i class="icon icon-envelope" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Check square
+
+```
+<i class="icon icon-check-square-o" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Square
+
+```
+<i class="icon icon-square-o" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Arrow circle right
+
+```
+<i class="icon icon-arrow-circle-right" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Comments
+
+```
+<i class="icon icon-comments-o" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Wrench
+
+```
+<i class="icon icon-wrench" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Reply all
+
+```
+<i class="icon icon-reply-all" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Flag
+
+```
+<i class="icon icon-flag" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Asterisk
+
+```
+<i class="icon icon-asterisk" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Commenting
+
+```
+<i class="icon icon-commenting-o" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Table
+
+```
+<i class="icon icon-table" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Area chart
+
+```
+<i class="icon icon-area-chart" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Unlock
+
+```
+<i class="icon icon-unlock" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Ellipsis
+
+```
+<i class="icon icon-ellipsis-h" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Eye slash
+
+```
+<i class="icon icon-eye-slash" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Eye
+
+```
+<i class="icon icon-eye" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Lightbulb
+
+```
+<i class="icon icon-lightbulb-o" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Birthday cake
+
+```
+<i class="icon icon-birthday-cake" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Undo
+
+```
+<i class="icon icon-undo" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Sign out
+
+```
+<i class="icon icon-sign-out" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Sign in
+
+```
+<i class="icon icon-sign-in" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Code
+
+```
+<i class="icon icon-code" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Heart
+
+```
+<i class="icon icon-heart" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Heart
+
+```
+<i class="icon icon-heart-o" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### User secret
+
+```
+<i class="icon icon-user-secret" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Globe
+
+```
+<i class="icon icon-globe" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Angle double right
+
+```
+<i class="icon icon-angle-double-right" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Angle double left
+
+```
+<i class="icon icon-angle-double-left" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Arrows
+
+```
+<i class="icon icon-arrows" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Columns
+
+```
+<i class="icon icon-columns" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Magic
+
+```
+<i class="icon icon-magic" role="presentation"></i>
+```
+</section>
+
 
 {*
     end of examples
