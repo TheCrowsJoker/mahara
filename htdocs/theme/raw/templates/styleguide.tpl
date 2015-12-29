@@ -291,7 +291,7 @@ Used to signify banning a user.
 
 <section data-markdown data-category="icons">
 ### Lock
-### ToDo: COME BACK TO ME!!!
+### ToDo
 ```
 <i class="icon icon-lock" role="presentation"></i>
 ```
@@ -459,7 +459,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Question mark
-
+### ToDo
 ```
 <i class="icon icon-question-circle" role="presentation"></i>
 ```
@@ -467,7 +467,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Plus circle
-
+### ToDo
 ```
 <i class="icon icon-plus-circle" role="presentation"></i>
 ```
@@ -475,7 +475,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Book
-
+### ToDo
 ```
 <i class="icon icon-book" role="presentation"></i>
 ```
@@ -483,7 +483,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Annotation
-
+### ToDo
 ```
 <i class="icon icon-annotation" role="presentation"></i>
 ```
@@ -491,7 +491,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Calendar
-
+### ToDo
 ```
 <i class="icon icon-calendar" role="presentation"></i>
 ```
@@ -499,7 +499,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Tags
-
+### ToDo
 ```
 <i class="icon icon-tags" role="presentation"></i>
 ```
@@ -507,7 +507,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Comments
-
+### ToDo
 ```
 <i class="icon icon-comments" role="presentation"></i>
 ```
@@ -515,7 +515,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Paperclip
-
+### ToDo
 ```
 <i class="icon icon-paperclip" role="presentation"></i>
 ```
@@ -523,7 +523,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Reply
-
+### ToDo
 ```
 <i class="icon icon-reply" role="presentation"></i>
 ```
@@ -531,7 +531,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Level up
-
+### ToDo
 ```
 <i class="icon icon-level-up" role="presentation"></i>
 ```
@@ -539,7 +539,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Archive
-
+### ToDo
 ```
 <i class="icon icon-archive" role="presentation"></i>
 ```
@@ -547,7 +547,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Caret down
-
+### ToDo
 ```
 <i class="icon icon-caret-down" role="presentation"></i>
 ```
@@ -555,7 +555,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Envelope
-
+### ToDo
 ```
 <i class="icon icon-envelope" role="presentation"></i>
 ```
@@ -563,7 +563,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Check square
-
+### ToDo
 ```
 <i class="icon icon-check-square-o" role="presentation"></i>
 ```
@@ -571,7 +571,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Square
-
+### ToDo
 ```
 <i class="icon icon-square-o" role="presentation"></i>
 ```
@@ -579,7 +579,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Arrow circle right
-
+### ToDo
 ```
 <i class="icon icon-arrow-circle-right" role="presentation"></i>
 ```
@@ -587,7 +587,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Comments
-
+### ToDo
 ```
 <i class="icon icon-comments-o" role="presentation"></i>
 ```
@@ -595,7 +595,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Wrench
-
+### ToDo
 ```
 <i class="icon icon-wrench" role="presentation"></i>
 ```
@@ -603,7 +603,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Reply all
-
+### ToDo
 ```
 <i class="icon icon-reply-all" role="presentation"></i>
 ```
@@ -611,7 +611,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Flag
-
+### ToDo
 ```
 <i class="icon icon-flag" role="presentation"></i>
 ```
@@ -619,7 +619,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Asterisk
-
+### ToDo
 ```
 <i class="icon icon-asterisk" role="presentation"></i>
 ```
@@ -627,7 +627,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Commenting
-
+### ToDo
 ```
 <i class="icon icon-commenting-o" role="presentation"></i>
 ```
@@ -635,7 +635,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Table
-
+### ToDo
 ```
 <i class="icon icon-table" role="presentation"></i>
 ```
@@ -643,7 +643,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Area chart
-
+### ToDo
 ```
 <i class="icon icon-area-chart" role="presentation"></i>
 ```
@@ -651,7 +651,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Unlock
-
+### ToDo
 ```
 <i class="icon icon-unlock" role="presentation"></i>
 ```
@@ -659,7 +659,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Ellipsis
-
+### ToDo
 ```
 <i class="icon icon-ellipsis-h" role="presentation"></i>
 ```
@@ -667,7 +667,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Eye slash
-
+### ToDo
 ```
 <i class="icon icon-eye-slash" role="presentation"></i>
 ```
@@ -675,7 +675,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Eye
-
+### ToDo
 ```
 <i class="icon icon-eye" role="presentation"></i>
 ```
@@ -683,7 +683,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Lightbulb
-
+### ToDo
 ```
 <i class="icon icon-lightbulb-o" role="presentation"></i>
 ```
@@ -691,7 +691,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Birthday cake
-
+### ToDo
 ```
 <i class="icon icon-birthday-cake" role="presentation"></i>
 ```
@@ -699,7 +699,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Undo
-
+Used to show something can be undone or refreshed.
 ```
 <i class="icon icon-undo" role="presentation"></i>
 ```
@@ -707,7 +707,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Sign out
-
+Used to show the sign out button.
 ```
 <i class="icon icon-sign-out" role="presentation"></i>
 ```
@@ -715,7 +715,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Sign in
-
+Used to show the sign in button.
 ```
 <i class="icon icon-sign-in" role="presentation"></i>
 ```
@@ -723,7 +723,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Code
-
+### ToDo
 ```
 <i class="icon icon-code" role="presentation"></i>
 ```
@@ -731,7 +731,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Heart
-
+### ToDo
 ```
 <i class="icon icon-heart" role="presentation"></i>
 ```
@@ -739,7 +739,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Heart
-
+### ToDo
 ```
 <i class="icon icon-heart-o" role="presentation"></i>
 ```
@@ -747,7 +747,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### User secret
-
+### ToDo
 ```
 <i class="icon icon-user-secret" role="presentation"></i>
 ```
@@ -755,7 +755,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Globe
-
+### ToDo
 ```
 <i class="icon icon-globe" role="presentation"></i>
 ```
@@ -763,7 +763,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Angle double right
-
+Shows that a panel can be expanded or collapsed to the right.
 ```
 <i class="icon icon-angle-double-right" role="presentation"></i>
 ```
@@ -771,7 +771,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Angle double left
-
+Shows that a panel can be expanded or collapsed to the left.
 ```
 <i class="icon icon-angle-double-left" role="presentation"></i>
 ```
@@ -779,7 +779,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Arrows
-
+Shows that an object can be dragged and dropped.
 ```
 <i class="icon icon-arrows" role="presentation"></i>
 ```
@@ -787,7 +787,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Columns
-
+### ToDo
 ```
 <i class="icon icon-columns" role="presentation"></i>
 ```
@@ -795,7 +795,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Magic
-
+### ToDo
 ```
 <i class="icon icon-magic" role="presentation"></i>
 ```
