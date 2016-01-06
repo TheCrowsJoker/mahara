@@ -291,7 +291,7 @@ Used to signify banning a user.
 
 <section data-markdown data-category="icons">
 ### Lock
-### ToDo
+Used as a security icon.
 ```
 <i class="icon icon-lock" role="presentation"></i>
 ```
@@ -458,16 +458,8 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 </section>
 
 <section data-markdown data-category="icons">
-### Question mark
-### ToDo
-```
-<i class="icon icon-question-circle" role="presentation"></i>
-```
-</section>
-
-<section data-markdown data-category="icons">
 ### Plus circle
-### ToDo
+Used to show adding something new. Usually a new table row.
 ```
 <i class="icon icon-plus-circle" role="presentation"></i>
 ```
@@ -475,7 +467,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Book
-### ToDo
+As used on the journals page.
 ```
 <i class="icon icon-book" role="presentation"></i>
 ```
@@ -483,7 +475,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Annotation
-### ToDo
+used on the notes block.
 ```
 <i class="icon icon-annotation" role="presentation"></i>
 ```
@@ -491,7 +483,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Calendar
-### ToDo
+Usually used on buttons to signify a pop-up date selctor.
 ```
 <i class="icon icon-calendar" role="presentation"></i>
 ```
@@ -499,7 +491,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Tags
-### ToDo
+used to show tags.
 ```
 <i class="icon icon-tags" role="presentation"></i>
 ```
@@ -507,7 +499,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Comments
-### ToDo
+Used to show comments.
 ```
 <i class="icon icon-comments" role="presentation"></i>
 ```
@@ -515,7 +507,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Paperclip
-### ToDo
+Used to show attachments.
 ```
 <i class="icon icon-paperclip" role="presentation"></i>
 ```
@@ -523,7 +515,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Reply
-### ToDo
+Used to show you can reply to something. Usually comments or messages.
 ```
 <i class="icon icon-reply" role="presentation"></i>
 ```
@@ -531,23 +523,15 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Level up
-### ToDo
+Used in the file browser to signify going up a folder.
 ```
 <i class="icon icon-level-up" role="presentation"></i>
 ```
 </section>
 
 <section data-markdown data-category="icons">
-### Archive
-### ToDo
-```
-<i class="icon icon-archive" role="presentation"></i>
-```
-</section>
-
-<section data-markdown data-category="icons">
 ### Caret down
-### ToDo
+Used to show a dropdown menu.
 ```
 <i class="icon icon-caret-down" role="presentation"></i>
 ```
@@ -555,7 +539,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Envelope
-### ToDo
+Used as an inbox item.
 ```
 <i class="icon icon-envelope" role="presentation"></i>
 ```
@@ -563,7 +547,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Check square
-### ToDo
+used as a checked checkbox.
 ```
 <i class="icon icon-check-square-o" role="presentation"></i>
 ```
@@ -571,7 +555,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Square
-### ToDo
+used as an un-checked checkbox.
 ```
 <i class="icon icon-square-o" role="presentation"></i>
 ```
@@ -579,7 +563,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Arrow circle right
-### ToDo
+Usually shows moving to a next step.
 ```
 <i class="icon icon-arrow-circle-right" role="presentation"></i>
 ```
@@ -587,7 +571,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Comments
-### ToDo
+used on the forum posts block.
 ```
 <i class="icon icon-comments-o" role="presentation"></i>
 ```
@@ -595,7 +579,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Wrench
-### ToDo
+used on a system message notification
 ```
 <i class="icon icon-wrench" role="presentation"></i>
 ```
@@ -603,7 +587,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Reply all
-### ToDo
+Used to show replying to multiple people.
 ```
 <i class="icon icon-reply-all" role="presentation"></i>
 ```
@@ -611,31 +595,15 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Flag
-### ToDo
+used to signify flagging inappropriate content
 ```
 <i class="icon icon-flag" role="presentation"></i>
 ```
 </section>
 
 <section data-markdown data-category="icons">
-### Asterisk
-### ToDo
-```
-<i class="icon icon-asterisk" role="presentation"></i>
-```
-</section>
-
-<section data-markdown data-category="icons">
-### Commenting
-### ToDo
-```
-<i class="icon icon-commenting-o" role="presentation"></i>
-```
-</section>
-
-<section data-markdown data-category="icons">
 ### Table
-### ToDo
+Shows you can export site statistics.
 ```
 <i class="icon icon-table" role="presentation"></i>
 ```
@@ -643,7 +611,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Area chart
-### ToDo
+Used to show statistics.
 ```
 <i class="icon icon-area-chart" role="presentation"></i>
 ```
@@ -651,7 +619,7 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Unlock
-### ToDo
+Used on the share dashboard block.
 ```
 <i class="icon icon-unlock" role="presentation"></i>
 ```
@@ -659,39 +627,15 @@ Pretty much the same as the times icon. Should use the trash icon instead.
 
 <section data-markdown data-category="icons">
 ### Ellipsis
-### ToDo
+Shows there are more options available.
 ```
 <i class="icon icon-ellipsis-h" role="presentation"></i>
 ```
 </section>
 
 <section data-markdown data-category="icons">
-### Eye slash
-### ToDo
-```
-<i class="icon icon-eye-slash" role="presentation"></i>
-```
-</section>
-
-<section data-markdown data-category="icons">
-### Eye
-### ToDo
-```
-<i class="icon icon-eye" role="presentation"></i>
-```
-</section>
-
-<section data-markdown data-category="icons">
-### Lightbulb
-### ToDo
-```
-<i class="icon icon-lightbulb-o" role="presentation"></i>
-```
-</section>
-
-<section data-markdown data-category="icons">
 ### Birthday cake
-### ToDo
+Shows the date something was created.
 ```
 <i class="icon icon-birthday-cake" role="presentation"></i>
 ```
@@ -723,7 +667,7 @@ Used to show the sign in button.
 
 <section data-markdown data-category="icons">
 ### Code
-### ToDo
+Used to show the HTMl block.
 ```
 <i class="icon icon-code" role="presentation"></i>
 ```
@@ -731,15 +675,15 @@ Used to show the sign in button.
 
 <section data-markdown data-category="icons">
 ### Heart
-### ToDo
+Shows that something has been favourited
 ```
 <i class="icon icon-heart" role="presentation"></i>
 ```
 </section>
 
 <section data-markdown data-category="icons">
-### Heart
-### ToDo
+### Heart hollow
+Shows something can be favourited
 ```
 <i class="icon icon-heart-o" role="presentation"></i>
 ```
@@ -747,7 +691,7 @@ Used to show the sign in button.
 
 <section data-markdown data-category="icons">
 ### User secret
-### ToDo
+used to show you can log in as another user.
 ```
 <i class="icon icon-user-secret" role="presentation"></i>
 ```
@@ -755,7 +699,7 @@ Used to show the sign in button.
 
 <section data-markdown data-category="icons">
 ### Globe
-### ToDo
+Shows the secret URL's button
 ```
 <i class="icon icon-globe" role="presentation"></i>
 ```
@@ -787,17 +731,105 @@ Shows that an object can be dragged and dropped.
 
 <section data-markdown data-category="icons">
 ### Columns
-### ToDo
+Used as the edit layout button.
 ```
 <i class="icon icon-columns" role="presentation"></i>
 ```
 </section>
 
 <section data-markdown data-category="icons">
-### Magic
-### ToDo
+### Navigation
+Used on the navigation block.
 ```
-<i class="icon icon-magic" role="presentation"></i>
+<i class="icon icon-navigation" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Text
+Used on the text block.
+```
+<i class="icon icon-text" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Image
+Used on the image block.
+```
+<i class="icon icon-image" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Media
+Used on the media category block.
+```
+<i class="icon icon-fileimagevideo" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### File download
+Used on the file download block.
+```
+<i class="icon icon-filedownload" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Folder
+Used on the folder block.
+```
+<i class="icon icon-folder" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Text
+Used on the text block.
+```
+<i class="icon icon-text" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Internal media
+Used on the internal media block.
+```
+<i class="icon icon-internalmedia" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### PDF
+Used on the PDF block.
+```
+<i class="icon icon-pdf" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Recent posts
+Used on the recent journal entries block.
+```
+<i class="icon icon-recentposts" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Text
+Used on the text block.
+```
+<i class="icon icon-text" role="presentation"></i>
+```
+</section>
+
+<section data-markdown data-category="icons">
+### Tagged posts
+Used on the tagged journal entries block.
+```
+<i class="icon icon-taggedposts" role="presentation"></i>
 ```
 </section>
 
