@@ -83,15 +83,15 @@ As used on the extension pages.
 
 <section data-markdown data-category="icons">
 ### Trash
-Used to signify deleting and item.
+Used on buttons to signify deleting an item. "Text-danger" makes the icon red.
 ```
-<i class="icon icon-trash" role="presentation"></i>
+<i class="icon icon-trash text-danger" role="presentation"></i>
 ```
 </section>
 
 <section data-markdown data-category="icons">
 ### Spinner
-Used to signify loading. icon-pulse makes it spin
+Used to signify loading. "Icon-pulse" makes it spin
 ```
 <i class="icon icon-spinner icon-pulse" role="presentation"></i>
 ```
@@ -163,7 +163,7 @@ As used on the licences page.
 
 <section data-markdown data-category="icons">
 ### Pencil
-Used as a edit button.
+Used on edit buttons.
 ```
 <i class="icon icon-pencil" role="presentation"></i>
 ```
@@ -171,23 +171,23 @@ Used as a edit button.
 
 <section data-markdown data-category="icons">
 ### Cross
-Used as a delete button. Should really use the trash icon instead.
+Used as a delete button. Should really use the trash icon instead. "Text-danger" makes the icon red.
 ```
-<i class="icon icon-times" role="presentation"></i>
+<i class="icon icon-times text-danger" role="presentation"></i>
 ```
 </section>
 
 <section data-markdown data-category="icons">
 ### Plus
-Used as a add new button. Usually also has text-success
+Used as a add new button. "Text-success" makes the icon green.
 ```
-<i class="icon icon-plus" role="presentation"></i>
+<i class="icon icon-plus text-success" role="presentation"></i>
 ```
 </section>
 
 <section data-markdown data-category="icons">
 ### Bars
-Used as a menu button.
+Used on menu buttons.
 ```
 <i class="icon icon-bars" role="presentation"></i>
 ```
