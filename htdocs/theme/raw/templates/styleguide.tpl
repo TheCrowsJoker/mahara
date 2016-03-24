@@ -32,7 +32,128 @@ This button has padding on the right of the icon due to the plus class.
 ```
 </section>
 
+<section data-markdown data-category="buttons">
+### Small add button
+This button is used for adding items to a list/table eg url's, users etc
+```
+<button class="btn-default btn-sm btn">
+    <span class="icon icon-plus icon-lg" role="presentation"></span>
+</button>
+```
+</section>
 
+<section data-markdown data-category="buttons">
+### Default button
+This button is generally the one you will use for most things.
+```
+<button class="btn-default button btn">
+    Default button
+</button>
+```
+</section>
+
+<section data-markdown data-category="buttons">
+### Primary button
+This button is used for accepting or agreeing with something.
+```
+<button class="btn-primary button btn">
+    Primary button
+</button>
+```
+</section>
+
+<section data-markdown data-category="buttons">
+### Yes/no button
+This pair of buttons is used for deleting or editing an item.
+```
+<div id="delete_submit_container" class=" default submitcancel form-group">
+    <button type="submit" class="btn-default submitcancel submit btn" name="submit" tabindex="0">
+        Yes
+    </button>
+    <input type="submit" class="btn-default submitcancel cancel" name="cancel_submit" tabindex="0" value="No">
+</div>
+```
+</section>
+
+<section data-markdown data-category="buttons">
+### Blocks edit buttons
+This pair of buttons is used for editing or deleting a block item.
+```
+<div class="panel-heading">
+<span class="pull-left btn-group btn-group-top">
+    <button class="configurebutton btn btn-inverse btn-xs" alt="Configure 'Latest changes I can view' block (ID 24)" data-id="24">
+        <span class="icon icon-cog icon-lg"></span>
+    </button>
+    <button class="deletebutton btn btn-inverse btn-xs" alt="Remove 'Latest changes I can view' block (ID 24)" data-id="24">
+        <span class="icon icon-trash text-danger icon-lg"></span>
+    </button>
+</span>
+</div>
+```
+</section>
+
+<section data-markdown data-category="buttons">
+### Button groups
+A group of buttons.
+```
+<div class=" btn-group">
+    <a href="#" class="btn btn-default">
+        Button group
+    </a>
+    <a href="#" class="btn btn-default">
+        Button group
+    </a>
+
+</div>
+```
+</section>
+
+<section data-markdown data-category="buttons">
+### Button group top
+A group of buttons aligned on the top. (Box only in example to show the layout of the buttons)
+```
+<div style="border: 1px solid #cfcfcf; min-height: 50px; padding-right: 10px; width: 400px;">
+    <div class="btn-top-right btn-group btn-group-top">
+        <a class="btn btn-default addpost" href="">
+            Button group top
+        </a>
+        <a class="btn btn-default settings" href="">
+            Button group top
+        </a>
+
+    </div>
+</div>
+```
+</section>
+
+<section data-markdown data-category="buttons">
+### Display page
+This button is used to display a page you have just edited.
+```
+<button class="btn-default button btn">
+    Display page
+    <span class="icon icon-arrow-circle-right right" role="presentation"></span>
+</button>
+```
+</section>
+
+<section data-markdown data-category="buttons">
+### Switchbox
+Switchboxes are used to turn things on and off or for other true/false type fields.
+```
+    <div class="form-switch ">
+        <div class="switch " style="width:61px">
+            <input type="checkbox" class="switchbox" id="siteoptions_dropdownmenu" name="dropdownmenu" tabindex="0" aria-describedby="siteoptions_dropdownmenu_description " aria-label="Drop-down navigation">
+            <label class="switch-label" for="siteoptions_dropdownmenu" aria-hidden="true">
+                <span class="switch-inner"></span>
+                <span class="switch-indicator"></span>
+                <span class="state-label on">Yes</span>
+                <span class="state-label off">No</span>
+            </label>
+        </div>
+    </div>
+```
+</section>
 
 <section data-markdown data-category="buttons">
 ### Pagination
@@ -44,6 +165,69 @@ Has forwards and back buttons.
     <li class=""><a title="" href="link">2</a></li>
     <li class=""><a title="Next page" href="link"> »<span class="sr-only">Next page</span></a></li>
 </ul>
+```
+</section>
+
+<section data-markdown data-category="buttons">
+### Nav tabs
+Tabs to switch between pages.
+```
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active">
+        <a href="#" role="tab" data-toggle="tab" aria-expanded="true">Tab 1</a>
+    </li>
+    <li role="presentation">
+        <a href="#" role="tab" data-toggle="tab" aria-expanded="false">Tab 2</a>
+    </li>
+    <li role="presentation">
+        <a href="#" role="tab" data-toggle="tab" aria-expanded="false">Tab 3</a>
+    </li>
+    <li role="presentation">
+        <a href="#" role="tab" data-toggle="tab" aria-expanded="false">Tab 4</a>
+    </li>
+</ul>
+```
+</section>
+
+<section data-markdown data-category="buttons">
+### Arrow bar
+Another style of tabs used for third level nav on groups and webservices.
+```
+<div class="arrow-bar group">
+    <span class="arrow hidden-xs">
+        <span class="text">
+            Tabs
+        </span>
+    </span>
+    <span class="right-text">
+        <ul class="nav nav-pills nav-inpage">
+            <li class=" current-tab active">
+                <a class=" current-tab" href="#">
+                    Tab 1
+                    <span class="accessible-hidden sr-only">(tab selected)</span>
+                </a>
+            </li>
+            <li class=" current-tab">
+                <a class=" current-tab" href="#">
+                    Tab 2
+                    <span class="accessible-hidden sr-only">(tab selected)</span>
+                </a>
+            </li>
+            <li class=" current-tab ">
+                <a class=" current-tab" href="#">
+                    Tab 3
+                    <span class="accessible-hidden sr-only">(tab selected)</span>
+                </a>
+            </li>
+            <li class=" current-tab">
+                <a class=" current-tab" href="#">
+                    Tab 4
+                    <span class="accessible-hidden sr-only">(tab selected)</span>
+                </a>
+            </li>
+        </ul>
+    </span>
+</div>
 ```
 </section>
 
@@ -61,6 +245,255 @@ A basic panel.
         <a title="1 item" href="#" class="tag">pineapple</a> &nbsp;
     </div>
 </div>
+```
+</section>
+
+<section data-markdown data-category="panels">
+### Delete panel
+A delete panel.
+```
+<div class="panel panel-danger view-container">
+    <h2 class="panel-heading">Delete</h2>
+    <div class="panel-body">
+        <p><strong>Title</strong></p>
+        <p>Are you really sure you wish to delete this?</p>
+        <div class=" default submitcancel form-group">
+            <button type="submit" class="btn-default submitcancel submit btn" tabindex="0">Yes</button>
+            <input type="submit" class="btn-default submitcancel cancel" tabindex="0" value="No">
+        </div>
+
+    </div>
+</div>
+```
+</section>
+
+<section data-markdown data-category="panels">
+### Side panel
+A side panel.
+```
+<div class="col-md-3 sidebar">
+    <div class="panel panel-default">
+        <h3 class="panel-heading">
+            Side panel
+            <br>
+            <span  class="text-small text-midtone">(Description)</span>
+        </h3>
+        <ul class="list-group">
+            <li class="list-group-item list-unstyled list-group-item-link">
+                <a>
+                    Side panel
+                </a>
+            </li>
+
+        </ul>
+        <a href="http://mahara.liamsharpe.wgtn.cat-it.co.nz/user/online.php" class="panel-footer text-small">
+            Side panel footer
+            <span class="icon icon-arrow-circle-right pull-right"></span>
+        </a>
+    </div>
+</div>
+```
+</section>
+
+<section data-markdown data-category="panels">
+### Dropdown panel
+A dropdown panel.
+```
+<div class="last form-group collapsible-group">
+    <fieldset class="pieform-fieldset last collapsible">
+        <legend>
+            <h4>
+                <a href="#dropdown" data-toggle="collapse" aria-expanded="false" aria-controls="dropdown" class="collapsed">
+                    Dropdown
+                    <span class="icon icon-chevron-down collapse-indicator right pull-right"> </span>
+                </a>
+            </h4>
+        </legend>
+        <div class="fieldset-body collapse " id="dropdown">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lobortis metus orci, in posuere nulla tempus quis. Curabitur aliquet, turpis sit amet fermentum euismod, nisl massa posuere nulla, sed tempor lorem magna a urna. In porttitor lobortis mauris, et tristique ipsum hendrerit a. In et quam fringilla, accumsan enim et, fermentum diam. Ut risus lectus, feugiat eget dolor sed, fringilla fringilla nulla. Vivamus laoreet mollis ex ut pulvinar. Praesent ultrices enim sem, vel mattis tellus feugiat et.
+        </div>
+</fieldset>
+</div>
+```
+</section>
+
+<section data-markdown data-category="modals">
+### Modal docked
+A slide out panel.
+```
+<button type="button" class="btn btn-primary" data-toggle="modal-docked" data-target="#modal-docks">
+    Launch demo modal
+</button>
+
+<div class="modal modal-docked modal-docked-right modal-shown closed" id="modal-docks" tabindex="-1" role="dialog" aria-labelledby="#modal-docks-label">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="deletebutton close" data-dismiss="modal-docked" aria-label="Close">
+                  <span class="times">×</span>
+                  <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title blockinstance-header  text-inline modal-docks-title" >Modal heading</h4>
+            </div>
+            <div class="modal-body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pretium, magna in tempor accumsan, augue lacus pretium urna, fringilla malesuada orci eros iaculis dui. Donec blandit urna sed condimentum ullamcorper. Vestibulum commodo hendrerit suscipit. Etiam eget fermentum risus. Etiam faucibus elit at tortor molestie rutrum at nec ex. Mauris id elit sed neque rhoncus iaculis. Maecenas id dui turpis.
+            </div>
+        </div>
+    </div>
+</div>
+```
+</section>
+
+
+<section data-markdown data-category="tables">
+### Table
+A normal table.
+```
+<table class="table fullwidth table-padded">
+    <thead>
+        <tr>
+            <th>Column 1</th>
+            <th>Column 2</th>
+            <th class="text-center">Column 3</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <h3 class="title">
+                    <a href="">Item 1</a>
+                </h3>
+
+                <div class="forumpath text-small text-midtone">
+                    <a href="" class="topicgroup text-muted">Info</a> /
+                    <a href="" class="topicforum  text-midtone">More info</a>
+                </div>
+            </td>
+            <td>
+                <p class="postdetail">
+                    Item 1
+                </p>
+                <span class="poster text-small text-midtone">
+                    <a href="">
+                        User
+                    </a>
+                    - 10 February 2016, 11:03 AM
+                </span>
+            </td>
+            <td class="text-center">2</td>
+        </tr>
+    </tbody>
+</table>
+```
+</section>
+
+<section data-markdown data-category="tables">
+### Striped table
+A striped table.
+```
+<table class="fullwidth table table-striped">
+    <thead>
+        <tr>
+            <th>Column 1</th>
+            <th class="center">Column 2</th>
+            <th class="center">Column 3</th>
+            <th>Column 4</th>
+
+            <th>Column 5</th>
+            <th><span class="accessible-hidden sr-only">Edit</span></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="r0">
+            <td><a href="">Item 1</a></td>
+            <td class="center">3</td>
+            <td class="center">1</td>
+            <td>Item 1 info</td>
+            <td>Item 1 stuff</td>
+            <td class="right">
+                <div class="btn-group">
+                    <a class="btn btn-default btn-sm" title="Manage" href="">
+                        <span class="icon icon-cog icon-lg"></span><span class="sr-only">Manage "Item 1"</span>
+                    </a>
+                    <a class="btn btn-default btn-sm" title="Delete" href="">
+                        <span class="icon icon-trash text-danger icon-lg"></span><span class="sr-only">Delete "Item 1"</span>
+                    </a>
+                </div>
+            </td>
+        </tr>
+        <tr class="r1">
+            <td><a href="">Item 2</a></td>
+            <td class="center">5</td>
+            <td class="center">2</td>
+            <td>Item 2 info</td>
+
+            <td>Item 2 stuff</td>
+            <td class="right">
+                <div class="btn-group">
+                    <a class="btn btn-default btn-sm" title="Manage" href="">
+                        <span class="icon icon-cog icon-lg"></span><span class="sr-only">Manage "Item 2"</span>
+                    </a>
+                    <a class="btn btn-default btn-sm" title="Delete" href="">
+                        <span class="icon icon-trash text-danger icon-lg"></span><span class="sr-only">Delete "Item 2"</span>
+                    </a>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+```
+</section>
+
+
+<section data-markdown data-category="dropdowns">
+### Normal dropdown menu
+A dropdown select box.
+```
+<div class="input-small select form-group">
+    <label for="searchviews_orderby">
+        Dropdown:
+    </label>
+    <span class="picker">
+        <select class="form-control input-small select" name="orderby" tabindex="0" style="">
+        	<option value="1" selected="selected">Option 1</option>
+        	<option value="2">Option 2</option>
+        	<option value="3">Option 3</option>
+        	<option value="4">Option 4</option>
+        </select>
+    </span>
+</div>
+```
+</section>
+
+<section data-markdown data-category="dropdowns">
+### Normal dropdown menu
+A dropdown select box.
+```
+<form class="pieform form-inline with-heading" name="search" method="post">
+    <div class="dropdown-group js-dropdown-group form-group">
+        <fieldset class="pieform-fieldset dropdown-group js-dropdown-group">
+            <div class="with-dropdown js-with-dropdown text form-group">
+                <label for="search_query">
+                    Search:
+                </label>
+                <input type="text" class="form-control with-dropdown js-with-dropdown text autofocus" name="query" tabindex="0" value="" placeholder="Option 1">
+            </div>
+	        <div id="search_filter_container" class="dropdown-connect js-dropdown-connect select form-group">
+                <label for="search_filter">
+                    Filter:
+                </label>
+                <span class="picker">
+                    <select class="form-control dropdown-connect js-dropdown-connect select" id="search_filter" name="filter" tabindex="0" style="">
+                    	<option value="1" selected="selected">Option 1</option>
+                    	<option value="2">Option 2</option>
+                    	<option value="3">Option 3</option>
+                    	<option value="4">Option 4</option>
+                    </select>
+                </span>
+            </div>
+        </fieldset>
+    </div>
+</form>
 ```
 </section>
 
@@ -475,7 +908,7 @@ As used on the journals page.
 
 <section data-markdown data-category="icons">
 ### Annotation
-used on the notes block.
+used on the annotations block.
 ```
 <i class="icon icon-annotation" role="presentation"></i>
 ```
